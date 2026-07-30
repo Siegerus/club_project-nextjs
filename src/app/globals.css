@@ -17,3 +17,7 @@ body {
   background: var(--background);
   font-family: var(--font-sans), sans-serif;
 }
+
+.container {
+  @apply  w-264 mx-auto;
+}
