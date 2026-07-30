@@ -19,5 +19,5 @@ body {
 }
 
 .container {
-  @apply  w-264 mx-auto;
+  @apply  mx-auto w-full px-5 md:px-0 w-162 lg:w-242 xl:w-330 /* 2xl:w-385 */;
 }

@@ -1,24 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import Logo from "../logo/logo";
+
 const Header = () => {
   return (
     <header className="header">
       <div className="container">
         <div className="flex justify-between items-center py-5">
           <div className="logo header__logo animation__type__logo">
-            <Link href="/index.html">
-              <picture>
-                <source media="(max-width: 767px)" srcSet="/images/logo.svg" />
-                <source media="(min-width: 768px)" srcSet="/images/logo.svg" />
-                <Image
-                  src="/images/logo.svg"
-                  alt="Логотип"
-                  width={260}
-                  height={51}
-                />
-              </picture>
-            </Link>
+            <Logo />
           </div>
           <nav className="header__nav header__nav_m-hidden">
             <ul className="header__list">
