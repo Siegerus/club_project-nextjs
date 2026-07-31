@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Logo from "../logo/logo";
+import NavMenu from "../ui/nav/nav-menu";
 
 const Header = () => {
   return (
@@ -11,28 +12,7 @@ const Header = () => {
           <div className="logo header__logo animation__type__logo">
             <Logo />
           </div>
-          <nav className="header__nav header__nav_m-hidden">
-            <ul className="header__list">
-              <li>
-                <Link href="/index.html">Главная</Link>
-              </li>
-              <li>
-                <Link href="/pages/curent-event.html">Мероприятия</Link>
-              </li>
-              <li>
-                <Link href="/pages/bangles.html">Браслеты</Link>
-              </li>
-              <li>
-                <Link href="/pages/rules.html">Правила</Link>
-              </li>
-              <li className="header__vip">
-                <Link href="/pages/VIP.html">VIP</Link>
-              </li>
-              <li>
-                <Link href="/pages/contacts.html">Контакты</Link>
-              </li>
-            </ul>
-          </nav>
+          <NavMenu />
           <Link href="/pages/autorization.html" className="header__enter">
             Регистрация/Вход
           </Link>
