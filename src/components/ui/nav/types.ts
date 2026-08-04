@@ -1,6 +1,6 @@
-type NavItem = {
+type NavItemType = {
   text: string;
   path: string;
 };
 
-export type { NavItem };
+export type { NavItemType };

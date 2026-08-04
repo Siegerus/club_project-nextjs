@@ -1,6 +1,7 @@
-import { navItems } from "./constants";
+import Link from "next/link";
+
 import cn from "@/lib/utils/utils";
-import NavItem from "./nav-item";
+import { navItems } from "./constants";
 
 const NavMenu = () => {
   const itemClass =
@@ -30,4 +31,20 @@ const NavMenu = () => {
   );
 };
 
+type NavItemProps = {
+  path: string;
+  text: string;
+  itemClass: string;
+};
+
 export default NavMenu;
+
+const NavItem = ({ path, text, itemClass }: NavItemProps) => {
+  return (
+    <li className={itemClass}>
+      <Link href={path}>{text}</Link>
+    </li>
+  );
+};
+
+export { NavItem };

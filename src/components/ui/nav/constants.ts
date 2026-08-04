@@ -1,6 +1,6 @@
-import { NavItem } from "./types";
+import { NavItemType } from "./types";
 
-const navItems: NavItem[] = [
+const navItems: NavItemType[] = [
   { text: "Главная", path: "/index.html" },
   { text: "Мероприятия", path: "/pages/curent-event.html" },
   { text: "Браслеты", path: "/pages/bangles.html" },
