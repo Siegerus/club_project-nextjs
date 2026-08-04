@@ -9,8 +9,9 @@ const itemClass =
 
 const NavMobile = () => {
   return (
-    <nav className="header__nav header__nav_m-visible">
+    <nav className="z-20 fixed md:hidden top-0 left-0 w-full h-screen mt-0 pt-[20px] px-[30px] pb-0 bg-nav-gradient overflow-y-scroll header__nav header__nav_m-visible">
       <div className="header__wrapper header__wrapper_m-visible">
+        <Logo />
         <div className="header__hamburger">
           <span></span>
           <span></span>

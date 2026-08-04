@@ -19,6 +19,10 @@
   -webkit-text-fill-color: transparent;
 }
 
+@utility bg-nav-gradient {
+  background-image: var(--background);
+}
+
 body {
   background: var(--background);
   font-family: var(--font-sans), sans-serif;
