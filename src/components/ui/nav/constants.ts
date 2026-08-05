@@ -1,4 +1,4 @@
-import { NavItemType } from "./types";
+import { NavItemType, SocialItem } from "./types";
 
 const navItems: NavItemType[] = [
   { text: "Главная", path: "/index.html" },
@@ -9,4 +9,23 @@ const navItems: NavItemType[] = [
   { text: "Контакты", path: "/pages/contacts.html" },
 ];
 
-export { navItems };
+const socialItems: SocialItem[] = [
+  {
+    src: "/icons/instagram.svg",
+    href: "https://instagram.ru/",
+    alt: "Инстаграм",
+  },
+  {
+    src: "/icons/watsapp-white.svg",
+    href: "https://wa.me/+79000000000",
+    alt: "Ватсап",
+  },
+  { src: "/icons/vk.svg", href: "https://vk.com/", alt: "Вконтакте" },
+  {
+    src: "/icons/telegram-white.svg",
+    href: "tg://resolve?domain=имя_пользователя",
+    alt: "Телеграм",
+  },
+];
+
+export { navItems, socialItems };

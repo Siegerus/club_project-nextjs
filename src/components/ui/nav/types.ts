@@ -3,4 +3,6 @@ type NavItemType = {
   path: string;
 };
 
-export type { NavItemType };
+type SocialItem = { src: string; href: string; alt: string };
+
+export type { NavItemType, SocialItem };

@@ -3,6 +3,7 @@ import cn from "@/lib/utils";
 
 import Logo from "@/components/logo/logo";
 import OuterInfo from "@/components/outer-info/outer-info";
+import NavSocial from "./nav-social";
 import { navItems } from "./constants";
 
 const itemClass =
@@ -51,7 +52,7 @@ const NavMobile = () => {
           <OuterInfo isPhone />
           <OuterInfo isPhone={false} />
         </div>
-
+        <NavSocial />
         <div className="header__confidantial-m">
           © 2024 ООО «Притяжение». Все права защищены.
         </div>
