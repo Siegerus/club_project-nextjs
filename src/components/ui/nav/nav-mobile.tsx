@@ -2,8 +2,8 @@ import Image from "next/image";
 import cn from "@/lib/utils";
 
 import Logo from "@/components/logo/logo";
+import OuterInfo from "@/components/outer-info/outer-info";
 import { navItems } from "./constants";
-import { phoneNumber, email } from "@/lib/constants";
 
 const itemClass =
   "flex items-center w-full py-[10px] pr-[10px] pl[0] justify-between text-white-70";
@@ -48,68 +48,10 @@ const NavMobile = () => {
           ))}
         </ul>
         <div className="flex flex-col items-start justify-between w-full min-h-[82px] mt-[10px] p-[10px] rounded-[20px] bg-main-bg">
-          <div className="flex items-center">
-            <div className="flex items-center">
-              <Image
-                src="/icons/phone.svg"
-                alt="Телефон"
-                width={20}
-                height={20}
-              />
-            </div>
-            <a
-              href="tel:+70000000000"
-              className="ml-[10px] text-base text-white-70 header__number"
-            >
-              {phoneNumber}
-            </a>
-          </div>
-          <div className="flex items-center">
-            <div className="flex items-center">
-              <Image
-                src="/icons/gmail.svg"
-                alt="letter"
-                width={20}
-                height={20}
-              />
-            </div>
-            <div className="ml-[15px] text-base text-white-70 header__email">
-              <a href="mailto:info@gmail.com<">{email}</a>
-            </div>
-          </div>
+          <OuterInfo isPhone />
+          <OuterInfo isPhone={false} />
         </div>
-        <div className="header__social-m">
-          <a href="https://instagram.ru/" className="header__links">
-            <Image
-              src="/icons/instagram.svg"
-              alt="Инстаграм"
-              width={20}
-              height={20}
-            />
-          </a>
-          <a href="https://wa.me/+79000000000" className="header__links">
-            <Image
-              src="/icons/watsapp-white.svg"
-              alt="Ватсап"
-              width={20}
-              height={20}
-            />
-          </a>
-          <a href="https://vk.com/" className="header__links">
-            <Image src="/icons/vk.svg" alt="Вконтакте" width={24} height={24} />
-          </a>
-          <a
-            href="tg://resolve?domain=имя_пользователя"
-            className="header__links"
-          >
-            <Image
-              src="/icons/telegram-white.svg"
-              alt="Телеграм"
-              width={20}
-              height={18}
-            />
-          </a>
-        </div>
+
         <div className="header__confidantial-m">
           © 2024 ООО «Притяжение». Все права защищены.
         </div>
