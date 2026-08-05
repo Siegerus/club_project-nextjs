@@ -1,8 +1,9 @@
 import Image from "next/image";
-import cn from "@/lib/utils/utils";
+import cn from "@/lib/utils";
 
 import Logo from "@/components/logo/logo";
 import { navItems } from "./constants";
+import { phoneNumber, email } from "@/lib/constants";
 
 const itemClass =
   "flex items-center w-full py-[10px] pr-[10px] pl[0] justify-between text-white-70";
@@ -46,31 +47,34 @@ const NavMobile = () => {
             />
           ))}
         </ul>
-        <div className="header__phonewrap-m">
-          <div>
-            <div className="header__phone">
+        <div className="flex flex-col items-start justify-between w-full min-h-[82px] mt-[10px] p-[10px] rounded-[20px] bg-main-bg">
+          <div className="flex items-center">
+            <div className="flex items-center">
               <Image
                 src="/icons/phone.svg"
                 alt="Телефон"
                 width={20}
-                height={21}
+                height={20}
               />
             </div>
-            <a href="tel:+70000000000" className="header__number">
-              +7 (000) 000-00-00
+            <a
+              href="tel:+70000000000"
+              className="ml-[10px] text-base text-white-70 header__number"
+            >
+              {phoneNumber}
             </a>
           </div>
-          <div>
-            <div className="header__letter">
+          <div className="flex items-center">
+            <div className="flex items-center">
               <Image
                 src="/icons/gmail.svg"
                 alt="letter"
                 width={20}
-                height={21}
+                height={20}
               />
             </div>
-            <div className="header__email">
-              <a href="mailto:info@gmail.com<"></a>info@gmail.com
+            <div className="ml-[15px] text-base text-white-70 header__email">
+              <a href="mailto:info@gmail.com<">{email}</a>
             </div>
           </div>
         </div>

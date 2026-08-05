@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import cn from "@/lib/utils/utils";
+import cn from "@/lib/utils";
 import { navItems } from "./constants";
 
 const NavMenu = () => {
