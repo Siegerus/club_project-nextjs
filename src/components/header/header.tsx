@@ -10,9 +10,7 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="flex justify-between items-center py-5">
-          <div className="logo header__logo animation__type__logo">
-            <Logo />
-          </div>
+          <Logo />
           <NavMenu />
           <Link href="/pages/autorization.html" className="header__enter">
             Регистрация/Вход

@@ -1,9 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const Logo = () => {
+import cn from "@/lib/utils/utils";
+
+type LogoProps = {
+  isMobile?: boolean;
+};
+
+const Logo = ({ isMobile }: LogoProps) => {
+  const wrapperClass = cn(
+    "flex items-center justify-left min-w-32 md:w-65 lg:w-57 xl:w-65",
+    !isMobile && "h-6 xl:h-13",
+  );
+
   return (
-    <div className="flex items-center justify-left min-w-32 h-6 md:w-65 lg:w-57 xl:w-65 h-13">
+    <div className={wrapperClass}>
       <Link href="/index.html">
         <picture>
           <source media="(max-width: 767px)" srcSet="/images/logo.svg" />
