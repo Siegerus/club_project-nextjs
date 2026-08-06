@@ -1,10 +1,11 @@
 import Image from "next/image";
 
-import Logo from "@/components/logo/logo";
 import { confidantial } from "@/lib/constants";
+import Logo from "@/components/logo/logo";
+import LinkButton from "@/components/ui/button/link-button";
 import OuterInfo from "@/components/outer-info/outer-info";
 import NavSocial from "./nav-social";
-import { navItems } from "./constants";
+import { navItems, authButtonText } from "./constants";
 
 const itemClass =
   "flex items-center w-full py-[10px] pr-[10px] pl[0] justify-between text-white-70";
@@ -56,13 +57,20 @@ const NavMobile = () => {
         <div className="max-w-[204px] mt-[10px] mx-auto mb-0 text-sm text-center text-white-70 leading-[130%]">
           {confidantial}
         </div>
-
-        <a
+        <LinkButton
+          path="/pages/autorization.html"
+          isExternal
+          className="w-full max-w-[320px] mt-[10px] py-[14px] px-0 text-sm"
+          variant="no-bg"
+        >
+          <span>{authButtonText}</span>
+        </LinkButton>
+        {/*  <a
           href="/pages/autorization.html"
           className="button button_nobg header__btn-m"
         >
           Войти или Зарегистрироваться
-        </a>
+        </a> */}
       </nav>
     </div>
   );

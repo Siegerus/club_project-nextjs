@@ -16,7 +16,7 @@ const OuterInfo = ({ isPhone, width = 20, height = 20 }: OuterInfoProps) => {
   const linkData = isPhone ? phoneNumber : email;
   const linkClass = cn(
     "text-base text-white-70",
-    isPhone ? "ml-[10px]" : "mouter-infoouter-infol-[15px]",
+    isPhone ? "ml-[10px]" : "ml-[15px]",
   );
 
   return (
