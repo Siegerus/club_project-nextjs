@@ -1,7 +1,7 @@
 import Image from "next/image";
-import cn from "@/lib/utils";
 
 import Logo from "@/components/logo/logo";
+import { confidantial } from "@/lib/constants";
 import OuterInfo from "@/components/outer-info/outer-info";
 import NavSocial from "./nav-social";
 import { navItems } from "./constants";
@@ -53,8 +53,8 @@ const NavMobile = () => {
           <OuterInfo isPhone={false} />
         </div>
         <NavSocial />
-        <div className="header__confidantial-m">
-          © 2024 ООО «Притяжение». Все права защищены.
+        <div className="max-w-[204px] mt-[10px] mx-auto mb-0 text-sm text-center text-white-70 leading-[130%]">
+          {confidantial}
         </div>
 
         <a

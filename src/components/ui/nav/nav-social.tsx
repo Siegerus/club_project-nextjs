@@ -1,14 +1,14 @@
 import Image from "next/image";
 
 import { socialItems } from "./constants";
-// import { SocialItem } from "./types";
+import { SocialItem } from "./types";
 
 const NavSocial = () => {
   return (
     <div className="flex items-center justify-between w-full mt-[10px] py-0 px-[34px]">
       {socialItems.map((item) =>
         item.alt === "Вконтакте" ? (
-          <SocialItem
+          <NavSocialItem
             src={item.src}
             href={item.href}
             alt={item.alt}
@@ -17,7 +17,7 @@ const NavSocial = () => {
             height={23}
           />
         ) : (
-          <SocialItem
+          <NavSocialItem
             src={item.src}
             href={item.href}
             alt={item.alt}
@@ -31,21 +31,18 @@ const NavSocial = () => {
 
 export default NavSocial;
 
-type SocialItemProps = {
-  src: string;
-  href: string;
-  alt: string;
+type NavSocialItemProps = SocialItem & {
   width?: number;
   height?: number;
 };
 
-const SocialItem = ({
+const NavSocialItem = ({
   src,
   href,
   alt,
   width = 20,
   height = 20,
-}: SocialItemProps) => {
+}: NavSocialItemProps) => {
   return (
     <a
       className="flex items-center justify-center w-[48px] h-[48px] border-[1.5px] border-white-70 rounded-full"
