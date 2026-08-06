@@ -5,6 +5,7 @@ import Logo from "@/components/logo/logo";
 import LinkButton from "@/components/ui/button/link-button";
 import OuterInfo from "@/components/outer-info/outer-info";
 import NavSocial from "./nav-social";
+import Hamburger from "@/components/ui/hamburger/hamburger";
 import { navItems, authButtonText } from "./constants";
 
 const itemClass =
@@ -15,11 +16,7 @@ const NavMobile = () => {
     <div className="z-20 fixed md:hidden top-0 left-0 w-full h-screen mt-0 pt-[30px] px-[20px] pb-0 bg-nav-gradient overflow-y-scroll header__nav header__nav_m-visible">
       <div className="flex justify-between items-center p-[14px] rounded-[100px] bg-main-bg header__wrapper header__wrapper_m-visible">
         <Logo isMobile />
-        <div className="header__hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <Hamburger />
       </div>
       <nav className="min-h-[650px]" aria-label="Основное меню">
         <ul className="flex flex-col items-start justify-between w-full mt-[10px] p-[10px] rounded-[20px] bg-main-bg backdrop-sepia-[24px] header__list">
@@ -65,12 +62,6 @@ const NavMobile = () => {
         >
           <span>{authButtonText}</span>
         </LinkButton>
-        {/*  <a
-          href="/pages/autorization.html"
-          className="button button_nobg header__btn-m"
-        >
-          Войти или Зарегистрироваться
-        </a> */}
       </nav>
     </div>
   );
