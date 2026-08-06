@@ -1,9 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import Logo from "../logo/logo";
-import NavMobile from "../ui/nav/nav-mobile";
-import NavMenu from "../ui/nav/nav-menu";
+import NavMobile from "../nav-menu/nav-mobile";
+import NavMenu from "../nav-menu/nav-menu";
 
 const Header = () => {
   return (
