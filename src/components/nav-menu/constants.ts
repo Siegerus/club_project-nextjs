@@ -28,4 +28,6 @@ const socialItems: SocialItem[] = [
   },
 ];
 
-export { navItems, socialItems };
+const authButtonText = "Войти или Зарегистрироваться";
+
+export { navItems, socialItems, authButtonText };
