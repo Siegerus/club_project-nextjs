@@ -39,7 +39,7 @@ const LinkButton = ({
       {children}
     </a>
   ) : (
-    <Link href={path} aria-label={label}>
+    <Link className={linkClass} href={path} aria-label={label}>
       {children}
     </Link>
   );
