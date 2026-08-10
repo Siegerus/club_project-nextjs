@@ -14,7 +14,7 @@ const NavMenu = ({ tablet = false }: NavMenuPops) => {
   );
 
   const itemClass =
-    "weight-medium text-base lg:text-xl xl:text-lg 2xl:text-xl text-white-70";
+    "weight-medium text-base lg:text-xl xl:text-lg 3xl:text-xl text-white-70";
   return (
     <nav className={navClass}>
       <ul className="flex items-center justify-between list-none">

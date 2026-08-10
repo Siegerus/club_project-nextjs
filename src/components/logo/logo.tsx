@@ -9,7 +9,7 @@ type LogoProps = {
 
 const Logo = ({ isMobile }: LogoProps) => {
   const wrapperClass = cn(
-    "flex items-center justify-left min-w-[129px] lg:min-w-[260px] xl:max-w-[230px] xl:min-w-[230px] xl+:min-w-[260px]",
+    "flex items-center justify-left min-w-[129px] lg:min-w-[260px] xl:max-w-[230px] xl:min-w-[230px] 2xl:min-w-[260px]",
     !isMobile && "h-6 xl:h-13",
   );
 
