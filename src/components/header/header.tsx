@@ -1,7 +1,7 @@
 import Logo from "../logo/logo";
-import NavMobile from "../nav-menu/nav-mobile";
+import NavMobile from "./nav-menu/nav-mobile";
 import Hamburger from "../ui/hamburger/hamburger";
-import NavMenu from "../nav-menu/nav-menu";
+import NavMenu from "./nav-menu/nav-menu";
 import LinkButton from "../ui/button/link-button";
 import { headerButtonText } from "./constants";
 import cn from "@/lib/utils";
