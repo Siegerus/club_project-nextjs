@@ -20,7 +20,9 @@ const LinkButton = ({
   variant,
 }: LinkButtonProps) => {
   const linkClass = cn(
-    "z-10 flex items-center justify-center w-full max-w-[297px] 3xl:max-w-[250px] mx-auto pt-[18px] pb-[20px] px-0 md:pt-[20px] md:pb-[22px] md:px-[50px] xl:py-[28px] xl:px-[40px] 2xl:py-[30px] 2xl:px-0 rounded-full text-base text-black-primary md:text-lg 2xl:text-xl bg-white border-0 duration-1000 cursor-pointer",
+    "z-10 flex items-center justify-center w-full max-w-[297px] 3xl:max-w-[250px] mx-auto",
+    "pt-[18px] pb-[20px] px-0 md:pt-[20px] md:pb-[22px] md:px-[50px] xl:py-[28px] xl:px-[40px] 2xl:py-[30px] 2xl:px-0",
+    "rounded-full text-base text-black-primary md:text-lg 2xl:text-xl bg-white border-0 duration-1000 cursor-pointer",
     variant === "footer" &&
       "w-[159px] p-[10px] px[12px] pb-[12px] md:pt-[20px] md:pb-[22px] md:px-[50px] xl:pt-[20px] xl:pb-[22px] xl:px-[50px] text-small xl:text-xl",
     variant === "no-bg" &&
