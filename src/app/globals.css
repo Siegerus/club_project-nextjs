@@ -14,7 +14,7 @@
   --color-white-70: rgba(255, 255, 255, 0.7);
   --color-white-40: rgba(255, 255, 255, 0.4);
   --color-black-primary: #080808;
-
+ 
 }
 
 @utility bg-rainbow-text {
@@ -33,10 +33,6 @@ body {
   font-family: var(--font-sans), sans-serif;
 }
 
-/* 2xl:w-385 */
-/* .container {
-  @apply  mx-auto w-full px-5 md:px-0 w-162 lg:w-242 xl:w-330 ;
-} */
 .container {
   @apply mx-auto w-full md:w-[648px] lg:w-[968px] xl:w-[1120px] 2xl:w-[1320px] 3xl:w-[1540px] py-0 px-[20px] md:px-0;
 }
