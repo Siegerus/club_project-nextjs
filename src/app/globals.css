@@ -28,6 +28,7 @@
 }
 
 body {
+  letter-spacing: -0.02em;
   background: var(--background);
   font-family: var(--font-sans), sans-serif;
 }
