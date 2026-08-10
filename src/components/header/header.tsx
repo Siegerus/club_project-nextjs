@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import Logo from "../logo/logo";
 import NavMobile from "../nav-menu/nav-mobile";
 import NavMenu from "../nav-menu/nav-menu";
