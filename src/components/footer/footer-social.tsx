@@ -23,12 +23,6 @@ const FooterSocial = () => {
           imageClass="max-w-[20px] max-h-[20px] md:max-w-full md:max-h-full"
         />
       ))}
-      {/* <a href="tg://resolve?domain=имя_пользователя" className="footer__links">
-        <Image src="/img/icons/watsapp.svg" alt="Ватсап" />
-      </a>
-      <a href="https://wa.me/+79000000000" className="footer__links">
-        <Image src="/img/icons/telegram.svg" alt="Телеграм" />
-      </a> */}
     </div>
   );
 };
