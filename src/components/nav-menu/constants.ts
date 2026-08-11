@@ -1,4 +1,5 @@
-import { NavItemType, SocialItem } from "./types";
+import { SocialItemType } from "../ui/social-item/types";
+import { NavItemType } from "./types";
 
 const navItems: NavItemType[] = [
   { text: "Главная", path: "/index.html" },
@@ -9,7 +10,7 @@ const navItems: NavItemType[] = [
   { text: "Контакты", path: "/pages/contacts.html" },
 ];
 
-const socialItems: SocialItem[] = [
+const navSocialItems: SocialItemType[] = [
   {
     src: "/icons/instagram.svg",
     href: "https://instagram.ru/",
@@ -30,4 +31,4 @@ const socialItems: SocialItem[] = [
 
 const authButtonText = "Войти или Зарегистрироваться";
 
-export { navItems, socialItems, authButtonText };
+export { navItems, navSocialItems, authButtonText };

@@ -1,44 +1,35 @@
 import Image from "next/image";
 import Link from "next/link";
+import Logo from "../logo/logo";
+
+import OuterInfo from "../outer-info/outer-info";
+import FooterSocial from "./footer-social";
+import { goalsDescription, footerButtonText } from "./constants";
+import cn from "@/lib/utils";
 
 const Footer = () => {
+  const footerTopClass = cn(
+    "flex items-center justify-between rounded-full bg-main-bg w-full",
+    "p-[10px] md:py-[23px] md:px-[30px] xl:pt-[16px] xl:pt-[16px] xl:pt-[16px] xl:pb-[22px] 2xl:pt-[20px] 2xl:px-[30px] 2xl:pb-[26px]",
+  );
+
   return (
-    <footer className="footer">
+    <footer className="pt-[40px] px-0 pb-[30px] lg:pt-[0] lg:pb-[100px] xl:pt-[87px] xl:px-0 pb-[138px] footer">
       <div className="container">
-        <div className="footer__top">
-          <div className="footer__social">
-            <a
-              href="tg://resolve?domain=имя_пользователя"
-              className="footer__links"
-            >
-              <Image src="/img/icons/watsapp.svg" alt="socilal" />
-            </a>
-            <a href="https://wa.me/+79000000000" className="footer__links">
-              <Image src="/img/icons/telegram.svg" alt="socilal" />
-            </a>
-          </div>
+        <div className={footerTopClass}>
+          <FooterSocial />
           <a
             href="/pages/autorization.html"
             className="button button_footer footer__btn"
           >
-            Зарегистрироваться
+            {footerButtonText}
           </a>
         </div>
         <div className="footer__wrapper">
           <div className="footer__logwrap">
-            <div className="logo footer__logo">
-              <Link href="/index.html">
-                <Image src="/img/logo.svg" alt="logo" />
-              </Link>
-            </div>
+            <Logo />
             <div className="footer__emailwrap">
-              <div className="footer__letter">
-                {" "}
-                <Image src="/img/icons/gmail.svg" alt="letter" />
-              </div>
-              <div className="footer__email">
-                <a href="mailto:info@gmail.com">info@gmail.com</a>
-              </div>
+              <OuterInfo isPhone={false} />
             </div>
           </div>
           <div>
@@ -78,10 +69,7 @@ const Footer = () => {
         </div>
         <div className="footer__bottom">
           <div className="footer__descr">
-            Целями проведения вышеуказанных мероприятий не являются оказание
-            платных интимных услуг, совершение действий сексуального характера,
-            осуществление предложения к половому сношению либо сопоставимому
-            с ним действию сексуального характера и т.п. <br />{" "}
+            {goalsDescription}
             <br className="footer__br-m-visible" />
             Мы против ЛГБТ.
           </div>
