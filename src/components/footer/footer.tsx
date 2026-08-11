@@ -1,11 +1,16 @@
-import Image from "next/image";
 import Link from "next/link";
 import Logo from "../logo/logo";
 
 import OuterInfo from "../outer-info/outer-info";
 import FooterSocial from "./footer-social";
 import LinkButton from "../ui/button/link-button";
-import { goalsDescription, footerButtonText } from "./constants";
+import FooterNav from "./footer-nav";
+import {
+  goalsDescription,
+  footerButtonText,
+  footerCompanyNavItems,
+  footerSystemNavItems,
+} from "./constants";
 import cn from "@/lib/utils";
 
 const Footer = () => {
@@ -40,38 +45,10 @@ const Footer = () => {
             />
           </div>
           <div>
-            <ul className="footer__list">
-              <h3 className="title footer__headline">Компания</h3>
-              <li>
-                <Link href="/index.html">Главная</Link>
-              </li>
-              <li>
-                <Link href="/pages/autorization.html">Вступить в клуб</Link>
-              </li>
-              <li>
-                <Link href="/pages/events.html">Афиша (наши мероприятия)</Link>
-              </li>
-              <li>
-                <Link href="/pages/bangles.html">Браслеты</Link>
-              </li>
-            </ul>
+            <FooterNav navItems={footerCompanyNavItems} />
           </div>
           <div>
-            <ul className="footer__list footer__list_ml-">
-              <h3 className="title footer__headline">Система</h3>
-              <li>
-                <Link href="/pages/rules.html">Правила</Link>
-              </li>
-              <li>
-                <Link href="/pages/VIP.html">VIP</Link>
-              </li>
-              <li>
-                <Link href="/pages/loyalty.html">Система лояльности</Link>
-              </li>
-              <li>
-                <Link href="/pages/questions.html">FAQ</Link>
-              </li>
-            </ul>
+            <FooterNav navItems={footerSystemNavItems} />
           </div>
         </div>
         <div className="footer__bottom">
