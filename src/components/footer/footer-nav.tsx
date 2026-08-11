@@ -1,15 +1,21 @@
 import Link from "next/link";
 
+import Heading from "../ui/heading/heading";
 import { NavItemType } from "@/lib/types";
 
 type FooterNavProps = {
   navItems: NavItemType[];
+  headingText: string;
 };
 
-const FooterNav = ({ navItems }: FooterNavProps) => {
+const FooterNav = ({ navItems, headingText }: FooterNavProps) => {
   return (
     <ul className="footer__list">
-      <h3 className="title footer__headline">Компания</h3>
+      <Heading
+        className="title footer__headline"
+        title={headingText}
+        level="h3"
+      />
       {navItems.map((item) => (
         <FooterNavItem key={item.text} {...item} />
       ))}

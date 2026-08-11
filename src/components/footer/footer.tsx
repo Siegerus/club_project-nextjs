@@ -10,6 +10,8 @@ import {
   footerButtonText,
   footerCompanyNavItems,
   footerSystemNavItems,
+  footerCompanyTitle,
+  footerSystemTitle,
 } from "./constants";
 import cn from "@/lib/utils";
 
@@ -45,10 +47,16 @@ const Footer = () => {
             />
           </div>
           <div>
-            <FooterNav navItems={footerCompanyNavItems} />
+            <FooterNav
+              navItems={footerCompanyNavItems}
+              headingText={footerCompanyTitle}
+            />
           </div>
           <div>
-            <FooterNav navItems={footerSystemNavItems} />
+            <FooterNav
+              navItems={footerSystemNavItems}
+              headingText={footerSystemTitle}
+            />
           </div>
         </div>
         <div className="footer__bottom">

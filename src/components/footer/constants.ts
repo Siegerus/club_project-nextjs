@@ -14,6 +14,7 @@ const footerSocialItems: SocialItemType[] = [
   },
 ];
 
+const footerSystemTitle = "Система";
 const footerSystemNavItems: NavItemType[] = [
   {
     text: "Правила",
@@ -33,6 +34,7 @@ const footerSystemNavItems: NavItemType[] = [
   },
 ];
 
+const footerCompanyTitle = "Компания";
 const footerCompanyNavItems: NavItemType[] = [
   {
     text: "Главная",
@@ -65,4 +67,6 @@ export {
   footerSocialItems,
   footerCompanyNavItems,
   footerSystemNavItems,
+  footerSystemTitle,
+  footerCompanyTitle,
 };
