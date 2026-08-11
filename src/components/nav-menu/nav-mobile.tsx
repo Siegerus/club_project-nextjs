@@ -15,7 +15,7 @@ const NavMobile = () => {
   return (
     <div className="z-20 fixed md:hidden top-0 left-0 w-full h-screen mt-0 pt-[30px] px-[20px] pb-0 bg-nav-gradient overflow-y-scroll header__nav header__nav_m-visible">
       <div className="flex justify-between items-center p-[14px] rounded-full bg-main-bg header__wrapper header__wrapper_m-visible">
-        <Logo isMobile />
+        <Logo />
         <Hamburger />
       </div>
       <nav className="min-h-[650px]" aria-label="Основное меню">

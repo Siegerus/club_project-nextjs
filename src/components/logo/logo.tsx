@@ -4,15 +4,13 @@ import Image from "next/image";
 import cn from "@/lib/utils";
 
 type LogoProps = {
-  isMobile?: boolean;
   width?: number;
   height?: number;
 };
 
-const Logo = ({ isMobile, width = 129, height = 24 }: LogoProps) => {
+const Logo = ({ width = 129, height = 24 }: LogoProps) => {
   const wrapperClass = cn(
     "flex items-center justify-left min-w-[129px] lg:min-w-[260px] xl:max-w-[230px] xl:min-w-[230px] 2xl:min-w-[260px]",
-    !isMobile && "h-6 xl:h-13",
   );
 
   return (

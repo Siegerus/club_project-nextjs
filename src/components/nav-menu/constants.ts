@@ -1,5 +1,5 @@
 import { SocialItemType } from "../ui/social-item/types";
-import { NavItemType } from "./types";
+import { NavItemType } from "@/lib/types";
 
 const navItems: NavItemType[] = [
   { text: "Главная", path: "/index.html" },

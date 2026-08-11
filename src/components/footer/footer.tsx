@@ -29,7 +29,7 @@ const Footer = () => {
           </LinkButton>
         </div>
         <div className={footerWrapperClass}>
-          <div className="flex justify-between items-start col-start-1 col-end-3 footer__logwrap">
+          <div className="flex justify-between items-start md:items-center col-start-1 col-end-3 footer__logwrap">
             <Logo width={113} height={22} />
             <OuterInfo
               isPhone={false}
