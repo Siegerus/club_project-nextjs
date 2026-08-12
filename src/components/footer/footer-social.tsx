@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import SocialItem from "@/components/ui/social-item/social-item";
 import { footerSocialItems } from "./constants";
 import cn from "@/lib/utils";

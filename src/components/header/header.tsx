@@ -25,7 +25,7 @@ const Header = () => {
           <Hamburger />
         </div>
         <NavMenu tablet />
-        <NavMobile />
+        {/* <NavMobile /> */}
       </div>
     </header>
   );

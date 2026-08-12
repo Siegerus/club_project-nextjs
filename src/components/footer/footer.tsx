@@ -1,12 +1,10 @@
-import Link from "next/link";
 import Logo from "../logo/logo";
-
 import OuterInfo from "../outer-info/outer-info";
 import FooterSocial from "./footer-social";
+import FooterDesciption from "./footer-desciption";
 import LinkButton from "../ui/button/link-button";
 import FooterNav from "./footer-nav";
 import {
-  goalsDescription,
   footerButtonText,
   footerCompanyNavItems,
   footerSystemNavItems,
@@ -22,12 +20,13 @@ const Footer = () => {
   );
 
   const footerWrapperClass = cn(
-    "grid grid-cols-[150px_137px] md:grid-cols-[270px_196px] lg:grid-cols-[260px_267px_196px] grid-rows-[minmax(21px,_auto)_minmax(201px,_auto)] md:grid-rows-[minmax(50px,_auto)_minmax(231px,_auto)] lg:grid-rows-[231px]",
+    "grid grid-cols-[150px_137px] md:grid-cols-[270px_196px] lg:grid-cols-[260px_267px_196px]",
+    "grid-rows-[minmax(21px,_auto)_minmax(201px,_auto)] md:grid-rows-[minmax(50px,_auto)_minmax(231px,_auto)] lg:grid-rows-[231px]",
     "gap-y-[30px] gap-x-[17px] md:gap-y-[22px] md:gap-x-[69px] lg:gap-x-[110px] xl:gap-x-[170px] 2xl:gap-x-[265px] mt-[15px] md:mt-[30px] lg:mt-[35px]",
   );
 
   return (
-    <footer className="pt-[40px] px-0 pb-[30px] lg:pt-[0] lg:pb-[100px] xl:pt-[87px] xl:px-0 pb-[138px]">
+    <footer className="pt-[40px] px-0 pb-[30px] md:pt-[0] md:pb-[100px] xl:pt-[87px] xl:px-0 xl:pb-[138px]">
       <div className="container">
         <div className={footerTopClass}>
           <FooterSocial />
@@ -59,13 +58,7 @@ const Footer = () => {
             />
           </div>
         </div>
-        <div className="footer__bottom">
-          <div className="footer__descr">
-            {goalsDescription}
-            <br className="footer__br-m-visible" />
-            Мы против ЛГБТ.
-          </div>
-        </div>
+        <FooterDesciption />
       </div>
     </footer>
   );
