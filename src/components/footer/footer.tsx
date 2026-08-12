@@ -11,6 +11,7 @@ import {
   footerCompanyTitle,
   footerSystemTitle,
 } from "./constants";
+import { AppRoute } from "@/lib/routes";
 import cn from "@/lib/utils";
 
 const Footer = () => {
@@ -30,7 +31,7 @@ const Footer = () => {
       <div className="container">
         <div className={footerTopClass}>
           <FooterSocial />
-          <LinkButton path="/pages/autorization.html" variant="footer">
+          <LinkButton path={AppRoute.Authorization} variant="footer">
             <span>{footerButtonText}</span>
           </LinkButton>
         </div>

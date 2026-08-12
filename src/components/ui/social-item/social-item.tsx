@@ -24,7 +24,7 @@ const SocialItem = ({
   );
 
   return (
-    <a className={linkClassName} href={href}>
+    <a className={linkClassName} href={href} target="_blank" rel="noopener noreferrer">
       <Image
         className={imageClass}
         src={src}

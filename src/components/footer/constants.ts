@@ -1,5 +1,6 @@
 import { SocialItemType } from "../ui/social-item/types";
 import { NavItemType } from "@/lib/types";
+import { AppRoute } from "@/lib/routes";
 
 const footerSocialItems: SocialItemType[] = [
   {
@@ -18,19 +19,19 @@ const footerSystemTitle = "Система";
 const footerSystemNavItems: NavItemType[] = [
   {
     text: "Правила",
-    path: "/pages/rules.html",
+    path: AppRoute.Rules,
   },
   {
     text: "VIP",
-    path: "/pages/VIP.html",
+    path: AppRoute.Vip,
   },
   {
     text: "Система лояльности",
-    path: "/pages/loyalty.html",
+    path: AppRoute.Loyalty,
   },
   {
     text: "FAQ",
-    path: "/pages/questions.html",
+    path: AppRoute.Faq,
   },
 ];
 
@@ -38,19 +39,19 @@ const footerCompanyTitle = "Компания";
 const footerCompanyNavItems: NavItemType[] = [
   {
     text: "Главная",
-    path: "/index.html",
+    path: AppRoute.Home,
   },
   {
     text: "Вступить в клуб",
-    path: "/pages/autorization.html",
+    path: AppRoute.Authorization,
   },
   {
     text: "Афиша (наши мероприятия)",
-    path: "/pages/events.html",
+    path: AppRoute.Events,
   },
   {
     text: "Браслеты",
-    path: "/pages/bangles.html",
+    path: AppRoute.Bangles,
   },
 ];
 

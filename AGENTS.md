@@ -48,11 +48,13 @@ index.html, autorization.html, bangles.html, curent-event.html, events.html, loy
 ## Архитектура миграции
 
 ### Директории:
-- `/src/app/` — App Router (layout.tsx, page.tsx, globals.css, fonts.tsx)
-- `/src/app/components/ui/` — переиспользуемые UI-компоненты (Button, Modal, Input, ...)
-- `/src/app/components/` — страничные компоненты (Header, Footer, Promo, ...)
-- `/src/app/components/modules/` — БЭМ-блоки как React-компоненты
-- `/src/app/api/` — API Routes (замена PHP-обработчиков)
+- `/src/app/` — App Router (`layout.tsx`, `page.tsx`, `globals.css`, `fonts.tsx`, route segments)
+- `/src/app/*/page.tsx` — страницы (contacts, bangles, vip, rules, events, ...)
+- `/src/components/ui/` — переиспользуемые UI-компоненты (Button, Hamburger, SocialItem, ...)
+- `/src/components/` — компоновочные компоненты и секции (Header, Footer, Logo, OuterInfo, ...)
+- `/src/components/header/nav-menu/` — колокация: подкомпоненты навигации, используемые только в Header
+- `/src/components/footer/` — колокация: подкомпоненты футера
+- `/src/lib/` — утилиты, константы, типы
 - `/public/img/` — изображения (копия из club_project/src/img/)
 - `/public/fonts/` — шрифты (уже скопированы)
 

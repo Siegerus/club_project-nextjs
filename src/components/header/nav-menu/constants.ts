@@ -1,13 +1,14 @@
 import { SocialItemType } from "@/components/ui/social-item/types";
 import { NavItemType } from "@/lib/types";
+import { AppRoute } from "@/lib/routes";
 
 const navItems: NavItemType[] = [
-  { text: "Главная", path: "/index.html" },
-  { text: "Мероприятия", path: "/pages/curent-event.html" },
-  { text: "Браслеты", path: "/pages/bangles.html" },
-  { text: "Правила", path: "/pages/rules.html" },
-  { text: "VIP", path: "/pages/VIP.html" },
-  { text: "Контакты", path: "/pages/contacts.html" },
+  { text: "Главная", path: AppRoute.Home },
+  { text: "Мероприятия", path: AppRoute.Events },
+  { text: "Браслеты", path: AppRoute.Bangles },
+  { text: "Правила", path: AppRoute.Rules },
+  { text: "VIP", path: AppRoute.Vip },
+  { text: "Контакты", path: AppRoute.Contacts },
 ];
 
 const navSocialItems: SocialItemType[] = [

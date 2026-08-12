@@ -4,6 +4,7 @@ import Hamburger from "../ui/hamburger/hamburger";
 import NavMenu from "./nav-menu/nav-menu";
 import LinkButton from "../ui/button/link-button";
 import { headerButtonText } from "./constants";
+import { AppRoute } from "@/lib/routes";
 import cn from "@/lib/utils";
 
 const Header = () => {
@@ -19,7 +20,7 @@ const Header = () => {
         <div className="flex justify-between items-center min-h-[53.3px] p-[14px] md:p-0 md:pt-[40px] 2xl:pt-[20px] rounded-full bg-main-bg md:bg-transparent">
           <Logo />
           <NavMenu />
-          <LinkButton path="/pages/autorization.html" className={buttonClass}>
+          <LinkButton path={AppRoute.Authorization} className={buttonClass}>
             <span className="tracking-tight">{headerButtonText}</span>
           </LinkButton>
           <Hamburger />
