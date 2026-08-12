@@ -15,7 +15,7 @@ import cn from "@/lib/utils";
 
 const Footer = () => {
   const footerTopClass = cn(
-    "flex items-center justify-between rounded-full bg-main-bg w-full",
+    "flex items-center justify-between rounded-full bg-main-bg w-full backdrop-blur-lg",
     "p-[10px] md:py-[23px] md:px-[30px] xl:pt-[16px] xl:pt-[16px] xl:pt-[16px] xl:pb-[22px] 2xl:pt-[20px] 2xl:px-[30px] 2xl:pb-[26px]",
   );
 
