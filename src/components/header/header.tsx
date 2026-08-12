@@ -9,9 +9,10 @@ import cn from "@/lib/utils";
 const Header = () => {
   const buttonClass = cn(
     "hidden mx-0 md:flex w-[197px] lg:min-w-[250px] xl:min-w-[220px] 2xl:w-[16.4%] 2xl:min-w-[250px] 3xl:min-w-[223px]",
-    "md:pt-[18px] md:pb-[20px] md:px-[30px] lg:pt-[21px] lg:pb-[24px] lg:px-[16px] xl:pt-[21px] xl:pb-[24px] xl:px-[16px] 2xl:pt-[21px] 2xl:pb-[24px] 2xl:px-[16px]",
-    "bg-main-bg text-white md:text-base lg:text-[22px] lg:leading-[1.1] xl:text-xl 2xl:text-[22px] 2xl:leading-[1.1] 3xl:text-3xl",
+    "md:pt-[18px] md:pb-[20px] md:px-[30px] xl:pt-[21px] xl:pb-[24px] xl:px-[16px]",
+    "text-white md:text-base lg:text-[22px] xl:text-xl 2xl:text-[22px] 3xl:text-2xl bg-main-bg ",
   );
+
   return (
     <header className="w-[100%] pt-[30px] pb-[10px] md:py-0">
       <div className="container">
@@ -24,7 +25,7 @@ const Header = () => {
           <Hamburger />
         </div>
         <NavMenu tablet />
-        <NavMobile />
+        {/* <NavMobile /> */}
       </div>
     </header>
   );
