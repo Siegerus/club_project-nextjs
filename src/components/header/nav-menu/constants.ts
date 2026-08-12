@@ -1,4 +1,4 @@
-import { SocialItemType } from "../ui/social-item/types";
+import { SocialItemType } from "@/components/ui/social-item/types";
 import { NavItemType } from "@/lib/types";
 
 const navItems: NavItemType[] = [
