@@ -7,7 +7,7 @@ import cn from "@/lib/utils";
 const FooterSocial = () => {
   const linkClass = cn(
     "flex items-center justify-center rounded-full bg-white",
-    "w-[40px] h-[40px] md:w-[70px] md:h-[70px] xl:w-[74px] xl:h-[74px] mr-[10px] md:mr-[25px] lg:mr-[20px]",
+    "w-[40px] h-[40px] md:w-[70px] md:h-[70px] 2xl:w-[74px] 2xl:h-[74px] mr-[10px] md:mr-[25px] lg:mr-[20px]",
   );
   return (
     <div className="flex items-center">

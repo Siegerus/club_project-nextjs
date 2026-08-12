@@ -22,8 +22,8 @@ const Footer = () => {
   );
 
   const footerWrapperClass = cn(
-    "grid grid-cols-[150px_137px] md:grid-cols-[270px_196px] grid-rows-[minmax(21px,_auto)_minmax(201px,_auto)] md:grid-rows-[minmax(50px,_auto)_minmax(231px,_auto)]",
-    "gap-y-[30px] gap-x-[17px] md:gap-y-[69px] md:gap-x-[22px] mt-[15px] md:mt-[30px]",
+    "grid grid-cols-[150px_137px] md:grid-cols-[270px_196px] lg:grid-cols-[260px_267px_196px] grid-rows-[minmax(21px,_auto)_minmax(201px,_auto)] md:grid-rows-[minmax(50px,_auto)_minmax(231px,_auto)] lg:grid-rows-[231px]",
+    "gap-y-[30px] gap-x-[17px] md:gap-y-[22px] md:gap-x-[69px] lg:gap-x-[110px] xl:gap-x-[170px] 2xl:gap-x-[265px] mt-[15px] md:mt-[30px] lg:mt-[35px]",
   );
 
   return (
@@ -36,12 +36,12 @@ const Footer = () => {
           </LinkButton>
         </div>
         <div className={footerWrapperClass}>
-          <div className="flex justify-between items-start md:items-center col-start-1 col-end-3 footer__logwrap">
+          <div className="flex lg:block justify-between items-start md:items-center col-start-1 col-end-3 lg:col-end-1">
             <Logo width={113} height={22} />
             <OuterInfo
               isPhone={false}
               linkClass="text-sm md:text-xl ml-[8px] md:ml-0"
-              wrapperClass="w-[138px] md:w-[185px] min-h-[24px] justify-start md:justify-between"
+              wrapperClass="justify-start md:justify-between w-[138px] md:w-[185px] min-h-[24px] lg:mt-[35px]"
               width={14}
               height={14}
             />

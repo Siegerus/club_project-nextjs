@@ -10,9 +10,9 @@ type FooterNavProps = {
 
 const FooterNav = ({ navItems, headingText }: FooterNavProps) => {
   return (
-    <ul className="footer__list">
+    <ul className="list-none footer__list">
       <Heading
-        className="title footer__headline"
+        className="text-2xl md:text-4xl lg:text-[2.125rem] text-white-70"
         title={headingText}
         level="h3"
       />
@@ -32,7 +32,7 @@ type FooterNavItemProps = {
 
 const FooterNavItem = ({ text, path }: FooterNavItemProps) => {
   return (
-    <li>
+    <li className="mt-[20px] text-sm md:text-xl lg:text-lg 2xl:text-lg 3xl:text-xl text-white-70 font-semibold leading-[130%]">
       <Link href={path}>{text}</Link>
     </li>
   );
