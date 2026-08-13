@@ -7,6 +7,7 @@ import OuterInfo from "@/components/outer-info/outer-info";
 import NavSocial from "./nav-social";
 import Hamburger from "@/components/ui/hamburger/hamburger";
 import { navItems, authButtonText } from "./constants";
+import { AppRoute } from "@/lib/routes";
 
 const itemClass =
   "flex items-center w-full py-[10px] pr-[10px] pl[0] justify-between text-white-70";
@@ -55,7 +56,7 @@ const NavMobile = () => {
           {confidantial}
         </div>
         <LinkButton
-          path="/pages/autorization.html"
+          path={AppRoute.Authorization}
           isExternal
           className="w-full max-w-[320px] mt-[10px] py-[14px] px-0 text-sm"
           variant="no-bg"

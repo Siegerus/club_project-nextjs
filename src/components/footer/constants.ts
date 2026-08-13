@@ -1,16 +1,17 @@
 import { SocialItemType } from "../ui/social-item/types";
 import { NavItemType } from "@/lib/types";
 import { AppRoute } from "@/lib/routes";
+import { ExtertalLink } from "@/lib/constants";
 
 const footerSocialItems: SocialItemType[] = [
   {
     src: "/icons/watsapp.svg",
-    href: "https://instagram.ru/",
+    href: ExtertalLink.Telegram,
     alt: "Телеграм",
   },
   {
     src: "/icons/telegram.svg",
-    href: "https://wa.me/+79000000000",
+    href: ExtertalLink.Whatsapp,
     alt: "Ватсап",
   },
 ];

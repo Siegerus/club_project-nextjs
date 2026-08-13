@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import cn from "@/lib/utils";
+import { AppRoute } from "@/lib/routes";
 
 type LogoProps = {
   width?: number;
@@ -15,7 +16,7 @@ const Logo = ({ width = 129, height = 24 }: LogoProps) => {
 
   return (
     <div className={wrapperClass}>
-      <Link href="/index.html">
+      <Link href={AppRoute.Home}>
         <picture>
           <source media="(max-width: 767px)" srcSet="/images/logo.svg" />
           <source media="(min-width: 768px)" srcSet="/images/logo.svg" />

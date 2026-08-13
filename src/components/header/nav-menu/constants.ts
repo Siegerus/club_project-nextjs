@@ -1,6 +1,7 @@
 import { SocialItemType } from "@/components/ui/social-item/types";
 import { NavItemType } from "@/lib/types";
 import { AppRoute } from "@/lib/routes";
+import { ExtertalLink } from "@/lib/constants";
 
 const navItems: NavItemType[] = [
   { text: "Главная", path: AppRoute.Home },
@@ -14,18 +15,18 @@ const navItems: NavItemType[] = [
 const navSocialItems: SocialItemType[] = [
   {
     src: "/icons/instagram.svg",
-    href: "https://instagram.ru/",
+    href: ExtertalLink.Instagtam,
     alt: "Инстаграм",
   },
   {
     src: "/icons/watsapp-white.svg",
-    href: "https://wa.me/+79000000000",
+    href: ExtertalLink.Whatsapp,
     alt: "Ватсап",
   },
-  { src: "/icons/vk.svg", href: "https://vk.com/", alt: "Вконтакте" },
+  { src: "/icons/vk.svg", href: ExtertalLink.Vk, alt: "Вконтакте" },
   {
     src: "/icons/telegram-white.svg",
-    href: "tg://resolve?domain=имя_пользователя",
+    href: ExtertalLink.Telegram,
     alt: "Телеграм",
   },
 ];
