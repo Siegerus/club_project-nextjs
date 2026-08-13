@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { confidantial } from "@/lib/constants";
 import Logo from "@/components/logo/logo";
@@ -57,7 +58,6 @@ const NavMobile = () => {
         </div>
         <LinkButton
           path={AppRoute.Authorization}
-          isExternal
           className="w-full max-w-[320px] mt-[10px] py-[14px] px-0 text-sm"
           variant="no-bg"
         >
@@ -79,12 +79,12 @@ type NavMobileItemProps = {
 const NavMobileItem = ({ path, text, itemClass }: NavMobileItemProps) => {
   return (
     <li className={itemClass}>
-      <a
+      <Link
         href={path}
         className="flex items-center justify-between w-full leading-[130%] tracking-[-.02em]"
       >
         {text}
-      </a>
+      </Link>
       <div className="flex items-center justify-center w-[20px] h-[20px] header__arrow-m">
         <Image src="/icons/nav-arrow.svg" alt="Стрелка" width={7} height={13} />
       </div>
