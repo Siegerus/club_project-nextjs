@@ -1,6 +1,6 @@
-import SocialItem from "@/components/ui/social-item/social-item";
+import SocialItem from "@/shared/ui/social-item/social-item";
 import { footerSocialItems } from "./constants";
-import cn from "@/lib/utils";
+import cn from "@/shared/lib/utils";
 
 const FooterSocial = () => {
   const linkClass = cn(

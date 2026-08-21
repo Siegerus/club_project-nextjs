@@ -1,11 +1,11 @@
-import Logo from "../logo/logo";
+import Logo from "../../shared/ui/logo/logo";
 import NavMobile from "./nav-menu/nav-mobile";
-import Hamburger from "../ui/hamburger/hamburger";
+import Hamburger from "../../shared/ui/hamburger/hamburger";
 import NavMenu from "./nav-menu/nav-menu";
-import LinkButton from "../ui/button/link-button";
+import LinkButton from "../../shared/ui/button/link-button";
 import { headerButtonText } from "./constants";
-import { AppRoute } from "@/lib/routes";
-import cn from "@/lib/utils";
+import { AppRoute } from "@/shared/lib/routes";
+import cn from "@/shared/lib/utils";
 
 const Header = () => {
   const buttonClass = cn(

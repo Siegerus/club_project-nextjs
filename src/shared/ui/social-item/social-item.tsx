@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { SocialItemType } from "./types";
-import cn from "@/lib/utils";
+import cn from "@/shared/lib/utils";
 
 type NavSocialItemProps = SocialItemType & {
   width?: number;
@@ -24,7 +24,12 @@ const SocialItem = ({
   );
 
   return (
-    <a className={linkClassName} href={href} target="_blank" rel="noopener noreferrer">
+    <a
+      className={linkClassName}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Image
         className={imageClass}
         src={src}

@@ -1,8 +1,8 @@
-import Logo from "../logo/logo";
+import Logo from "../../shared/ui/logo/logo";
 import OuterInfo from "../outer-info/outer-info";
 import FooterSocial from "./footer-social";
 import FooterDesciption from "./footer-desciption";
-import LinkButton from "../ui/button/link-button";
+import LinkButton from "../../shared/ui/button/link-button";
 import FooterNav from "./footer-nav";
 import {
   footerButtonText,
@@ -11,8 +11,8 @@ import {
   footerCompanyTitle,
   footerSystemTitle,
 } from "./constants";
-import { AppRoute } from "@/lib/routes";
-import cn from "@/lib/utils";
+import { AppRoute } from "@/shared/lib/routes";
+import cn from "@/shared/lib/utils";
 
 const Footer = () => {
   const footerTopClass = cn(

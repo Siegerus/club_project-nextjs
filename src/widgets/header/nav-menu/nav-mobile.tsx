@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { confidantial } from "@/lib/constants";
-import Logo from "@/components/logo/logo";
-import LinkButton from "@/components/ui/button/link-button";
-import OuterInfo from "@/components/outer-info/outer-info";
+import { confidantial } from "@/shared/lib/constants";
+import Logo from "@/shared/ui/logo/logo";
+import LinkButton from "@/shared/ui/button/link-button";
+import OuterInfo from "@/widgets/outer-info/outer-info";
 import NavSocial from "./nav-social";
-import Hamburger from "@/components/ui/hamburger/hamburger";
+import Hamburger from "@/shared/ui/hamburger/hamburger";
 import { navItems, authButtonText } from "./constants";
-import { AppRoute } from "@/lib/routes";
+import { AppRoute } from "@/shared/lib/routes";
 
 const itemClass =
   "flex items-center w-full py-[10px] pr-[10px] pl[0] justify-between text-white-70";

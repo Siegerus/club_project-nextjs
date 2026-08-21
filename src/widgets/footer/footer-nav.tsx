@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import Heading from "../ui/heading/heading";
-import { NavItemType } from "@/lib/types";
+import Heading from "../../shared/ui/heading/heading";
+import { NavItemType } from "@/shared/lib/types";
 
 type FooterNavProps = {
   navItems: NavItemType[];
