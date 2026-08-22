@@ -10,55 +10,33 @@ import Hamburger from "@/shared/ui/hamburger/hamburger";
 import { navItems, authButtonText } from "./constants";
 import { AppRoute } from "@/shared/lib/routes";
 
-const itemClass =
-  "flex items-center w-full py-[10px] pr-[10px] pl[0] justify-between text-white-70";
-
 const NavMobile = () => {
   return (
-    <div className="z-20 fixed md:hidden top-0 left-0 w-full h-screen mt-0 pt-[30px] px-[20px] pb-0 bg-nav-gradient overflow-y-scroll header__nav header__nav_m-visible">
-      <div className="flex justify-between items-center p-[14px] rounded-full bg-main-bg header__wrapper header__wrapper_m-visible">
+    <div className={styles.wrapper}>
+      <div className={styles.topBar}>
         <Logo />
         <Hamburger />
       </div>
-      <nav className="min-h-[650px]" aria-label="Основное меню">
-        <ul className="flex flex-col items-start justify-between w-full mt-[10px] p-[10px] rounded-[20px] bg-main-bg backdrop-sepia-[24px] header__list">
-          {/* <li className="flex items-center w-full py-[10px] justify-between header__list-item header__list-item_li-m">
-            <div className="header__accountwrap-m">
-              <div className="header__icon">
-                <Image
-                  src="/icons/account.svg"
-                  alt="Аватар"
-                  width={30}
-                  height={30}
-                />
-              </div>
-              <div className="header__account">Аккаунт</div>
-            </div>
-            <div className="header__arrow-m">
-              <span></span>
-              <span></span>
-            </div>
-          </li> */}
+      <nav className={styles.nav} aria-label="Основное меню">
+        <ul className={styles.list}>
           {navItems.map((item) => (
             <NavMobileItem
               key={item.text}
               text={item.text}
               path={item.path}
-              itemClass={itemClass}
+              className={styles.item}
             />
           ))}
         </ul>
-        <div className="flex flex-col items-start justify-between w-full min-h-[82px] mt-[10px] p-[10px] rounded-[20px] bg-main-bg">
+        <div className={styles.info}>
           <OuterInfo isPhone />
           <OuterInfo isPhone={false} />
         </div>
         <NavSocial />
-        <div className="max-w-[204px] mt-[10px] mx-auto mb-0 text-sm text-center text-white-70 leading-[130%]">
-          {confidantial}
-        </div>
+        <div className={styles.confidential}>{confidantial}</div>
         <LinkButton
           path={AppRoute.Authorization}
-          className="w-full max-w-[320px] mt-[10px] py-[14px] px-0 text-sm"
+          className={styles.authButton}
           variant="no-bg"
         >
           <span>{authButtonText}</span>
@@ -68,26 +46,39 @@ const NavMobile = () => {
   );
 };
 
-export default NavMobile;
-
 type NavMobileItemProps = {
   path: string;
   text: string;
-  itemClass: string;
+  className: string;
 };
 
-const NavMobileItem = ({ path, text, itemClass }: NavMobileItemProps) => {
+const NavMobileItem = ({ path, text, className }: NavMobileItemProps) => {
   return (
-    <li className={itemClass}>
-      <Link
-        href={path}
-        className="flex items-center justify-between w-full leading-[130%] tracking-[-.02em]"
-      >
+    <li className={className}>
+      <Link href={path} className={styles.link}>
         {text}
       </Link>
-      <div className="flex items-center justify-center w-[20px] h-[20px] header__arrow-m">
+      <div className={styles.arrow}>
         <Image src="/icons/nav-arrow.svg" alt="Стрелка" width={7} height={13} />
       </div>
     </li>
   );
+};
+
+export default NavMobile;
+
+const styles = {
+  wrapper:
+    "z-20 fixed md:hidden top-0 left-0 w-full h-screen mt-0 pt-[30px] px-[20px] pb-0 bg-nav-gradient overflow-y-scroll header__nav header__nav_m-visible",
+  topBar:
+    "flex justify-between items-center p-[14px] rounded-full bg-main-bg header__wrapper header__wrapper_m-visible",
+  nav: "min-h-[650px]",
+  list: "flex flex-col items-start justify-between w-full mt-[10px] p-[10px] rounded-[20px] bg-main-bg backdrop-sepia-[24px] header__list",
+  item: "flex items-center w-full py-[10px] pr-[10px] pl-[0] justify-between text-white-70",
+  link: "flex items-center justify-between w-full leading-[130%] tracking-[-.02em]",
+  arrow: "flex items-center justify-center w-[20px] h-[20px] header__arrow-m",
+  info: "flex flex-col items-start justify-between w-full min-h-[82px] mt-[10px] p-[10px] rounded-[20px] bg-main-bg",
+  confidential:
+    "max-w-[204px] mt-[10px] mx-auto mb-0 text-sm text-center text-white-70 leading-[130%]",
+  authButton: "w-full max-w-[320px] mt-[10px] py-[14px] px-0 text-sm",
 };
