@@ -19,9 +19,11 @@ const LinkButton = ({
   isExternal = false,
   variant,
 }: LinkButtonProps) => {
+  const buttonClass = cn(styles.base, variant === "footer" && styles.footer, variant === "no-bg" && styles.noBg, className);
+
   return isExternal ? (
     <a
-      className={cn(styles.base, variant === "footer" && styles.footer, variant === "no-bg" && styles.noBg, className)}
+      className={buttonClass}
       href={path}
       aria-label={label}
       target="_blank"
@@ -30,7 +32,7 @@ const LinkButton = ({
       {children}
     </a>
   ) : (
-    <Link className={cn(styles.base, variant === "footer" && styles.footer, variant === "no-bg" && styles.noBg, className)} href={path} aria-label={label}>
+    <Link className={buttonClass} href={path} aria-label={label}>
       {children}
     </Link>
   );

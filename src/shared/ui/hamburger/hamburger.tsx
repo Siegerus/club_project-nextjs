@@ -6,11 +6,13 @@ type HamburgerProps = {
 };
 
 const Hamburger = ({ isActive = false, className }: HamburgerProps) => {
+  const stickClass = cn(styles.stick, isActive && styles.active);
+
   return (
     <div className={cn(styles.wrapper, className)}>
-      <span className={cn(styles.stick, isActive && styles.active)}></span>
-      <span className={cn(styles.stick, isActive && styles.active)}></span>
-      <span className={cn(styles.stick, isActive && styles.active)}></span>
+      <span className={stickClass}></span>
+      <span className={stickClass}></span>
+      <span className={stickClass}></span>
     </div>
   );
 };

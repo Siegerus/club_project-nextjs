@@ -8,10 +8,8 @@ type NavMenuPops = {
 };
 
 const NavMenu = ({ tablet = false }: NavMenuPops) => {
-  const navClass = cn(styles.nav, tablet && styles.navTablet);
-
   return (
-    <nav className={navClass}>
+    <nav className={cn(styles.nav, tablet && styles.navTablet)}>
       <ul className={styles.list}>
         {navItems.map((item) =>
           item.text === "VIP" ? (

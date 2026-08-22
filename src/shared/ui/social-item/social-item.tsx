@@ -18,20 +18,15 @@ const SocialItem = ({
   linkClass,
   imageClass,
 }: NavSocialItemProps) => {
-  const linkClassName = cn(
-    "flex items-center justify-center w-[48px] h-[48px] border-[1.5px] border-white-70 rounded-full",
-    linkClass,
-  );
-
   return (
     <a
-      className={linkClassName}
+      className={cn(styles.link, linkClass)}
       href={href}
       target="_blank"
       rel="noopener noreferrer"
     >
       <Image
-        className={imageClass}
+        className={cn(styles.image, imageClass)}
         src={src}
         alt={alt}
         width={width}
@@ -42,3 +37,8 @@ const SocialItem = ({
 };
 
 export default SocialItem;
+
+const styles = {
+  link: "flex items-center justify-center w-[48px] h-[48px] border-[1.5px] border-white-70 rounded-full",
+  image: "max-w-full max-h-full",
+};
