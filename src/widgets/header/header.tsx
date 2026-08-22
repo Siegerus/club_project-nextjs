@@ -10,7 +10,7 @@ import cn from "@/shared/lib/utils";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.container}>
+      <div className="container">
         <div className={styles.inner}>
           <Logo />
           <NavMenu />
@@ -28,7 +28,6 @@ const Header = () => {
 
 const styles = {
   header: "w-[100%] pt-[30px] pb-[10px] md:py-0",
-  container: "container",
   inner:
     "flex justify-between items-center min-h-[53.3px] p-[14px] md:p-0 md:pt-[40px] 2xl:pt-[20px] rounded-full bg-main-bg md:bg-transparent",
   button: cn(
