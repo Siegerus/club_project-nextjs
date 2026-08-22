@@ -3,7 +3,7 @@ import { navSocialItems } from "./constants";
 
 const NavSocial = () => {
   return (
-    <div className="flex items-center justify-between w-full mt-[10px] py-0 px-[34px]">
+    <div className={styles.wrapper}>
       {navSocialItems.map((item) =>
         item.alt === "Вконтакте" ? (
           <SocialItem
@@ -28,3 +28,7 @@ const NavSocial = () => {
 };
 
 export default NavSocial;
+
+const styles = {
+  wrapper: "flex items-center justify-between w-full mt-[10px] py-0 px-[34px]",
+};
