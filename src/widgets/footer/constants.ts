@@ -1,7 +1,7 @@
-import { SocialItemType } from "../ui/social-item/types";
-import { NavItemType } from "@/lib/types";
-import { AppRoute } from "@/lib/routes";
-import { ExtertalLink } from "@/lib/constants";
+import { SocialItemType } from "../../shared/ui/social-item/types";
+import { NavItemType } from "@/shared/lib/types";
+import { AppRoute } from "@/shared/lib/routes";
+import { ExtertalLink } from "@/shared/lib/constants";
 
 const footerSocialItems: SocialItemType[] = [
   {

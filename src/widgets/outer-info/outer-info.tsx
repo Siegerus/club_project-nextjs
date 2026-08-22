@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import cn from "@/lib/utils";
-import { phoneNumber, email } from "@/lib/constants";
+import cn from "@/shared/lib/utils";
+import { phoneNumber, email } from "@/shared/lib/constants";
 
 type OuterInfoProps = {
   isPhone: boolean;
@@ -22,25 +22,26 @@ const OuterInfo = ({
   const imageAlt = isPhone ? "Телефон" : "Email";
   const linkHref = isPhone ? "tel:+70000000000" : "mailto:info@gmail.com";
   const linkData = isPhone ? phoneNumber : email;
-  const wrapperClassName = cn("flex items-center", wrapperClass);
-  const linkClassName = cn(
-    "text-base text-white-70",
-    isPhone ? "ml-[10px]" : "ml-[15px]",
-    linkClass,
-  );
 
   return (
-    <div className={wrapperClassName}>
-      <div className="flex items-center">
+    <div className={cn(styles.wrapper, wrapperClass)}>
+      <div className={styles.iconWrap}>
         <Image
           src={iconSrc}
           alt={imageAlt}
           width={width}
           height={height}
-          className="max-w-full max-h-full md:w-full md:h-full"
+          className={styles.image}
         />
       </div>
-      <a href={linkHref} className={linkClassName}>
+      <a
+        href={linkHref}
+        className={cn(
+          styles.link,
+          isPhone ? styles.phoneMargin : styles.emailMargin,
+          linkClass,
+        )}
+      >
         {linkData}
       </a>
     </div>
@@ -48,3 +49,12 @@ const OuterInfo = ({
 };
 
 export default OuterInfo;
+
+const styles = {
+  wrapper: "flex items-center",
+  iconWrap: "flex items-center",
+  image: "max-w-full max-h-full md:w-full md:h-full",
+  link: "text-base text-white-70",
+  phoneMargin: "ml-[10px]",
+  emailMargin: "ml-[15px]",
+};
