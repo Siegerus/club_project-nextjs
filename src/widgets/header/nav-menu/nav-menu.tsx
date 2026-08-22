@@ -8,30 +8,25 @@ type NavMenuPops = {
 };
 
 const NavMenu = ({ tablet = false }: NavMenuPops) => {
-  const navClass = cn(
-    "hidden xl:block mt-4 pt-[24px] px-[30px] pb-[24px] lg:mt-5 xl:mt-0 w-full xl:w-[55.8%] lg:pt-[20px] lg:px-[30px] lg:pb-[23px] rounded-full bg-main-bg backdrop-blur-lg",
-    tablet && "md:block xl:hidden",
-  );
+  const navClass = cn(styles.nav, tablet && styles.navTablet);
 
-  const itemClass =
-    "weight-medium text-base leading-[1.3] lg:text-xl xl:text-lg 3xl:text-xl text-white-70";
   return (
     <nav className={navClass}>
-      <ul className="flex items-center justify-between list-none">
+      <ul className={styles.list}>
         {navItems.map((item) =>
           item.text === "VIP" ? (
             <NavItem
               key={item.text}
               text={item.text}
               path={item.path}
-              itemClass={cn(itemClass, "font-medium bg-rainbow-text")}
+              className={styles.vipItem}
             />
           ) : (
             <NavItem
               key={item.text}
               text={item.text}
               path={item.path}
-              itemClass={itemClass}
+              className={styles.item}
             />
           ),
         )}
@@ -43,17 +38,25 @@ const NavMenu = ({ tablet = false }: NavMenuPops) => {
 type NavItemProps = {
   path: string;
   text: string;
-  itemClass: string;
+  className: string;
 };
 
-export default NavMenu;
-
-const NavItem = ({ path, text, itemClass }: NavItemProps) => {
+const NavItem = ({ path, text, className }: NavItemProps) => {
   return (
-    <li className={itemClass}>
+    <li className={className}>
       <Link href={path}>{text}</Link>
     </li>
   );
 };
 
+export default NavMenu;
 export { NavItem };
+
+const styles = {
+  nav: "hidden xl:block mt-4 pt-[24px] px-[30px] pb-[24px] lg:mt-5 xl:mt-0 w-full xl:w-[55.8%] lg:pt-[20px] lg:px-[30px] lg:pb-[23px] rounded-full bg-main-bg backdrop-blur-lg",
+  navTablet: "md:block xl:hidden",
+  list: "flex items-center justify-between list-none",
+  item: "weight-medium text-base leading-[1.3] lg:text-xl xl:text-lg 3xl:text-xl text-white-70",
+  vipItem:
+    "font-medium bg-rainbow-text weight-medium text-base leading-[1.3] lg:text-xl xl:text-lg 3xl:text-xl text-white-70",
+};
