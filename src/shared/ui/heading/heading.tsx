@@ -9,12 +9,11 @@ type HeadingProps = {
 const Heading = ({ title, className, level }: HeadingProps) => {
   const TitleTag = level;
 
-  const headingClassName = cn(
-    "title text-[5.5rem] bg-white-gradient-text",
-    className,
-  );
-
-  return <TitleTag className={headingClassName}>{title}</TitleTag>;
+  return <TitleTag className={cn(styles.title, className)}>{title}</TitleTag>;
 };
 
 export default Heading;
+
+const styles = {
+  title: "title text-[5.5rem] bg-white-gradient-text",
+};
