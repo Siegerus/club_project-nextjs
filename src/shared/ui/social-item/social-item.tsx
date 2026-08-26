@@ -1,5 +1,5 @@
 import Image from "next/image";
-import cn from "@/shared/lib/utils";
+import { cn } from "@/shared/lib";
 import { SocialItemType } from "./types";
 
 type NavSocialItemProps = SocialItemType & {

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { AppRoute } from "@/shared/lib/routes";
+import { AppRoute } from "@/shared/lib";
 
 type LogoProps = {
   width?: number;

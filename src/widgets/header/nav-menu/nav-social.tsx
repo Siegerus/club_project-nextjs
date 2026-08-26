@@ -1,4 +1,4 @@
-import SocialItem from "@/shared/ui/social-item/social-item";
+import { SocialItem } from "@/shared/ui/social-item";
 import { navSocialItems } from "./constants";
 
 const NavSocial = () => {

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
-import cn from "@/shared/lib/utils";
+import { cn } from "@/shared/lib";
 
 type LinkButtonProps = PropsWithChildren<{
   path: string;

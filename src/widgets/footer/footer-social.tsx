@@ -1,5 +1,5 @@
 import cn from "@/shared/lib/utils";
-import SocialItem from "@/shared/ui/social-item/social-item";
+import { SocialItem } from "@/shared/ui/social-item";
 import { footerSocialItems } from "./constants";
 
 const FooterSocial = () => {

@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import OuterInfo from "@/widgets/outer-info/outer-info";
+import { OuterInfo } from "@/widgets/outer-info";
 import { confidantial } from "@/shared/lib/constants";
 import { AppRoute } from "@/shared/lib/routes";
-import LinkButton from "@/shared/ui/button/link-button";
-import Hamburger from "@/shared/ui/hamburger/hamburger";
-import Logo from "@/shared/ui/logo/logo";
+import { LinkButton } from "@/shared/ui/button";
+import { Hamburger } from "@/shared/ui/hamburger";
+import { Logo } from "@/shared/ui/logo";
 import { navItems, authButtonText } from "./constants";
 import NavSocial from "./nav-social";
 

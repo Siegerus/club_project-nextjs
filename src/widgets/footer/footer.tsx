@@ -1,8 +1,7 @@
-import { AppRoute } from "@/shared/lib/routes";
-import cn from "@/shared/lib/utils";
-import LinkButton from "../../shared/ui/button/link-button";
-import Logo from "../../shared/ui/logo/logo";
-import OuterInfo from "../outer-info/outer-info";
+import { OuterInfo } from "@/widgets/outer-info";
+import { AppRoute, cn } from "@/shared/lib";
+import { LinkButton } from "@/shared/ui/button";
+import { Logo } from "@/shared/ui/logo";
 import {
   footerButtonText,
   footerCompanyNavItems,

@@ -17,11 +17,6 @@ const getNotSharedLayersRules = () =>
     allow: layersLib.getLowerLayers(layer),
   }));
 
-const slicelessLayerRules = [
-  { from: "shared", allow: "shared" },
-  { from: "app", allow: "app" },
-];
-
 const getGodModeRules = () =>
   layersLib.FS_LAYERS.map((layer) => ({
     from: `gm_${layer}`,
@@ -86,15 +81,14 @@ const eslintConfig = defineConfig([
           default: "disallow",
           message:
             '"${file.type}" is not allowed to import "${dependency.type}" | See rules: https://feature-sliced.design/docs/reference/layers/overview ',
-          rules: [...getNotSharedLayersRules(), ...slicelessLayerRules, ...getGodModeRules()],
+          rules: [...getNotSharedLayersRules(), ...getGodModeRules()],
         },
       ],
     },
   },
-  // Override default ignores of eslint-config-next.
   globalIgnores([
+    ".kilo",
     "club_project",
-    // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",
     "build/**",
