@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import cn from "@/shared/lib/utils";
 import { phoneNumber, email } from "@/shared/lib/constants";
+import cn from "@/shared/lib/utils";
 
 type OuterInfoProps = {
   isPhone: boolean;

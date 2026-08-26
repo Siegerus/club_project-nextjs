@@ -1,9 +1,7 @@
-import Logo from "../../shared/ui/logo/logo";
-import OuterInfo from "../outer-info/outer-info";
-import FooterSocial from "./footer-social";
-import FooterDesciption from "./footer-desciption";
-import LinkButton from "../../shared/ui/button/link-button";
-import FooterNav from "./footer-nav";
+import { AppRoute, cn } from "@/shared/lib";
+import { LinkButton } from "@/shared/ui/button";
+import { Logo } from "@/shared/ui/logo";
+import { OuterInfo } from "@/shared/ui/outer-info";
 import {
   footerButtonText,
   footerCompanyNavItems,
@@ -11,8 +9,9 @@ import {
   footerCompanyTitle,
   footerSystemTitle,
 } from "./constants";
-import { AppRoute } from "@/shared/lib/routes";
-import cn from "@/shared/lib/utils";
+import FooterDesciption from "./footer-desciption";
+import FooterNav from "./footer-nav";
+import FooterSocial from "./footer-social";
 
 const Footer = () => {
   return (

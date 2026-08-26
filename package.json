@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typelint": "tsc --noEmit"
+    "lint:fix": "eslint --fix",
+    "lint:types": "tsc --noEmit"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -17,12 +18,15 @@
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
+    "@feature-sliced/eslint-config": "^0.1.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
+    "eslint-plugin-boundaries": "^7.2.0",
+    "eslint-plugin-import": "^2.32.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
