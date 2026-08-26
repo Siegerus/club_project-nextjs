@@ -1,5 +1,5 @@
 import { SocialItem } from "@/shared/ui/social-item";
-import { navSocialItems } from "./constants";
+import { navSocialItems } from "../constants/";
 
 const NavSocial = () => {
   return (

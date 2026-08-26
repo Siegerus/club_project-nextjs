@@ -1,7 +1,5 @@
-import Link from "next/link";
-
-import { NavItemType } from "@/shared/lib/types";
 import { Heading } from "@/shared/ui/heading";
+import { NavItem, NavItemType } from "@/shared/ui/nav-item";
 
 type FooterNavProps = {
   navItems: NavItemType[];
@@ -13,22 +11,9 @@ const FooterNav = ({ navItems, headingText }: FooterNavProps) => {
     <ul className={styles.wrapper}>
       <Heading className={styles.heading} title={headingText} level="h3" />
       {navItems.map((item) => (
-        <FooterNavItem key={item.text} {...item} />
+        <NavItem key={item.text} {...item} className={styles.item} />
       ))}
     </ul>
-  );
-};
-
-type FooterNavItemProps = {
-  text: string;
-  path: string;
-};
-
-const FooterNavItem = ({ text, path }: FooterNavItemProps) => {
-  return (
-    <li className={styles.item}>
-      <Link href={path}>{text}</Link>
-    </li>
   );
 };
 

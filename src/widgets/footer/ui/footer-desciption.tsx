@@ -1,5 +1,5 @@
 import cn from "@/shared/lib/utils";
-import { goalsDescription } from "./constants";
+import { goalsDescription } from "../constants";
 
 const FooterDesciption = () => {
   const parts = goalsDescription.split("&");

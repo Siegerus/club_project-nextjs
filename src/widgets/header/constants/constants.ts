@@ -1,6 +1,6 @@
-import { ExtertalLink } from "@/shared/lib/constants";
+import { ExtertalLink } from "@/shared/constants";
 import { AppRoute } from "@/shared/lib/routes";
-import { NavItemType } from "@/shared/lib/types";
+import { NavItemType } from "@/shared/ui/nav-item";
 import type { SocialItemType } from "@/shared/ui/social-item";
 
 const navItems: NavItemType[] = [
@@ -33,4 +33,6 @@ const navSocialItems: SocialItemType[] = [
 
 const authButtonText = "Войти или Зарегистрироваться";
 
-export { navItems, navSocialItems, authButtonText };
+const headerButtonText = "Регистрация/Вход";
+
+export { navItems, navSocialItems, authButtonText, headerButtonText };

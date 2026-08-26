@@ -1,6 +1,6 @@
 import cn from "@/shared/lib/utils";
 import { SocialItem } from "@/shared/ui/social-item";
-import { footerSocialItems } from "./constants";
+import { footerSocialItems } from "../constants";
 
 const FooterSocial = () => {
   return (

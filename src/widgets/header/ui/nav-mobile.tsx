@@ -1,13 +1,13 @@
 import Image from "next/image";
-import Link from "next/link";
 
-import { confidantial } from "@/shared/lib/constants";
+import { confidantial } from "@/shared/constants";
 import { AppRoute } from "@/shared/lib/routes";
 import { LinkButton } from "@/shared/ui/button";
 import { Hamburger } from "@/shared/ui/hamburger";
 import { Logo } from "@/shared/ui/logo";
+import { NavItem } from "@/shared/ui/nav-item";
 import { OuterInfo } from "@/shared/ui/outer-info";
-import { navItems, authButtonText } from "./constants";
+import { navItems, authButtonText } from "../constants/";
 import NavSocial from "./nav-social";
 
 const NavMobile = () => {
@@ -20,12 +20,22 @@ const NavMobile = () => {
       <nav className={styles.nav} aria-label="Основное меню">
         <ul className={styles.list}>
           {navItems.map((item) => (
-            <NavMobileItem
+            <NavItem
               key={item.text}
               text={item.text}
               path={item.path}
               className={styles.item}
-            />
+              linkClassName={styles.link}
+            >
+              <div className={styles.arrow}>
+                <Image
+                  src="/icons/nav-arrow.svg"
+                  alt="Стрелка"
+                  width={7}
+                  height={13}
+                />
+              </div>
+            </NavItem>
           ))}
         </ul>
         <div className={styles.info}>
@@ -43,25 +53,6 @@ const NavMobile = () => {
         </LinkButton>
       </nav>
     </div>
-  );
-};
-
-type NavMobileItemProps = {
-  path: string;
-  text: string;
-  className: string;
-};
-
-const NavMobileItem = ({ path, text, className }: NavMobileItemProps) => {
-  return (
-    <li className={className}>
-      <Link href={path} className={styles.link}>
-        {text}
-      </Link>
-      <div className={styles.arrow}>
-        <Image src="/icons/nav-arrow.svg" alt="Стрелка" width={7} height={13} />
-      </div>
-    </li>
   );
 };
 
