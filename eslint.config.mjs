@@ -81,7 +81,7 @@ const eslintConfig = defineConfig([
           default: "disallow",
           message:
             '"${file.type}" is not allowed to import "${dependency.type}" | See rules: https://feature-sliced.design/docs/reference/layers/overview ',
-          rules: [...getNotSharedLayersRules(), ...getGodModeRules()],
+          rules: [...getNotSharedLayersRules(), { from: "shared", allow: "shared" }, ...getGodModeRules()],
         },
       ],
     },
