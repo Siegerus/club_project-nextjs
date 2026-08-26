@@ -10,6 +10,7 @@ const { layersLib } = requireFromFsd("@feature-sliced/eslint-config/utils");
 
 const fsSlicedLayersReg = layersLib.getUpperLayers("shared").join("|");
 const fsSegmentsReg = [...layersLib.FS_SEGMENTS, ...layersLib.FS_SEGMENTS.map((seg) => `${seg}.*`)].join("|");
+const slicelessLayerRules  = [{ from: "shared", allow: "shared" }, { from: "app",   allow: "app" }];
 
 const getNotSharedLayersRules = () =>
   layersLib.getUpperLayers("shared").map((layer) => ({
@@ -81,7 +82,7 @@ const eslintConfig = defineConfig([
           default: "disallow",
           message:
             '"${file.type}" is not allowed to import "${dependency.type}" | See rules: https://feature-sliced.design/docs/reference/layers/overview ',
-          rules: [...getNotSharedLayersRules(), { from: "shared", allow: "shared" }, ...getGodModeRules()],
+          rules: [...getNotSharedLayersRules(), ...slicelessLayerRules, ...getGodModeRules()],
         },
       ],
     },
