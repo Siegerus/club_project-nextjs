@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { SocialItemType } from "./types";
 import cn from "@/shared/lib/utils";
+import { SocialItemType } from "./types";
 
 type NavSocialItemProps = SocialItemType & {
   width?: number;

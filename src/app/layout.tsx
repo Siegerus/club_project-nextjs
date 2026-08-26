@@ -1,5 +1,5 @@
-import Header from "@/widgets/header/header";
 import Footer from "@/widgets/footer/footer";
+import Header from "@/widgets/header/header";
 
 import { gilroy } from "./fonts";
 import "./globals.css";

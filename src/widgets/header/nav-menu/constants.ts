@@ -1,7 +1,7 @@
-import { SocialItemType } from "@/shared/ui/social-item/types";
-import { NavItemType } from "@/shared/lib/types";
-import { AppRoute } from "@/shared/lib/routes";
 import { ExtertalLink } from "@/shared/lib/constants";
+import { AppRoute } from "@/shared/lib/routes";
+import { NavItemType } from "@/shared/lib/types";
+import { SocialItemType } from "@/shared/ui/social-item/types";
 
 const navItems: NavItemType[] = [
   { text: "Главная", path: AppRoute.Home },
