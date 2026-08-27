@@ -16,6 +16,7 @@ const Logo = ({ width = 129, height = 24 }: LogoProps) => {
           <source media="(max-width: 767px)" srcSet="/images/logo.svg" />
           <source media="(min-width: 768px)" srcSet="/images/logo.svg" />
           <Image
+            loading="eager"
             src="/images/logo.svg"
             alt="Логотип"
             width={width}
