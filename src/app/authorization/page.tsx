@@ -1,5 +1,11 @@
+import { Container } from "@/shared/ui/container/";
+
 const AuthorizationPage = () => {
-  return <div>AuthorizationPage</div>;
+  return (
+    <Container>
+      <div>AuthorizationPage</div>
+    </Container>
+  );
 };
 
 export default AuthorizationPage;

@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { useState } from "react";
 
 import { Hamburger } from "@/shared";
-const NavMobile = dynamic(() => import("./nav-mobile"));
+const NavMobile = dynamic(() => import("./nav-mobile"), { ssr: false });
 
 const MobileMenuToggle = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);

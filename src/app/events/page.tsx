@@ -1,5 +1,10 @@
+import { Container } from "@/shared/ui/container/";
 const EventsPage = () => {
-  return <div>EventsPage</div>;
+  return (
+    <Container>
+      <div>EventsPage</div>
+    </Container>
+  );
 };
 
 export default EventsPage;

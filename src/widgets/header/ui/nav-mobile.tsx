@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { MouseEvent } from "react";
+import { MouseEvent, PropsWithChildren } from "react";
 
 import { confidantial } from "@/shared/lib";
 import { AppRoute } from "@/shared/lib/routes";
@@ -11,10 +11,9 @@ import { OuterInfo } from "@/shared/ui/outer-info";
 import { navItems, authButtonText } from "../constants/";
 import NavSocial from "./nav-social";
 
-type NavMobileProps = {
+type NavMobileProps = PropsWithChildren<{
   onClick?: (e: MouseEvent) => void;
-  children?: React.ReactNode;
-};
+}>;
 
 const NavMobile = ({ onClick, children }: NavMobileProps) => {
   return (

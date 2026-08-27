@@ -1,3 +1,8 @@
+import { Container } from "@/shared";
 export default function Home() {
-  return <p>Home</p>;
+  return (
+    <Container>
+      <h1>Hello World</h1>
+    </Container>
+  );
 }
