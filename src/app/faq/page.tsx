@@ -1,5 +1,11 @@
+import { Container } from "@/shared/ui/container/";
+
 const FaqPage = () => {
-  return <div>FaqPage</div>;
+  return (
+    <Container>
+      <div>FaqPage</div>
+    </Container>
+  );
 };
 
 export default FaqPage;

@@ -1,5 +1,10 @@
+import { Container } from "@/shared/ui/container/";
 const RulesPage = () => {
-  return <div>RulesPage</div>;
+  return (
+    <Container>
+      <div>RulesPage</div>
+    </Container>
+  );
 };
 
 export default RulesPage;

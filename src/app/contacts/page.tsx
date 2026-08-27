@@ -1,5 +1,11 @@
+import { Container } from "@/shared/ui/container/";
+
 const ContactsPage = () => {
-  return <div>ContactsPage</div>;
+  return (
+    <Container>
+      <div>ContactsPage</div>
+    </Container>
+  );
 };
 
 export default ContactsPage;

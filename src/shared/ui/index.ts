@@ -5,3 +5,4 @@ export { Logo } from "./logo";
 export { NavItem } from "./nav-item";
 export { SocialItem } from "./social-item";
 export { OuterInfo } from "./outer-info";
+export { Container } from "./container/";

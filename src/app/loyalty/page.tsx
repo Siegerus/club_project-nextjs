@@ -1,5 +1,10 @@
+import { Container } from "@/shared/ui/container/";
 const LoyalityPage = () => {
-  return <div>LoyalityPage</div>;
+  return (
+    <Container>
+      <div>LoyalityPage</div>
+    </Container>
+  );
 };
 
 export default LoyalityPage;

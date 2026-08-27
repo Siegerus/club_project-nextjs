@@ -1,3 +1,4 @@
+import { Container } from "@/shared";
 import { AppRoute, cn } from "@/shared/lib";
 import { LinkButton } from "@/shared/ui/button";
 import { Logo } from "@/shared/ui/logo";
@@ -16,7 +17,7 @@ import FooterSocial from "./footer-social";
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div className="container">
+      <Container>
         <div className={styles.top}>
           <FooterSocial />
           <LinkButton path={AppRoute.Authorization} variant="footer">
@@ -48,7 +49,7 @@ const Footer = () => {
           </div>
         </div>
         <FooterDesciption />
-      </div>
+      </Container>
     </footer>
   );
 };

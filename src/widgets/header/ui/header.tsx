@@ -1,6 +1,5 @@
 import { AppRoute, cn } from "@/shared/lib";
 import { LinkButton } from "@/shared/ui/button";
-import { Hamburger } from "@/shared/ui/hamburger";
 import { Logo } from "@/shared/ui/logo";
 import { headerButtonText } from "../constants";
 import MobileMenuToggle from "./mobile-menu-toggle";

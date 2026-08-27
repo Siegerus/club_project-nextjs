@@ -1,5 +1,11 @@
+import { Container } from "@/shared/ui/container/";
+
 const BanglesPage = () => {
-  return <div>BanglesPage</div>;
+  return (
+    <Container>
+      <div>BanglesPage</div>
+    </Container>
+  );
 };
 
 export default BanglesPage;
