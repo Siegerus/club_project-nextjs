@@ -1,4 +1,4 @@
-import { ExtertalLink } from "@/shared/constants";
+import { ExtertalLink } from "@/shared/lib";
 import { AppRoute } from "@/shared/lib/routes";
 import { NavItemType } from "@/shared/ui/nav-item";
 import type { SocialItemType } from "@/shared/ui/social-item";

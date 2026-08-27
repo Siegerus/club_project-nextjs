@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { MouseEvent } from "react";
 
-import { confidantial } from "@/shared/constants";
+import { confidantial } from "@/shared/lib";
 import { AppRoute } from "@/shared/lib/routes";
 import { LinkButton } from "@/shared/ui/button";
 import { Hamburger } from "@/shared/ui/hamburger";
