@@ -1,10 +1,10 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { MouseEvent } from "react";
 
 import { confidantial } from "@/shared/lib";
 import { AppRoute } from "@/shared/lib/routes";
 import { LinkButton } from "@/shared/ui/button";
-import { Hamburger } from "@/shared/ui/hamburger";
 import { Logo } from "@/shared/ui/logo";
 import { NavItem } from "@/shared/ui/nav-item";
 import { OuterInfo } from "@/shared/ui/outer-info";
@@ -13,15 +13,21 @@ import NavSocial from "./nav-social";
 
 type NavMobileProps = {
   onClick?: (e: MouseEvent) => void;
-  isVisible?: boolean;
+  children?: React.ReactNode;
 };
 
-const NavMobile = ({ onClick, isVisible }: NavMobileProps) => {
+const NavMobile = ({ onClick, children }: NavMobileProps) => {
   return (
-    <div className={styles.wrapper}>
+    <motion.div
+      className={styles.wrapper}
+      initial={{ x: "-100%" }}
+      animate={{ x: "0%" }}
+      exit={{ x: "-100%" }}
+      transition={{ duration: 0.9 }}
+    >
       <div className={styles.topBar}>
         <Logo />
-        <Hamburger isActive={isVisible} onClick={onClick} />
+        {children}
       </div>
       <nav className={styles.nav} aria-label="Основное меню">
         <ul className={styles.list}>
@@ -59,7 +65,7 @@ const NavMobile = ({ onClick, isVisible }: NavMobileProps) => {
           <span>{authButtonText}</span>
         </LinkButton>
       </nav>
-    </div>
+    </motion.div>
   );
 };
 

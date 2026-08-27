@@ -1,4 +1,5 @@
 "use client";
+import { AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 
@@ -15,9 +16,13 @@ const MobileMenuToggle = () => {
   return (
     <>
       <Hamburger isActive={isVisible} onClick={handleNavClick} />
-      {isVisible && (
-        <NavMobile isVisible={isVisible} onClick={handleNavClick} />
-      )}
+      <AnimatePresence>
+        {isVisible && (
+          <NavMobile onClick={handleNavClick}>
+            <Hamburger isActive={isVisible} onClick={handleNavClick} />
+          </NavMobile>
+        )}
+      </AnimatePresence>
     </>
   );
 };
