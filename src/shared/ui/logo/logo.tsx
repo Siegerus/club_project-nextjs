@@ -34,5 +34,5 @@ export default Logo;
 const styles = {
   wrapper:
     "flex items-center justify-left min-w-[129px] lg:min-w-[260px] xl:max-w-[230px] xl:min-w-[230px] 2xl:min-w-[260px]",
-  image: "w-auto h-auto max-w-full max-h-full md:w-full md:h-full",
+  image: "w-[129px] h-[24px] max-w-full max-h-full md:w-full md:h-full",
 };
