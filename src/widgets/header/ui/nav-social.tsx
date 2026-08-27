@@ -1,29 +1,14 @@
-import { SocialItem } from "@/shared/ui/social-item";
-import { navSocialItems } from "../constants/";
+import { SocialList } from "@/entities/company";
 
 const NavSocial = () => {
   return (
-    <div className={styles.wrapper}>
-      {navSocialItems.map((item) =>
-        item.alt === "Вконтакте" ? (
-          <SocialItem
-            src={item.src}
-            href={item.href}
-            alt={item.alt}
-            key={item.src}
-            width={23}
-            height={23}
-          />
-        ) : (
-          <SocialItem
-            src={item.src}
-            href={item.href}
-            alt={item.alt}
-            key={item.src}
-          />
-        ),
-      )}
-    </div>
+    <SocialList
+      platforms={["instagram", "whatsapp", "vk", "telegram"]}
+      variant="white"
+      size={{ width: 20, height: 20 }}
+      sizeByPlatform={{ vk: { width: 23, height: 23 } }}
+      wrapperClass={styles.wrapper}
+    />
   );
 };
 

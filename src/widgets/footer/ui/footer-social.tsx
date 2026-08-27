@@ -1,23 +1,17 @@
+import { SocialList } from "@/entities/company";
+
 import cn from "@/shared/lib/utils";
-import { SocialItem } from "@/shared/ui/social-item";
-import { footerSocialItems } from "../constants";
 
 const FooterSocial = () => {
   return (
-    <div className={styles.wrapper}>
-      {footerSocialItems.map((item) => (
-        <SocialItem
-          key={item.alt}
-          alt={item.alt}
-          href={item.href}
-          src={item.src}
-          width={34}
-          height={34}
-          linkClass={styles.link}
-          imageClass={styles.image}
-        />
-      ))}
-    </div>
+    <SocialList
+      platforms={["whatsapp", "telegram"]}
+      variant="colored"
+      size={{ width: 34, height: 34 }}
+      wrapperClass={styles.wrapper}
+      linkClass={styles.link}
+      imageClass={styles.image}
+    />
   );
 };
 
