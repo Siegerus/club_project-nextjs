@@ -1,13 +1,30 @@
-import { SocialList } from "@/entities/company";
-
+import { socialConfigs } from "@/entities/company";
 import cn from "@/shared/lib/utils";
+import { SocialList, type SocialListItem } from "@/shared/ui/social-list";
 
 const FooterSocial = () => {
+  const { whatsapp, telegram } = socialConfigs;
+
+  const items: SocialListItem[] = [
+    {
+      src: whatsapp.icon,
+      href: whatsapp.href,
+      alt: whatsapp.alt,
+      width: 34,
+      height: 34,
+    },
+    {
+      src: telegram.icon,
+      href: telegram.href,
+      alt: telegram.alt,
+      width: 34,
+      height: 34,
+    },
+  ];
+
   return (
     <SocialList
-      platforms={["whatsapp", "telegram"]}
-      variant="colored"
-      size={{ width: 34, height: 34 }}
+      items={items}
       wrapperClass={styles.wrapper}
       linkClass={styles.link}
       imageClass={styles.image}

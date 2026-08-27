@@ -1,15 +1,35 @@
-import { SocialList } from "@/entities/company";
+import { socialConfigs } from "@/entities/company";
+import { SocialList, type SocialListItem } from "@/shared/ui/social-list";
 
 const NavSocial = () => {
-  return (
-    <SocialList
-      platforms={["instagram", "whatsapp", "vk", "telegram"]}
-      variant="white"
-      size={{ width: 20, height: 20 }}
-      sizeByPlatform={{ vk: { width: 23, height: 23 } }}
-      wrapperClass={styles.wrapper}
-    />
-  );
+  const { instagram, whatsapp, vk, telegram } = socialConfigs;
+
+  const items: SocialListItem[] = [
+    {
+      src: instagram.icon,
+      href: instagram.href,
+      alt: instagram.alt,
+      width: 20,
+      height: 20,
+    },
+    {
+      src: whatsapp.iconWhite,
+      href: whatsapp.href,
+      alt: whatsapp.alt,
+      width: 20,
+      height: 20,
+    },
+    { src: vk.icon, href: vk.href, alt: vk.alt, width: 23, height: 23 },
+    {
+      src: telegram.iconWhite,
+      href: telegram.href,
+      alt: telegram.alt,
+      width: 20,
+      height: 20,
+    },
+  ];
+
+  return <SocialList items={items} wrapperClass={styles.wrapper} />;
 };
 
 export default NavSocial;
