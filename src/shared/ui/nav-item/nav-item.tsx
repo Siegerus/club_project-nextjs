@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { MouseEvent, ReactNode } from "react";
 
 import type { NavItemType } from "./types";
 
@@ -7,6 +7,7 @@ type NavItemProps = NavItemType & {
   className?: string;
   linkClassName?: string;
   children?: ReactNode;
+  onClick?: (e: MouseEvent) => void;
 };
 
 const NavItem = ({
@@ -15,9 +16,10 @@ const NavItem = ({
   className,
   linkClassName,
   children,
+  onClick,
 }: NavItemProps) => {
   return (
-    <li className={className}>
+    <li className={className} onClick={onClick}>
       <Link href={path} className={linkClassName}>
         {text}
       </Link>

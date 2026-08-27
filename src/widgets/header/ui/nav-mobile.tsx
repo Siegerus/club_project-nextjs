@@ -1,21 +1,33 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { MouseEvent } from "react";
 
-import { confidantial } from "@/shared/constants";
+import { confidantial } from "@/shared/lib";
 import { AppRoute } from "@/shared/lib/routes";
 import { LinkButton } from "@/shared/ui/button";
-import { Hamburger } from "@/shared/ui/hamburger";
 import { Logo } from "@/shared/ui/logo";
 import { NavItem } from "@/shared/ui/nav-item";
 import { OuterInfo } from "@/shared/ui/outer-info";
 import { navItems, authButtonText } from "../constants/";
 import NavSocial from "./nav-social";
 
-const NavMobile = () => {
+type NavMobileProps = {
+  onClick?: (e: MouseEvent) => void;
+  children?: React.ReactNode;
+};
+
+const NavMobile = ({ onClick, children }: NavMobileProps) => {
   return (
-    <div className={styles.wrapper}>
+    <motion.div
+      className={styles.wrapper}
+      initial={{ x: "-100%" }}
+      animate={{ x: "0%" }}
+      exit={{ x: "-100%" }}
+      transition={{ duration: 0.9 }}
+    >
       <div className={styles.topBar}>
         <Logo />
-        <Hamburger />
+        {children}
       </div>
       <nav className={styles.nav} aria-label="Основное меню">
         <ul className={styles.list}>
@@ -26,6 +38,7 @@ const NavMobile = () => {
               path={item.path}
               className={styles.item}
               linkClassName={styles.link}
+              onClick={onClick}
             >
               <div className={styles.arrow}>
                 <Image
@@ -52,7 +65,7 @@ const NavMobile = () => {
           <span>{authButtonText}</span>
         </LinkButton>
       </nav>
-    </div>
+    </motion.div>
   );
 };
 
@@ -62,8 +75,8 @@ const styles = {
   wrapper:
     "z-20 fixed md:hidden top-0 left-0 w-full h-screen mt-0 pt-[30px] px-[20px] pb-0 bg-nav-gradient overflow-y-scroll header__nav header__nav_m-visible",
   topBar:
-    "flex justify-between items-center p-[14px] rounded-full bg-main-bg header__wrapper header__wrapper_m-visible",
-  nav: "min-h-[650px]",
+    "flex justify-between items-center max-w-[600px] mx-auto p-[14px] rounded-full bg-main-bg header__wrapper header__wrapper_m-visible",
+  nav: "max-w-[600px] min-h-[650px] mx-auto",
   list: "flex flex-col items-start justify-between w-full mt-[10px] p-[10px] rounded-[20px] bg-main-bg backdrop-sepia-[24px] header__list",
   item: "flex items-center w-full py-[10px] pr-[10px] pl-[0] justify-between text-white-70",
   link: "flex items-center justify-between w-full leading-[130%] tracking-[-.02em]",

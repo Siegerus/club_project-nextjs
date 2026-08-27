@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { phoneNumber, email } from "@/shared/constants/constants";
+import { phoneNumber, email } from "@/shared/lib";
 import cn from "@/shared/lib/utils";
 
 type OuterInfoProps = {
