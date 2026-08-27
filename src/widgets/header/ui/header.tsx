@@ -3,7 +3,7 @@ import { LinkButton } from "@/shared/ui/button";
 import { Hamburger } from "@/shared/ui/hamburger";
 import { Logo } from "@/shared/ui/logo";
 import { headerButtonText } from "../constants";
-import NavMobile from "./nav-menu";
+import MobileMenuToggle from "./mobile-menu-toggle";
 import NavMenu from "./nav-menu";
 
 const Header = () => {
@@ -16,10 +16,9 @@ const Header = () => {
           <LinkButton path={AppRoute.Authorization} className={styles.button}>
             <span className={styles.buttonSpan}>{headerButtonText}</span>
           </LinkButton>
-          <Hamburger />
+          <MobileMenuToggle />
         </div>
         <NavMenu tablet />
-        {/* <NavMobile /> */}
       </div>
     </header>
   );
