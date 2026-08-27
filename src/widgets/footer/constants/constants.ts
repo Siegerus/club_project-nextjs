@@ -1,20 +1,5 @@
-import { ExtertalLink } from "@/shared/lib";
 import { AppRoute } from "@/shared/lib/routes";
 import { NavItemType } from "@/shared/ui/nav-item";
-import type { SocialItemType } from "@/shared/ui/social-item";
-
-const footerSocialItems: SocialItemType[] = [
-  {
-    src: "/icons/watsapp.svg",
-    href: ExtertalLink.Telegram,
-    alt: "Телеграм",
-  },
-  {
-    src: "/icons/telegram.svg",
-    href: ExtertalLink.Whatsapp,
-    alt: "Ватсап",
-  },
-];
 
 const footerSystemTitle = "Система";
 const footerSystemNavItems: NavItemType[] = [
@@ -66,7 +51,6 @@ const goalsDescription = `Целями проведения вышеуказан
 export {
   footerButtonText,
   goalsDescription,
-  footerSocialItems,
   footerCompanyNavItems,
   footerSystemNavItems,
   footerSystemTitle,
