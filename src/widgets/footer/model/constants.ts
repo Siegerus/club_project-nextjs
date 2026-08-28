@@ -2,6 +2,7 @@ import { AppRoute } from "@/shared/lib/routes";
 import type { NavItemType } from "@/shared/ui/nav-item";
 
 const footerSystemTitle = "Система";
+
 const footerSystemNavItems: NavItemType[] = [
   {
     text: "Правила",

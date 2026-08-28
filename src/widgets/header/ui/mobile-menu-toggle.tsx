@@ -3,7 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 
-import { Hamburger } from "@/shared/ui/hamburger";
+import { Hamburger } from "@/shared/ui";
 const NavMobile = dynamic(() => import("./nav-mobile"), { ssr: false });
 
 const MobileMenuToggle = () => {

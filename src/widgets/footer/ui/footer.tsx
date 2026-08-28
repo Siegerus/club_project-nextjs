@@ -1,3 +1,4 @@
+import { email } from "@/entities/company";
 import { AppRoute, cn } from "@/shared/lib";
 import { LinkButton } from "@/shared/ui/button";
 import { Container } from "@/shared/ui/container";
@@ -9,7 +10,7 @@ import {
   footerSystemNavItems,
   footerCompanyTitle,
   footerSystemTitle,
-} from "../constants";
+} from "../model";
 import FooterDesciption from "./footer-desciption";
 import FooterNav from "./footer-nav";
 import FooterSocial from "./footer-social";
@@ -28,9 +29,9 @@ const Footer = () => {
           <div className={styles.logoBlock}>
             <Logo width={113} height={22} />
             <OuterInfo
-              isPhone={false}
               linkClass={styles.outerInfo.link}
               wrapperClass={styles.outerInfo.wrapper}
+              mail={email}
               width={14}
               height={14}
             />

@@ -3,12 +3,12 @@ import Image from "next/image";
 import { MouseEvent, PropsWithChildren } from "react";
 
 import { confidantial, email, phoneNumber } from "@/entities/company";
-import { AppRoute } from "@/shared/lib/routes";
-import { LinkButton } from "@/shared/ui/button";
-import { Logo } from "@/shared/ui/logo";
-import { NavItem } from "@/shared/ui/nav-item";
-import { OuterInfo } from "@/shared/ui/outer-info";
-import { navItems, authButtonText } from "../constants/";
+import { AppRoute } from "@/shared/lib";
+import { LinkButton } from "@/shared/ui";
+import { Logo } from "@/shared/ui";
+import { NavItem } from "@/shared/ui";
+import { OuterInfo } from "@/shared/ui";
+import { navItems, authButtonText } from "../model";
 import NavSocial from "./nav-social";
 
 type NavMobileProps = PropsWithChildren<{

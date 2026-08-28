@@ -1,6 +1,6 @@
 import { cn } from "@/shared/lib";
-import { NavItem } from "@/shared/ui/nav-item";
-import { navItems } from "../constants/";
+import { NavItem } from "@/shared/ui";
+import { navItems } from "../model";
 
 type NavMenuPops = {
   tablet?: boolean;
