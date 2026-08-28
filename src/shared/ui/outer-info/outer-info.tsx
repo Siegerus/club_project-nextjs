@@ -1,10 +1,11 @@
 import Image from "next/image";
 
-import { phoneNumber, email } from "@/shared/lib";
 import cn from "@/shared/lib/utils";
 
 type OuterInfoProps = {
-  isPhone: boolean;
+  number?: string;
+  mail?: string;
+  isPhone?: boolean;
   width?: number;
   height?: number;
   linkClass?: string;
@@ -12,7 +13,9 @@ type OuterInfoProps = {
 };
 
 const OuterInfo = ({
-  isPhone,
+  number,
+  mail,
+  isPhone = false,
   linkClass,
   wrapperClass,
   width = 20,
@@ -21,7 +24,7 @@ const OuterInfo = ({
   const iconSrc = isPhone ? "/icons/phone.svg" : "/icons/gmail.svg";
   const imageAlt = isPhone ? "Телефон" : "Email";
   const linkHref = isPhone ? "tel:+70000000000" : "mailto:info@gmail.com";
-  const linkData = isPhone ? phoneNumber : email;
+  const linkData = isPhone ? number : mail;
 
   return (
     <div className={cn(styles.wrapper, wrapperClass)}>
