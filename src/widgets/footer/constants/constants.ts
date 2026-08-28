@@ -1,5 +1,5 @@
 import { AppRoute } from "@/shared/lib/routes";
-import { NavItemType } from "@/shared/ui/nav-item";
+import type { NavItemType } from "@/shared/ui/nav-item";
 
 const footerSystemTitle = "Система";
 const footerSystemNavItems: NavItemType[] = [

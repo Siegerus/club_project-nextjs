@@ -22,7 +22,7 @@ const NavMobile = ({ onClick, children }: NavMobileProps) => {
       initial={{ x: "-100%" }}
       animate={{ x: "0%" }}
       exit={{ x: "-100%" }}
-      transition={{ duration: 0.9 }}
+      transition={{ duration: 0.6 }}
     >
       <div className={styles.topBar}>
         <Logo />

@@ -3,16 +3,10 @@ export type SocialPlatform = "instagram" | "whatsapp" | "telegram" | "vk";
 export type SocialConfig = {
   href: string;
   alt: string;
-  /** Цветная иконка */
   icon: string;
-  /** Белая иконка */
   iconWhite: string;
 };
 
-/**
- * Единый источник правды по соцсетям клуба.
- * Используется в header (мобильное меню) и в footer.
- */
 export const socialConfigs: Record<SocialPlatform, SocialConfig> = {
   instagram: {
     href: "https://instagram.ru/",

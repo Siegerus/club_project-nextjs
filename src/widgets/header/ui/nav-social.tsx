@@ -9,23 +9,17 @@ const NavSocial = () => {
       src: instagram.icon,
       href: instagram.href,
       alt: instagram.alt,
-      width: 20,
-      height: 20,
     },
     {
       src: whatsapp.iconWhite,
       href: whatsapp.href,
       alt: whatsapp.alt,
-      width: 20,
-      height: 20,
     },
     { src: vk.icon, href: vk.href, alt: vk.alt, width: 23, height: 23 },
     {
       src: telegram.iconWhite,
       href: telegram.href,
       alt: telegram.alt,
-      width: 20,
-      height: 20,
     },
   ];
 

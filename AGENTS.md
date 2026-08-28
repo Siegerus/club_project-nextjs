@@ -35,7 +35,7 @@ club_project/
 header, logo, button, promo, title, benefit, feed-form, join, sign, partners, events, bangles, rules, vip, loyalty, questions, connect, action, reviews, modal, footer, animation, policy, 404
 
 ### Страницы:
-index.html, autorization.html, bangles.html, curent-event.html, events.html, loyalty.html, policy.html, questions.html, rules.html, VIP.html, contacts.html, page.html
+authorization, bangles, contacts, events, faq, loyalty, rules, vip, корневой page
 
 ## Целевой стек
 
@@ -45,35 +45,22 @@ index.html, autorization.html, bangles.html, curent-event.html, events.html, loy
 - **Fonts:** `next/font/local` — Gilroy (Medium 500, SemiBold 600, ExtraBold 800)
 - **Fonts location:** `public/fonts/`
 
-## Архитектура миграции
+## Архитектура проекта (FSD)
 
 ### Директории:
 - `/src/app/` — App Router (`layout.tsx`, `page.tsx`, `globals.css`, `fonts.tsx`, route segments)
-- `/src/app/*/page.tsx` — страницы (contacts, bangles, vip, rules, events, ...)
-- `/src/components/ui/` — переиспользуемые UI-компоненты (Button, Hamburger, SocialItem, ...)
-- `/src/components/` — компоновочные компоненты и секции (Header, Footer, Logo, OuterInfo, ...)
-- `/src/components/header/nav-menu/` — колокация: подкомпоненты навигации, используемые только в Header
-- `/src/components/footer/` — колокация: подкомпоненты футера
-- `/src/lib/` — утилиты, константы, типы
-- `/public/img/` — изображения (копия из club_project/src/img/)
-- `/public/fonts/` — шрифты (уже скопированы)
+- `/src/app/*/page.tsx` — страницы (`authorization`, `bangles`, `contacts`, `events`, `faq`, `loyalty`, `rules`, `vip`, корневой `page.tsx`)
+- `/src/widgets/` — крупные составные блоки (`header`, `footer`) с собственными UI и константами
+- `/src/shared/ui/` — переиспользуемые UI-компоненты (`button`, `hamburger`, `logo`, `outer-info`, `social-item`, `social-list`, `heading`, `container`, `nav-item`, ...)
+- `/src/shared/lib/` — утилиты, константы, типы
+- `/src/features/` — фичи
+- `/src/entities/` — сущности (`company`)
+- `/public/img/` — изображения (копия из `club_project/src/img/`)
+- `/public/fonts/` — шрифты Gilroy (Medium 500, SemiBold 600, ExtraBold 800)
 
-### Миграция стилей (SCSS → Tailwind):
-1. Переменные SCSS → `@theme inline` в `globals.css`
-2. Миксины SCSS → Tailwind утилиты или `@apply`
-3. БЭМ-классы → Tailwind классы в React-компонентах
-4. Сложные селекторы (градиенты, тени) → inline styles или `@apply` в компонентах
-5. Responsive → Tailwind breakpoint-префиксы (`sm:`, `md:`, `lg:`)
-
-### Миграция JS:
-1. DOM-манипуляции → React state/useEffect
-2. Табы, модалки, аккордеоны → компоненты с useState
-3. Формы → React state + API Routes вместо PHP
-
-### Миграция PHP → API Routes:
-1. `smart.php` (PHPMailer) → `/src/app/api/email/route.ts`
-2. `telegram/*.php` → `/src/app/api/telegram/route.ts`
-3. Токены и credentials → environment variables (`.env.local`)
+### Шрифты:
+- Подключены через `next/font/local` в `src/app/fonts.tsx`
+- Используется CSS-переменная `gilroy.variable` в `layout.tsx`
 
 ## Безопасность (критично)
 

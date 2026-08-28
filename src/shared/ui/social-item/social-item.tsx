@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { cn } from "@/shared/lib";
-import { SocialItemType } from "./types";
+import type { SocialItemType } from "./types";
 
 type NavSocialItemProps = SocialItemType & {
   width?: number;
@@ -13,8 +13,8 @@ const SocialItem = ({
   src,
   href,
   alt,
-  width = 20,
-  height = 20,
+  width,
+  height,
   linkClass,
   imageClass,
 }: NavSocialItemProps) => {
