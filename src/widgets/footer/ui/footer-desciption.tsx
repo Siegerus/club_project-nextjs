@@ -2,16 +2,15 @@ import cn from "@/shared/lib/utils";
 import { goalsDescription } from "../model";
 
 const FooterDesciption = () => {
-  const parts = goalsDescription.split("&");
-  const [mainText, bottomText] = parts;
+  const { main, bottom } = goalsDescription;
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.text}>
-        {mainText}
+        {main}
         <br />
         <br className="lg:hidden" />
-        {bottomText}
+        {bottom}
       </div>
     </div>
   );
