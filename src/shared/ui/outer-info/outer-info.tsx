@@ -10,6 +10,8 @@ type OuterInfoProps = {
   height?: number;
   linkClass?: string;
   wrapperClass?: string;
+  iconPath: string;
+  linkHref: string;
 };
 
 const OuterInfo = ({
@@ -20,17 +22,17 @@ const OuterInfo = ({
   wrapperClass,
   width = 20,
   height = 20,
+  iconPath,
+  linkHref,
 }: OuterInfoProps) => {
-  const iconSrc = isPhone ? "/icons/phone.svg" : "/icons/gmail.svg";
   const imageAlt = isPhone ? "Телефон" : "Email";
-  const linkHref = isPhone ? "tel:+70000000000" : "mailto:info@gmail.com";
   const linkData = isPhone ? number : mail;
 
   return (
     <div className={cn(styles.wrapper, wrapperClass)}>
       <div className={styles.iconWrap}>
         <Image
-          src={iconSrc}
+          src={iconPath}
           alt={imageAlt}
           width={width}
           height={height}

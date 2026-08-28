@@ -1,4 +1,4 @@
-import { email } from "@/entities/company";
+import { contacts } from "@/entities/company";
 import { AppRoute, cn } from "@/shared/lib";
 import { LinkButton } from "@/shared/ui/button";
 import { Container } from "@/shared/ui/container";
@@ -31,7 +31,9 @@ const Footer = () => {
             <OuterInfo
               linkClass={styles.outerInfo.link}
               wrapperClass={styles.outerInfo.wrapper}
-              mail={email}
+              mail={contacts.email.info}
+              iconPath={contacts.email.iconPath}
+              linkHref={contacts.email.linkHref}
               width={14}
               height={14}
             />

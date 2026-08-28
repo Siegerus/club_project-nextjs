@@ -12,7 +12,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`h-full antialiased ${gilroy.variable}`}>
       <body className={`min-h-full flex flex-col`}>
-        <Header />
+        {/* <Header /> */}
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
