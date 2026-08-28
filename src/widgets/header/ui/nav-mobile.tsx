@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { MouseEvent, PropsWithChildren } from "react";
 
-import { confidantial } from "@/shared/lib";
+import { confidantial, email, phoneNumber } from "@/entities/company";
 import { AppRoute } from "@/shared/lib/routes";
 import { LinkButton } from "@/shared/ui/button";
 import { Logo } from "@/shared/ui/logo";
@@ -51,8 +51,8 @@ const NavMobile = ({ onClick, children }: NavMobileProps) => {
           ))}
         </ul>
         <div className={styles.info}>
-          <OuterInfo isPhone />
-          <OuterInfo isPhone={false} />
+          <OuterInfo isPhone number={phoneNumber} />
+          <OuterInfo mail={email} />
         </div>
         <NavSocial />
         <div className={styles.confidential}>{confidantial}</div>
