@@ -22,6 +22,7 @@ const footerSystemNavItems: NavItemType[] = [
 ];
 
 const footerCompanyTitle = "Компания";
+
 const footerCompanyNavItems: NavItemType[] = [
   {
     text: "Главная",

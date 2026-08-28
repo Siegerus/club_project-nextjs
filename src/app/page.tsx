@@ -1,4 +1,4 @@
-import { Container } from "@/shared";
+import { Container } from "@/shared/ui/container";
 export default function Home() {
   return (
     <Container>

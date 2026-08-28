@@ -1,6 +1,6 @@
-import { Container } from "@/shared";
 import { AppRoute, cn } from "@/shared/lib";
 import { LinkButton } from "@/shared/ui/button";
+import { Container } from "@/shared/ui/container";
 import { Logo } from "@/shared/ui/logo";
 import { OuterInfo } from "@/shared/ui/outer-info";
 import {
