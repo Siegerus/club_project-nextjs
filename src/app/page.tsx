@@ -1,8 +1,10 @@
+import { MainPromo } from "@/widgets/main-promo";
 import { Container } from "@/shared/ui/container";
+
 export default function Home() {
   return (
     <Container>
-      <h1>Hello World</h1>
+      <MainPromo />
     </Container>
   );
 }
