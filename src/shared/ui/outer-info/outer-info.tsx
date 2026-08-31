@@ -13,6 +13,13 @@ type OuterInfoProps = {
   linkHref: string;
 };
 
+const styles = {
+  wrapper: "flex items-center",
+  iconWrap: "flex items-center",
+  image: "max-w-full max-h-full md:w-full md:h-full",
+  link: "text-base text-white-70",
+};
+
 const OuterInfo = ({
   info,
   alt,
@@ -44,10 +51,3 @@ const OuterInfo = ({
 };
 
 export default OuterInfo;
-
-const styles = {
-  wrapper: "flex items-center",
-  iconWrap: "flex items-center",
-  image: "max-w-full max-h-full md:w-full md:h-full",
-  link: "text-base text-white-70",
-};

@@ -6,6 +6,10 @@ type HeadingProps = {
   className?: string;
 };
 
+const styles = {
+  title: "title text-[5.5rem] bg-white-gradient-text",
+};
+
 const Heading = ({ title, className, level }: HeadingProps) => {
   const TitleTag = level;
 
@@ -13,7 +17,3 @@ const Heading = ({ title, className, level }: HeadingProps) => {
 };
 
 export default Heading;
-
-const styles = {
-  title: "title text-[5.5rem] bg-white-gradient-text",
-};

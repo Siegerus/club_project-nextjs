@@ -9,6 +9,11 @@ type IconLinkProps = LinkItemType & {
   imageClass?: string;
 };
 
+const styles = {
+  link: "flex items-center justify-center w-[48px] h-[48px] border-[1.5px] border-white-70 rounded-full",
+  image: "max-w-full max-h-full",
+};
+
 const IconLink = ({
   src,
   href,
@@ -37,8 +42,3 @@ const IconLink = ({
 };
 
 export default IconLink;
-
-const styles = {
-  link: "flex items-center justify-center w-[48px] h-[48px] border-[1.5px] border-white-70 rounded-full",
-  image: "max-w-full max-h-full",
-};

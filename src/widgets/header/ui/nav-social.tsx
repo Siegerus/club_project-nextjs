@@ -1,6 +1,10 @@
 import { socialConfigs } from "@/entities/company";
 import { SocialList, type SocialListItem } from "@/shared/ui/link-list";
 
+const styles = {
+  wrapper: "flex items-center justify-between w-full mt-[10px] py-0 px-[34px]",
+};
+
 const NavSocial = () => {
   const { instagram, whatsapp, vk, telegram } = socialConfigs;
 
@@ -27,7 +31,3 @@ const NavSocial = () => {
 };
 
 export default NavSocial;
-
-const styles = {
-  wrapper: "flex items-center justify-between w-full mt-[10px] py-0 px-[34px]",
-};
