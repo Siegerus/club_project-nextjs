@@ -1,5 +1,5 @@
 import { socialConfigs } from "@/entities/company";
-import { SocialList, type SocialListItem } from "@/shared/ui/social-list";
+import { SocialList, type SocialListItem } from "@/shared/ui/link-list";
 
 const NavSocial = () => {
   const { instagram, whatsapp, vk, telegram } = socialConfigs;

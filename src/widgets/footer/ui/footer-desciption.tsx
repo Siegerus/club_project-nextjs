@@ -1,5 +1,5 @@
 import cn from "@/shared/lib/utils";
-import { goalsDescription } from "../model";
+import { goalsDescription } from "../lib";
 
 const FooterDesciption = () => {
   const { main, bottom } = goalsDescription;

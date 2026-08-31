@@ -1,15 +1,15 @@
 import Image from "next/image";
 import { cn } from "@/shared/lib";
-import type { SocialItemType } from "./types";
+import type { LinkItemType } from "./types";
 
-type NavSocialItemProps = SocialItemType & {
+type IconLinkProps = LinkItemType & {
   width?: number;
   height?: number;
   linkClass?: string;
   imageClass?: string;
 };
 
-const SocialItem = ({
+const IconLink = ({
   src,
   href,
   alt,
@@ -17,7 +17,7 @@ const SocialItem = ({
   height,
   linkClass,
   imageClass,
-}: NavSocialItemProps) => {
+}: IconLinkProps) => {
   return (
     <a
       className={cn(styles.link, linkClass)}
@@ -36,7 +36,7 @@ const SocialItem = ({
   );
 };
 
-export default SocialItem;
+export default IconLink;
 
 const styles = {
   link: "flex items-center justify-center w-[48px] h-[48px] border-[1.5px] border-white-70 rounded-full",

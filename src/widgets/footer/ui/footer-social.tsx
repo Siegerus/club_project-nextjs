@@ -1,6 +1,6 @@
 import { socialConfigs } from "@/entities/company";
 import cn from "@/shared/lib/utils";
-import { SocialList, type SocialListItem } from "@/shared/ui/social-list";
+import { SocialList, type SocialListItem } from "@/shared/ui/link-list";
 
 const FooterSocial = () => {
   const { whatsapp, telegram } = socialConfigs;

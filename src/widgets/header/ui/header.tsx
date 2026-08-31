@@ -1,7 +1,7 @@
 import { AppRoute, cn } from "@/shared/lib";
 import { LinkButton } from "@/shared/ui";
 import { Logo } from "@/shared/ui";
-import { headerButtonText } from "../model";
+import { headerButtonText } from "../lib";
 import MobileMenuToggle from "./mobile-menu-toggle";
 import NavMenu from "./nav-menu";
 

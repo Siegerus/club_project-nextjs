@@ -1,6 +1,6 @@
-import { SocialItem, type SocialItemType } from "../social-item";
+import { SocialItem, type LinkItemType } from "../icon-link";
 
-export type SocialListItem = SocialItemType & {
+export type SocialListItem = LinkItemType & {
   width?: number;
   height?: number;
 };
@@ -14,7 +14,7 @@ type SocialListProps = {
 
 const defaultSize = { width: 20, height: 20 };
 
-const SocialList = ({
+const LinkList = ({
   items,
   wrapperClass,
   linkClass,
@@ -38,4 +38,4 @@ const SocialList = ({
   );
 };
 
-export default SocialList;
+export default LinkList;
