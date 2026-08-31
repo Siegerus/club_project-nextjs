@@ -3,9 +3,8 @@ import Image from "next/image";
 import cn from "@/shared/lib/utils";
 
 type OuterInfoProps = {
-  number?: string;
-  mail?: string;
-  isPhone?: boolean;
+  info: string;
+  alt?: string;
   width?: number;
   height?: number;
   linkClass?: string;
@@ -15,9 +14,8 @@ type OuterInfoProps = {
 };
 
 const OuterInfo = ({
-  number,
-  mail,
-  isPhone = false,
+  info,
+  alt,
   linkClass,
   wrapperClass,
   width = 20,
@@ -25,29 +23,21 @@ const OuterInfo = ({
   iconPath,
   linkHref,
 }: OuterInfoProps) => {
-  const imageAlt = isPhone ? "Телефон" : "Email";
-  const linkData = isPhone ? number : mail;
+  const iconAlt = alt || "Иконка";
 
   return (
     <div className={cn(styles.wrapper, wrapperClass)}>
       <div className={styles.iconWrap}>
         <Image
           src={iconPath}
-          alt={imageAlt}
+          alt={iconAlt}
           width={width}
           height={height}
           className={styles.image}
         />
       </div>
-      <a
-        href={linkHref}
-        className={cn(
-          styles.link,
-          isPhone ? styles.phoneMargin : styles.emailMargin,
-          linkClass,
-        )}
-      >
-        {linkData}
+      <a href={linkHref} className={cn(styles.link, linkClass)}>
+        {info}
       </a>
     </div>
   );
@@ -60,6 +50,4 @@ const styles = {
   iconWrap: "flex items-center",
   image: "max-w-full max-h-full md:w-full md:h-full",
   link: "text-base text-white-70",
-  phoneMargin: "ml-[10px]",
-  emailMargin: "ml-[15px]",
 };

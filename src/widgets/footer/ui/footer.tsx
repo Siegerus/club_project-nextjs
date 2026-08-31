@@ -10,7 +10,7 @@ import {
   footerSystemNavItems,
   footerCompanyTitle,
   footerSystemTitle,
-} from "../model";
+} from "../lib";
 import FooterDesciption from "./footer-desciption";
 import FooterNav from "./footer-nav";
 import FooterSocial from "./footer-social";
@@ -31,7 +31,7 @@ const Footer = () => {
             <OuterInfo
               linkClass={styles.outerInfo.link}
               wrapperClass={styles.outerInfo.wrapper}
-              mail={contacts.email.info}
+              info={contacts.email.info}
               iconPath={contacts.email.iconPath}
               linkHref={contacts.email.linkHref}
               width={14}

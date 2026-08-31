@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { MouseEvent, PropsWithChildren } from "react";
 
-import { confidantial, email, phoneNumber } from "@/entities/company";
+import { confidantial, contacts } from "@/entities/company";
 import { AppRoute } from "@/shared/lib";
 import { LinkButton } from "@/shared/ui";
 import { Logo } from "@/shared/ui";
 import { NavItem } from "@/shared/ui";
 import { OuterInfo } from "@/shared/ui";
-import { navItems, authButtonText } from "../model";
+import { navItems, authButtonText } from "../lib";
 import NavSocial from "./nav-social";
 
 type NavMobileProps = PropsWithChildren<{
@@ -51,8 +51,20 @@ const NavMobile = ({ onClick, children }: NavMobileProps) => {
           ))}
         </ul>
         <div className={styles.info}>
-          <OuterInfo isPhone number={phoneNumber} />
-          <OuterInfo mail={email} />
+          <OuterInfo
+            linkClass={styles.phoneLink}
+            info={contacts.phone.info}
+            iconPath={contacts.phone.iconPath}
+            linkHref={contacts.phone.linkHref}
+            alt="Телефон"
+          />
+          <OuterInfo
+            linkClass={styles.mailLink}
+            info={contacts.email.info}
+            iconPath={contacts.email.iconPath}
+            linkHref={contacts.email.linkHref}
+            alt="Email"
+          />
         </div>
         <NavSocial />
         <div className={styles.confidential}>{confidantial}</div>
@@ -84,4 +96,6 @@ const styles = {
   confidential:
     "max-w-[204px] mt-[10px] mx-auto mb-0 text-sm text-center text-white-70 leading-[130%]",
   authButton: "w-full max-w-[320px] mt-[10px] py-[14px] px-0 text-sm",
+  phoneLink: "ml-[10px]",
+  mailLink: "ml-[15px]",
 };
