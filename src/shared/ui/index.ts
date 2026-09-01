@@ -1,4 +1,3 @@
-// export { LinkButton } from "./button";
 export { LinkButton } from "./button/";
 export { Hamburger } from "./hamburger";
 export { Heading } from "./heading";
@@ -10,3 +9,4 @@ export { OuterInfo } from "./outer-info";
 export { Container } from "./container/";
 export { Modal } from "./modal";
 export { Overlay } from "./overlay";
+export { Input } from "./input";
