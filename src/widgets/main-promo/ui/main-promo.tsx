@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { cn } from "@/shared/lib";
 import { Heading } from "@/shared/ui";
+import { Modal } from "@/shared/ui";
 import {
   promoTitle,
   promoTitleMobile,
@@ -56,6 +57,7 @@ const MainPromo = () => {
           />
         </div>
       </div>
+      <Modal />
     </section>
   );
 };

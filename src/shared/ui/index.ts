@@ -8,3 +8,4 @@ export { SocialItem } from "./icon-link";
 export { SocialList } from "./link-list";
 export { OuterInfo } from "./outer-info";
 export { Container } from "./container/";
+export { Modal } from "./modal";
