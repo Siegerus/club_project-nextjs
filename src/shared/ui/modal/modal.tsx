@@ -7,10 +7,10 @@ type ModalProps = PropsWithChildren<{
   rootClass?: string;
   wrapperClass?: string;
 }>;
-
+// md:rounded-[40px]
 const styles = {
-  root: "z-100 absolute top-[50%] max-w-[500px] left-[50%] px-[40px] py-[40px] m-auto inset-0 rounded-[40px] ",
-  wrapper: "",
+  root: "z-50 relative md:-top-[10%] h-dvh md:h-auto px-[20px] md:px-[40px] py-[40px]",
+  wrapper: "overflow-y-scroll md:overflow-y-auto",
 };
 
 const Modal = ({ children, rootClass, wrapperClass }: ModalProps) => {

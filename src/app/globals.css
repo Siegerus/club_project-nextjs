@@ -8,7 +8,9 @@
 @theme inline {
   --font-sans: var(--font-gilroy);
   --tracking-base: -0.02em;
-  --line-height-main: 1.3;
+  --tracking-none: 0;
+  --leading-main: 1.3;
+  --leading-middle: 1.4;
   --breakpoint-2xl: 90rem; /* 1440px */
   --breakpoint-3xl: 105rem; /* 1680px */
   --color-main-bg: rgba(255, 255, 255, 0.04);
@@ -27,8 +29,8 @@
   -webkit-text-fill-color: transparent;
 }
 
-@utility leading-main {
-  line-height: 1.3;
+@utility bg-blur {
+  backdrop-filter: blur(24px);
 }
 
 
@@ -53,7 +55,6 @@ body {
 }
 
 .title {
-  @apply font-semibold tracking-tight bg-clip-text ;
+  @apply font-semibold bg-clip-text;
 }
 
-/* test message */

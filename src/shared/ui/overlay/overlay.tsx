@@ -1,5 +1,5 @@
 const styles = {
-  root: "z-90 fixed top-0 left-0 w-full h-dvh bg-black/30",
+  root: "z-40 fixed top-0 left-0 flex items-center justify-center w-full h-dvh bg-black/30",
 };
 
 type OverlayProps = {
