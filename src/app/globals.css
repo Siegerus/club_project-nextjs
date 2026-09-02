@@ -44,11 +44,27 @@
 @utility bg-nav-gradient {
   background-image: var(--background);
 }
+  
+@utility input-focus {
+  &::placeholder {
+    transition: all 0.3s ; 
+  }
+  
+  &:focus {
+    outline: 6px solid rgb(145 92 70 / 20%);
+    transition: outline 0s;
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+}
 
 body {
   background: var(--background);
   font-family: var(--font-sans), sans-serif;
 }
+
 
 .container {
   @apply mx-auto w-full md:w-[648px] lg:w-[968px] xl:w-[1120px] 2xl:w-[1320px] 3xl:w-[1540px] py-0 px-[20px] md:px-0;

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Modal } from "@/shared/ui";
 import { Heading } from "@/shared/ui";
+import { Input } from "@/shared/ui";
 import {
   joinModalTitle,
   joinModalBGPath,
@@ -11,12 +12,11 @@ import JoinForm from "./join-form";
 /* type Props = {} */
 
 const styles = {
-  modal: "w-full  md:max-w-[603px]",
+  modal: "w-full md:max-w-[603px] md:-top-[3%]",
   title: "mt-[20px] text-4xl text-center leading-middle",
   subtitle: "mt-[10px] text-xl text-center text-white-40",
   icon: "mx-auto",
   image: "z-[-1] absolute top-0 left-0 w-full h-full md:h-auto object-cover",
-  input: "",
   button: "",
 };
 

@@ -6,6 +6,7 @@ type ButtonProps = PropsWithChildren<
   ButtonHTMLAttributes<HTMLButtonElement> & {
     className?: string;
     type?: "button" | "submit" | "reset";
+    variant?: "no-bg";
   }
 >;
 
@@ -17,11 +18,23 @@ const styles = {
     "p-[10px] px-[12px] pb-[12px] md:pt-[20px] md:pb-[22px] md:px-[50px] xl:pt-[20px] xl:pb-[22px] xl:px-[50px] 2xl:pt-[20px] 2xl:pb-[22px] 2xl:px-[50px]",
     "text-sm md:text-xl text-black-primary font-semibold",
   ),
+  noBg: "pt-[18px] pb-[20px] 3xl:pt-[28px] 3xl:pb-[30px] 3xl:px-0 bg-transparent text-white border-[1.5px] border-white",
 };
 
-const Button = ({ children, type = "button", className }: ButtonProps) => {
+const Button = ({
+  children,
+  type = "button",
+  className,
+  variant,
+}: ButtonProps) => {
+  const buttonClass = cn(
+    styles.base,
+    variant === "no-bg" && styles.noBg,
+    className,
+  );
+
   return (
-    <button className={cn(styles.base, className)} type={type}>
+    <button className={buttonClass} type={type}>
       {children}
     </button>
   );

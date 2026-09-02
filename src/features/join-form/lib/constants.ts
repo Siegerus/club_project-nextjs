@@ -5,3 +5,9 @@ export const joinModalSubTitle = `Стоимость билета в клуб ${
 
 export const joinModalBGPath = "/images/modal-bg.png";
 export const joinModalIconPath = "/icons/join-modal-icon.svg";
+
+export const joinFormPlaceholders = {
+  email: "Адрес электронной почты",
+};
+
+export const joinFormButtonText = "Оплатить вход в клуб";

@@ -9,7 +9,7 @@ type ModalProps = PropsWithChildren<{
 }>;
 // md:rounded-[40px]
 const styles = {
-  root: "z-50 relative md:-top-[10%] h-dvh md:h-auto px-[20px] md:px-[40px] py-[40px]",
+  root: "z-50 relative h-dvh md:h-auto px-[20px] md:px-[40px] py-[40px]",
   wrapper: "overflow-y-scroll md:overflow-y-auto",
 };
 

@@ -3,9 +3,9 @@ import { ReactElement } from "react";
 import { cn } from "@/shared/lib";
 
 type CheckboxProps = {
-  wrapperClass: string;
-  checkBoxClass: string;
-  children: ReactElement;
+  wrapperClass?: string;
+  checkBoxClass?: string;
+  children?: ReactElement;
 };
 
 const styles = {
