@@ -14,6 +14,7 @@
   --leading-main: 1.3;
   --leading-middle: 1.4;
   --leading-small: 1.2;
+  --transition-duration-base: 400ms;
   --breakpoint-2xl: 90rem; /* 1440px */
   --breakpoint-3xl: 105rem; /* 1680px */
   --color-main-bg: rgba(255, 255, 255, 0.04);
@@ -150,7 +151,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    transition: 0.3s;
     border-radius: 100px;
     background: linear-gradient(90deg, #f43b47 0%, #453a94 100%);
     color: #fff;
@@ -171,8 +171,8 @@
     color: #080808;
 
     &::before {
-            background: unset;
-        }
+      background: unset;
+    }
   }
 
   @media (hover: none) {

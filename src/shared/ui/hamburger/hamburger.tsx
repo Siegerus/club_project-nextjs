@@ -10,7 +10,7 @@ type HamburgerProps = {
 
 const styles = {
   wrapper: "w-[17px] md:hidden",
-  stick: "block w-full h-[1.5px] mx-auto mb-[3px] bg-white duration-200",
+  stick: "block w-full h-[1.5px] mx-auto mb-[3px] bg-white duration-base",
   active:
     "nth-1:-rotate-45 nth-1:translate-y-[4.5px] nth-2:opacity-0 nth-3:rotate-45 nth-3:translate-y-[-4.5px]",
 };
