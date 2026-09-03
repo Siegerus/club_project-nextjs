@@ -63,10 +63,6 @@
 @utility close-button {
   position: absolute;
   z-index: 35;
-  top: 0;
-  right: -82px;
-  width: 62px;
-  height: 62px;
   transform: rotate(45deg);
   border-radius: 100px;
   background-color: var(--color-main-bg);
