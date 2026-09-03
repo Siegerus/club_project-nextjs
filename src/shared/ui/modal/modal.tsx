@@ -6,6 +6,7 @@ import { Overlay } from "../overlay";
 type ModalProps = PropsWithChildren<{
   rootClass?: string;
   wrapperClass?: string;
+  backgroundStyle?: React.CSSProperties;
   closeClass?: string;
 }>;
 
@@ -19,11 +20,12 @@ const Modal = ({
   children,
   rootClass,
   wrapperClass,
+  backgroundStyle,
   closeClass,
 }: ModalProps) => {
   return (
     <Overlay>
-      <div className={cn(styles.root, rootClass)}>
+      <div className={cn(styles.root, rootClass)} style={backgroundStyle}>
         <div className={cn(styles.wrapper, wrapperClass)}>{children}</div>
         <button className={cn(styles.close, closeClass)}></button>
       </div>
