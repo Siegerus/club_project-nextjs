@@ -35,7 +35,7 @@ const JoinModal = () => {
     >
       <Image
         className={styles.icon}
-        width={140}
+        width={141}
         height={140}
         alt=""
         src={joinModalIconPath}

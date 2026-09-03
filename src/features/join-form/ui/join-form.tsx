@@ -11,22 +11,31 @@ import {
 /* type JoinFormProps = {}; */
 
 const styles = {
+  form: "flex flex-col items-center w-full",
   input:
-    "w-[calc(100%-12px)] mt-[20px] mb-[20px] mx-auto rounded-2xl bg-main-input",
-  button: "w-full max-w-auto text-xl leading-main tracking-base",
-  checkbox: "",
+    "min-w-full mt-[20px] mb-[25px] md:mb-[20px] px-[30px] mx-auto rounded-2xl bg-main-input placeholder:text-sm md:placeholder:text-base",
+  button:
+    "w-full max-w-auto py-[20px] md:py-[21px] text-base md:text-xl leading-main tracking-base",
+  checkbox:
+    "min-w-[16px] min-h-[16px] md:min-w-[21px] md:min-h-[20px] mr-[8px] bg-transparent custom-checked_white",
+  checkboxWrapper: "mt-[30px] md:mt-[20px]",
+  checkboxInfo: "text-sm md:text-xl leading-small text-center text-white-70 ",
 };
 
 const JoinForm = (/* {}: JoinFormProps */) => {
   const { email } = joinFormPlaceholders;
   return (
-    <form>
+    <form className={styles.form}>
       <Input inputClass={styles.input} placeholder={email} />
       <Button className={styles.button} variant="no-bg">
         {joinFormButtonText}
       </Button>
-      <Checkbox checkBoxClass={styles.checkbox}>
-        <span>{joinFormCheckboxInfo}</span>
+      <Checkbox
+        checkBoxClass={styles.checkbox}
+        wrapperClass={styles.checkboxWrapper}
+        variant="white"
+      >
+        <span className={styles.checkboxInfo}>{joinFormCheckboxInfo}</span>
       </Checkbox>
     </form>
   );
