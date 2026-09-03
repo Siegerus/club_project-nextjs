@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Modal } from "@/shared/ui";
 import { Heading } from "@/shared/ui";
-import { Input } from "@/shared/ui";
 import {
   joinModalTitle,
   joinModalBGPath,
@@ -9,27 +8,24 @@ import {
   joinModalSubTitle,
 } from "../lib";
 import JoinForm from "./join-form";
-/* type Props = {} */
 
 const styles = {
   modal: "w-full md:max-w-[603px] md:-top-[3%]",
   title: "mt-[20px] text-4xl text-center leading-middle",
   subtitle: "mt-[10px] text-xl text-center text-white-40",
-  icon: "mx-auto",
-  image: "z-[-1] absolute top-0 left-0 w-full h-full md:h-auto object-cover",
+  icon: "mx-auto relative z-10",
   button: "",
 };
 
-const JoinModal = (/* props: Props */) => {
+const bgStyle = {
+  backgroundImage: `url(${joinModalBGPath})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+};
+
+const JoinModal = () => {
   return (
-    <Modal rootClass={styles.modal}>
-      <Image
-        className={styles.image}
-        width={603}
-        height={550}
-        alt=""
-        src={joinModalBGPath}
-      />
+    <Modal rootClass={styles.modal} backgroundStyle={bgStyle}>
       <Image
         className={styles.icon}
         width={140}
