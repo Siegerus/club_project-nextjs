@@ -49,7 +49,7 @@
   &::placeholder {
     transition: all 0.3s ; 
   }
-  
+
   &:focus {
     outline: 6px solid rgb(145 92 70 / 20%);
     transition: outline 0s;
@@ -57,6 +57,44 @@
     &::placeholder {
       color: transparent;
     }
+  }
+}
+
+@utility close-button {
+  position: absolute;
+  z-index: 35;
+  top: 0;
+  right: -82px;
+  width: 62px;
+  height: 62px;
+  transform: rotate(45deg);
+  border-radius: 100px;
+  background-color: var(--color-main-bg);
+  backdrop-filter: blur(24px);
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 21px;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    background-color: #fff;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 21px;
+    height: 3px;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    background-color: #fff;
   }
 }
 

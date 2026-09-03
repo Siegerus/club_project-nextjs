@@ -16,6 +16,7 @@ const styles = {
 const Checkbox = ({ checkBoxClass, wrapperClass, children }: CheckboxProps) => {
   return (
     <div className={cn(styles.wrapper, wrapperClass)}>
+      <label htmlFor=""></label>
       <input className={cn(styles.checkBox, checkBoxClass)} type="checkbox" />
       {children}
     </div>

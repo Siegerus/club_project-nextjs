@@ -11,3 +11,6 @@ export const joinFormPlaceholders = {
 };
 
 export const joinFormButtonText = "Оплатить вход в клуб";
+
+export const joinFormCheckboxInfo =
+  "Я согласен с условиями обработки персональных данных";

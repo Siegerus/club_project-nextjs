@@ -6,18 +6,26 @@ import { Overlay } from "../overlay";
 type ModalProps = PropsWithChildren<{
   rootClass?: string;
   wrapperClass?: string;
+  closeClass?: string;
 }>;
-// md:rounded-[40px]
+
 const styles = {
-  root: "z-50 relative h-dvh md:h-auto px-[20px] md:px-[40px] py-[40px]",
-  wrapper: "overflow-y-scroll md:overflow-y-auto",
+  root: "z-50 relative h-dvh md:h-auto px-[20px] md:px-[40px] py-[40px] overflow-y-scroll md:overflow-y-auto",
+  wrapper: "",
+  close: "close-button",
 };
 
-const Modal = ({ children, rootClass, wrapperClass }: ModalProps) => {
+const Modal = ({
+  children,
+  rootClass,
+  wrapperClass,
+  closeClass,
+}: ModalProps) => {
   return (
     <Overlay>
       <div className={cn(styles.root, rootClass)}>
         <div className={cn(styles.wrapper, wrapperClass)}>{children}</div>
+        <button className={cn(styles.close, closeClass)}></button>
       </div>
     </Overlay>
   );
