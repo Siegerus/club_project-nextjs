@@ -8,6 +8,7 @@ type ModalProps = PropsWithChildren<{
   wrapperClass?: string;
   backgroundStyle?: React.CSSProperties;
   closeClass?: string;
+  onClick: () => void;
 }>;
 
 const styles = {
@@ -22,12 +23,20 @@ const Modal = ({
   wrapperClass,
   backgroundStyle,
   closeClass,
+  onClick,
 }: ModalProps) => {
+  const handleCloseButton = () => {
+    onClick();
+  };
+
   return (
     <Overlay>
       <div className={cn(styles.root, rootClass)} style={backgroundStyle}>
         <div className={cn(styles.wrapper, wrapperClass)}>{children}</div>
-        <button className={cn(styles.close, closeClass)}></button>
+        <button
+          onClick={handleCloseButton}
+          className={cn(styles.close, closeClass)}
+        ></button>
       </div>
     </Overlay>
   );

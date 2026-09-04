@@ -25,13 +25,18 @@ const bgStyle = {
   backgroundPosition: "center",
 };
 
-const JoinModal = () => {
+type JoinModalProps = {
+  onClick: () => void;
+};
+
+const JoinModal = ({ onClick }: JoinModalProps) => {
   return (
     <Modal
       rootClass={styles.rootModal}
       wrapperClass={styles.wrapper}
       backgroundStyle={bgStyle}
       closeClass={styles.close}
+      onClick={onClick}
     >
       <Image
         className={styles.icon}

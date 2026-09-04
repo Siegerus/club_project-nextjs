@@ -1,9 +1,7 @@
 import Image from "next/image";
 
-import { JoinModal } from "@/features/join-form";
 import { cn } from "@/shared/lib";
 import { Heading } from "@/shared/ui";
-
 import {
   promoTitle,
   promoTitleMobile,
@@ -11,6 +9,7 @@ import {
   mainPicturePath,
   mainPictureMobilePath,
 } from "../lib";
+import ModalToggle from "./modal-toggle";
 
 const titleCommon =
   "text-[3.25em] md:text-[4.375em] lg:text-[6.25em] xl:text-[6.875em] 2xl:text-[7.5em] 3xl:text-9xl leading-[1] md:leading-[1.25] text-center tracking-base";
@@ -57,8 +56,8 @@ const MainPromo = () => {
             className={styles.subTitle}
           />
         </div>
+        <ModalToggle />
       </div>
-      <JoinModal />
     </section>
   );
 };
