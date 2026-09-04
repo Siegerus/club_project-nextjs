@@ -6,15 +6,18 @@ import { Button } from "@/shared/ui";
 import { promoButtonText } from "../lib";
 
 const ModalToggle = () => {
-  const { isModalOpen, handleToggleModal } = useModal();
+  const { isModalOpen, handleOpenModal, handleCloseModal, modalRootRef } =
+    useModal();
 
   return (
     <>
-      <Button onClick={handleToggleModal}>
-        <span>{promoButtonText}</span>{" "}
+      <Button onClick={handleOpenModal}>
+        <span>{promoButtonText}</span>
       </Button>
 
-      {isModalOpen && <JoinModal onClick={handleToggleModal} />}
+      {isModalOpen && (
+        <JoinModal onClose={handleCloseModal} modalRootRef={modalRootRef} />
+      )}
     </>
   );
 };

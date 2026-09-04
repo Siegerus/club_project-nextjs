@@ -1,5 +1,5 @@
 import { socialConfigs } from "@/entities/company";
-import cn from "@/shared/lib/utils/cn";
+import { cn } from "@/shared/lib/utils";
 import { SocialList, type SocialListItem } from "@/shared/ui/link-list";
 
 const styles = {

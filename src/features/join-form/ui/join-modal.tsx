@@ -26,17 +26,19 @@ const bgStyle = {
 };
 
 type JoinModalProps = {
-  onClick: () => void;
+  onClose?: () => void;
+  modalRootRef?: React.RefObject<HTMLDivElement | null>;
 };
 
-const JoinModal = ({ onClick }: JoinModalProps) => {
+const JoinModal = ({ onClose, modalRootRef }: JoinModalProps) => {
   return (
     <Modal
       rootClass={styles.rootModal}
       wrapperClass={styles.wrapper}
       backgroundStyle={bgStyle}
       closeClass={styles.close}
-      onClick={onClick}
+      onClose={onClose}
+      modalRootRef={modalRootRef}
     >
       <Image
         className={styles.icon}

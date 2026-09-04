@@ -7,6 +7,7 @@ type ButtonProps = PropsWithChildren<
     className?: string;
     type?: "button" | "submit" | "reset";
     variant?: "no-bg";
+    onClick?: () => void;
   }
 >;
 
@@ -26,6 +27,7 @@ const Button = ({
   type = "button",
   className,
   variant,
+  onClick,
 }: ButtonProps) => {
   const buttonClass = cn(
     styles.base,
@@ -34,7 +36,7 @@ const Button = ({
   );
 
   return (
-    <button className={buttonClass} type={type}>
+    <button className={buttonClass} type={type} onClick={onClick}>
       {children}
     </button>
   );

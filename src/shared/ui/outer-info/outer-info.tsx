@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import cn from "@/shared/lib/utils/cn";
+import { cn } from "@/shared/lib/utils";
 
 type OuterInfoProps = {
   info: string;

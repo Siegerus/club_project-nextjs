@@ -1,28 +1,45 @@
 "use client";
-import { RefObject, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-function useModal(modalRef?: RefObject<HTMLElement | null>) {
+function useModal() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const modalRootRef = useRef<HTMLDivElement | null>(null);
 
-  const handleToggleModal = () => {
-    setIsModalOpen((prevState) => !prevState);
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   useEffect(() => {
+    if (!isModalOpen || !modalRootRef.current) return;
+
+    const closeWindow = (e: MouseEvent | KeyboardEvent) => {
+      const target = e.target as Node | null;
+      if (target && modalRootRef.current?.contains(target)) return;
+      handleCloseModal();
+    };
+
+    document.body.addEventListener("click", closeWindow);
+    document.body.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeWindow(e);
+    });
+
     document.body.style.overflow = isModalOpen ? "hidden" : "auto";
 
-    const closeWindow = (e: MouseEvent) => {
-      if (e.target === modalRef?.current) return;
-      setIsModalOpen((prevState) => !prevState);
+    return () => {
+      document.body.removeEventListener("click", closeWindow);
+      document.body.removeEventListener("keydown", closeWindow);
+      document.body.style.overflow = "auto";
     };
-    document.body.addEventListener("click", closeWindow);
-
-    return () => document.body.removeEventListener("click", closeWindow);
-  }, [isModalOpen, modalRef]);
+  }, [isModalOpen]);
 
   return {
     isModalOpen,
-    handleToggleModal,
+    handleOpenModal,
+    handleCloseModal,
+    modalRootRef,
   };
 }
 
