@@ -11,7 +11,7 @@ type InputProps = {
 const styles = {
   wrapper: "w-full",
   input:
-    "block relative px-[20px] py-[18px] md:py-[22px] text-base text-white leading-middle tracking-base outline-hidden duration-300 ease-in placeholder:text-white-40 input-focus",
+    "block relative px-[20px] py-[18px] md:py-[22px] text-base text-white leading-middle tracking-base outline-hidden duration-300 ease-in placeholder:text-white-40 input-interactive",
   label: "",
 };
 

@@ -21,7 +21,7 @@ const styles = {
   ),
   footer:
     "max-w-[159px] md:max-w-[292px] 3xl:max-w-[292px] m-0 button-hover_full",
-  noBg: "pt-[18px] pb-[20px] 3xl:pt-[28px] 3xl:pb-[30px] 3xl:px-0 bg-transparent text-white border-[1.5px] border-white",
+  noBg: "pt-[18px] pb-[20px] 3xl:pt-[28px] 3xl:pb-[30px] 3xl:px-0 bg-transparent text-white border-[1.5px] border-white button-interactive_blank",
 };
 
 const LinkButton = ({

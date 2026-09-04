@@ -1,3 +1,4 @@
+import { cn } from "@/shared/lib";
 import { Input } from "@/shared/ui";
 import { Button } from "@/shared/ui";
 import { Checkbox } from "@/shared/ui";
@@ -12,8 +13,11 @@ import {
 
 const styles = {
   form: "flex flex-col items-center w-full",
-  input:
-    "min-w-full mt-[20px] mb-[25px] md:mb-[20px] px-[30px] mx-auto rounded-2xl bg-main-input placeholder:text-sm md:placeholder:text-base",
+  input: cn(
+    "min-w-full mt-[20px] mb-[25px] md:mb-[20px] px-[30px] mx-auto rounded-2xl bg-main-input",
+    "placeholder:text-sm md:placeholder:text-base",
+  ),
+
   button:
     "w-full max-w-auto py-[20px] md:py-[21px] text-base md:text-xl leading-main tracking-base",
   checkbox:

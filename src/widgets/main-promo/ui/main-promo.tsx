@@ -58,7 +58,7 @@ const MainPromo = () => {
           />
         </div>
       </div>
-      {/* <JoinModal /> */}
+      <JoinModal />
     </section>
   );
 };
