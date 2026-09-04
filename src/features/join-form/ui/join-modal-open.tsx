@@ -1,18 +1,18 @@
 "use client";
 
-import { JoinModal } from "@/features/join-form";
 import { useModal } from "@/shared/lib";
 import { Button } from "@/shared/ui";
-import { promoButtonText } from "../lib";
+import { openButtonText } from "../lib";
+import JoinModal from "./join-modal";
 
-const ModalToggle = () => {
+const JoinModalOpen = () => {
   const { isModalOpen, handleOpenModal, handleCloseModal, modalRootRef } =
     useModal();
 
   return (
     <>
       <Button onClick={handleOpenModal}>
-        <span>{promoButtonText}</span>
+        <span>{openButtonText}</span>
       </Button>
 
       {isModalOpen && (
@@ -22,4 +22,4 @@ const ModalToggle = () => {
   );
 };
 
-export default ModalToggle;
+export default JoinModalOpen;

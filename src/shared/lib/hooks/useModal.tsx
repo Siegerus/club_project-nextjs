@@ -15,22 +15,24 @@ function useModal() {
   useEffect(() => {
     if (!isModalOpen || !modalRootRef.current) return;
 
-    const closeWindow = (e: MouseEvent | KeyboardEvent) => {
+    const handleClickClose = (e: MouseEvent | KeyboardEvent) => {
       const target = e.target as Node | null;
       if (target && modalRootRef.current?.contains(target)) return;
       handleCloseModal();
     };
 
-    document.body.addEventListener("click", closeWindow);
-    document.body.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeWindow(e);
-    });
+    const handleKeyClose = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleClickClose(e);
+    };
+
+    document.body.addEventListener("click", handleClickClose);
+    document.body.addEventListener("keydown", handleKeyClose);
 
     document.body.style.overflow = isModalOpen ? "hidden" : "auto";
 
     return () => {
-      document.body.removeEventListener("click", closeWindow);
-      document.body.removeEventListener("keydown", closeWindow);
+      document.body.removeEventListener("click", handleClickClose);
+      document.body.removeEventListener("keydown", handleKeyClose);
       document.body.style.overflow = "auto";
     };
   }, [isModalOpen]);

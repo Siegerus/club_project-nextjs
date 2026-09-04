@@ -1,2 +1,1 @@
-export { default as JoinForm } from "./join-form";
-export { default as JoinModal } from "./join-modal";
+export { default as JoinModalOpen } from "./join-modal-open";
