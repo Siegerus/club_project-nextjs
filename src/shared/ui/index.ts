@@ -12,3 +12,4 @@ export { Modal } from "./modal";
 export { Overlay } from "./overlay";
 export { Input } from "./input";
 export { Checkbox } from "./checkbox";
+export { Card } from "./card";
