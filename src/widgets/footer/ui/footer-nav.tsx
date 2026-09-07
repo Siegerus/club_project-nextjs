@@ -8,14 +8,14 @@ type FooterNavProps = {
 
 const styles = {
   wrapper: "list-none footer__list",
-  heading: "text-2xl md:text-4xl lg:text-[2.125rem] text-white-70",
+  title: "text-2xl md:text-4xl lg:text-[2.125rem] text-white-70",
   item: "mt-[20px] text-sm md:text-xl lg:text-lg 2xl:text-lg 3xl:text-xl text-white-70 font-semibold leading-[130%]",
 };
 
 const FooterNav = ({ navItems, headingText }: FooterNavProps) => {
   return (
     <ul className={styles.wrapper}>
-      <Heading className={styles.heading} title={headingText} level="h3" />
+      <Heading className={styles.title} title={headingText} level="h3" />
       {navItems.map((item) => (
         <NavItem key={item.text} {...item} className={styles.item} />
       ))}

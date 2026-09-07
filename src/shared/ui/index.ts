@@ -1,5 +1,5 @@
-// export { LinkButton } from "./button";
-export { LinkButton } from "./button/";
+export { LinkButton } from "./button";
+export { Button } from "./button/";
 export { Hamburger } from "./hamburger";
 export { Heading } from "./heading";
 export { Logo } from "./logo";
@@ -7,4 +7,8 @@ export { NavItem } from "./nav-item";
 export { SocialItem } from "./icon-link";
 export { SocialList } from "./link-list";
 export { OuterInfo } from "./outer-info";
-export { Container } from "./container/";
+export { Container } from "./container";
+export { Modal } from "./modal";
+export { Overlay } from "./overlay";
+export { Input } from "./input";
+export { Checkbox } from "./checkbox";
