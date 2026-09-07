@@ -20,7 +20,7 @@ const styles = {
     "text-sm md:text-xl text-black-primary font-semibold duration-base",
   ),
   footer:
-    "max-w-[159px] md:max-w-[292px] 3xl:max-w-[292px] m-0 button-hover_full",
+    "max-w-[159px] md:max-w-[292px] 3xl:max-w-[292px] m-0 button-interactive_fill",
   noBg: "pt-[18px] pb-[20px] 3xl:pt-[28px] 3xl:pb-[30px] 3xl:px-0 bg-transparent text-white border-[1.5px] border-white button-interactive_blank",
 };
 

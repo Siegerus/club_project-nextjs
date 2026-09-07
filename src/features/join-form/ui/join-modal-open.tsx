@@ -5,13 +5,17 @@ import { Button } from "@/shared/ui";
 import { openButtonText } from "../lib";
 import JoinModal from "./join-modal";
 
-const JoinModalOpen = () => {
+type JoinModalOpenProps = {
+  buttonClass?: string;
+};
+
+const JoinModalOpen = ({ buttonClass }: JoinModalOpenProps) => {
   const { isModalOpen, handleOpenModal, handleCloseModal, modalRootRef } =
     useModal();
 
   return (
     <>
-      <Button onClick={handleOpenModal}>
+      <Button className={buttonClass} onClick={handleOpenModal}>
         <span>{openButtonText}</span>
       </Button>
 

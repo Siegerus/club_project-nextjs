@@ -167,7 +167,7 @@
 
   @media (hover: hover) {
      &:hover {
-    color: #fff;
+      color: #fff;
 
     &::before {
       opacity: 1;

@@ -9,8 +9,6 @@ import {
   joinFormCheckboxInfo,
 } from "../lib";
 
-/* type JoinFormProps = {}; */
-
 const styles = {
   form: "flex flex-col items-center w-full",
   input: cn(
@@ -21,12 +19,12 @@ const styles = {
   button:
     "w-full max-w-auto py-[20px] md:py-[21px] text-base md:text-xl leading-main tracking-base",
   checkbox:
-    "min-w-[16px] min-h-[16px] md:min-w-[21px] md:min-h-[20px] mr-[8px] bg-transparent custom-checked_white",
+    "min-w-[16px] min-h-[16px] md:min-w-[21px] md:min-h-[20px] mr-[8px] bg-transparent custom-checkbox",
   checkboxWrapper: "mt-[30px] md:mt-[20px]",
   checkboxInfo: "text-sm md:text-xl leading-small text-center text-white-70 ",
 };
 
-const JoinForm = (/* {}: JoinFormProps */) => {
+const JoinForm = () => {
   const { email } = joinFormPlaceholders;
   return (
     <form className={styles.form}>
