@@ -1,5 +1,7 @@
 "use client";
 
+import { AnimatePresence } from "framer-motion";
+
 import { useModal } from "@/shared/lib";
 import { Button } from "@/shared/ui";
 import { openButtonText } from "../lib";
@@ -18,10 +20,11 @@ const JoinModalOpen = ({ buttonClass }: JoinModalOpenProps) => {
       <Button className={buttonClass} onClick={handleOpenModal}>
         <span>{openButtonText}</span>
       </Button>
-
-      {isModalOpen && (
-        <JoinModal onClose={handleCloseModal} modalRootRef={modalRootRef} />
-      )}
+      <AnimatePresence>
+        {isModalOpen && (
+          <JoinModal onClose={handleCloseModal} modalRootRef={modalRootRef} />
+        )}
+      </AnimatePresence>
     </>
   );
 };

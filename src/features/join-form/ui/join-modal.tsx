@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
+
 import { Modal } from "@/shared/ui";
 import { Heading } from "@/shared/ui";
 import {
@@ -31,26 +33,36 @@ type JoinModalProps = {
 };
 
 const JoinModal = ({ onClose, modalRootRef }: JoinModalProps) => {
+  const motionStyle = "relative z-[50]";
+
   return (
-    <Modal
-      rootClass={styles.rootModal}
-      wrapperClass={styles.wrapper}
-      backgroundStyle={bgStyle}
-      closeClass={styles.close}
-      onClose={onClose}
-      modalRootRef={modalRootRef}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className={motionStyle}
     >
-      <Image
-        className={styles.icon}
-        width={141}
-        height={140}
-        alt=""
-        src={joinModalIconPath}
-      />
-      <Heading className={styles.title} level="h2" title={joinModalTitle} />
-      <h3 className={styles.subtitle}>{joinModalSubTitle}</h3>
-      <JoinForm />
-    </Modal>
+      <Modal
+        rootClass={styles.rootModal}
+        wrapperClass={styles.wrapper}
+        backgroundStyle={bgStyle}
+        closeClass={styles.close}
+        onClose={onClose}
+        modalRootRef={modalRootRef}
+      >
+        <Image
+          className={styles.icon}
+          width={141}
+          height={140}
+          alt=""
+          src={joinModalIconPath}
+        />
+        <Heading className={styles.title} level="h2" title={joinModalTitle} />
+        <h3 className={styles.subtitle}>{joinModalSubTitle}</h3>
+        <JoinForm />
+      </Modal>
+    </motion.div>
   );
 };
 
