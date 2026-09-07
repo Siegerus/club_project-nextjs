@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { PropsWithChildren } from "react";
 
 import { cn } from "@/shared/lib";
@@ -29,17 +30,21 @@ const Modal = ({
 }: ModalProps) => {
   return (
     <Overlay>
-      <div
+      <motion.div
         ref={modalRootRef}
         className={cn(styles.root, rootClass)}
         style={backgroundStyle}
+        initial={{ y: "-100%" }}
+        animate={{ y: "0%" }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
       >
         <div className={cn(styles.wrapper, wrapperClass)}>{children}</div>
         <button
           className={cn(styles.close, closeClass)}
           onClick={onClose}
         ></button>
-      </div>
+      </motion.div>
     </Overlay>
   );
 };

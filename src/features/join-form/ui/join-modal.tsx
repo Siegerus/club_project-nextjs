@@ -33,36 +33,26 @@ type JoinModalProps = {
 };
 
 const JoinModal = ({ onClose, modalRootRef }: JoinModalProps) => {
-  const motionStyle = "relative z-[50]";
-
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-      className={motionStyle}
+    <Modal
+      rootClass={styles.rootModal}
+      wrapperClass={styles.wrapper}
+      backgroundStyle={bgStyle}
+      closeClass={styles.close}
+      onClose={onClose}
+      modalRootRef={modalRootRef}
     >
-      <Modal
-        rootClass={styles.rootModal}
-        wrapperClass={styles.wrapper}
-        backgroundStyle={bgStyle}
-        closeClass={styles.close}
-        onClose={onClose}
-        modalRootRef={modalRootRef}
-      >
-        <Image
-          className={styles.icon}
-          width={141}
-          height={140}
-          alt=""
-          src={joinModalIconPath}
-        />
-        <Heading className={styles.title} level="h2" title={joinModalTitle} />
-        <h3 className={styles.subtitle}>{joinModalSubTitle}</h3>
-        <JoinForm />
-      </Modal>
-    </motion.div>
+      <Image
+        className={styles.icon}
+        width={141}
+        height={140}
+        alt=""
+        src={joinModalIconPath}
+      />
+      <Heading className={styles.title} level="h2" title={joinModalTitle} />
+      <h3 className={styles.subtitle}>{joinModalSubTitle}</h3>
+      <JoinForm />
+    </Modal>
   );
 };
 
