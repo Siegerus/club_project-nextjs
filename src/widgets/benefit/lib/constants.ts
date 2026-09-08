@@ -1,1 +1,1 @@
-export const benefitTitle = "";
+export const benefitTitle = "Элитные привилегии";
