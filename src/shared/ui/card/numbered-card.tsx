@@ -5,7 +5,7 @@ type NumberedCardProps = CardProps & {
 };
 
 const numberStyle =
-  "block text-xl md:px-[10px] md:pb-0 lg:p-0 text-right leading-main text-white-70";
+  "block text-xl md:px-[10px] md:pt-[10px] md:pb-0 lg:p-0 text-right leading-main text-white-70";
 
 const NumberedCard = (props: NumberedCardProps) => {
   const { number, imageSizes, cardData, ...restProps } = props;

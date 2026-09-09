@@ -7,7 +7,7 @@ import { benefitTitle } from "../lib";
 const styles = {
   root: "py-[40px] md:pt-[145px] lg:pt-[125px] 2xl:pt-[165px] 2xl:pb-[99px]",
   title: cn(
-    "text-[2.5em] md:text-[4.375em] lg:text-[4.625em] xl:text-[5em] 2xl:text-[5.25em] text-center",
+    "text-[2.5em] md:text-[4.375em] lg:text-[4.625em] xl:text-[5em] 2xl:text-[5.25em] 3xl:text-[5.5em] text-center",
     "leading-one -tracking-[0.03em] md:-tracking-[0.04em] lg:tracking-base text-wrap md:text-nowrap",
   ),
   listClass: cn(
@@ -17,10 +17,9 @@ const styles = {
     "gap-x-[20px] gap-y-[20px] mt-[18px] md:mt-[47px] lg:mt-[55px] xl:mt-[78px] justify-center",
   ),
   cardWrapper:
-    "pb-[20px] p-[10px] md:pb-[10px] lg:py-[15px] lg:px-[10px] 2xl:pt-[20px] 2xl:pb-[31px] 2xl:px-[30px] 3xl:px-[20px] 3xl:pt-[20px] 3xl:pb-[31px]",
-  cardTitle: "max-w-[297px] mt-[20px] md:mt-[35px]",
-  cardImageWrapper: "md:mt-[15px]",
-  cardImage: "",
+    "p-[10px] pb-[20px] md:pb-[10px] lg:py-[15px] lg:px-[10px] xl:pt-[20px] xl:pb-[31px] xl:px-[30px] 3xl:px-[20px] 3xl:pt-[20px] 3xl:pb-[31px]",
+  cardTitle: "max-w-[297px] mt-[20px] lg:mt-[35px]",
+  cardImageWrapper: "lg:mt-[15px]",
   description: "mt-[10px]",
 };
 
@@ -35,7 +34,6 @@ const Benefit = () => {
             <NumberedCard
               wrapperClass={styles.cardWrapper}
               imageWrapperClass={styles.cardImageWrapper}
-              imageClass={styles.cardImage}
               titleClass={styles.cardTitle}
               number={i + 1}
               descriptionClass={styles.description}

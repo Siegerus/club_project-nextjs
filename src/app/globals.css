@@ -25,7 +25,8 @@
   --color-white-70: rgba(255, 255, 255, 0.7);
   --color-white-40: rgba(255, 255, 255, 0.4);
   --color-black-primary: #080808;
-  --color-title: var(--gradient-white)
+  --color-title: var(--gradient-white);
+  --color-additional: #915c46;
 
  
 }

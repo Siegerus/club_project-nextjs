@@ -2,28 +2,40 @@ import { CardData } from "@/shared/ui";
 
 export const benefits: CardData[] = [
   {
-    titleText: "Полная анонимность гостя",
+    titleText: {
+      top: "Полная",
+      bottom: "анонимность гостя",
+    },
     imageSrc: "/icons/mask.svg",
     imageAlt: "Маска",
     description:
       "Наши гости проходят собеседование и отбор, информация строго конфиденциальна",
   },
   {
-    titleText: "Отличное обслуживание",
+    titleText: {
+      top: "Отличное",
+      bottom: "обслуживание",
+    },
     imageSrc: "/icons/waiter.svg",
     imageAlt: "Официант",
     description:
       "Не стоит беспокоится о пустом бокале или искать место где расположится",
   },
   {
-    titleText: "Фирменные кальяны",
+    titleText: {
+      top: "Фирменные",
+      bottom: "кальяны",
+    },
     imageSrc: "/icons/hookah.svg",
     imageAlt: "Кальян",
     description:
       "Сочные, дымные кальяны изготовленные специально для нашего клуба",
   },
   {
-    titleText: "Разнообразная кухня",
+    titleText: {
+      top: "Разнообразная",
+      bottom: "кухня",
+    },
     imageSrc: "/icons/eat.svg",
     imageAlt: "Еда",
     description:
