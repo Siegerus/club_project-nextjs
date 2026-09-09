@@ -12,3 +12,5 @@ export { Modal } from "./modal";
 export { Overlay } from "./overlay";
 export { Input } from "./input";
 export { Checkbox } from "./checkbox";
+export { Card, type CardData } from "./card";
+export { NumberedCard } from "./card";

@@ -11,9 +11,10 @@
   --font-sans: var(--font-gilroy);
   --tracking-base: -0.02em;
   --tracking-none: 0;
+  --leading-one: 1;
+  --leading-small: 1.2;
   --leading-main: 1.3;
   --leading-middle: 1.4;
-  --leading-small: 1.2;
   --transition-duration-base: 400ms;
   --breakpoint-2xl: 90rem; /* 1440px */
   --breakpoint-3xl: 105rem; /* 1680px */
@@ -24,7 +25,8 @@
   --color-white-70: rgba(255, 255, 255, 0.7);
   --color-white-40: rgba(255, 255, 255, 0.4);
   --color-black-primary: #080808;
-  --color-title: var(--gradient-white)
+  --color-title: var(--gradient-white);
+  --color-additional: #915c46;
 
  
 }
@@ -42,8 +44,14 @@
 }
 
 @utility bg-blur {
+  -webkit-backdrop-filter: blur(24px);
   backdrop-filter: blur(24px);
 }
+
+@utility box-shadow-main {
+  box-shadow: 0 75px 75px 0 rgb(10 10 10 / 9%), 0 170px 102px 0 rgb(10 10 10 / 5%), 0 302px 121px 0 rgb(10 10 10 / 1%), 0 471px 132px 0 rgb(10 10 10 / 0%), 0 4px 4px 0 rgb(0 0 0 / 25%);
+
+}         
 
 
 @utility bg-white-gradient-text {
