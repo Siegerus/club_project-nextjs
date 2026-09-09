@@ -43,8 +43,14 @@
 }
 
 @utility bg-blur {
+  -webkit-backdrop-filter: blur(24px);
   backdrop-filter: blur(24px);
 }
+
+@utility box-shadow-main {
+  box-shadow: 0 75px 75px 0 rgb(10 10 10 / 9%), 0 170px 102px 0 rgb(10 10 10 / 5%), 0 302px 121px 0 rgb(10 10 10 / 1%), 0 471px 132px 0 rgb(10 10 10 / 0%), 0 4px 4px 0 rgb(0 0 0 / 25%);
+
+}         
 
 
 @utility bg-white-gradient-text {

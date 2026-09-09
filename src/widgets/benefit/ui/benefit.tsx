@@ -14,12 +14,14 @@ const styles = {
     "list-none",
     "grid grid-cols-[313px] md:grid-cols-[repeat(2,313px)] lg:grid-cols-[repeat(4,227px)] xl:grid-cols-[repeat(4,265px)] 2xl:grid-cols-[repeat(4,320px)] 3xl:grid-cols-[repeat(4,370px)]",
     "grid-rows-[repeat(4,minmax(293px,auto))] md:grid-rows-[repeat(2,minmax(322px,auto))] lg:grid-rows-[minmax(385px,auto)] xl:grid-rows-[minmax(413px,auto)]",
-    "md:gap-x-[20px] md:gap-y-[20px] mt-[18px] md:mt-[47px] lg-[55px] justify-center",
+    "gap-x-[20px] gap-y-[20px] mt-[18px] md:mt-[47px] lg:mt-[55px] xl:mt-[78px] justify-center",
   ),
-  cardWrapper: "",
-  cardTitle: "",
+  cardWrapper:
+    "pb-[20px] p-[10px] md:pb-[10px] lg:py-[15px] lg:px-[10px] 2xl:pt-[20px] 2xl:pb-[31px] 2xl:px-[30px] 3xl:px-[20px] 3xl:pt-[20px] 3xl:pb-[31px]",
+  cardTitle: "max-w-[297px] mt-[20px] md:mt-[35px]",
+  cardImageWrapper: "md:mt-[15px]",
   cardImage: "",
-  description: "",
+  description: "mt-[10px]",
 };
 
 const Benefit = () => {
@@ -32,11 +34,12 @@ const Benefit = () => {
           return (
             <NumberedCard
               wrapperClass={styles.cardWrapper}
+              imageWrapperClass={styles.cardImageWrapper}
               imageClass={styles.cardImage}
               titleClass={styles.cardTitle}
               number={i + 1}
               descriptionClass={styles.description}
-              imageSizes={{ width: 20, height: 20 }}
+              imageSizes={{ width: 100, height: 100 }}
               cardData={benefit}
               key={keyValue}
             />
