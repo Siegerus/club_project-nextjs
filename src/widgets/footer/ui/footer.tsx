@@ -29,6 +29,7 @@ const styles = {
   ),
   logoBlock:
     "flex lg:block justify-between items-start md:items-center col-start-1 col-end-3 lg:col-end-1",
+  logoLink: "w-[113px]",
   outerInfo: {
     wrapper:
       "justify-start md:justify-between w-[138px] md:w-[185px] min-h-[24px] lg:mt-[35px]",
@@ -48,7 +49,7 @@ const Footer = () => {
         </div>
         <div className={styles.wrapper}>
           <div className={styles.logoBlock}>
-            <Logo width={113} height={22} />
+            <Logo linkClass={styles.logoLink} />
             <OuterInfo
               linkClass={styles.outerInfo.link}
               wrapperClass={styles.outerInfo.wrapper}
