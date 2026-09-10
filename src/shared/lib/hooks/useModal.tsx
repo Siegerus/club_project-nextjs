@@ -29,13 +29,15 @@ function useModal() {
     document.body.addEventListener("keydown", handleKeyClose);
 
     document.body.style.overflow = isModalOpen ? "hidden" : "auto";
-    document.body.style.paddingRight = isModalOpen ? "15px" : "0";
+
+    if (isModalOpen) document.body.classList.add("modal-open");
+    else document.body.classList.remove("modal-open");
 
     return () => {
       document.body.removeEventListener("click", handleClickClose);
       document.body.removeEventListener("keydown", handleKeyClose);
       document.body.style.overflow = "auto";
-      document.body.style.paddingRight = "0";
+      document.body.classList.remove("modal-open");
     };
   }, [isModalOpen]);
 

@@ -31,6 +31,12 @@
  
 }
 
+@media (min-width: 1024px) {
+  body.modal-open {
+    margin-right: 15px;
+  }
+}
+
 @custom-variant pointer-coarse {
   @media (hover: none) {
     @slot;

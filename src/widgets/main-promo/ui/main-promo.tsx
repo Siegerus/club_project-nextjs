@@ -40,6 +40,7 @@ const MainPromo = () => {
           src={mainPicturePath}
           alt=""
           loading="eager"
+          sizes="(min-width: 768px) 100vw"
         />
         <Image
           className={cn(styles.image, "md:hidden")}
@@ -48,6 +49,7 @@ const MainPromo = () => {
           height={518}
           alt=""
           priority
+          sizes="(max-width: 767px) 100vw"
         />
         <div className={styles.block}>
           <Heading level="h1" className={styles.title}>
