@@ -15,7 +15,9 @@
   --leading-small: 1.2;
   --leading-main: 1.3;
   --leading-middle: 1.4;
+  --radius-small: 20px;
   --radius-base: 30px;
+  --radius-middle: 40px;
   --transition-duration-base: 400ms;
   --breakpoint-2xl: 90rem; /* 1440px */
   --breakpoint-3xl: 105rem; /* 1680px */

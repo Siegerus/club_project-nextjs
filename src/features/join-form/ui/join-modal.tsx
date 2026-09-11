@@ -11,7 +11,7 @@ import {
 import JoinForm from "./join-form";
 
 const styles = {
-  rootModal: "w-full md:max-w-[603px] rounded-0 md:rounded-[40px]",
+  rootModal: "w-full md:max-w-[603px] rounded-0 md:rounded-middle",
   wrapper: "w-full md:max-w-[603px] min-h-[700px] md:min-h-auto md:-top-[3%]",
   title: "mt-[20px] text-4xl text-center leading-middle",
   subtitle: "mt-[10px] text-xl text-center text-white-40",

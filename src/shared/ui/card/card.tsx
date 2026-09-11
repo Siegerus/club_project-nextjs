@@ -20,7 +20,7 @@ const titleCommon =
   "text-[2em] lg:text-[1.625em] xl:text-[2.125em] 2xl:text-4xl text-center text-white leading-one tracking-base";
 
 const styles = {
-  wrapper: "bg-main-bg backdrop-blur-xl box-shadow-main rounded-[30px]",
+  wrapper: "bg-main-bg backdrop-blur-xl box-shadow-main rounded-base",
   imageWrapper: "flex items-center justify-center w-full",
   block: "flex flex-col items-center",
   description:
