@@ -1,0 +1,1 @@
+export { getItemsParts } from "./getItemsParts";

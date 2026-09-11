@@ -5,7 +5,7 @@ import { Heading } from "@/shared/ui";
 import { benefitTitle } from "../lib";
 
 const styles = {
-  root: "py-[40px] md:pt-[145px] lg:pt-[125px] 2xl:pt-[165px] 2xl:pb-[99px]",
+  root: "py-[40px] md:pt-[145px] md:pb-[99px] lg:pt-[125px] 2xl:pt-[165px] 2xl:pb-[99px]",
   title: cn(
     "text-[2.5em] md:text-[4.375em] lg:text-[4.625em] xl:text-[5em] 2xl:text-[5.25em] 3xl:text-[5.5em] text-center",
     "leading-one -tracking-[0.03em] md:-tracking-[0.04em] lg:tracking-base text-wrap md:text-nowrap",
