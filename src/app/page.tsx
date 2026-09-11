@@ -1,6 +1,7 @@
 import { Benefit } from "@/widgets/benefit";
 import { JoinSection } from "@/widgets/join";
 import { MainPromo } from "@/widgets/main-promo";
+import { SignSection } from "@/widgets/sign-section";
 import { Container } from "@/shared/ui/container";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <MainPromo />
       <Benefit />
       <JoinSection />
+      <SignSection />
     </Container>
   );
 }
