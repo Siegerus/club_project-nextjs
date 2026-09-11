@@ -6,11 +6,14 @@ type JoinListProps = {
   isBottomIndent?: boolean;
 };
 
-const listCommon = "md:w-full lg:w-[413px] list-none text-left md:text-center";
+const listCommon = "z-[10] w-full lg:w-[413px] list-none";
 
 const styles = {
   list: listCommon,
-  listIndent: cn(listCommon, "mb-[135px] mt-0 lg:mt-[15px] md:mb-[170px]"),
+  listIndent: cn(
+    listCommon,
+    "mb-[135px] mt-0 lg:mt-[15px] md:mb-[170px] lg:mb-0",
+  ),
 };
 
 const JoinList = ({ itemTexts, isBottomIndent = false }: JoinListProps) => {
