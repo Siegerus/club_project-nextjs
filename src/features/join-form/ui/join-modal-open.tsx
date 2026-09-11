@@ -1,24 +1,36 @@
 "use client";
 
 import { AnimatePresence } from "framer-motion";
+import { PropsWithChildren } from "react";
 
 import { useModal } from "@/shared/lib";
 import { Button } from "@/shared/ui";
-import { openButtonText } from "../lib";
 import JoinModal from "./join-modal";
 
-type JoinModalOpenProps = {
+type JoinModalOpenProps = PropsWithChildren<{
   buttonClass?: string;
-};
+  buttonText?: string;
+  buttonVariant?: "no-bg";
+}>;
 
-const JoinModalOpen = ({ buttonClass }: JoinModalOpenProps) => {
+const JoinModalOpen = ({
+  buttonClass,
+  buttonText,
+  buttonVariant,
+  children,
+}: JoinModalOpenProps) => {
   const { isModalOpen, handleOpenModal, handleCloseModal, modalRootRef } =
     useModal();
 
   return (
     <>
-      <Button className={buttonClass} onClick={handleOpenModal}>
-        <span>{openButtonText}</span>
+      {children}
+      <Button
+        className={buttonClass}
+        onClick={handleOpenModal}
+        variant={buttonVariant}
+      >
+        <span>{buttonText}</span>
       </Button>
       <AnimatePresence>
         {isModalOpen && (

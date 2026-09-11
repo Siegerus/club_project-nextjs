@@ -9,6 +9,7 @@ import {
   promoSubtitle,
   mainPicturePath,
   mainPictureMobilePath,
+  promoButtonText,
 } from "../lib";
 
 const styles = {
@@ -62,7 +63,10 @@ const MainPromo = () => {
             className={styles.subTitle}
           />
         </div>
-        <JoinModalOpen buttonClass={styles.button} />
+        <JoinModalOpen
+          buttonClass={styles.button}
+          buttonText={promoButtonText}
+        />
       </div>
     </section>
   );

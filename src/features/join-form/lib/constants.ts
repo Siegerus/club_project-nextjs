@@ -12,8 +12,6 @@ export const joinFormPlaceholders = {
   email: "Адрес электронной почты",
 };
 
-export const openButtonText = "Вступить в клуб";
-
 export const joinFormButtonText = "Оплатить вход в клуб";
 
 export const joinFormCheckboxInfo = "Я согласен с правилами клуба";
