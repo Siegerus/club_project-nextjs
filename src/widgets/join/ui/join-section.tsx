@@ -21,7 +21,7 @@ const styles = {
   root: "relative pt-[40px] pb-[88px] md:pt-[30px] md:pb-[20px] lg:pt-[10px] lg:pb-[80px] xl:py-[80px]",
   title: cn(
     "md:max-w-[570px] lg:max-w-[unset] md:mx-auto px-[22px] md:px-0",
-    "text-[2.5em] md:text-[4.375em] lg:text-[4.625em] xl:text-[5em] 2xl:text-[5.25em] 2xl:text-[5.5em]",
+    "text-[2.5em] md:text-[4.375em] lg:text-[4.625em] xl:text-[5em] 2xl:text-[5.25em] 3xl:text-[5.5em]",
     "text-center leading-one lg:leading-[110px] tracking-base",
   ),
   wrapper: cn(
@@ -41,7 +41,8 @@ const styles = {
     ),
     desktop: cn(
       buttonCommon,
-      "max-w-[300px] 3xl:max-w-[300px] mt-[25px] lg:py-[26px] lg:px-[40px] xl:py-[26px] xl:px-[40px] 2xl:py-[26px] 2xl:px-[40px] 3xl:py-[26px] 3xl:px-[40px] 2xl:text-2xl",
+      "max-w-[300px] 3xl:max-w-[300px] mt-[25px] lg:py-[26px] lg:px-[40px] xl:py-[26px] xl:px-[40px]",
+      "2xl:py-[26px] 2xl:px-[40px] 3xl:py-[26px] 3xl:px-[40px] 2xl:text-2xl",
     ),
   },
 };
