@@ -1,1 +1,1 @@
-export * from "./constants";
+export const partnersTitle = "Наши партнёры";
