@@ -25,6 +25,7 @@ const Logo = ({ linkClass }: LogoProps) => {
           width={129}
           height={24}
           className={styles.image}
+          style={{ height: "auto" }}
         />
       </Link>
     </div>

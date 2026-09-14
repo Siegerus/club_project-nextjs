@@ -21,11 +21,11 @@ const styles = {
   topBar:
     "flex justify-between items-center max-w-[600px] mx-auto p-[14px] rounded-full bg-main-bg",
   nav: "max-w-[600px] min-h-[650px] mx-auto",
-  list: "flex flex-col items-start justify-between w-full mt-[10px] p-[10px] rounded-[20px] bg-main-bg backdrop-sepia-[24px]",
+  list: "flex flex-col items-start justify-between w-full mt-[10px] p-[10px] rounded-small bg-main-bg backdrop-sepia-[24px]",
   item: "flex items-center w-full py-[10px] pr-[10px] pl-[0] justify-between text-white-70",
   link: "flex items-center justify-between w-full leading-[130%] tracking-[-.02em]",
   arrow: "flex items-center justify-center w-[20px] h-[20px] header__arrow-m",
-  info: "flex flex-col items-start justify-between w-full min-h-[82px] mt-[10px] p-[10px] rounded-[20px] bg-main-bg",
+  info: "flex flex-col items-start justify-between w-full min-h-[82px] mt-[10px] p-[10px] rounded-small bg-main-bg",
   confidential:
     "max-w-[204px] mt-[10px] mx-auto mb-0 text-sm text-center text-white-70 leading-[130%]",
   authButton: "w-full max-w-[320px] mt-[10px] py-[14px] px-0 text-sm",
