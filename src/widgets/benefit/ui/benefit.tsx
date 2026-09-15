@@ -3,6 +3,7 @@ import { cn } from "@/shared/lib";
 import { NumberedCard } from "@/shared/ui";
 import { Heading } from "@/shared/ui";
 import { benefitTitle } from "../lib";
+import { benefitsToCardData } from "../lib";
 
 const styles = {
   root: "py-[40px] md:pt-[145px] md:pb-[99px] lg:pt-[125px] 2xl:pt-[165px] 2xl:pb-[99px]",
@@ -24,13 +25,15 @@ const styles = {
   description: "mt-[10px]",
 };
 
+const benefitsCardData = benefitsToCardData(benefits);
+
 const Benefit = () => {
   return (
     <section className={styles.root}>
       <Heading className={styles.title} level="h1" title={benefitTitle} />
       <ul className={styles.listClass}>
-        {benefits.map((benefit, i) => {
-          const keyValue = `${benefit.titleText} + ${i}`;
+        {benefitsCardData.map((benefit, i) => {
+          const keyValue = `${benefit.titleText.top} + ${i}`;
           return (
             <NumberedCard
               wrapperClass={styles.cardWrapper}
