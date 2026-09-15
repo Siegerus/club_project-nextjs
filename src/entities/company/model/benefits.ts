@@ -1,51 +1,46 @@
 export type Benefit = {
-  titleText: {
-    top: string;
-    bottom: string;
+  name: {
+    base: string;
+    accent: string;
   };
-  imageSrc: string;
-  imageAlt: string;
+  imagePath: string;
   description: string;
 };
 
 export const benefits: Benefit[] = [
   {
-    titleText: {
-      top: "Полная",
-      bottom: "анонимность гостя",
+    name: {
+      base: "Полная",
+      accent: "анонимность гостя",
     },
-    imageSrc: "/icons/mask.svg",
-    imageAlt: "Маска",
+    imagePath: "/icons/mask.svg",
     description:
       "Наши гости проходят собеседование и отбор, информация строго конфиденциальна",
   },
   {
-    titleText: {
-      top: "Отличное",
-      bottom: "обслуживание",
+    name: {
+      base: "Отличное",
+      accent: "обслуживание",
     },
-    imageSrc: "/icons/waiter.svg",
-    imageAlt: "Официант",
+    imagePath: "/icons/waiter.svg",
     description:
       "Не стоит беспокоится о пустом бокале или искать место где расположится",
   },
   {
-    titleText: {
-      top: "Фирменные",
-      bottom: "кальяны",
+    name: {
+      base: "Фирменные",
+      accent: "кальяны",
     },
-    imageSrc: "/icons/hookah.svg",
-    imageAlt: "Кальян",
+    imagePath: "/icons/hookah.svg",
     description:
       "Сочные, дымные кальяны изготовленные специально для нашего клуба",
   },
   {
-    titleText: {
-      top: "Разнообразная",
-      bottom: "кухня",
+    name: {
+      base: "Разнообразная",
+      accent: "кухня",
     },
-    imageSrc: "/icons/eat.svg",
-    imageAlt: "Еда",
+    imagePath: "/icons/eat.svg",
     description:
       "Хотите посетить наше мероприятие, но вы вегетарианец? Не переживайте, меню понравится всем",
   },

@@ -60,7 +60,10 @@ const Card = ({
           level="h2"
           title={titleText.top}
         />
-        <span className={styles.titlePart}>{titleText.bottom}</span>
+
+        {titleText.bottom && (
+          <span className={styles.titlePart}>{titleText.bottom}</span>
+        )}
         <div className={cn(styles.description, descriptionClass)}>
           {description}
         </div>

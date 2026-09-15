@@ -1,8 +1,8 @@
 import { type Bangle } from "@/entities/company";
 
-import { CardData } from "@/shared/ui";
+import { type CardData } from "@/shared/ui";
 
-const bangleToCardData = (bangles: Bangle[]): CardData[] => {
+const banglesToCardData = (bangles: Bangle[]): CardData[] => {
   return bangles.map((bangle) => ({
     titleText: { top: bangle.name },
     imageSrc: bangle.imagePath,
@@ -11,4 +11,4 @@ const bangleToCardData = (bangles: Bangle[]): CardData[] => {
   }));
 };
 
-export default bangleToCardData;
+export default banglesToCardData;
