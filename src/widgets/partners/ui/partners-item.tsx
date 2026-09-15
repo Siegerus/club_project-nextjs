@@ -18,13 +18,19 @@ const PartnersItem = (props: PartnersItemProps) => {
   const { name, logoPath, href, alt } = props;
   return (
     <li className={style.listItem}>
-      <a className={style.link} href={href} title={name}>
+      <a
+        className={style.link}
+        href={href}
+        title={name}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Image
           className={style.image}
           src={logoPath}
           alt={alt}
           fill
-          sizes="100wh"
+          sizes="min-width(1680px):250px , 175px"
         />
       </a>
     </li>

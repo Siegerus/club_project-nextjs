@@ -8,9 +8,10 @@ import { CardData, Sizes } from "./types";
 
 export type CardProps = {
   wrapperClass?: string;
+  imageWrapperClass?: string;
+  imageClass?: string;
   titleClass?: string;
   descriptionClass?: string;
-  imageWrapperClass?: string;
   imageSizes: Sizes;
   cardData: CardData;
   children?: ReactElement;
@@ -32,6 +33,7 @@ const styles = {
 const Card = ({
   wrapperClass,
   imageWrapperClass,
+  imageClass,
   titleClass,
   descriptionClass,
   imageSizes,
@@ -45,6 +47,7 @@ const Card = ({
       {children}
       <div className={cn(styles.imageWrapper, imageWrapperClass)}>
         <Image
+          className={imageClass}
           width={imageSizes.width}
           height={imageSizes.height}
           alt={imageAlt}
