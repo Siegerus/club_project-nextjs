@@ -1,6 +1,14 @@
-import { CardData } from "@/shared/ui";
+export type Benefit = {
+  titleText: {
+    top: string;
+    bottom: string;
+  };
+  imageSrc: string;
+  imageAlt: string;
+  description: string;
+};
 
-export const benefits: CardData[] = [
+export const benefits: Benefit[] = [
   {
     titleText: {
       top: "Полная",

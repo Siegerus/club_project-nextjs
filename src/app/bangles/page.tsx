@@ -1,9 +1,10 @@
+import { Bangles } from "@/widgets/bangles";
 import { Container } from "@/shared/ui/container/";
 
 const BanglesPage = () => {
   return (
     <Container>
-      <div>BanglesPage</div>
+      <Bangles />
     </Container>
   );
 };

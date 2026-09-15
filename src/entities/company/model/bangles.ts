@@ -1,26 +1,31 @@
-type BnagleName = "Красный браслет" | "Жёлтый браслет" | "Зелёный браслет";
-
 export type Bangle = {
-  name: BnagleName;
+  titleText: {
+    top: string;
+    bottom?: string;
+  };
+  imageSrc: string;
+  imageAlt: string;
   description: string;
-  imagePath: string;
 };
 
 export const bangles: Bangle[] = [
   {
-    name: "Красный браслет",
+    titleText: { top: "Красный браслет" },
     description: "Присматриваюсь и пока что закрыт(а) к знакомствам",
-    imagePath: "/images/bracelet-red.png",
+    imageSrc: "/images/bracelet-red.png",
+    imageAlt: "Красный браслет",
   },
   {
-    name: "Жёлтый браслет",
+    titleText: { top: "Жёлтый браслет" },
     description:
       "Приветствуются дружелюбные беседы и лёгкий, непринуждённый флирт",
-    imagePath: "/images/bracelet-yellow.png",
+    imageSrc: "/images/bracelet-yellow.png",
+    imageAlt: "Жёлтый браслет",
   },
   {
-    name: "Зелёный браслет",
+    titleText: { top: "Зелёный браслет" },
     description: "Зелёный браслет",
-    imagePath: "/images/bracelet-green.png",
+    imageSrc: "/images/bracelet-green.png",
+    imageAlt: "Готов(а) и открыт(а) к прикосновениям и не только",
   },
 ];
