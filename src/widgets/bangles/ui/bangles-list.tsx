@@ -1,6 +1,7 @@
 import { bangles } from "@/entities/company";
 import { cn } from "@/shared/lib";
 import { Card } from "@/shared/ui";
+import { banglesToCardData } from "../lib";
 
 const styles = {
   list: cn(
@@ -10,12 +11,21 @@ const styles = {
   ),
 };
 
+const banglesCardData = banglesToCardData(bangles);
+
 const BanglesList = () => {
   return (
     <ul className={styles.list}>
-      {/* {bangles.map((bangle, i) => (
-        // <Card />
-      ))} */}
+      {banglesCardData.map((bangle, i) => {
+        const keyValue = `${bangle.titleText.top} + ${i}`;
+        return (
+          <Card
+            cardData={bangle}
+            imageSizes={{ width: 186, height: 100 }}
+            key={keyValue}
+          />
+        );
+      })}
     </ul>
   );
 };

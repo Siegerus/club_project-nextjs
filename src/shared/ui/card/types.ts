@@ -1,7 +1,7 @@
 export type CardData = {
   titleText: {
     top: string;
-    bottom: string;
+    bottom?: string;
   };
   imageSrc: string;
   imageAlt: string;
