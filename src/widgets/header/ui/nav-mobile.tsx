@@ -63,6 +63,7 @@ const NavMobile = ({ onClick, children }: NavMobileProps) => {
                   alt="Стрелка"
                   width={7}
                   height={13}
+                  loading="eager"
                 />
               </div>
             </NavItem>

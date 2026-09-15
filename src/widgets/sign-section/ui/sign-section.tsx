@@ -29,7 +29,7 @@ const styles = {
     "max-w-[320px] md:max-w-[291px] lg:max-w-[271px] 2xl:max-w-[310px] mt-[16px] md:mt-[34px] lg:mx-0 py-[14px] lg:py-[28px] xl:py-[28px] 2xl:py-[29px] 2xl:text-2xl md:leading-main tracking-base button-interactive_fill",
   imageWrapper:
     "relative 2xl:absolute top-[33px] md:top-[43px] lg:top-0 2xl:top-1/2 2xl:-translate-y-1/2 xl:left-[38px] 2xl:left-auto 2xl:right-[85px] w-[263px] md:w-[303px] lg:w-[233px] xl:w-[330px] 2xl:w-[373px]",
-  image: "w-full h-auto",
+  image: "w-full h-full",
 };
 
 const SignSection = () => {

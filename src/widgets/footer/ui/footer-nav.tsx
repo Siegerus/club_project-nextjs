@@ -7,7 +7,7 @@ type FooterNavProps = {
 };
 
 const styles = {
-  wrapper: "list-none footer__list",
+  wrapper: "list-none",
   title: "text-2xl md:text-4xl lg:text-[2.125rem] text-white-70",
   item: "mt-[20px] text-sm md:text-xl lg:text-lg 2xl:text-lg 3xl:text-xl text-white-70 font-semibold leading-[130%]",
 };

@@ -41,6 +41,7 @@ const OuterInfo = ({
           width={width}
           height={height}
           className={styles.image}
+          loading="eager"
         />
       </div>
       <a href={linkHref} className={cn(styles.link, linkClass)}>

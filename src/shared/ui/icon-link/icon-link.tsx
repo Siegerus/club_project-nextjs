@@ -36,6 +36,7 @@ const IconLink = ({
         alt={alt}
         width={width}
         height={height}
+        loading="eager"
       />
     </a>
   );
