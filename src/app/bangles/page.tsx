@@ -1,12 +1,7 @@
 import { Bangles } from "@/widgets/bangles";
-import { Container } from "@/shared/ui/container/";
 
 const BanglesPage = () => {
-  return (
-    <Container>
-      <Bangles />
-    </Container>
-  );
+  return <Bangles />;
 };
 
 export default BanglesPage;

@@ -18,7 +18,7 @@ export type CardProps = {
 };
 
 const titleCommon =
-  "text-[2em] lg:text-[1.625em] xl:text-[2.125em] 2xl:text-4xl text-center text-white leading-one tracking-base";
+  "text-[2em] lg:text-[1.625em] xl:text-[2.125em] 2xl:text-4xl text-center text-white tracking-base";
 
 const styles = {
   wrapper: "bg-main-bg backdrop-blur-xl box-shadow-main rounded-base",
