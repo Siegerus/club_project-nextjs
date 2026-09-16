@@ -6,7 +6,7 @@ import { AppRoute } from "@/shared/lib";
 
 const styles = {
   wrapper: "flex items-center justify-start",
-  link: "inline-flex w-[129px] md:w-[200px] lg:w-[260px] xl:w-[230px] 2xl:w-[260px]",
+  link: "inline-flex w-[129px] md:w-[260px] xl:w-[230px] 2xl:w-[260px]",
   image: "w-full h-auto max-h-[51px] object-cover",
 };
 

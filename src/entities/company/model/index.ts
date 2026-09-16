@@ -4,3 +4,4 @@ export * from "./price";
 export * from "./benefits";
 export * from "./opportunities";
 export * from "./partners";
+export * from "./bangles";
