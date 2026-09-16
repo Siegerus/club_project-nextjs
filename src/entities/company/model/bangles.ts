@@ -7,7 +7,8 @@ export type Bangle = {
 export const bangles: Bangle[] = [
   {
     name: "Красный браслет",
-    description: "Присматриваюсь и\u00A0пока что закрыт(а) к\u00A0знакомствам",
+    description:
+      "Присматриваюсь и\u00A0пока что\u00A0закрыт(а) к\u00A0знакомствам",
     imagePath: "/images/bracelet-red.png",
   },
   {

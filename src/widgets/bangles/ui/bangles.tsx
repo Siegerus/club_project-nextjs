@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 
 import { cn } from "@/shared/lib";
 import { Heading } from "@/shared/ui";
-import { Container } from "@/shared/ui/container/";
+import { Container } from "@/shared/ui";
 import {
   banglesTitle,
   banglesDescription,
@@ -11,13 +11,13 @@ import {
 } from "../lib";
 import BanglesList from "./bangles-list";
 
-const rootBgStyle = {
+const rootBgStyle: CSSProperties & Record<string, string> = {
   "--bangles-bg-mobile": `url(${banglesBGMobilePath})`,
   "--bangles-bg-desktop": `url(${banglesBGDesktopPath})`,
   backgroundSize: "contain",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
-} as CSSProperties;
+};
 
 const styles = {
   root: cn(
