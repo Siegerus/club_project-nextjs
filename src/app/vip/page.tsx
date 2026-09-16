@@ -4,7 +4,7 @@ import { Container } from "@/shared/ui/";
 const VipPage = () => {
   return (
     <Container>
-      <div>VipPage</div>
+      <VipSection />
     </Container>
   );
 };
