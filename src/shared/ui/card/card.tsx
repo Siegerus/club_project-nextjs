@@ -12,13 +12,11 @@ export type CardProps = {
   imageClass?: string;
   titleClass?: string;
   descriptionClass?: string;
+  blockClass?: string;
   imageSizes: Sizes;
   cardData: CardData;
   children?: ReactElement;
 };
-
-const titleCommon =
-  "text-[2em] lg:text-[1.625em] xl:text-[2.125em] 2xl:text-4xl text-center text-white tracking-base";
 
 const styles = {
   wrapper: "bg-main-bg backdrop-blur-xl box-shadow-main rounded-base",
@@ -26,8 +24,10 @@ const styles = {
   block: "flex flex-col items-center",
   description:
     "text-base lg:text-[1.0625em] xl:text-lg 3xl:text-xl text-center tracking-base leading-main text-white-70",
-  title: titleCommon,
-  titlePart: cn(titleCommon, "title text-additional"),
+  titlePart: cn(
+    "text-[2em] lg:text-[1.625em] xl:text-[2.125em] 2xl:text-4xl text-center text-white leading-one tracking-base",
+    "title text-additional",
+  ),
 };
 
 const Card = ({
@@ -36,6 +36,7 @@ const Card = ({
   imageClass,
   titleClass,
   descriptionClass,
+  blockClass,
   imageSizes,
   cardData,
   children,
@@ -54,12 +55,8 @@ const Card = ({
           src={imageSrc}
         />
       </div>
-      <div className={styles.block}>
-        <Heading
-          className={cn(styles.title, titleClass)}
-          level="h2"
-          title={titleText.top}
-        />
+      <div className={cn(styles.block, blockClass)}>
+        <Heading className={cn(titleClass)} level="h2" title={titleText.top} />
 
         {titleText.bottom && (
           <span className={styles.titlePart}>{titleText.bottom}</span>
