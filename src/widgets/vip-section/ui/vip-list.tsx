@@ -1,6 +1,6 @@
 import { premiumCapabilities } from "@/entities/company";
 import { cn } from "@/shared/lib";
-import { Card } from "@/shared/ui";
+import { ContentCard } from "@/shared/ui";
 import { capabilitysToCardData } from "../lib";
 
 const styles = {
@@ -37,7 +37,7 @@ const VipList = () => {
         const keyValue = `${capability.titleText}-${i}`;
         return (
           <li key={keyValue}>
-            <Card
+            <ContentCard
               cardData={capability}
               imageSizes={{ width: 100, height: 100 }}
               wrapperClass={styles.cardWrapper}

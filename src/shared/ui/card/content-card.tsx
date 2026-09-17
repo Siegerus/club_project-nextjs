@@ -4,7 +4,8 @@ import { ReactElement } from "react";
 
 import { cn } from "@/shared/lib";
 import { Heading } from "../heading";
-import { CardData, Sizes } from "./types";
+import BaseCard from "./base-card";
+import type { CardData, Sizes } from "./types";
 
 export type CardProps = {
   wrapperClass?: string;
@@ -19,7 +20,6 @@ export type CardProps = {
 };
 
 const styles = {
-  wrapper: "bg-main-bg backdrop-blur-xl box-shadow-main rounded-base",
   imageWrapper: "flex items-center justify-center w-full",
   block: "flex flex-col items-center",
   description:
@@ -30,7 +30,7 @@ const styles = {
   ),
 };
 
-const Card = ({
+const ContentCard = ({
   wrapperClass,
   imageWrapperClass,
   imageClass,
@@ -44,7 +44,7 @@ const Card = ({
   const { titleText, imageAlt, imageSrc, description } = cardData;
 
   return (
-    <div className={cn(styles.wrapper, wrapperClass)}>
+    <BaseCard wrapperClass={wrapperClass}>
       {children}
       <div className={cn(styles.imageWrapper, imageWrapperClass)}>
         <Image
@@ -65,8 +65,8 @@ const Card = ({
           {description}
         </div>
       </div>
-    </div>
+    </BaseCard>
   );
 };
 
-export default Card;
+export default ContentCard;

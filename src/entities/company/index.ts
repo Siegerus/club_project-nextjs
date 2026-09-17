@@ -6,4 +6,5 @@ export { opportunities } from "./model";
 export { partners, type Partner } from "./model";
 export { bangles, type Bangle } from "./model";
 export { premiumCapabilities, type Capability } from "./model";
+export { premiumSales, type PremiumSale } from "./model";
 export type { SocialConfig, SocialPlatform } from "./model";

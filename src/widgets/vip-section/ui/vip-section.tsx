@@ -1,6 +1,7 @@
 import { cn } from "@/shared/lib";
 import { Heading } from "@/shared/ui";
 import { vipSectionTitle, vipSectionDescription } from "../lib/";
+import SecondaryList from "./secondary-list";
 import VipList from "./vip-list";
 
 const styles = {
@@ -13,7 +14,6 @@ const styles = {
     "block md:max-w-[500px] lg:max-w-[750px] mt-[20px] md:mx-auto md:mt-[13px] lg:mt-[20px]",
     "text-sm md:text-base lg:text-xl text-center leading-main md:leading-middle tracking-base lg:tracking-none text-white-70",
   ),
-  bottomList: "",
 };
 
 const VipSection = () => {
@@ -22,9 +22,7 @@ const VipSection = () => {
       <Heading className={styles.title} level="h1" title={vipSectionTitle} />
       <span className={styles.description}>{vipSectionDescription}</span>
       <VipList />
-      <ul className={styles.bottomList}>
-        <li></li>
-      </ul>
+      <SecondaryList />
     </section>
   );
 };

@@ -1,4 +1,4 @@
-import Card, { type CardProps } from "./card";
+import ContentCard, { type CardProps } from "./content-card";
 
 type NumberedCardProps = CardProps & {
   number: number;
@@ -12,9 +12,9 @@ const NumberedCard = (props: NumberedCardProps) => {
 
   return (
     <>
-      <Card cardData={cardData} imageSizes={imageSizes} {...restProps}>
+      <ContentCard cardData={cardData} imageSizes={imageSizes} {...restProps}>
         <span className={numberStyle}>{number}</span>
-      </Card>
+      </ContentCard>
     </>
   );
 };

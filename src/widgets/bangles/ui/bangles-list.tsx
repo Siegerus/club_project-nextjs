@@ -1,6 +1,6 @@
 import { bangles } from "@/entities/company";
 import { cn } from "@/shared/lib";
-import { Card } from "@/shared/ui";
+import { ContentCard } from "@/shared/ui";
 import { banglesToCardData } from "../lib";
 
 const styles = {
@@ -32,7 +32,7 @@ const BanglesList = () => {
         const keyValue = `${bangle.titleText.top} + ${i}`;
         return (
           <li className={styles.listItem} key={keyValue}>
-            <Card
+            <ContentCard
               cardData={bangle}
               imageSizes={{ width: 228, height: 100 }}
               wrapperClass={styles.cardWrapper}

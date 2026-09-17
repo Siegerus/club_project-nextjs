@@ -5,6 +5,7 @@
   --white-checkbox-bg: url('/icons/check-white.svg');
   --black-checkbox-bg: url('/icons/check.svg');
   --gradient-white :radial-gradient(85.18% 257.73% at 48.35%  49.66%, rgb(255 255 255) 0%, rgb(255 255 255) 100%);
+  --gradient-brown: linear-gradient(270deg,#915c46 0,#c47a5c 100%); 
 }
 
 @theme inline {
@@ -65,11 +66,17 @@
 
 }         
 
-
 @utility bg-white-gradient-text {
   background-image: var(--gradient-white);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@utility brown-gradient-text {
+    background: var(--gradient-brown);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 
