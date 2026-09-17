@@ -226,7 +226,7 @@ body {
   font-family: var(--font-sans), sans-serif;
 }
 
-
+ 
 .container {
   @apply mx-auto w-full md:w-[648px] lg:w-[968px] xl:w-[1120px] 2xl:w-[1320px] 3xl:w-[1540px] py-0 px-[20px] md:px-0;
 }
