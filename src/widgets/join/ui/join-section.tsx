@@ -63,21 +63,21 @@ const JoinSection = () => {
             className={cn(styles.bgImage, "md:hidden")}
             fill
             src={joinImageMobilePath}
-            sizes="100vw"
+            sizes="(max-width: 768px) 385px"
             alt=""
           />
           <Image
             className={cn(styles.bgImage, "hidden md:block lg:hidden")}
             fill
             src={joinImageTabletPath}
-            sizes="100vw"
+            sizes="(min-width: 768px) 644px"
             alt=""
           />
           <Image
             className={cn(styles.bgImage, "hidden lg:block")}
             fill
             src={joinImageDescPath}
-            sizes="100vw"
+            sizes="(min-width: 1680px) 1536px, (min-width: 1440px) 1316px, (min-width: 1280px) 1116px, (min-width: 1024px) 964px"
             alt=""
           />
         </div>

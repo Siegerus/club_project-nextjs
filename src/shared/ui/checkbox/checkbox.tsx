@@ -6,6 +6,7 @@ type CheckboxProps = {
   wrapperClass?: string;
   checkBoxClass?: string;
   variant: "black" | "white";
+  id: string;
   children?: ReactElement;
 };
 
@@ -18,6 +19,7 @@ const Checkbox = ({
   checkBoxClass,
   wrapperClass,
   variant,
+  id,
   children,
 }: CheckboxProps) => {
   const checkBoxVariant = cn(
@@ -29,14 +31,11 @@ const Checkbox = ({
     <div className={cn(styles.wrapper, wrapperClass)}>
       <input
         className={cn("hidden", checkBoxVariant)}
-        id="rules-agreement"
-        name="rules-agreement"
+        id={id}
+        name={id}
         type="checkbox"
       />
-      <label
-        className={cn(styles.label, checkBoxClass)}
-        htmlFor="rules-agreement"
-      ></label>
+      <label className={cn(styles.label, checkBoxClass)} htmlFor={id}></label>
       {children}
     </div>
   );

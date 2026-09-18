@@ -27,8 +27,13 @@ const styles = {
 const JoinForm = () => {
   const { email } = joinFormPlaceholders;
   return (
-    <form className={styles.form}>
-      <Input inputClass={styles.input} placeholder={email} />
+    <form className={styles.form} id="join-form">
+      <Input
+        inputClass={styles.input}
+        placeholder={email}
+        type="email"
+        id="join-form-email"
+      />
       <Button className={styles.button} variant="no-bg">
         {joinFormButtonText}
       </Button>
@@ -36,6 +41,7 @@ const JoinForm = () => {
         checkBoxClass={styles.checkbox}
         wrapperClass={styles.checkboxWrapper}
         variant="white"
+        id="rules-agreement"
       >
         <span className={styles.checkboxInfo}>{joinFormCheckboxInfo}</span>
       </Checkbox>

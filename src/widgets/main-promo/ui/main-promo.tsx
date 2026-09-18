@@ -40,7 +40,7 @@ const MainPromo = () => {
           height={873}
           src={mainPicturePath}
           alt=""
-          loading="eager"
+          preload
           sizes="(min-width: 768px) 100vw"
         />
         <Image
@@ -49,7 +49,7 @@ const MainPromo = () => {
           width={320}
           height={518}
           alt=""
-          priority
+          preload
           sizes="(max-width: 767px) 100vw"
         />
         <div className={styles.block}>

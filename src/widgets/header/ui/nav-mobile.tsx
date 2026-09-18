@@ -8,7 +8,7 @@ import { LinkButton } from "@/shared/ui";
 import { Logo } from "@/shared/ui";
 import { NavItem } from "@/shared/ui";
 import { OuterInfo } from "@/shared/ui";
-import { navItems, authButtonText } from "../lib";
+import { navItems, authButtonText, mobileNavArrowPath } from "../lib";
 import NavSocial from "./nav-social";
 
 type NavMobileProps = PropsWithChildren<{
@@ -24,7 +24,8 @@ const styles = {
   list: "flex flex-col items-start justify-between w-full mt-[10px] p-[10px] rounded-small bg-main-bg backdrop-sepia-[24px]",
   item: "flex items-center w-full py-[10px] pr-[10px] pl-[0] justify-between text-white-70",
   link: "flex items-center justify-between w-full leading-[130%] tracking-[-.02em]",
-  arrow: "flex items-center justify-center w-[20px] h-[20px] header__arrow-m",
+  arrow: "flex items-center justify-center w-[20px] h-[20px]",
+  icon: "w-[7px] h-[13px] max-w-full max-h-full",
   info: "flex flex-col items-start justify-between w-full min-h-[82px] mt-[10px] p-[10px] rounded-small bg-main-bg",
   confidential:
     "max-w-[204px] mt-[10px] mx-auto mb-0 text-sm text-center text-white-70 leading-[130%]",
@@ -59,11 +60,11 @@ const NavMobile = ({ onClick, children }: NavMobileProps) => {
             >
               <div className={styles.arrow}>
                 <Image
-                  src="/icons/nav-arrow.svg"
+                  className={styles.icon}
+                  src={mobileNavArrowPath}
                   alt="Стрелка"
                   width={7}
                   height={13}
-                  loading="eager"
                 />
               </div>
             </NavItem>

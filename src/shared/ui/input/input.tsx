@@ -1,11 +1,14 @@
+import type { InputHTMLAttributes } from "react";
 import { cn } from "@/shared/lib";
 
-type InputProps = {
+type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   wrapperClass?: string;
   inputClass?: string;
   placeholder?: string;
   withLabel?: boolean;
   labelText?: string;
+  type?: string;
+  id: string;
 };
 
 const styles = {
@@ -21,12 +24,16 @@ const Input = ({
   placeholder,
   withLabel = false,
   labelText,
+  type = "text",
+  id,
 }: InputProps) => {
   return (
     <div className={cn(styles.wrapper, wrapperClass)}>
       <input
         className={cn(styles.input, inputClass)}
-        type="text"
+        type={type}
+        id={id}
+        name={id}
         placeholder={placeholder}
         autoComplete="on"
       />
