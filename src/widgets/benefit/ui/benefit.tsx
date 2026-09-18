@@ -31,7 +31,7 @@ const benefitsCardData = benefitsToCardData(benefits);
 const Benefit = () => {
   return (
     <section className={styles.root}>
-      <Heading className={styles.title} level="h1" title={benefitTitle} />
+      <Heading className={styles.title} level="h1" gradientType="white" title={benefitTitle} />
       <ul className={styles.listClass}>
         {benefitsCardData.map((benefit, i) => {
           const keyValue = `${benefit.titleText.top} + ${i}`;

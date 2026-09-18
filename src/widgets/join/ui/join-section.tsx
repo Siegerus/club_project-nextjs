@@ -52,7 +52,7 @@ const JoinSection = () => {
 
   return (
     <section className={styles.root}>
-      <Heading className={styles.title} level="h2" title={joinTitleText} />
+      <Heading className={styles.title} level="h2" gradientType="white" title={joinTitleText} />
       <div className={styles.wrapper}>
         <div className={styles.imageWrapper}>
           <Image

@@ -50,7 +50,7 @@
   }
 }
 
-@utility bg-rainbow-text {
+@utility bg-rainbow-gradient-text {
   background-image: linear-gradient(90deg, #f43b47 0%, #453a94 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -72,7 +72,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-@utility brown-gradient-text {
+@utility bg-brown-gradient-text {
     background: var(--gradient-brown);
     -webkit-background-clip: text;
     background-clip: text;

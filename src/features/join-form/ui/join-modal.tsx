@@ -48,7 +48,7 @@ const JoinModal = ({ onClose, modalRootRef }: JoinModalProps) => {
         alt=""
         src={joinModalIconPath}
       />
-      <Heading className={styles.title} level="h2" title={joinModalTitle} />
+      <Heading className={styles.title} level="h2" gradientType="white" title={joinModalTitle} />
       <h3 className={styles.subtitle}>{joinModalSubTitle}</h3>
       <JoinForm />
     </Modal>

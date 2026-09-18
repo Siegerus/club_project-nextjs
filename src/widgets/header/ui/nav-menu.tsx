@@ -10,9 +10,9 @@ const styles = {
   nav: "hidden xl:block mt-4 pt-[24px] px-[30px] pb-[24px] lg:mt-5 xl:mt-0 w-full xl:w-[55.8%] lg:pt-[20px] lg:px-[30px] lg:pb-[23px] rounded-full bg-main-bg backdrop-blur-lg",
   navTablet: "md:block xl:hidden",
   list: "flex items-center justify-between list-none",
-  item: "weight-medium text-base leading-[1.3] lg:text-xl xl:text-lg 3xl:text-xl text-white-70",
+  item: "text-base leading-[1.3] lg:text-xl xl:text-lg 3xl:text-xl text-white-70",
   vipItem:
-    "font-medium bg-rainbow-text weight-medium text-base leading-[1.3] lg:text-xl xl:text-lg 3xl:text-xl text-white-70",
+    "font-medium text-base leading-[1.3] lg:text-xl xl:text-lg 3xl:text-xl text-white-70 bg-rainbow-gradient-text",
 };
 
 const NavMenu = ({ tablet = false }: NavMenuPops) => {

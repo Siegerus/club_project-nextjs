@@ -15,7 +15,7 @@ const styles = {
 const Partners = () => {
   return (
     <section className={styles.root}>
-      <Heading className={styles.title} level="h2" title={partnersTitle} />
+      <Heading className={styles.title} level="h2" gradientType="white" title={partnersTitle} />
       <div className={styles.wrapper}>
         <PartnersList />
       </div>

@@ -37,7 +37,7 @@ const SignSection = () => {
     <section className={styles.root}>
       <div className={styles.wrapper}>
         <div className={styles.block}>
-          <Heading className={styles.title} level="h2" title={signTitleText} />
+          <Heading className={styles.title} level="h2" gradientType="white" title={signTitleText} />
           <div className={styles.description}>{signDescription}</div>
           <LinkButton className={styles.buttom} path={AppRoute.Authorization}>
             {signButtonText}
