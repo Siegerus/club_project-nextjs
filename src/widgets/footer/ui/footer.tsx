@@ -20,7 +20,7 @@ const styles = {
     "pt-[40px] px-0 pb-[30px] md:pt-[0] md:pb-[100px] xl:pt-[87px] xl:px-0 xl:pb-[138px]",
   top: cn(
     "flex items-center justify-between rounded-full bg-main-bg w-full backdrop-blur-lg",
-    "p-[10px] md:py-[23px] md:px-[30px] xl:pt-[16px] xl:pt-[16px] xl:pt-[16px] xl:pb-[22px] 2xl:pt-[20px] 2xl:px-[30px] 2xl:pb-[26px]",
+    "p-[10px] md:py-[23px] md:px-[30px] xl:pt-[16px] xl:pb-[22px] 2xl:pt-[20px] 2xl:px-[30px] 2xl:pb-[26px]",
   ),
   wrapper: cn(
     "grid grid-cols-[150px_137px] md:grid-cols-[270px_196px] lg:grid-cols-[260px_267px_196px]",

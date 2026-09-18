@@ -1,5 +1,5 @@
 import { VipSection } from "@/widgets/vip-section";
-import { Container } from "@/shared/ui/";
+import { Container } from "@/shared/ui";
 
 const VipPage = () => {
   return (

@@ -30,7 +30,7 @@ const PartnersItem = (props: PartnersItemProps) => {
           src={logoPath}
           alt={alt}
           fill
-          sizes="min-width(1680px):250px , 175px"
+          sizes="(min-width: 1680px) 250px, 175px"
         />
       </a>
     </li>

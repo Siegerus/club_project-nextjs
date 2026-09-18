@@ -9,7 +9,7 @@ import {
   signButtonText,
   signDescription,
   signImagePath,
-} from "../libs";
+} from "../lib";
 
 const styles = {
   root: "pb-[36px] pt-[10px] md:pb-[180px] lg:pb-[100px] xl:py-[100px]",
@@ -37,7 +37,12 @@ const SignSection = () => {
     <section className={styles.root}>
       <div className={styles.wrapper}>
         <div className={styles.block}>
-          <Heading className={styles.title} level="h2" gradientType="white" title={signTitleText} />
+          <Heading
+            className={styles.title}
+            level="h2"
+            gradientType="white"
+            title={signTitleText}
+          />
           <div className={styles.description}>{signDescription}</div>
           <LinkButton className={styles.buttom} path={AppRoute.Authorization}>
             {signButtonText}
