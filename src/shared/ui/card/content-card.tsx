@@ -4,7 +4,8 @@ import { ReactElement } from "react";
 
 import { cn } from "@/shared/lib";
 import { Heading } from "../heading";
-import { CardData, Sizes } from "./types";
+import BaseCard from "./base-card";
+import type { CardData, Sizes } from "./types";
 
 export type CardProps = {
   wrapperClass?: string;
@@ -12,30 +13,30 @@ export type CardProps = {
   imageClass?: string;
   titleClass?: string;
   descriptionClass?: string;
+  blockClass?: string;
   imageSizes: Sizes;
   cardData: CardData;
   children?: ReactElement;
 };
 
-const titleCommon =
-  "text-[2em] lg:text-[1.625em] xl:text-[2.125em] 2xl:text-4xl text-center text-white tracking-base";
-
 const styles = {
-  wrapper: "bg-main-bg backdrop-blur-xl box-shadow-main rounded-base",
   imageWrapper: "flex items-center justify-center w-full",
   block: "flex flex-col items-center",
   description:
     "text-base lg:text-[1.0625em] xl:text-lg 3xl:text-xl text-center tracking-base leading-main text-white-70",
-  title: titleCommon,
-  titlePart: cn(titleCommon, "title text-additional"),
+  titlePart: cn(
+    "text-[2em] lg:text-[1.625em] xl:text-[2.125em] 2xl:text-4xl text-center text-white leading-one tracking-base",
+    "title text-additional",
+  ),
 };
 
-const Card = ({
+const ContentCard = ({
   wrapperClass,
   imageWrapperClass,
   imageClass,
   titleClass,
   descriptionClass,
+  blockClass,
   imageSizes,
   cardData,
   children,
@@ -43,7 +44,7 @@ const Card = ({
   const { titleText, imageAlt, imageSrc, description } = cardData;
 
   return (
-    <div className={cn(styles.wrapper, wrapperClass)}>
+    <BaseCard wrapperClass={wrapperClass}>
       {children}
       <div className={cn(styles.imageWrapper, imageWrapperClass)}>
         <Image
@@ -54,12 +55,8 @@ const Card = ({
           src={imageSrc}
         />
       </div>
-      <div className={styles.block}>
-        <Heading
-          className={cn(styles.title, titleClass)}
-          level="h2"
-          title={titleText.top}
-        />
+      <div className={cn(styles.block, blockClass)}>
+        <Heading className={cn(titleClass)} level="h2" title={titleText.top} />
 
         {titleText.bottom && (
           <span className={styles.titlePart}>{titleText.bottom}</span>
@@ -68,8 +65,8 @@ const Card = ({
           {description}
         </div>
       </div>
-    </div>
+    </BaseCard>
   );
 };
 
-export default Card;
+export default ContentCard;

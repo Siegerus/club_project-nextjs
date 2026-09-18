@@ -53,12 +53,13 @@ const MainPromo = () => {
           sizes="(max-width: 767px) 100vw"
         />
         <div className={styles.block}>
-          <Heading level="h1" className={styles.title}>
+          <Heading className={styles.title} level="h1" gradientType="white">
             <span className="md:hidden">{promoTitleMobile}</span>
             <span className="hidden md:inline">{promoTitle}</span>
           </Heading>
           <Heading
             level="h2"
+            gradientType="white"
             title={promoSubtitle}
             className={styles.subTitle}
           />

@@ -5,6 +5,7 @@
   --white-checkbox-bg: url('/icons/check-white.svg');
   --black-checkbox-bg: url('/icons/check.svg');
   --gradient-white :radial-gradient(85.18% 257.73% at 48.35%  49.66%, rgb(255 255 255) 0%, rgb(255 255 255) 100%);
+  --gradient-brown: linear-gradient(270deg,#915c46 0,#c47a5c 100%); 
 }
 
 @theme inline {
@@ -49,7 +50,7 @@
   }
 }
 
-@utility bg-rainbow-text {
+@utility bg-rainbow-gradient-text {
   background-image: linear-gradient(90deg, #f43b47 0%, #453a94 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -65,11 +66,17 @@
 
 }         
 
-
 @utility bg-white-gradient-text {
   background-image: var(--gradient-white);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@utility bg-brown-gradient-text {
+    background: var(--gradient-brown);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 
@@ -226,7 +233,7 @@ body {
   font-family: var(--font-sans), sans-serif;
 }
 
-
+ 
 .container {
   @apply mx-auto w-full md:w-[648px] lg:w-[968px] xl:w-[1120px] 2xl:w-[1320px] 3xl:w-[1540px] py-0 px-[20px] md:px-0;
 }

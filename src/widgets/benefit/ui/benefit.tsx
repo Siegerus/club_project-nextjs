@@ -19,10 +19,11 @@ const styles = {
   ),
   cardWrapper:
     "p-[10px] pb-[20px] md:pb-[10px] lg:py-[15px] lg:px-[10px] xl:pt-[20px] xl:pb-[31px] xl:px-[30px] 3xl:px-[20px] 3xl:pt-[20px] 3xl:pb-[31px]",
-  cardTitle: "max-w-[297px] mt-[20px] lg:mt-[35px] leading-one",
+  cardTitle:
+    "max-w-[297px] mt-[20px] lg:mt-[35px] text-[2em] lg:text-[1.625em] xl:text-[2.125em] 2xl:text-4xl leading-one text-center text-white tracking-base",
   cardImageWrapper: "lg:mt-[15px]",
   cardImage: "w-[100px] h-[100px]",
-  description: "mt-[10px]",
+  description: "mt-[10px] lg:tracking-none",
 };
 
 const benefitsCardData = benefitsToCardData(benefits);
@@ -30,7 +31,7 @@ const benefitsCardData = benefitsToCardData(benefits);
 const Benefit = () => {
   return (
     <section className={styles.root}>
-      <Heading className={styles.title} level="h1" title={benefitTitle} />
+      <Heading className={styles.title} level="h1" gradientType="white" title={benefitTitle} />
       <ul className={styles.listClass}>
         {benefitsCardData.map((benefit, i) => {
           const keyValue = `${benefit.titleText.top} + ${i}`;

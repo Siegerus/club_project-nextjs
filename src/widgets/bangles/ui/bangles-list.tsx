@@ -1,6 +1,6 @@
 import { bangles } from "@/entities/company";
 import { cn } from "@/shared/lib";
-import { Card } from "@/shared/ui";
+import { ContentCard } from "@/shared/ui";
 import { banglesToCardData } from "../lib";
 
 const styles = {
@@ -15,7 +15,7 @@ const styles = {
   cardWrapper:
     "flex flex-col items-center w-[320px] md:w-auto md:h-full p-[20px] md:py-[40px] lg:py-[15px] lg:px-[10px] xl:p-[40px]",
   cardTitle:
-    "mt-[24px] md:mt-[60px] lg:mt-[65px] xl:mt-[50px] 3xl:mt-[80px] text-2xl lg:text-[2em] xl:text-[2em] 2xl:text-[2em] leading-[80%]",
+    "mt-[24px] md:mt-[60px] lg:mt-[65px] xl:mt-[50px] 3xl:mt-[80px] text-2xl lg:text-[2em] xl:text-[2em] 2xl:text-[2em] leading-[80%] tracking-base text-white",
   cardImageWrapper: "",
   cardImage:
     "w-[186px] md:w-[228px] h-[100px] md:h-[123px] object-cover md:object-contain",
@@ -32,7 +32,7 @@ const BanglesList = () => {
         const keyValue = `${bangle.titleText.top} + ${i}`;
         return (
           <li className={styles.listItem} key={keyValue}>
-            <Card
+            <ContentCard
               cardData={bangle}
               imageSizes={{ width: 228, height: 100 }}
               wrapperClass={styles.cardWrapper}

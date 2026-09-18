@@ -38,7 +38,7 @@ const Bangles = () => {
   return (
     <section className={styles.root} style={rootBgStyle}>
       <Container>
-        <Heading className={styles.title} level="h1" title={banglesTitle} />
+        <Heading className={styles.title} level="h1" gradientType="white" title={banglesTitle} />
         <span className={styles.description}>{banglesDescription}</span>
         <BanglesList />
       </Container>

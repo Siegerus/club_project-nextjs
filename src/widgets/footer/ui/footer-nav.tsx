@@ -15,7 +15,12 @@ const styles = {
 const FooterNav = ({ navItems, headingText }: FooterNavProps) => {
   return (
     <ul className={styles.wrapper}>
-      <Heading className={styles.title} title={headingText} level="h3" />
+      <Heading
+        className={styles.title}
+        title={headingText}
+        level="h3"
+        gradientType="none"
+      />
       {navItems.map((item) => (
         <NavItem key={item.text} {...item} className={styles.item} />
       ))}
