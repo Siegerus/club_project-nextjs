@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { PropsWithChildren } from "react";
 
 import { cn } from "@/shared/lib";
+import { ClosingItem } from "../closing-item";
 import { Overlay } from "../overlay";
 
 type ModalProps = PropsWithChildren<{
@@ -40,11 +41,11 @@ const Modal = ({
         transition={{ duration: 0.5 }}
       >
         <div className={cn(styles.wrapper, wrapperClass)}>{children}</div>
-        <button
-          className={cn(styles.close, closeClass)}
+        <ClosingItem
+          buttonClass={cn(styles.close, closeClass)}
           onClick={onClose}
-          aria-label="Закрыть модальное окно"
-        ></button>
+          label="Закрыть модальное окно"
+        />
       </motion.div>
     </Overlay>
   );
