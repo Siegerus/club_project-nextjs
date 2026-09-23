@@ -3,7 +3,11 @@ type LoyaltyName = "Bronze уровень" | "Silver уровень" | "Gold у�
 export type LoyaltyLevel = {
   name: LoyaltyName;
   description: string;
-  imagePath: Record<string, string>;
+  imagePath: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
 };
 
 export const loyaltyLevels: LoyaltyLevel[] = [

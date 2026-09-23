@@ -4,7 +4,7 @@ import { LoyaltyLevel } from "@/entities/company";
 import { cn } from "@/shared/lib";
 import { BaseCard, Heading } from "@/shared/ui";
 
-type LoyaltyCardProps = LoyaltyLevel & {};
+type LoyaltyCardProps = LoyaltyLevel;
 
 const styles = {
   wrapper:
@@ -18,6 +18,9 @@ const styles = {
   image: "object-contain rounded-small",
 };
 
+const cardImageSizes =
+  "(min-width: 768px) 313px, (min-width: 1280px) 360px, (min-width: 1680px) 500px, 385px";
+
 const LoyaltyCard = ({ name, description, imagePath }: LoyaltyCardProps) => {
   return (
     <BaseCard wrapperClass={styles.wrapper}>
@@ -27,21 +30,21 @@ const LoyaltyCard = ({ name, description, imagePath }: LoyaltyCardProps) => {
           src={imagePath.mobile}
           alt={name}
           fill
-          sizes="(min-width: 768px) 313px, (min-width: 1280px) 360px, (min-width: 1680px) 500px, 385px"
+          sizes={cardImageSizes}
         />
         <Image
           className={cn(styles.image, "hidden md:block lg:hidden")}
           src={imagePath.tablet}
           alt={name}
           fill
-          sizes="(min-width: 768px) 313px, (min-width: 1280px) 360px, (min-width: 1680px) 500px, 385px"
+          sizes={cardImageSizes}
         />
         <Image
           className={cn(styles.image, "hidden lg:block")}
           src={imagePath.desktop}
           alt={name}
           fill
-          sizes="(min-width: 768px) 313px, (min-width: 1280px) 360px, (min-width: 1680px) 500px, 385px"
+          sizes={cardImageSizes}
         />
       </div>
       <Heading
