@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 
 import { cn } from "@/shared/lib";
@@ -9,18 +8,18 @@ import { QuestionItem } from "../lib";
 type FaqItemProps = QuestionItem;
 
 const styles = {
-  item: "cursor-pointer",
-  itemWrapper: "",
-  question: "",
-  content: "",
+  item: "max-h-[74px] p-[10px] border-b-2 border-white/10 cursor-pointer overflow-y-hidden duration-base",
+  itemWrapper: "flex items-center justify-between pb-[15px]",
+  question: "text-base text-white leading-main",
+  content: "mt-[8px] pb-[20px] text-sm text-white-70",
   toggleButton:
-    "w-[36px] h-[36px] close-button before:h-[12px] before:w-[2px] after:w-[12px] after:h-[2px] -rotate-45 duration-base",
+    "close-button relative w-[36px] h-[36px] before:h-[12px] before:w-[2px] after:w-[12px] after:h-[2px] -rotate-45 duration-base",
 };
 
 const FaqItem = ({ answer, question }: FaqItemProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const itemClass = cn(styles.item, isOpen && "text-white-70");
+  const itemClass = cn(styles.item, isOpen && "max-h-[unset]");
   const toggleButtonClass = cn(styles.toggleButton, isOpen && "rotate-0");
   const toggleButtonlabel = isOpen
     ? "Скрыть текст вопроса"
