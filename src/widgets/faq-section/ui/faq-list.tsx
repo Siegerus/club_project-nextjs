@@ -2,7 +2,7 @@ import { faqItemsConfig } from "../lib";
 import FaqItem from "./faq-item";
 
 const styles = {
-  list: "mt-[10px] ",
+  list: "mt-[10px] md:mt-0 lg:mt-[30px]",
 };
 
 const FaqList = () => {

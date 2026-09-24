@@ -22,11 +22,13 @@ const Hamburger = ({
 }: HamburgerProps) => {
   const stickClass = cn(styles.stick, isActive && styles.active);
 
+  const buttonLabel = isActive ? "Закрыть меню" : "Открыть меню";
+
   return (
     <button
       className={cn(styles.wrapper, className)}
       onClick={onClick}
-      aria-label="Открыть меню"
+      aria-label={buttonLabel}
     >
       <span className={stickClass}></span>
       <span className={stickClass}></span>
