@@ -15,3 +15,4 @@ export { Checkbox } from "./checkbox";
 export { ContentCard, type CardData } from "./card";
 export { BaseCard } from "./card";
 export { NumberedCard } from "./card";
+export { ClosingItem } from "./closing-item";

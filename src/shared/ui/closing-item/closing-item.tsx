@@ -7,7 +7,7 @@ type ClosingItemProps = {
 };
 
 const styles = {
-  button: "close-button",
+  button: "",
 };
 
 const ClosingItem = ({ label, buttonClass, onClick }: ClosingItemProps) => {

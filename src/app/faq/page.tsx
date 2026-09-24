@@ -1,9 +1,10 @@
+import { FaqSection } from "@/widgets/faq-section";
 import { Container } from "@/shared/ui/container";
 
 const FaqPage = () => {
   return (
     <Container>
-      <div>FaqPage</div>
+      <FaqSection />
     </Container>
   );
 };

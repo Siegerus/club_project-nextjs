@@ -9,10 +9,10 @@ type HamburgerProps = {
 };
 
 const styles = {
-  wrapper: "w-[17px] md:hidden",
+  wrapper: "block w-[17.5px] h-[13.5px] md:hidden",
   stick: "block w-full h-[1.5px] mx-auto mb-[3px] bg-white duration-base",
   active:
-    "nth-1:-rotate-45 nth-1:translate-y-[4.5px] nth-2:opacity-0 nth-3:rotate-45 nth-3:translate-y-[-4.5px]",
+    "-mb-[1.5px] nth-1:-rotate-45 nth-1:translate-y-[3px] nth-2:hidden nth-3:rotate-45 nth-3:translate-y-[3px]",
 };
 
 const Hamburger = ({
@@ -22,11 +22,13 @@ const Hamburger = ({
 }: HamburgerProps) => {
   const stickClass = cn(styles.stick, isActive && styles.active);
 
+  const buttonLabel = isActive ? "Закрыть меню" : "Открыть меню";
+
   return (
     <button
       className={cn(styles.wrapper, className)}
       onClick={onClick}
-      aria-label="Открыть меню"
+      aria-label={buttonLabel}
     >
       <span className={stickClass}></span>
       <span className={stickClass}></span>
