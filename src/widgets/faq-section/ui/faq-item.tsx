@@ -13,13 +13,13 @@ const styles = {
   question: "text-base text-white leading-main",
   content: "mt-[8px] pb-[20px] text-sm text-white-70",
   toggleButton:
-    "close-button relative w-[36px] h-[36px] before:h-[12px] before:w-[2px] after:w-[12px] after:h-[2px] -rotate-45 duration-base",
+    "close-button z-auto relative w-[36.5px] h-[36.5px] before:h-[12px] before:w-[2.5px] after:w-[12px] after:h-[2.5px] -rotate-45 duration-base",
 };
 
 const FaqItem = ({ answer, question }: FaqItemProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const itemClass = cn(styles.item, isOpen && "max-h-[unset]");
+  const itemClass = cn(styles.item, isOpen && "max-h-[181px]");
   const toggleButtonClass = cn(styles.toggleButton, isOpen && "rotate-0");
   const toggleButtonlabel = isOpen
     ? "Скрыть текст вопроса"
