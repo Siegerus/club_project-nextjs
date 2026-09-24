@@ -13,7 +13,7 @@ function useModal() {
   };
 
   useEffect(() => {
-    if (!isModalOpen || !modalRootRef.current) return;
+    if (!isModalOpen) return;
 
     const handleClickClose = (e: MouseEvent | KeyboardEvent) => {
       const target = e.target as Node | null;
