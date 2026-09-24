@@ -9,7 +9,12 @@ const FaqList = () => {
   return (
     <ul className={styles.list}>
       {faqItemsConfig.map((item, i) => (
-        <FaqItem answer={item.answer} question={item.question} key={i} />
+        <FaqItem
+          answer={item.answer}
+          question={item.question}
+          answerHeight={item.answerHeight}
+          key={i}
+        />
       ))}
     </ul>
   );

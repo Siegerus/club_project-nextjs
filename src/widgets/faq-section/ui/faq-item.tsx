@@ -16,10 +16,11 @@ const styles = {
     "close-button z-auto relative w-[36.5px] h-[36.5px] before:h-[12px] before:w-[2.5px] after:w-[12px] after:h-[2.5px] -rotate-45 duration-base",
 };
 
-const FaqItem = ({ answer, question }: FaqItemProps) => {
+const FaqItem = ({ answer, question, answerHeight }: FaqItemProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const itemClass = cn(styles.item, isOpen && "max-h-[181px]");
+  // const itemClass = cn(styles.item, isOpen && "max-h-[181px]");
+  const itemHeightStyle = { maxHeight: isOpen ? answerHeight : undefined };
   const toggleButtonClass = cn(styles.toggleButton, isOpen && "rotate-0");
   const toggleButtonlabel = isOpen
     ? "Скрыть текст вопроса"
@@ -30,7 +31,11 @@ const FaqItem = ({ answer, question }: FaqItemProps) => {
   };
 
   return (
-    <li className={itemClass} onClick={handleToggleClick}>
+    <li
+      className={styles.item}
+      style={itemHeightStyle}
+      onClick={handleToggleClick}
+    >
       <div className={styles.itemWrapper}>
         <span className={styles.question}>{question}</span>
         <ClosingItem
