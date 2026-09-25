@@ -91,9 +91,6 @@
 
 
 @utility close-button {
-  position: absolute;
-  z-index: 35;
-  transform: rotate(45deg);
   border-radius: 100px;
   background-color: var(--color-main-bg);
   backdrop-filter: blur(24px);
@@ -104,8 +101,6 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 3px;
-    height: 21px;
     transform: translate(-50%, -50%);
     border-radius: 20px;
     background-color: #fff;
@@ -116,8 +111,6 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 21px;
-    height: 3px;
     transform: translate(-50%, -50%);
     border-radius: 20px;
     background-color: #fff;

@@ -17,7 +17,7 @@ const styles = {
   subtitle: "mt-[10px] text-xl text-center text-white-40",
   icon: "relative z-10 w-[141px] h-[140px] mx-auto ",
   close:
-    "top-[15px] right-[15px] md:-right-[82px] md:top-0 w-[55px] h-[55px] md:w-[62px] md:h-[62px]",
+    "top-[15px] right-[15px] md:-right-[82px] md:top-0 w-[55px] h-[55px] md:w-[62px] md:h-[62px] before:h-[21px] before:w-[3px] after:w-[21px] after:h-[3px]",
 };
 
 const bgStyle = {

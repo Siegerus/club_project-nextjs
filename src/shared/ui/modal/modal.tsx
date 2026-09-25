@@ -17,7 +17,7 @@ type ModalProps = PropsWithChildren<{
 const styles = {
   root: "z-50 relative h-dvh md:h-auto overflow-y-scroll md:overflow-y-visible ",
   wrapper: "h-dvh md:h-auto px-[40px] py-[40px]",
-  close: "close-button",
+  close: "absolute z-35 rotate-45 close-button",
 };
 
 const Modal = ({

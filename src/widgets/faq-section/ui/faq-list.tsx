@@ -8,9 +8,16 @@ const styles = {
 const FaqList = () => {
   return (
     <ul className={styles.list}>
-      {faqItemsConfig.map((item, i) => (
-        <FaqItem answer={item.answer} question={item.question} key={i} />
-      ))}
+      {faqItemsConfig.map((item, i) => {
+        const keyValue = `${item}-${i}`;
+        return (
+          <FaqItem
+            answer={item.answer}
+            question={item.question}
+            key={keyValue}
+          />
+        );
+      })}
     </ul>
   );
 };
