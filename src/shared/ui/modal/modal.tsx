@@ -39,6 +39,8 @@ const Modal = ({
         animate={{ y: "0%" }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
+        role="dialog"
+        aria-modal="true"
       >
         <div className={cn(styles.wrapper, wrapperClass)}>{children}</div>
         <ClosingItem

@@ -39,18 +39,20 @@ const MainPromo = () => {
           width={1320}
           height={873}
           src={mainPicturePath}
-          alt=""
+          alt="Фоновое изображение промо секции"
           preload
           sizes="(min-width: 768px) 100vw"
+          placeholder="empty"
         />
         <Image
           className={cn(styles.image, "md:hidden")}
           src={mainPictureMobilePath}
           width={320}
           height={518}
-          alt=""
+          alt="Фоновое изображение промо секции"
           preload
           sizes="(max-width: 767px) 100vw"
+          placeholder="empty"
         />
         <div className={styles.block}>
           <Heading className={styles.title} level="h1" gradientType="white">

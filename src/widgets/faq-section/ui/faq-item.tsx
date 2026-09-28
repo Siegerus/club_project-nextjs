@@ -12,8 +12,8 @@ const styles = {
     "grid grid-rows-[auto_0fr] p-[10px] md:pt-[20px] md:pb-0 md:pr-0 md:pl-[20px] lg:pl-[30px]",
     "border-b-2 md:border-b-3 border-white/10 cursor-pointer overflow-y-hidden duration-base",
   ),
-  itemWrapper:
-    "flex items-center justify-between pb-[15px] md:pb-[20px] lg:pb-[15px] xl:pb-[10px] md:pr-[10px] lg:pr-[12px] 2xl:pr-[15px]",
+  questionWrapper:
+    "flex items-start justify-between pb-[15px] md:pb-[20px] lg:pb-[15px] xl:pb-[10px] md:pr-[10px] lg:pr-[12px] 2xl:pr-[15px]",
   question:
     "text-base md:text-2xl lg:text-3xl 3xl:text-[2em] text-white leading-main md:tracking-base lg:tracking-none",
   answerWrapper: "min-h-0 overflow-y-hidden",
@@ -58,7 +58,7 @@ const FaqItem = ({ answer, question }: FaqItemProps) => {
       aria-controls="answer"
       aria-expanded={isOpen}
     >
-      <div className={styles.itemWrapper}>
+      <div className={styles.questionWrapper}>
         <span className={styles.question}>{question}</span>
         <ClosingItem buttonClass={toggleButtonClass} variant="div" />
       </div>
