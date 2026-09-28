@@ -244,7 +244,12 @@ body {
   @apply font-semibold bg-clip-text;
 }
 
-.title-responsive {
+
+.title-responsive, .title-responsive_mobile-3xl {
   @apply text-[2.5em] md:text-[4.375em] lg:text-[4.625em] xl:text-[5em] 2xl:text-[5.25em] 3xl:text-[5.5em] text-center;
+}
+
+.title-responsive_mobile-3xl {
+  @apply max-md:text-3xl;
 }
 

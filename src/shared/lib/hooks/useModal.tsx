@@ -29,14 +29,12 @@ function useModal() {
     document.body.addEventListener("keydown", handleKeyClose);
 
     document.body.style.overflow = isModalOpen ? "hidden" : "auto";
-    document.body.setAttribute("aria-hidden", "true");
     document.body.classList.add("modal-open");
 
     return () => {
       document.body.removeEventListener("click", handleClickClose);
       document.body.removeEventListener("keydown", handleKeyClose);
       document.body.style.overflow = "auto";
-      document.body.removeAttribute("aria-hidden");
       document.body.classList.remove("modal-open");
     };
   }, [isModalOpen]);
