@@ -1,9 +1,10 @@
+import { ContactsSection } from "@/widgets/contacts-section";
 import { Container } from "@/shared/ui/container";
 
 const ContactsPage = () => {
   return (
     <Container>
-      <div>ContactsPage</div>
+      <ContactsSection />
     </Container>
   );
 };
