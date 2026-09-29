@@ -38,3 +38,7 @@ export const inputsConfig: InputType[] = [
     height: "102",
   },
 ];
+
+export const contactsFormButtonText = "Отправить";
+export const contactsFormCheckboxText =
+  "Я\u00A0ознакомлен(а) с\u00A0политикой, офертой, и\u00A0даю\u00A0согласие на\u00A0обработку персональных данных";

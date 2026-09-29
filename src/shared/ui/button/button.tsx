@@ -4,10 +4,7 @@ import { cn } from "@/shared/lib";
 
 type ButtonProps = PropsWithChildren<
   ButtonHTMLAttributes<HTMLButtonElement> & {
-    className?: string;
-    type?: "button" | "submit" | "reset";
     variant?: "no-bg";
-    onClick?: () => void;
   }
 >;
 
@@ -27,7 +24,7 @@ const Button = ({
   type = "button",
   className,
   variant,
-  onClick,
+  ...restProps
 }: ButtonProps) => {
   const buttonClass = cn(
     styles.base,
@@ -36,7 +33,7 @@ const Button = ({
   );
 
   return (
-    <button className={buttonClass} type={type} onClick={onClick}>
+    <button {...restProps} className={buttonClass} type={type}>
       {children}
     </button>
   );
