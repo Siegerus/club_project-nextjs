@@ -1,3 +1,4 @@
+import { ContactsForm } from "@/features/contacts-form";
 import { cn } from "@/shared/lib";
 import { Heading } from "@/shared/ui";
 import { contactsSectionTitle, contactsSectionDescription } from "../lib";
@@ -23,6 +24,7 @@ const ContactsSection = () => {
         title={contactsSectionTitle}
       />
       <p className={styles.descripion}>{contactsSectionDescription}</p>
+      <ContactsForm />
     </section>
   );
 };

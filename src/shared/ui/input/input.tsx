@@ -1,20 +1,31 @@
-import type { InputHTMLAttributes, ChangeEvent } from "react";
+import type {
+  InputHTMLAttributes,
+  TextareaHTMLAttributes,
+  ChangeEvent,
+} from "react";
 import { cn } from "@/shared/lib";
 
-type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+type InputProps = (
+  | (InputHTMLAttributes<HTMLInputElement> & { isTextArea?: false })
+  | (TextareaHTMLAttributes<HTMLTextAreaElement> & { isTextArea: true })
+) & {
   wrapperClass?: string;
   inputClass?: string;
   label?: string;
   id: string;
   isTextArea?: boolean;
+  textAreaHeight?: string;
+  type?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 };
 
+const inputCommon =
+  "block relative px-[20px] py-[18px] md:py-[22px] text-base text-white leading-middle tracking-base outline-hidden placeholder:text-white-40 input-interactive";
+
 const styles = {
   wrapper: "w-full",
-  input:
-    "block relative px-[20px] py-[18px] md:py-[22px] text-base text-white leading-middle tracking-base outline-hidden duration-300 ease-in placeholder:text-white-40 input-interactive",
-  textArea: "resize-none",
+  input: inputCommon,
+  textArea: cn(inputCommon, "resize-none"),
   label: "",
 };
 
@@ -25,29 +36,39 @@ const Input = ({
   label,
   id,
   onChange,
+  autoComplete = "on",
   type = "text",
   isTextArea = false,
+  textAreaHeight,
+  ...rest
 }: InputProps) => {
+  const areaHeight = {
+    minHeight: textAreaHeight ? `${textAreaHeight}px` : undefined,
+  };
+
   return (
     <div className={cn(styles.wrapper, wrapperClass)}>
       {isTextArea ? (
         <textarea
+          {...(rest as TextareaHTMLAttributes<HTMLTextAreaElement>)}
           className={cn(styles.textArea, inputClass)}
           id={id}
           name={id}
           placeholder={placeholder}
-          autoComplete="on"
           onChange={onChange}
+          style={areaHeight}
+          autoComplete={autoComplete}
         />
       ) : (
         <input
+          {...(rest as InputHTMLAttributes<HTMLInputElement>)}
           className={cn(styles.input, inputClass)}
-          type={type}
           id={id}
           name={id}
           placeholder={placeholder}
-          autoComplete="on"
           onChange={onChange}
+          autoComplete={autoComplete}
+          type={type}
         />
       )}
       {label && (

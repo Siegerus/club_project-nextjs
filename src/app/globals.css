@@ -154,13 +154,14 @@
 }
 
 @utility input-interactive {
+  transition: background-color 0.3s;
+
   &::placeholder {
     transition: all 0.3s ; 
   }
 
   &:focus {
     outline: 6px solid var(--color-focus-input);
-    transition: outline 0s;
 
     &::placeholder {
       color: transparent;
@@ -170,6 +171,14 @@
   @media (hover: hover) {
     &:hover { 
     background-color: var(--color-main-input);
+    transition: background-color 0.3s;
+    }
+  }
+
+  @media (hover: none) {
+    &:focus { 
+    background-color: var(--color-main-input);
+    transition: background-color 0.3s;
     }
   }
 }
@@ -224,7 +233,7 @@
     color: #fff;
   }
 }
-
+ 
 
 body {
   background: var(--background);
