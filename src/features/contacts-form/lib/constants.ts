@@ -1,38 +1,50 @@
-export type FeedBack = {
-  id: string;
-  userName: string;
-  email: string;
-  message: string;
-  agreement: boolean;
+export type ContactsFeedBack = {
+  "contacts-user": string;
+  "contacts-email": string;
+  "contacts-comment": string;
+  "contacts-agreement": boolean;
 };
 
+export const initialFormValues: ContactsFeedBack = {
+  "contacts-user": "",
+  "contacts-email": "",
+  "contacts-comment": "",
+  "contacts-agreement": false,
+};
+
+type InputTextField = "contacts-user" | "contacts-email" | "contacts-comment";
+
 type InputType = {
-  id: string;
+  name: InputTextField;
   type?: string;
   height?: string;
   placeholder: string;
+  ariaLabel: string;
   autoComplete: string;
   textArea: boolean;
 };
 
 export const inputsConfig: InputType[] = [
   {
-    id: "contacts-user",
+    name: "contacts-user",
     type: "text",
     placeholder: "Ваше имя",
+    ariaLabel: "Ввести имя",
     autoComplete: "name",
     textArea: false,
   },
   {
-    id: "contacts-email",
+    name: "contacts-email",
     type: "email",
     placeholder: "Адрес электронной почты",
+    ariaLabel: "Ввести адрес электронной почты",
     autoComplete: "email",
     textArea: false,
   },
   {
-    id: "contacts-comment",
+    name: "contacts-comment",
     placeholder: "Текст письма",
+    ariaLabel: "Ввести текст письма",
     autoComplete: "off",
     textArea: true,
     height: "102",

@@ -15,7 +15,6 @@ type InputProps = (
   id: string;
   isTextArea?: boolean;
   textAreaHeight?: string;
-  type?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 };
 
@@ -37,9 +36,9 @@ const Input = ({
   id,
   onChange,
   autoComplete = "on",
-  type = "text",
   isTextArea = false,
   textAreaHeight,
+  value,
   ...rest
 }: InputProps) => {
   const areaHeight = {
@@ -58,6 +57,7 @@ const Input = ({
           onChange={onChange}
           style={areaHeight}
           autoComplete={autoComplete}
+          value={value}
         />
       ) : (
         <input
@@ -68,7 +68,7 @@ const Input = ({
           placeholder={placeholder}
           onChange={onChange}
           autoComplete={autoComplete}
-          type={type}
+          value={value}
         />
       )}
       {label && (
