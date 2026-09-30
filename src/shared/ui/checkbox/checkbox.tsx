@@ -12,7 +12,7 @@ type CheckboxProps = {
 
 const styles = {
   wrapper: "flex items-start",
-  label: "custom-checkbox",
+  label: "custom-checkbox cursor-pointer",
 };
 
 const Checkbox = ({
