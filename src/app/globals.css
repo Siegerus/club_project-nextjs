@@ -2,6 +2,7 @@
 
 :root {
   --background: linear-gradient(270deg, #080808 0%, #1e120e 72.09%, #2d1910 100%);
+  --eclipse-image-bg: url('/images/action-bg-mobile.png');
   --white-checkbox-bg: url('/icons/check-white.svg');
   --black-checkbox-bg: url('/icons/check.svg');
   --gradient-white :radial-gradient(85.18% 257.73% at 48.35%  49.66%, rgb(255 255 255) 0%, rgb(255 255 255) 100%);
@@ -50,6 +51,14 @@
   }
 } 
 
+@utility eclipse {
+  background-image: var(--eclipse-image-bg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--background);
+}
+
 @utility bg-rainbow-gradient-text {
   background-image: linear-gradient(90deg, #f43b47 0%, #453a94 100%);
   background-clip: text;
@@ -63,12 +72,10 @@
 
 @utility box-shadow-main {
   box-shadow: 0 75px 75px 0 rgb(10 10 10 / 9%), 0 170px 102px 0 rgb(10 10 10 / 5%), 0 302px 121px 0 rgb(10 10 10 / 1%), 0 471px 132px 0 rgb(10 10 10 / 0%), 0 4px 4px 0 rgb(0 0 0 / 25%);
-
 }   
 
 @utility box-shadow-none {
   box-shadow: none;
-
 }
 
 @utility bg-white-gradient-text {
@@ -154,13 +161,14 @@
 }
 
 @utility input-interactive {
+  transition: background-color 0.3s;
+
   &::placeholder {
     transition: all 0.3s ; 
   }
 
   &:focus {
     outline: 6px solid var(--color-focus-input);
-    transition: outline 0s;
 
     &::placeholder {
       color: transparent;
@@ -170,6 +178,14 @@
   @media (hover: hover) {
     &:hover { 
     background-color: var(--color-main-input);
+    transition: background-color 0.3s;
+    }
+  }
+
+  @media (hover: none) {
+    &:focus { 
+    background-color: var(--color-main-input);
+    transition: background-color 0.3s;
     }
   }
 }
@@ -224,7 +240,7 @@
     color: #fff;
   }
 }
-
+ 
 
 body {
   background: var(--background);
@@ -239,6 +255,12 @@ body {
 .container-tablet-override {
   @apply mx-auto md:mx-[30px] lg:mx-auto md:relative lg:static md:left-1/2 lg:left-[unset] md:-translate-x-1/2 lg:translate-x-0 w-full md:w-[705px] lg:w-[968px] xl:w-[1120px] 2xl:w-[1320px] 3xl:w-[1540px] py-0 px-[20px] md:px-0;
 }
+
+.container-eclipse {
+  @apply bg-[url('/images/action-bg-mobile.png')_center/cover_no-repeat,var(--background)];
+}
+
+
 
 .title {
   @apply font-semibold bg-clip-text;

@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ChangeEvent, ReactElement } from "react";
 
 import { cn } from "@/shared/lib";
 
@@ -7,12 +7,14 @@ type CheckboxProps = {
   checkBoxClass?: string;
   variant: "black" | "white";
   id: string;
+  value?: boolean;
+  onChange?: (e: ChangeEvent) => void;
   children?: ReactElement;
 };
 
 const styles = {
   wrapper: "flex items-start",
-  label: "custom-checkbox",
+  label: "custom-checkbox cursor-pointer",
 };
 
 const Checkbox = ({
@@ -20,6 +22,8 @@ const Checkbox = ({
   wrapperClass,
   variant,
   id,
+  value,
+  onChange,
   children,
 }: CheckboxProps) => {
   const checkBoxVariant = cn(
@@ -34,6 +38,8 @@ const Checkbox = ({
         id={id}
         name={id}
         type="checkbox"
+        checked={value}
+        onChange={onChange}
       />
       <label className={cn(styles.label, checkBoxClass)} htmlFor={id}></label>
       {children}

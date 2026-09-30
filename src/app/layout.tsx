@@ -11,9 +11,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className={`h-full antialiased ${gilroy.variable}`}>
-      <body className={`min-h-full flex flex-col`}>
+      <body className={`relative min-h-full flex flex-col`}>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 container-eclipse">{children}</main>
         <Footer />
       </body>
     </html>
