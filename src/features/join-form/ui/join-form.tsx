@@ -1,13 +1,15 @@
-import { cn } from "@/shared/lib";
+"use client";
+
+import { ChangeEvent, SubmitEvent, useState } from "react";
+
+import { AppRoute, cn } from "@/shared/lib";
 import { Input } from "@/shared/ui";
 import { Button } from "@/shared/ui";
 import { Checkbox } from "@/shared/ui";
 
-import {
-  joinFormPlaceholders,
-  joinFormButtonText,
-  joinFormCheckboxInfo,
-} from "../lib";
+import { joinFormButtonText, joinFormCheckboxInfo } from "../lib";
+
+import { inputsConfig, initialFormValues, JoinFormFeedBack } from "../model";
 
 const styles = {
   form: "flex flex-col items-center w-full",
@@ -25,25 +27,48 @@ const styles = {
 };
 
 const JoinForm = () => {
-  const { email } = joinFormPlaceholders;
+  const [formValues, setFormValues] =
+    useState<JoinFormFeedBack>(initialFormValues);
+
+  const handleInputChange = (e: ChangeEvent) => {
+    const target = e.target as HTMLInputElement;
+    setFormValues({ ...formValues, [target.name]: target.value });
+  };
+  const handleCheckboxChange = (e: ChangeEvent) => {
+    const target = e.target as HTMLInputElement;
+    setFormValues({ ...formValues, [target.name]: target.checked });
+  };
+
+  const handleFormSubmit = (e: SubmitEvent) => {
+    e.preventDefault();
+  };
+
   return (
-    <form className={styles.form} id="join-form">
+    <form className={styles.form} id="join-form" onSubmit={handleFormSubmit}>
       <Input
         inputClass={styles.input}
-        placeholder={email}
-        type="email"
-        id="join-form-email"
+        placeholder={inputsConfig.placeholder}
+        type={inputsConfig.type}
+        id={inputsConfig.name}
+        aria-label={inputsConfig.ariaLabel}
+        autoComplete={inputsConfig.autoComplete}
+        value={formValues[inputsConfig.name]}
+        onChange={handleInputChange}
       />
-      <Button className={styles.button} variant="no-bg">
+      <Button className={styles.button} type="submit" variant="no-bg">
         {joinFormButtonText}
       </Button>
       <Checkbox
         checkBoxClass={styles.checkbox}
         wrapperClass={styles.checkboxWrapper}
         variant="white"
-        id="rules-agreement"
+        id="join-form-agreement"
+        value={formValues["join-form-agreement"]}
+        onChange={handleCheckboxChange}
       >
-        <span className={styles.checkboxInfo}>{joinFormCheckboxInfo}</span>
+        <a href={AppRoute.Rules} className={styles.checkboxInfo}>
+          {joinFormCheckboxInfo}
+        </a>
       </Checkbox>
     </form>
   );

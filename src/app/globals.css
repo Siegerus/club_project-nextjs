@@ -36,7 +36,6 @@
   --color-additional: #915c46;
   --color-special: #2d1910;
 
- 
 }
 
 @media (min-width: 1024px) {
@@ -50,6 +49,10 @@
     @slot;
   }
 } 
+
+@utility skip-ink-none {
+  text-decoration-skip-ink: none;
+}
 
 @utility eclipse {
   background-image: var(--eclipse-image-bg);

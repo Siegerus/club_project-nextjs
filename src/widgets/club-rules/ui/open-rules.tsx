@@ -5,7 +5,7 @@ import { rulesButtonText, rulesSectionDescription } from "../lib";
 import RulesList from "./rules-list";
 
 const styles = {
-  button: "underline decoration-skip-ink-none text-white",
+  button: "underline text-white cursor-pointer skip-ink-none",
   description: "mt-[20px] lg:mt-[25px] 2xl:mt-[28px]",
 };
 
