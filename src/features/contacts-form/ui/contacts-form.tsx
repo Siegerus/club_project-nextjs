@@ -6,13 +6,12 @@ import { cn } from "@/shared/lib";
 import { Input } from "@/shared/ui";
 import { Checkbox } from "@/shared/ui";
 import { Button } from "@/shared/ui";
+import { contactsFormButtonText, contactsFormCheckboxText } from "../lib";
 import {
-  inputsConfig,
-  contactsFormButtonText,
-  contactsFormCheckboxText,
-  initialFormValues,
   type ContactsFeedBack,
-} from "../lib";
+  initialFormValues,
+  inputsConfig,
+} from "../model";
 
 const inputCommon =
   "w-full mb-[10px] md:mb-[20px] py-[16px] md:py-[18px] px-[30px] border-2 border-additional rounded-[16px] placeholder:text-sm md:placeholder:text-base";

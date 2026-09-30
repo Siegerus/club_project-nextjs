@@ -8,7 +8,7 @@
   --gradient-white :radial-gradient(85.18% 257.73% at 48.35%  49.66%, rgb(255 255 255) 0%, rgb(255 255 255) 100%);
   --gradient-brown: linear-gradient(270deg,#915c46 0,#c47a5c 100%); 
 }
-
+ 
 @theme inline {
   --font-sans: var(--font-gilroy);
   --tracking-base: -0.02em;
