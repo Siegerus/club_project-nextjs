@@ -1,11 +1,12 @@
+import { AuthSection } from "@/widgets/auth-section";
 import { Container } from "@/shared/ui/container";
 
-const styles = {
-  root: "",
-};
-
 const AuthorizationPage = () => {
-  return <Container></Container>;
+  return (
+    <Container>
+      <AuthSection />
+    </Container>
+  );
 };
 
 export default AuthorizationPage;

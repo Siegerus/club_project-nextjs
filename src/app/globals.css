@@ -2,7 +2,7 @@
 
 :root {
   --background: linear-gradient(270deg, #080808 0%, #1e120e 72.09%, #2d1910 100%);
-  --eclipse-image-bg: url('/images/action-bg-mobile.png');
+  --eclipse-bg: url('/images/action-bg-mobile.png');
   --white-checkbox-bg: url('/icons/check-white.svg');
   --black-checkbox-bg: url('/icons/check.svg');
   --gradient-white :radial-gradient(85.18% 257.73% at 48.35%  49.66%, rgb(255 255 255) 0%, rgb(255 255 255) 100%);
@@ -55,7 +55,7 @@
 }
 
 @utility eclipse {
-  background-image: var(--eclipse-image-bg);
+  background-image: var(--eclipse-bg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -262,7 +262,6 @@ body {
 .title {
   @apply font-semibold bg-clip-text;
 }
-
 
 .title-responsive, .title-responsive_mobile-3xl {
   @apply text-[2.5em] md:text-[4.375em] lg:text-[4.625em] xl:text-[5em] 2xl:text-[5.25em] 3xl:text-[5.5em] text-center;
