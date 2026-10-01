@@ -5,11 +5,7 @@ const styles = {
 };
 
 const AuthorizationPage = () => {
-  return (
-    <Container>
-      <section className={styles.root}>jjj</section>
-    </Container>
-  );
+  return <Container></Container>;
 };
 
 export default AuthorizationPage;
