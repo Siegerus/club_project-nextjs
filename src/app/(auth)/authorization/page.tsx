@@ -1,11 +1,11 @@
 import { Container } from "@/shared/ui/container";
 
+const styles = {
+  root: "",
+};
+
 const AuthorizationPage = () => {
-  return (
-    <Container>
-      <div>AuthorizationPage</div>
-    </Container>
-  );
+  return <Container></Container>;
 };
 
 export default AuthorizationPage;
