@@ -1,9 +1,13 @@
 import { Container } from "@/shared/ui/container";
 
+const styles = {
+  root: "",
+};
+
 const AuthorizationPage = () => {
   return (
     <Container>
-      <div>AuthorizationPage</div>
+      <section className={styles.root}>jjj</section>
     </Container>
   );
 };

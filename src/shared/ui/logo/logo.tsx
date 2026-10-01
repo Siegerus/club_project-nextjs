@@ -11,12 +11,13 @@ const styles = {
 };
 
 type LogoProps = {
+  wrapperClass?: string;
   linkClass?: string;
 };
 
-const Logo = ({ linkClass }: LogoProps) => {
+const Logo = ({ linkClass, wrapperClass }: LogoProps) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={cn(styles.wrapper, wrapperClass)}>
       <Link href={AppRoute.Home} className={cn(styles.link, linkClass)}>
         <Image
           loading="eager"
