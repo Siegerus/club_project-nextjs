@@ -4,7 +4,8 @@ import { useCallback, useState } from "react";
 
 import { cn } from "@/shared/lib";
 import { Button } from "@/shared/ui";
-import { authTabs } from "../lib";
+import { authTabItems } from "../lib";
+import AuthForms from "./auth-forms";
 
 type AuthTabListsProps = {
   children?: React.ReactElement;
@@ -19,7 +20,7 @@ const styles = {
   formList: "",
 };
 
-const AuthTabLists = ({ children }: AuthTabListsProps) => {
+const AuthTabs = ({ children }: AuthTabListsProps) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   const handleTabClick = useCallback((index: number) => {
@@ -29,7 +30,7 @@ const AuthTabLists = ({ children }: AuthTabListsProps) => {
   return (
     <div>
       <ul className={styles.tabList}>
-        {authTabs.map((tab, i) => {
+        {authTabItems.map((tab, i) => {
           const keyValue = `${tab}-${i}`;
           return (
             <li
@@ -37,6 +38,8 @@ const AuthTabLists = ({ children }: AuthTabListsProps) => {
               className={cn(styles.listItem, activeIndex === i && "z-10")}
             >
               <Button
+                role="tab"
+                aria-controls="auth-forms"
                 className={cn(
                   styles.tabButton,
                   activeIndex === i && "bg-white text-black",
@@ -50,14 +53,9 @@ const AuthTabLists = ({ children }: AuthTabListsProps) => {
         })}
       </ul>
       {children}
-      <ul className={styles.formList}>
-        {authTabs.map((tab, i) => {
-          const keyValue = `Форма:${tab}-${i}`;
-          return activeIndex === i && <span key={keyValue}>{tab}</span>;
-        })}
-      </ul>
+      <AuthForms index={activeIndex} />
     </div>
   );
 };
 
-export default AuthTabLists;
+export default AuthTabs;

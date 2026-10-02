@@ -1,6 +1,6 @@
 import { cn } from "@/shared/lib";
 import { authSectionDescription } from "../lib";
-import AuthTabLists from "./auth-tab-lists";
+import AuthTabs from "./auth-tabs";
 
 const styles = {
   root: "",
@@ -20,9 +20,9 @@ const AuthSection = () => {
   return (
     <section className={styles.root}>
       <div className={styles.wrapper}>
-        <AuthTabLists>
+        <AuthTabs>
           <p className={styles.description}>{authSectionDescription}</p>
-        </AuthTabLists>
+        </AuthTabs>
       </div>
     </section>
   );
