@@ -9,7 +9,11 @@ import { Checkbox } from "@/shared/ui";
 
 import { joinFormButtonText, joinFormCheckboxInfo } from "../lib";
 
-import { inputsConfig, initialFormValues, JoinFormFeedBack } from "../model";
+import {
+  JoinInputsConfig,
+  initialFormValues,
+  JoinFormFeedBack,
+} from "../model";
 
 const styles = {
   form: "flex flex-col items-center w-full",
@@ -47,12 +51,12 @@ const JoinForm = () => {
     <form className={styles.form} id="join-form" onSubmit={handleFormSubmit}>
       <Input
         inputClass={styles.input}
-        placeholder={inputsConfig.placeholder}
-        type={inputsConfig.type}
-        id={inputsConfig.name}
-        aria-label={inputsConfig.ariaLabel}
-        autoComplete={inputsConfig.autoComplete}
-        value={formValues[inputsConfig.name]}
+        placeholder={JoinInputsConfig.placeholder}
+        type={JoinInputsConfig.type}
+        id={JoinInputsConfig.name}
+        aria-label={JoinInputsConfig.ariaLabel}
+        autoComplete={JoinInputsConfig.autoComplete}
+        value={formValues[JoinInputsConfig.name]}
         onChange={handleInputChange}
       />
       <Button className={styles.button} type="submit" variant="no-bg">
