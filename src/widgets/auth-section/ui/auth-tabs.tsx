@@ -27,11 +27,13 @@ const AuthTabs = ({ children }: AuthTabListsProps) => {
     setActiveIndex(index);
   }, []);
 
+  const activeTabId = authTabItems[activeIndex].id;
+
   return (
     <div>
       <ul className={styles.tabList}>
-        {authTabItems.map((tab, i) => {
-          const keyValue = `${tab}-${i}`;
+        {authTabItems.map((form, i) => {
+          const keyValue = `${form.id}-${i}`;
           return (
             <li
               key={keyValue}
@@ -46,14 +48,14 @@ const AuthTabs = ({ children }: AuthTabListsProps) => {
                 )}
                 onClick={() => handleTabClick(i)}
               >
-                {tab}
+                {form.label}
               </Button>
             </li>
           );
         })}
       </ul>
       {children}
-      <AuthForms index={activeIndex} />
+      <AuthForms activeTabId={activeTabId} />
     </div>
   );
 };

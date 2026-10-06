@@ -1,16 +1,22 @@
-import { type ComponentType, type ReactNode } from "react";
+import { type ComponentType } from "react";
 import { ContactsForm } from "@/features/contacts-form";
+import { AuthTabId } from "../lib";
 
 type AuthFormsProps = {
-  index: number;
+  activeTabId: AuthTabId;
 };
 
-const AuthForms = ({ index }: AuthFormsProps) => {
-  const forms: ComponentType[] = [ContactsForm, ContactsForm];
+const authForms: Record<AuthTabId, ComponentType> = {
+  registration: ContactsForm,
+  login: ContactsForm,
+};
+
+const AuthForms = ({ activeTabId }: AuthFormsProps) => {
+  const ActiveForm = authForms[activeTabId];
 
   return (
     <div role="tabpanel" id="auth-forms">
-      {forms[index]}
+      <ActiveForm />
     </div>
   );
 };
