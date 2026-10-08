@@ -1,4 +1,6 @@
 export type Radio = {
   id: string;
-  checked: boolean;
+  name: string;
+  value: string;
+  isChecked: boolean;
 };

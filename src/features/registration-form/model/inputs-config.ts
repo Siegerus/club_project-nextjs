@@ -1,3 +1,5 @@
+import type { Radio } from "@/shared/ui/select";
+
 export type InputType = {
   name: string;
   type?: string;
@@ -47,5 +49,26 @@ export const inputsConfig: InputType[] = [
     ariaLabel: "Повторить пароль",
     autoComplete: "off",
     mbSmall: true,
+  },
+];
+
+export const radiosConfig: Radio[] = [
+  {
+    id: "1",
+    name: "sex",
+    value: "male",
+    isChecked: true,
+  },
+  {
+    id: "2",
+    name: "sex",
+    value: "female",
+    isChecked: false,
+  },
+  {
+    id: "3",
+    name: "sex",
+    value: "couple",
+    isChecked: false,
   },
 ];

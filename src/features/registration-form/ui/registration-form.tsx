@@ -2,7 +2,8 @@
 
 import { cn } from "@/shared/lib";
 import { Input } from "@/shared/ui";
-import { inputsConfig } from "../model";
+import { Select } from "@/shared/ui";
+import { inputsConfig, radiosConfig } from "../model";
 
 const styles = {
   inputWrapper: "relative",
@@ -18,7 +19,7 @@ const RegistrationForm = () => {
       {inputsConfig.map((input, i) => {
         const keyValue = `${input.name}-${i}`;
         return input.isSelect ? (
-          <span key={keyValue}>test-select</span>
+          <Select key={keyValue} radios={radiosConfig} />
         ) : (
           <Input
             inputClass={cn(styles.input, input.mbSmall && "mb-[10px]")}

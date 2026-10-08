@@ -1,1 +1,1 @@
-export { inputsConfig, type InputType } from "./inputs-config";
+export { inputsConfig, radiosConfig, type InputType } from "./inputs-config";
