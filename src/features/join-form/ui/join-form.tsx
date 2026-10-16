@@ -24,8 +24,11 @@ const styles = {
 
   button:
     "w-full max-w-auto py-[20px] md:py-[21px] text-base md:text-xl leading-main tracking-base",
-  checkbox:
-    "min-w-[16px] min-h-[16px] md:min-w-[21px] md:min-h-[20px] mr-[8px] bg-transparent custom-checkbox",
+  checkbox: cn(
+    "relative min-w-[16px] min-h-[16px] md:min-w-[21px] md:min-h-[20px] mr-[8px]",
+    "before:absolute before:w-[12px] before:h-[9px] before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2",
+    "rounded-[4px] border-[1.5px] border-white bg-transparent custom-checkbox",
+  ),
   checkboxWrapper: "mt-[30px] md:mt-[20px]",
   checkboxInfo: "text-sm md:text-xl leading-small text-center text-white-70 ",
 };

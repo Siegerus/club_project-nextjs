@@ -54,21 +54,21 @@ export const inputsConfig: InputType[] = [
 
 export const radiosConfig: Radio[] = [
   {
-    id: "1",
+    id: "male",
     name: "sex",
+    label: "Девушка",
     value: "male",
-    isChecked: true,
   },
   {
-    id: "2",
+    id: "female",
     name: "sex",
+    label: "Парень",
     value: "female",
-    isChecked: false,
   },
   {
-    id: "3",
+    id: "couple",
     name: "sex",
+    label: "Пара",
     value: "couple",
-    isChecked: false,
   },
 ];

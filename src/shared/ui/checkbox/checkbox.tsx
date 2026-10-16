@@ -41,7 +41,7 @@ const Checkbox = ({
         checked={value}
         onChange={onChange}
       />
-      <label className={cn(styles.label, checkBoxClass)} htmlFor={id}></label>
+      <label className={cn(styles.label, checkBoxClass)} htmlFor={id} />
       {children}
     </div>
   );

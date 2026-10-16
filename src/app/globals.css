@@ -27,9 +27,11 @@
   --breakpoint-3xl: 105rem; /* 1680px */
   --color-main-bg: rgba(255, 255, 255, 0.04);
   --color-main-bg-secondary: #120d0a;
+  --color-select-bg: #222;
   --color-main-input: #52362b;
   --color-main-label: #261a16; 
   --color-focus-input: rgb(145 92 70 / 20%);
+  
   --color-white-70: rgba(255, 255, 255, 0.7);
   --color-white-40: rgba(255, 255, 255, 0.4);
   --color-black-primary: #080808;
@@ -130,19 +132,8 @@
 }
 
 @utility custom-checkbox {
-  position: relative;
-  margin-right: 8px;
-  border-radius: 4px;
-  border: 1.5px solid #fff;
- 
   &::before {
     content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 12px;
-    height: 9px;
-    transform: translate(-50%, -50%);
     transition: all 0.8s;
   }
 }
