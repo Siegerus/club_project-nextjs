@@ -3,9 +3,9 @@ import type { Radio } from "@/shared/ui/select";
 type InputName =
   | "registration-user"
   | "registration-email"
+  | "registration-sex"
   | "registration-password"
-  | "registration-password-repeat"
-  | "registration-select";
+  | "registration-password-repeat";
 
 export type InputType = {
   id: string;
@@ -39,11 +39,7 @@ export const inputsConfig: InputType[] = [
     autoComplete: "email",
     mbSmall: true,
   },
-  {
-    id: "registration-select",
-    name: "registration-select",
-    isSelect: true,
-  },
+  { id: "registration-sex", name: "registration-sex", isSelect: true },
   {
     id: "registration-password",
     name: "registration-password",

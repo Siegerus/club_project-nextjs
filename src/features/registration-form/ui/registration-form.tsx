@@ -49,12 +49,12 @@ const RegistrationForm = () => {
 
   const handleInputChange = (e: ChangeEvent) => {
     const target = e.target as HTMLInputElement;
-    setFormValues({ ...initialFormValues, [target.name]: target.value });
+    setFormValues({ ...formValues, [target.name]: target.value });
   };
 
   const handleCheckboxChange = (e: ChangeEvent) => {
     const target = e.target as HTMLInputElement;
-    setFormValues({ ...initialFormValues, [target.name]: target.checked });
+    setFormValues({ ...formValues, [target.name]: target.checked });
   };
 
   const handleFormSubmit = (e: SubmitEvent) => {
