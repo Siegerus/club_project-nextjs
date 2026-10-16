@@ -41,7 +41,7 @@ const Select = ({
   bodyClass,
   radioClass,
   labelClass,
-  controlIconPath = "/icons/down.svg",
+  controlIconPath,
   controlIconClass,
   iconWidth = 20,
   iconHeight = 20,
@@ -76,13 +76,19 @@ const Select = ({
         aria-controls="select-body"
       >
         <span>{controlText}</span>
-        <Image
-          className={cn(controlIconClassName, isBodyVisible && "-scale-y-[1]")}
-          width={iconWidth}
-          height={iconHeight}
-          alt="arrow"
-          src={controlIconPath}
-        />
+
+        {controlIconPath && (
+          <Image
+            className={cn(
+              controlIconClassName,
+              isBodyVisible && "-scale-y-[1]",
+            )}
+            width={iconWidth}
+            height={iconHeight}
+            alt="arrow"
+            src={controlIconPath}
+          />
+        )}
       </button>
 
       <AnimatePresence>

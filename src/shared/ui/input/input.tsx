@@ -71,6 +71,7 @@ const Input = ({
           onChange={onChange}
           autoComplete={autoComplete}
           value={value}
+          checked={value}
         />
       )}
       {label && (

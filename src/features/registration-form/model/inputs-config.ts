@@ -1,7 +1,15 @@
 import type { Radio } from "@/shared/ui/select";
 
+type InputName =
+  | "registration-user"
+  | "registration-email"
+  | "registration-password"
+  | "registration-password-repeat"
+  | "registration-select";
+
 export type InputType = {
-  name: string;
+  id: string;
+  name: InputName;
   type?: string;
   placeholder?: string;
   label?: string;
@@ -13,6 +21,7 @@ export type InputType = {
 
 export const inputsConfig: InputType[] = [
   {
+    id: "registration-user",
     name: "registration-user",
     type: "text",
     placeholder: "Имя",
@@ -21,6 +30,7 @@ export const inputsConfig: InputType[] = [
     autoComplete: "name",
   },
   {
+    id: "registration-email",
     name: "registration-email",
     type: "email",
     placeholder: "info@gmail.com",
@@ -30,10 +40,12 @@ export const inputsConfig: InputType[] = [
     mbSmall: true,
   },
   {
+    id: "registration-select",
     name: "registration-select",
     isSelect: true,
   },
   {
+    id: "registration-password",
     name: "registration-password",
     type: "password",
     placeholder: "Пароль",
@@ -42,6 +54,7 @@ export const inputsConfig: InputType[] = [
     autoComplete: "off",
   },
   {
+    id: "registration-password-repeat",
     name: "registration-password-repeat",
     type: "password",
     placeholder: "Пароль",
