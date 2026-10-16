@@ -59,6 +59,7 @@ const RegistrationForm = () => {
 
   const handleFormSubmit = (e: SubmitEvent) => {
     e.preventDefault();
+    console.log(formValues);
   };
 
   return (
@@ -76,6 +77,8 @@ const RegistrationForm = () => {
             radioClass={styles.radioClass}
             labelClass={styles.radioLabelClass}
             controlIconPath={seletIconPath}
+            formValue={formValues["registration-sex"]}
+            onChange={handleInputChange}
           />
         ) : (
           <Input

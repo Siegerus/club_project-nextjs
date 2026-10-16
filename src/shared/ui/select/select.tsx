@@ -2,7 +2,7 @@
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 
 import { cn } from "@/shared/lib";
 import type { Radio } from "./types";
@@ -19,6 +19,8 @@ type SelectProps = {
   iconWidth?: number;
   iconHeight?: number;
   radios: Radio[];
+  formValue?: string;
+  onChange?: (e: ChangeEvent) => void;
 };
 
 const styles = {
@@ -45,6 +47,8 @@ const Select = ({
   controlIconClass,
   iconWidth = 20,
   iconHeight = 20,
+  onChange,
+  formValue,
 }: SelectProps) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isBodyVisible, setIsBodyVisible] = useState<boolean>(false);
@@ -56,9 +60,10 @@ const Select = ({
     isBodyVisible && activeControlClassName,
   );
 
-  const handleRadioChange = (index: number) => {
+  const handleRadioChange = (index: number, e: ChangeEvent) => {
     setActiveIndex(index);
     setIsBodyVisible(false);
+    if (onChange) onChange(e);
   };
 
   const handleControlClick = () => {
@@ -66,6 +71,7 @@ const Select = ({
   };
 
   const controlText = radios[activeIndex].label;
+  const currentValue = formValue && radios[activeIndex].value;
 
   return (
     <div className={cn(styles.wrapper, wrapperClass)}>
@@ -112,8 +118,8 @@ const Select = ({
                     name={radio.name}
                     id={radio.id}
                     value={radio.value}
-                    checked={activeIndex === i}
-                    onChange={() => handleRadioChange(i)}
+                    checked={radio.value === currentValue}
+                    onChange={(e) => handleRadioChange(i, e)}
                   />
 
                   <label

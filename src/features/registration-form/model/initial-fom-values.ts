@@ -10,7 +10,7 @@ export type RegistrationFormFeedBack = {
 export const initialFormValues: RegistrationFormFeedBack = {
   "registration-user": "",
   "registration-email": "",
-  "registration-sex": "",
+  "registration-sex": "female",
   "registration-password": "",
   "registration-password-repeat": "",
   "registration-agreement": false,
