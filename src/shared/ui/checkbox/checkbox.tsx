@@ -34,14 +34,14 @@ const Checkbox = ({
   return (
     <div className={cn(styles.wrapper, wrapperClass)}>
       <input
-        className={cn("hidden", checkBoxVariant)}
+        className={cn("sr-only", checkBoxVariant)}
         id={id}
         name={id}
         type="checkbox"
         checked={value}
         onChange={onChange}
       />
-      <label className={cn(styles.label, checkBoxClass)} htmlFor={id}></label>
+      <label className={cn(styles.label, checkBoxClass)} htmlFor={id} />
       {children}
     </div>
   );

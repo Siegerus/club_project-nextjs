@@ -12,6 +12,7 @@ type InputProps = (
   wrapperClass?: string;
   inputClass?: string;
   label?: string;
+  labelClass?: string;
   id: string;
   isTextArea?: boolean;
   textAreaHeight?: string;
@@ -33,6 +34,7 @@ const Input = ({
   inputClass,
   placeholder,
   label,
+  labelClass,
   id,
   onChange,
   autoComplete = "on",
@@ -72,7 +74,7 @@ const Input = ({
         />
       )}
       {label && (
-        <label className={styles.label} htmlFor={id}>
+        <label className={cn(styles.label, labelClass)} htmlFor={id}>
           {label}
         </label>
       )}

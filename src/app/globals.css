@@ -18,6 +18,7 @@
   --leading-main: 1.3;
   --leading-middle: 1.4;
   --leading-large: 1.7;
+  --radius-smallest: 10px;
   --radius-small: 20px;
   --radius-base: 30px;
   --radius-middle: 40px;
@@ -26,7 +27,9 @@
   --breakpoint-3xl: 105rem; /* 1680px */
   --color-main-bg: rgba(255, 255, 255, 0.04);
   --color-main-bg-secondary: #120d0a;
+  --color-select-bg: #222;
   --color-main-input: #52362b;
+  --color-main-label: #261a16; 
   --color-focus-input: rgb(145 92 70 / 20%);
   --color-white-70: rgba(255, 255, 255, 0.7);
   --color-white-40: rgba(255, 255, 255, 0.4);
@@ -37,7 +40,6 @@
   --color-special: #2d1910;
 
 }
-
 
 @media (min-width: 1024px) {
   body.modal-open {
@@ -129,26 +131,16 @@
 }
 
 @utility custom-checkbox {
-  position: relative;
-  margin-right: 8px;
-  border-radius: 4px;
-  border: 1.5px solid #fff;
- 
   &::before {
     content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 12px;
-    height: 9px;
-    transform: translate(-50%, -50%);
     transition: all 0.8s;
   }
 }
 
 @utility checkbox-white {
-  &:checked + label {
+  background-color: transparent;
 
+  &:checked + label {
     &::before {
       background: var(--white-checkbox-bg) center / cover no-repeat;
     }
@@ -156,8 +148,9 @@
 }
 
 @utility checkbox-black {
-  &:checked + label {
+    background-color: #fff;
 
+  &:checked + label {
     &::before {
       background: var(--black-checkbox-bg) center / cover no-repeat;
     }

@@ -17,3 +17,4 @@ export { BaseCard } from "./card";
 export { NumberedCard } from "./card";
 export { ClosingItem } from "./closing-item";
 export { OuterWrapper } from "./outer-wrapper";
+export { Select } from "./select";

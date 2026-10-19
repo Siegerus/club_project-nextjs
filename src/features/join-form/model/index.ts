@@ -1,2 +1,5 @@
-export { inputsConfig } from "./inputsConfig";
-export { initialFormValues, type JoinFormFeedBack } from "./initialFormValues";
+export { JoinInputsConfig } from "./inputs-config";
+export {
+  initialFormValues,
+  type JoinFormFeedBack,
+} from "./initial-form-values";

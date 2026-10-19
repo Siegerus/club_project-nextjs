@@ -9,7 +9,11 @@ import { Checkbox } from "@/shared/ui";
 
 import { joinFormButtonText, joinFormCheckboxInfo } from "../lib";
 
-import { inputsConfig, initialFormValues, JoinFormFeedBack } from "../model";
+import {
+  JoinInputsConfig,
+  initialFormValues,
+  JoinFormFeedBack,
+} from "../model";
 
 const styles = {
   form: "flex flex-col items-center w-full",
@@ -20,8 +24,11 @@ const styles = {
 
   button:
     "w-full max-w-auto py-[20px] md:py-[21px] text-base md:text-xl leading-main tracking-base",
-  checkbox:
-    "min-w-[16px] min-h-[16px] md:min-w-[21px] md:min-h-[20px] mr-[8px] bg-transparent custom-checkbox",
+  checkbox: cn(
+    "relative min-w-[16px] min-h-[16px] md:min-w-[21px] md:min-h-[20px] mr-[8px]",
+    "before:absolute before:w-[12px] before:h-[9px] before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2",
+    "rounded-[4px] border-[1.5px] border-white bg-transparent custom-checkbox",
+  ),
   checkboxWrapper: "mt-[30px] md:mt-[20px]",
   checkboxInfo: "text-sm md:text-xl leading-small text-center text-white-70 ",
 };
@@ -47,12 +54,12 @@ const JoinForm = () => {
     <form className={styles.form} id="join-form" onSubmit={handleFormSubmit}>
       <Input
         inputClass={styles.input}
-        placeholder={inputsConfig.placeholder}
-        type={inputsConfig.type}
-        id={inputsConfig.name}
-        aria-label={inputsConfig.ariaLabel}
-        autoComplete={inputsConfig.autoComplete}
-        value={formValues[inputsConfig.name]}
+        placeholder={JoinInputsConfig.placeholder}
+        type={JoinInputsConfig.type}
+        id={JoinInputsConfig.name}
+        aria-label={JoinInputsConfig.ariaLabel}
+        autoComplete={JoinInputsConfig.autoComplete}
+        value={formValues[JoinInputsConfig.name]}
         onChange={handleInputChange}
       />
       <Button className={styles.button} type="submit" variant="no-bg">
