@@ -2,6 +2,7 @@ type JoinInputName = "join-form-email";
 
 type JoinInputType = {
   name: JoinInputName;
+  id: string;
   type: string;
   placeholder: string;
   ariaLabel: string;
@@ -10,6 +11,7 @@ type JoinInputType = {
 
 export const JoinInputsConfig: JoinInputType = {
   name: "join-form-email",
+  id: "join-form-email",
   type: "text",
   placeholder: "Адрес электронной почты",
   ariaLabel: "Ввести адрес электронной почты",

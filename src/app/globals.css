@@ -141,6 +141,7 @@
   background-color: transparent;
 
   &:checked + label {
+
     &::before {
       background: var(--white-checkbox-bg) center / cover no-repeat;
     }
