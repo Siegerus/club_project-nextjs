@@ -1,4 +1,4 @@
-export { inputsConfig } from "./inputs-config";
+export { inputsConfig } from "./contacts-inputs-config";
 export {
   type ContactsFeedBack,
   initialFormValues,

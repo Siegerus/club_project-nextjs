@@ -1,5 +1,9 @@
-export { inputsConfig, radiosConfig, type InputType } from "./inputs-config";
+export {
+  inputsConfig,
+  radiosConfig,
+  type InputType,
+} from "./registration-inputs-config";
 export {
   initialFormValues,
   type RegistrationFormFeedBack,
-} from "./initial-fom-values";
+} from "./initial-form-values";

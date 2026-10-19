@@ -67,14 +67,12 @@ const Select = ({
     setIsBodyVisible((prevState) => !prevState);
   };
 
-  const activeIndex = radios
-    ? Math.max(
-        0,
-        radios.findIndex((radio) => radio.value === formValue),
-      )
-    : undefined;
+  const activeIndex = Math.max(
+    0,
+    radios.findIndex((radio) => radio.value === formValue),
+  );
 
-  const controlText = activeIndex ? radios[activeIndex].label : "";
+  const controlText = radios[activeIndex]?.label ?? "";
 
   return (
     <div className={cn(styles.wrapper, wrapperClass)}>

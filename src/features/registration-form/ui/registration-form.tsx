@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ChangeEvent, SubmitEvent, useState } from "react";
 
 import { cn, AppRoute } from "@/shared/lib";
@@ -35,7 +36,7 @@ const styles = {
     "block w-full before:absolute before:w-[13px] before:h-[13px] before:top-1/2 before:right-[10px] before:-translate-y-1/2 custom-checkbox text-base tracking-base",
 
   button: "max-w-[unset] py-[14px] px-[16px] mb-[10px] tracking-base",
-  checkboxInfo: "text-sm text-white-70 ",
+  checkboxInfo: "text-sm text-white-70",
   checkbox: cn(
     "relative min-w-[16px] min-h-[16px] md:min-w-[21px] md:min-h-[20px] mr-[8px]",
     "before:absolute before:w-[8px] before:h-[6px] before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2",
@@ -107,9 +108,9 @@ const RegistrationForm = () => {
         value={formValues["registration-agreement"]}
         onChange={handleCheckboxChange}
       >
-        <a className={styles.checkboxInfo} href={AppRoute.Rules}>
+        <Link className={styles.checkboxInfo} href={AppRoute.Rules}>
           {registrationCheckboxInfo}
-        </a>
+        </Link>
       </Checkbox>
     </form>
   );

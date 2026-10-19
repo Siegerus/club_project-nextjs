@@ -7,6 +7,7 @@ type LoginInput = {
   placeholder: string;
   label: string;
   autoComplete: string;
+  mbSmall?: boolean;
 };
 
 export const loginInputsConfig: LoginInput[] = [
@@ -17,5 +18,14 @@ export const loginInputsConfig: LoginInput[] = [
     placeholder: "info@gmail.com",
     label: "Адрес электронной почты",
     autoComplete: "email",
+  },
+  {
+    name: "login-form-password",
+    id: "login-form-password",
+    type: "text",
+    placeholder: "Пароль",
+    label: "Пароль",
+    autoComplete: "off",
+    mbSmall: true,
   },
 ];
