@@ -102,7 +102,7 @@ const RegistrationForm = () => {
       </Button>
       <Checkbox
         checkBoxClass={styles.checkbox}
-        id="registration-form-agreement"
+        id="registration-agreement"
         variant="black"
         value={formValues["registration-agreement"]}
         onChange={handleCheckboxChange}

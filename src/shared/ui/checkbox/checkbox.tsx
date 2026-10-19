@@ -34,7 +34,7 @@ const Checkbox = ({
   return (
     <div className={cn(styles.wrapper, wrapperClass)}>
       <input
-        className={cn("hidden", checkBoxVariant)}
+        className={cn("sr-only", checkBoxVariant)}
         id={id}
         name={id}
         type="checkbox"

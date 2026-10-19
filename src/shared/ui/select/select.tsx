@@ -30,7 +30,7 @@ const styles = {
   activeControl: "outline-[6px] outline-focus-input text-white",
   controlIcon: "duration-base",
   body: "flex flex-col items-left bg-select-bg",
-  radio: "hidden",
+  radio: "sr-only",
   labelWrapper: "relative p-[10px]",
   label: "text-white",
 };
@@ -50,7 +50,6 @@ const Select = ({
   onChange,
   formValue,
 }: SelectProps) => {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isBodyVisible, setIsBodyVisible] = useState<boolean>(false);
 
   const controlIconClassName = cn(styles.controlIcon, controlIconClass);
@@ -60,8 +59,7 @@ const Select = ({
     isBodyVisible && activeControlClassName,
   );
 
-  const handleRadioChange = (index: number, e: ChangeEvent) => {
-    setActiveIndex(index);
+  const handleRadioChange = (e: ChangeEvent) => {
     setIsBodyVisible(false);
     if (onChange) onChange(e);
   };
@@ -70,8 +68,11 @@ const Select = ({
     setIsBodyVisible((prevState) => !prevState);
   };
 
+  const activeIndex = Math.max(
+    0,
+    radios.findIndex((radio) => radio.value === formValue),
+  );
   const controlText = radios[activeIndex].label;
-  const currentValue = formValue && radios[activeIndex].value;
 
   return (
     <div className={cn(styles.wrapper, wrapperClass)}>
@@ -80,6 +81,8 @@ const Select = ({
         onClick={handleControlClick}
         type="button"
         aria-controls="select-body"
+        aria-haspopup="listbox"
+        aria-expanded={isBodyVisible}
       >
         <span>{controlText}</span>
 
@@ -91,12 +94,11 @@ const Select = ({
             )}
             width={iconWidth}
             height={iconHeight}
-            alt="arrow"
+            alt=""
             src={controlIconPath}
           />
         )}
       </button>
-
       <AnimatePresence>
         {isBodyVisible && (
           <motion.div
@@ -105,11 +107,9 @@ const Select = ({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             className={cn(styles.body, bodyClass)}
-            aria-haspopup="listbox"
-            aria-expanded={isBodyVisible}
             id="select-body"
           >
-            {radios.map((radio, i) => {
+            {radios.map((radio) => {
               return (
                 <div className={styles.labelWrapper} key={radio.id}>
                   <input
@@ -118,8 +118,8 @@ const Select = ({
                     name={radio.name}
                     id={radio.id}
                     value={radio.value}
-                    checked={radio.value === currentValue}
-                    onChange={(e) => handleRadioChange(i, e)}
+                    checked={radio.value === formValue}
+                    onChange={handleRadioChange}
                   />
 
                   <label
