@@ -1,6 +1,5 @@
 "use client";
-import { AnimatePresence } from "framer-motion";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState, ChangeEvent } from "react";
 
@@ -20,7 +19,7 @@ type SelectProps = {
   iconHeight?: number;
   radios: Radio[];
   formValue?: string;
-  onChange?: (e: ChangeEvent) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 const styles = {
@@ -29,7 +28,7 @@ const styles = {
     "flex justify-between px-[20px] py-[18px] md:py-[22px] text-base text-white-40 leading-[145%] tracking-base text-left",
   activeControl: "outline-[6px] outline-focus-input text-white",
   controlIcon: "duration-base",
-  body: "flex flex-col items-left bg-select-bg",
+  body: "flex flex-col bg-select-bg",
   radio: "sr-only",
   labelWrapper: "relative p-[10px]",
   label: "text-white",
@@ -59,7 +58,7 @@ const Select = ({
     isBodyVisible && activeControlClassName,
   );
 
-  const handleRadioChange = (e: ChangeEvent) => {
+  const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
     setIsBodyVisible(false);
     if (onChange) onChange(e);
   };
@@ -68,11 +67,14 @@ const Select = ({
     setIsBodyVisible((prevState) => !prevState);
   };
 
-  const activeIndex = Math.max(
-    0,
-    radios.findIndex((radio) => radio.value === formValue),
-  );
-  const controlText = radios[activeIndex].label;
+  const activeIndex = radios
+    ? Math.max(
+        0,
+        radios.findIndex((radio) => radio.value === formValue),
+      )
+    : undefined;
+
+  const controlText = activeIndex ? radios[activeIndex].label : "";
 
   return (
     <div className={cn(styles.wrapper, wrapperClass)}>

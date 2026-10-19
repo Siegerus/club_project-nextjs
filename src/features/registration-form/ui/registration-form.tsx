@@ -47,9 +47,10 @@ const RegistrationForm = () => {
   const [formValues, setFormValues] =
     useState<RegistrationFormFeedBack>(initialFormValues);
 
-  const handleInputChange = (e: ChangeEvent) => {
-    const target = e.target as HTMLInputElement;
-    setFormValues({ ...formValues, [target.name]: target.value });
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
   const handleCheckboxChange = (e: ChangeEvent) => {
@@ -77,7 +78,7 @@ const RegistrationForm = () => {
             radioClass={styles.radioClass}
             labelClass={styles.radioLabelClass}
             controlIconPath={seletIconPath}
-            formValue={formValues["registration-sex"]}
+            formValue={formValues[input.name]}
             onChange={handleInputChange}
           />
         ) : (
@@ -90,7 +91,6 @@ const RegistrationForm = () => {
             type={input.type}
             placeholder={input.placeholder}
             label={input.label}
-            aria-label={input.ariaLabel}
             autoComplete={input.autoComplete}
             value={formValues[input.name]}
             onChange={handleInputChange}
