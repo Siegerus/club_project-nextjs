@@ -3,7 +3,11 @@ import { useState, ChangeEvent, SubmitEvent } from "react";
 
 import { AppRoute, cn } from "@/shared/lib";
 import { Input, Button, Checkbox } from "@/shared/ui";
-import { submitButtonText, loginCheckboxInfo } from "../lib";
+import {
+  submitButtonText,
+  loginCheckboxInfo,
+  loginFormDescription,
+} from "../lib";
 import {
   loginInputsConfig,
   initialFormValues,
@@ -11,9 +15,11 @@ import {
 } from "../model";
 
 const styles = {
+  description:
+    "mt-[20px] md:mt-[40px] mb-[24px] md:mb-[30px] text-sm md:text-xl text-left text-white leading-main tracking-base md:tracking-none",
   inputWrapper: "relative",
   input:
-    "w-full mb-[24px] md:mb-[20px] py-[16px] md:py-[18px] px-[30px] border-2 border-additional rounded-smallest placeholder:text-base md:placeholder:text-base",
+    "w-full mb-[24px] md:mb-[20px] py-[16px] md:py-[18px] px-[30px] border-2 border-additional rounded-smallest placeholder:text-base md:placeholder:text-xl",
   label:
     "z-5 block absolute -top-[8px] left-[17px] px-[6px] text-sm leading-main tracking-base text-additional bg-main-label rounded-smallest",
 
@@ -50,42 +56,45 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      {loginInputsConfig.map((input, i) => {
-        const keyValue = `${input.name}-${i}`;
-        return (
-          <Input
-            wrapperClass={styles.inputWrapper}
-            inputClass={cn(styles.input, input.mbSmall && "mb-[10px]")}
-            key={keyValue}
-            id={input.id}
-            label={input.label}
-            labelClass={styles.label}
-            placeholder={input.placeholder}
-            onChange={handleInputChange}
-          />
-        );
-      })}
+    <>
+      <p className={styles.description}>{loginFormDescription}</p>
+      <form onSubmit={handleFormSubmit}>
+        {loginInputsConfig.map((input, i) => {
+          const keyValue = `${input.name}-${i}`;
+          return (
+            <Input
+              wrapperClass={styles.inputWrapper}
+              inputClass={cn(styles.input, input.mbSmall && "mb-[10px]")}
+              key={keyValue}
+              id={input.id}
+              label={input.label}
+              labelClass={styles.label}
+              placeholder={input.placeholder}
+              onChange={handleInputChange}
+            />
+          );
+        })}
 
-      <Link className={styles.forgotten} href={AppRoute.Home}>
-        Забыли пароль?
-      </Link>
-
-      <Button className={styles.button} type="submit">
-        <span>{submitButtonText}</span>
-      </Button>
-      <Checkbox
-        checkBoxClass={styles.checkbox}
-        id="login-agreement"
-        variant="black"
-        value={formValues["login-agreement"]}
-        onChange={handleCheckboxChange}
-      >
-        <Link className={styles.checkboxInfo} href={AppRoute.Rules}>
-          {loginCheckboxInfo}
+        <Link className={styles.forgotten} href={AppRoute.Home}>
+          Забыли пароль?
         </Link>
-      </Checkbox>
-    </form>
+
+        <Button className={styles.button} type="submit">
+          <span>{submitButtonText}</span>
+        </Button>
+        <Checkbox
+          checkBoxClass={styles.checkbox}
+          id="login-agreement"
+          variant="black"
+          value={formValues["login-agreement"]}
+          onChange={handleCheckboxChange}
+        >
+          <Link className={styles.checkboxInfo} href={AppRoute.Rules}>
+            {loginCheckboxInfo}
+          </Link>
+        </Checkbox>
+      </form>
+    </>
   );
 };
 

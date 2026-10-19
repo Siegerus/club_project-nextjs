@@ -6,7 +6,7 @@ type OuterWrapperProps = {
 
 const OuterWrapper = ({ children }: OuterWrapperProps) => {
   return (
-    <div className="pt-[30px] pb-[100px] md:pt-[40px] lg:pt-[29px]">
+    <div className="pt-[30px] pb-[100px] md:pt-[40px] md:pb-[140px] lg:pt-[29px]">
       <Logo wrapperClass="justify-center" linkClass="w-[160px] xl:w-[260px]" />
       {children}
     </div>

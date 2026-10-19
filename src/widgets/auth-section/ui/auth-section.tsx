@@ -1,5 +1,4 @@
 import { cn } from "@/shared/lib";
-import { authSectionDescription } from "../lib";
 import AuthTabs from "./auth-tabs";
 
 const styles = {
@@ -12,17 +11,13 @@ const styles = {
   description:
     "mt-[20px] md:mt-[40px] mb-[24px] md:mb-[30px] text-sm md:text-xl text-center text-white leading-main tracking-base md:tracking-none",
   buttonList: "flex items-center justify-center",
-  button: "",
-  formList: "",
 };
 
 const AuthSection = () => {
   return (
     <section className={styles.root}>
       <div className={styles.wrapper}>
-        <AuthTabs>
-          <p className={styles.description}>{authSectionDescription}</p>
-        </AuthTabs>
+        <AuthTabs />
       </div>
     </section>
   );
