@@ -38,7 +38,7 @@ const styles = {
   radioLabelClass:
     "block w-full before:absolute before:w-[13px] before:h-[13px] before:top-1/2 before:right-[10px] before:-translate-y-1/2 custom-checkbox text-base tracking-base",
   button:
-    "max-w-[unset] py-[14px] px-[16px] mb-[10px] md:mb-[16px] tracking-base",
+    "max-w-[unset] py-[14px] px-[16px] mb-[10px] md:mb-[16px] tracking-base 3xl:max-w-[unset]",
   checkboxInfo: "text-sm md:text-xl text-white-70",
   checkbox: cn(
     "relative min-w-[16px] min-h-[16px] md:min-w-[26px] md:min-h-[27px] mr-[8px]",
