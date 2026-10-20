@@ -27,7 +27,7 @@ const styles = {
     "max-w-[unset] py-[14px] px-[16px] mb-[10px] md:mb-[16px] tracking-base 3xl:max-w-[unset]",
   checkbox: cn(
     "relative min-w-[16px] min-h-[16px] md:min-w-[26px] md:min-h-[27px] mr-[8px]",
-    "before:absolute before:w-[8px] before:h-[6px] before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2",
+    "before:absolute before:w-[8px] md:before:w-[12px] before:h-[6px] md:before:h-[9px] before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2",
     "rounded-[4px] border-[1.5px] border-white bg-white",
   ),
   checkboxInfo: "text-sm md:text-xl text-white-70",
@@ -73,6 +73,9 @@ const LoginForm = () => {
               id={input.id}
               label={input.label}
               labelClass={styles.label}
+              type={input.type}
+              autoComplete={input.autoComplete}
+              value={formValues[input.name]}
               placeholder={input.placeholder}
               onChange={handleInputChange}
             />
@@ -82,15 +85,14 @@ const LoginForm = () => {
         <Link className={styles.forgotten} href={AppRoute.Home}>
           Забыли пароль?
         </Link>
-
         <Button className={styles.button} type="submit">
           <span>{submitButtonText}</span>
         </Button>
         <Checkbox
           checkBoxClass={styles.checkbox}
-          id="login-agreement"
+          id="login-form-agreement"
           variant="black"
-          value={formValues["login-agreement"]}
+          value={formValues["login-form-agreement"]}
           onChange={handleCheckboxChange}
         >
           <Link className={styles.checkboxInfo} href={AppRoute.Rules}>

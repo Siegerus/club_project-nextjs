@@ -42,7 +42,7 @@ const styles = {
   checkboxInfo: "text-sm md:text-xl text-white-70",
   checkbox: cn(
     "relative min-w-[16px] min-h-[16px] md:min-w-[26px] md:min-h-[27px] mr-[8px]",
-    "before:absolute before:w-[8px] before:h-[6px] before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2",
+    "before:absolute before:w-[8px] md:before:w-[12px] before:h-[6px] md:before:h-[9px] before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2",
     "rounded-[4px] border-[1.5px] border-white bg-white",
   ),
 };

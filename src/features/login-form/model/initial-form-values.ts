@@ -1,11 +1,11 @@
 export type LoginFormFeedBack = {
-  "login-email": string;
-  "login-password": string;
-  "login-agreement": boolean;
+  "login-form-email": string;
+  "login-form-password": string;
+  "login-form-agreement": boolean;
 };
 
 export const initialFormValues: LoginFormFeedBack = {
-  "login-email": "",
-  "login-password": "",
-  "login-agreement": false,
+  "login-form-email": "",
+  "login-form-password": "",
+  "login-form-agreement": false,
 };

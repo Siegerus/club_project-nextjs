@@ -5,7 +5,7 @@ const styles = {
   root: "",
   wrapper: cn(
     "w-full lg:max-w-[648px] xl:max-w-[730px] mt-[116px] md:mt-[137px] lg:mt-[106px] xl:mt-[114px] mx-auto p-[20px] md:p-[40px]",
-    "rounded-small md:rounded-middle lg:rounded-base bg-main-bg backdrop-filter-[blur(24px)] box-shadow-main",
+    "rounded-small md:rounded-middle lg:rounded-base bg-main-bg backdrop-blur-[24px] box-shadow-main",
   ),
 
   description:

@@ -22,10 +22,10 @@ export const loginInputsConfig: LoginInput[] = [
   {
     name: "login-form-password",
     id: "login-form-password",
-    type: "text",
+    type: "password",
     placeholder: "Пароль",
     label: "Пароль",
-    autoComplete: "off",
+    autoComplete: "current-password",
     mbSmall: true,
   },
 ];

@@ -47,7 +47,7 @@ export const inputsConfig: InputType[] = [
     placeholder: "Пароль",
     label: "Придумайте пароль",
     ariaLabel: "Ввести пароль",
-    autoComplete: "off",
+    autoComplete: "current-password",
   },
   {
     id: "registration-password-repeat",
