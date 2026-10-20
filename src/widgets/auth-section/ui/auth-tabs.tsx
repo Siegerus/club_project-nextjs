@@ -17,7 +17,6 @@ const styles = {
     "z-0 [&:nth-child(n+2)]:-ml-[14px] md:[&:nth-child(n+2)]:-ml-[32px] ",
   tabButton:
     "md:min-w-[185px] px-[22px] md:px-[61px] xl:px-[62px] 2xl:px-[62px] py-[10px] lg:py-[28px] xl:py-[28px] bg-main-bg text-white md:leading-main tracking-base ",
-  formList: "",
 };
 
 const AuthTabs = ({ children }: AuthTabListsProps) => {
@@ -31,7 +30,11 @@ const AuthTabs = ({ children }: AuthTabListsProps) => {
 
   return (
     <div>
-      <ul className={styles.tabList}>
+      <ul
+        className={styles.tabList}
+        role="tablist"
+        aria-label="Форма авторизации"
+      >
         {authTabItems.map((form, i) => {
           const keyValue = `${form.id}-${i}`;
           return (
