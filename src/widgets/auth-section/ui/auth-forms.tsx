@@ -1,5 +1,5 @@
 import { type ComponentType } from "react";
-import { ContactsForm } from "@/features/contacts-form";
+import { LoginForm } from "@/features/login-form";
 import { RegistrationForm } from "@/features/registration-form";
 import { AuthTabId } from "../lib";
 
@@ -9,7 +9,7 @@ type AuthFormsProps = {
 
 const authForms: Record<AuthTabId, ComponentType> = {
   registration: RegistrationForm,
-  login: ContactsForm,
+  login: LoginForm,
 };
 
 const AuthForms = ({ activeTabId }: AuthFormsProps) => {
