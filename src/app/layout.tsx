@@ -1,4 +1,5 @@
 import { gilroy } from "./fonts";
+import Providers from "./providers";
 import "./globals.css";
 
 export default function RootLayout({
@@ -8,7 +9,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className={`h-full antialiased ${gilroy.variable}`}>
-      <body className={`relative min-h-full flex flex-col`}>{children}</body>
+      <Providers>
+        <body className={`relative min-h-full flex flex-col`}>{children}</body>
+      </Providers>
     </html>
   );
 }

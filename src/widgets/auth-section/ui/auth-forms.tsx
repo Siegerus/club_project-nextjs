@@ -16,7 +16,7 @@ const AuthForms = ({ activeTabId }: AuthFormsProps) => {
   const ActiveForm = authForms[activeTabId];
 
   return (
-    <div role="tabpanel" id="auth-forms">
+    <div role="tabpanel" id="auth-forms" aria-labelledby={`tab-${activeTabId}`}>
       <ActiveForm />
     </div>
   );

@@ -63,13 +63,13 @@ export const inputsConfig: InputType[] = [
 
 export const radiosConfig: Radio[] = [
   {
-    id: "male",
+    id: "female",
     name: "registration-sex",
     label: "Девушка",
     value: "female",
   },
   {
-    id: "female",
+    id: "male",
     name: "registration-sex",
     label: "Парень",
     value: "male",
