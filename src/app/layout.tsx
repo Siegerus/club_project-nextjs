@@ -10,7 +10,9 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`h-full antialiased ${gilroy.variable}`}>
       <Providers>
-        <body className={`relative min-h-full flex flex-col`}>{children}</body>
+        <body className={`relative min-h-full flex flex-col body_blur`}>
+          {children}
+        </body>
       </Providers>
     </html>
   );

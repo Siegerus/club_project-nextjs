@@ -41,6 +41,10 @@
 
 }
 
+body.body_blur > :not(.adult-agreement) {
+    filter: blur(15px); 
+}
+
 @media (min-width: 1024px) {
   body.modal-open {
     margin-right: 15px;
