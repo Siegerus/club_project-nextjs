@@ -3,18 +3,21 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 
 import { sessionSlice } from "@/entities/session";
+import { createAPI } from "@/shared/api";
 import { SliceNameSpace } from "@/shared/lib";
 
 const rootReducer = combineReducers({
   [SliceNameSpace.Session]: sessionSlice.reducer,
 });
 
+const api = createAPI();
+
 const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       thunk: {
-        extraArgument: "",
+        extraArgument: api,
       },
     }),
 });
