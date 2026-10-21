@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "@reduxjs/toolkit";
-import { useDispatch, useSelector } from "react-redux";
 
 import { sessionSlice } from "@/entities/session";
 import { createAPI } from "@/shared/api";
@@ -21,11 +20,5 @@ const store = configureStore({
       },
     }),
 });
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-
-export const useAppDispatch = () => useDispatch<AppDispatch>();
-export const useAppSelector = useSelector.withTypes<RootState>();
 
 export default store;

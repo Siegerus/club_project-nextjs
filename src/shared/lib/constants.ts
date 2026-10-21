@@ -1,5 +1,12 @@
 export const SliceNameSpace = {
-  Session: "SESSION",
+  Session: "session",
+} as const;
+
+export const LoadingStatus = {
+  Idle: "Idle",
+  Loading: "Loading",
+  Success: "Success",
+  Failed: "Failed",
 } as const;
 
 export const requestTimeout = 5000;
