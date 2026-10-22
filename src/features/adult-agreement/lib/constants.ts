@@ -6,3 +6,5 @@ export const adultAgreementDescription =
 export const acceptText = "Да, мне уже есть 21";
 
 export const deniedText = "Нет, мне нет 21";
+
+export const agreementImagePath = "/images/promo-photo.png";

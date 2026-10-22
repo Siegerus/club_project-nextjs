@@ -1,6 +1,6 @@
 import { Footer } from "@/widgets/footer";
 import { Header } from "@/widgets/header";
-import { AdultAgreement } from "@/features/adult-agreement";
+import { SiteContent } from "@/features/adult-agreement";
 
 export default function SiteLayout({
   children,
@@ -8,11 +8,10 @@ export default function SiteLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <AdultAgreement />
+    <SiteContent>
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
-    </>
+    </SiteContent>
   );
 }

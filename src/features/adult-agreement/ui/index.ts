@@ -1,1 +1,1 @@
-export { default as AdultAgreement } from "./adult-agreement";
+export { default as SiteContent } from "./site-content";

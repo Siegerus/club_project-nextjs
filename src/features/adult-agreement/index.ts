@@ -1,1 +1,1 @@
-export { AdultAgreement } from "./ui";
+export { SiteContent } from "./ui";
