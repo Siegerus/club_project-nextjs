@@ -22,7 +22,8 @@
   --radius-small: 20px;
   --radius-base: 30px;
   --radius-middle: 40px;
-  --transition-duration-base: 400ms;
+  --transition-duration-base: 400ms; 
+  --breakpoint-sm: 36em; /* 576px */
   --breakpoint-2xl: 90rem; /* 1440px */
   --breakpoint-3xl: 105rem; /* 1680px */
   --color-main-bg: rgba(255, 255, 255, 0.04);

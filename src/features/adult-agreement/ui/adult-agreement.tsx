@@ -9,20 +9,20 @@ import {
 } from "../lib";
 
 const styles = {
-  root: "fixed top-0 left-0 w-full h-full z-50 adult-agreement",
+  root: "z-50 fixed top-0 left-0 w-full h-full bg-black/30 adult-agreement",
   wrapper: cn(
-    "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full md:w-[545px]",
-    "p-[10px] md:p-[40px]",
-    "",
-    "rounded-small md:rounded-middle bg-main-bg box-shadow-main",
+    "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full sm:w-[545px] h-full sm:h-auto ",
+    "p-[10px] sm:p-[40px]",
+    "sm:rounded-middle bg-main-bg backdrop-blur-[24px] box-shadow-main",
   ),
   title:
-    "mt-[20px] mx-auto text-[1.625rem] font-semibold text-center text-white leading-main tracking-base",
-  description: "mt-[30px] text-xl text-center text-white-70 leading-middle",
+    "mx-auto mt-[20px] sm:mt-0 text-[1.625rem] sm:text-[2em] font-semibold text-center text-white leading-main sm:leading-small tracking-base",
+  description:
+    "mt-[30px] sm:mt-[16px] text-xl text-center text-white-70 leading-middle",
   acceptButton:
-    "mt-[25px] pt-[14px] px-[12px] pb-[16px] text-lg leading-main tracking-base",
+    "max-w-[297px] sm:w-full sm:max-w-[unset] 3xl:max-w-[unset] mt-[25px] sm:mt-[16px] pt-[14px] sm:pt-[20px] px-[12px] sm:px-[50px] pb-[16px] sm:pb-[22px] text-lg sm:text-xl leading-main tracking-base",
   deniedButton:
-    "mt-[25px] pt-[14px] px-[12px] pb-[16px] text-lg leading-main tracking-base",
+    "max-w-[297px] sm:w-full sm:max-w-[unset] 3xl:max-w-[unset] mt-[25px] sm:mt-[16px] pt-[14px] sm:pt-[20px] 3xl:pt-[20px] px-[12px] sm:px-[50px] pb-[16px] sm:pb-[22px] 3xl:pb-[22px] text-lg sm:text-xl leading-main tracking-base",
 };
 
 const AdultAgreement = () => {
