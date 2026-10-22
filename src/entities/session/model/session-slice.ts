@@ -4,14 +4,14 @@ import { SliceNameSpace, LoadingStatus } from "@/shared/lib";
 import { getUserToken } from "./get-user-token";
 
 type SessionState = {
-  data: string | null;
+  agreementState: boolean;
   userToken: string | null;
   dataLoadingStatus: (typeof LoadingStatus)[keyof typeof LoadingStatus];
   sessionError: string | null;
 };
 
 const sessionInitialState: SessionState = {
-  data: null,
+  agreementState: false,
   userToken: null,
   dataLoadingStatus: LoadingStatus.Idle,
   sessionError: null,
@@ -21,8 +21,8 @@ const sessionSlice = createSlice({
   name: SliceNameSpace.Session,
   initialState: sessionInitialState,
   reducers: {
-    setData: (state, action: PayloadAction<string>) => {
-      state.data = action.payload;
+    setAgreementState: (state, action: PayloadAction<boolean>) => {
+      state.agreementState = action.payload;
     },
   },
   extraReducers(builder) {
@@ -41,16 +41,16 @@ const sessionSlice = createSlice({
     });
   },
   selectors: {
-    selectData: (state) => state.data,
+    selectAgreementState: (state) => state.agreementState,
     selectUserToken: (state) => state.userToken,
     selectSessionError: (state) => state.sessionError,
     selectDataLoadingStatus: (state) => state.dataLoadingStatus,
   },
 });
 
-export const { setData } = sessionSlice.actions;
+export const { setAgreementState } = sessionSlice.actions;
 export const {
-  selectData,
+  selectAgreementState,
   selectUserToken,
   selectSessionError,
   selectDataLoadingStatus,

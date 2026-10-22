@@ -10,6 +10,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`h-full antialiased ${gilroy.variable}`}>
       <Providers>
+        {/* body_blur */}
         <body className={`relative min-h-full flex flex-col`}>{children}</body>
       </Providers>
     </html>

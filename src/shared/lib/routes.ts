@@ -8,4 +8,5 @@ export const AppRoute = {
   Authorization: "/authorization",
   Faq: "/faq",
   Loyalty: "/loyalty",
+  NotFound: "/404",
 } as const;
