@@ -1,7 +1,7 @@
 export { sessionSlice } from "./model";
-export { setData, getUserToken } from "./model";
+export { setAgreementState, getUserToken } from "./model";
 export {
-  selectData,
+  selectAgreementState,
   selectUserToken,
   selectSessionError,
   selectDataLoadingStatus,
