@@ -1,9 +1,9 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
-import { selectAgreementState } from "@/entities/session";
-import { useAppSelector } from "@/shared/lib";
+import { selectAgreementState, setAgreementState } from "@/entities/session";
+import { useAppSelector, useAppDispatch } from "@/shared/lib";
 import AdultAgreement from "./adult-agreement";
 
 type SiteContentProps = {
@@ -12,6 +12,21 @@ type SiteContentProps = {
 
 const SiteContent = ({ children }: SiteContentProps) => {
   const isAgree = useAppSelector(selectAgreementState);
+  const dispatch = useAppDispatch();
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const storageAgree = localStorage.getItem("adultAgree");
+    if (storageAgree)
+      dispatch(setAgreementState(JSON.parse(`${storageAgree}`)));
+    if (!storageAgree)
+      localStorage.setItem("adultAgree", JSON.stringify(isAgree));
+
+    queueMicrotask(() => setIsMounted(true)); // откладываем в микротаску для исключения потенциального каскада
+  }, []);
+
+  if (!isMounted) return null; // исключаем первый рендер до выполнения useEffect
 
   if (!isAgree) return <AdultAgreement />;
 

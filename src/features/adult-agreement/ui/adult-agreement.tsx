@@ -28,8 +28,11 @@ const styles = {
     "mx-auto mt-[20px] sm:mt-0 text-[1.625rem] sm:text-[2em] font-semibold text-center text-white leading-main sm:leading-small tracking-base",
   description:
     "mt-[30px] sm:mt-[16px] text-xl text-center text-white-70 leading-middle",
-  button:
-    "max-w-[297px] sm:w-full sm:max-w-[unset] 3xl:max-w-[unset] mt-[25px] sm:mt-[16px] pt-[14px] sm:pt-[20px] 3xl:pt-[20px] px-[12px] sm:px-[50px] pb-[16px] sm:pb-[22px] 3xl:pb-[22px] text-lg sm:text-xl leading-main tracking-base",
+  button: cn(
+    "max-w-[297px] sm:w-full sm:max-w-[unset] 3xl:max-w-[unset]",
+    "mt-[25px] sm:mt-[16px] pt-[14px] sm:pt-[20px] 3xl:pt-[20px] px-[12px] sm:px-[50px] pb-[16px] sm:pb-[22px] 3xl:pb-[22px]",
+    "text-lg sm:text-xl leading-main tracking-base",
+  ),
 };
 
 const bgStyle = {
@@ -45,9 +48,11 @@ const AdultAgreement = () => {
 
   const handleAcceptClick = () => {
     dispatch(setAgreementState(true));
+    localStorage.setItem("adultAgree", JSON.stringify(true));
   };
 
   const handleDeniedClick = () => {
+    localStorage.setItem("adultAgree", JSON.stringify(false));
     router.push(AppRoute.NotFound);
   };
 
@@ -80,7 +85,7 @@ const AdultAgreement = () => {
           </h2>
           <p className={styles.description}>{adultAgreementDescription}</p>
           <Button
-            className={styles.button}
+            className={cn(styles.button, "button-interactive_fill")}
             onClick={handleAcceptClick}
             autoFocus
           >
