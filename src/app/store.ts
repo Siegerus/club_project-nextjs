@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "@reduxjs/toolkit";
 
+import { eventSlice } from "@/entities/event";
 import { sessionSlice } from "@/entities/session";
 import { createAPI } from "@/shared/api";
 import { SliceNameSpace } from "@/shared/lib";
 
 const rootReducer = combineReducers({
   [SliceNameSpace.Session]: sessionSlice.reducer,
+  [SliceNameSpace.Event]: eventSlice.reducer,
 });
 
 const api = createAPI();

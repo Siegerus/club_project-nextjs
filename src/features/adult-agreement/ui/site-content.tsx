@@ -2,7 +2,8 @@
 
 import { ReactNode, useEffect, useState } from "react";
 
-import { selectAgreementState, setAgreementState } from "@/entities/session";
+import { eventSliceActions, selectEventData } from "@/entities/event";
+import { selectAgreementState, sessionSliceActions } from "@/entities/session";
 import { useAppSelector, useAppDispatch } from "@/shared/lib";
 import AdultAgreement from "./adult-agreement";
 
@@ -14,17 +15,25 @@ const SiteContent = ({ children }: SiteContentProps) => {
   const isAgree = useAppSelector(selectAgreementState);
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    dispatch(eventSliceActions.getEventData());
+  }, [dispatch]);
+
+  const data = useAppSelector(selectEventData);
+
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     const storageAgree = localStorage.getItem("adultAgree");
     if (storageAgree)
-      dispatch(setAgreementState(JSON.parse(`${storageAgree}`)));
+      dispatch(
+        sessionSliceActions.setAgreementState(JSON.parse(`${storageAgree}`)),
+      );
     if (!storageAgree)
       localStorage.setItem("adultAgree", JSON.stringify(isAgree));
 
     queueMicrotask(() => setIsMounted(true)); // откладываем в микротаску для исключения потенциального каскада
-  }, []);
+  });
 
   if (!isMounted) return null; // исключаем первый рендер до выполнения useEffect
 

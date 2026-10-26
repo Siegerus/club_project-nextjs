@@ -6,14 +6,14 @@ import { getUserToken } from "./get-user-token";
 type SessionState = {
   agreementState: boolean;
   userToken: string | null;
-  dataLoadingStatus: (typeof LoadingStatus)[keyof typeof LoadingStatus];
+  sessionLoadingStatus: (typeof LoadingStatus)[keyof typeof LoadingStatus];
   sessionError: string | null;
 };
 
 const sessionInitialState: SessionState = {
   agreementState: false,
   userToken: null,
-  dataLoadingStatus: LoadingStatus.Idle,
+  sessionLoadingStatus: LoadingStatus.Idle,
   sessionError: null,
 };
 
@@ -27,33 +27,34 @@ const sessionSlice = createSlice({
   },
   extraReducers(builder) {
     builder.addCase(getUserToken.pending, (state) => {
-      state.dataLoadingStatus = LoadingStatus.Loading;
+      state.sessionLoadingStatus = LoadingStatus.Loading;
       state.sessionError = null;
     });
     builder.addCase(getUserToken.fulfilled, (state, action) => {
       state.userToken = action.payload;
       state.sessionError = null;
-      state.dataLoadingStatus = LoadingStatus.Success;
+      state.sessionLoadingStatus = LoadingStatus.Success;
     });
     builder.addCase(getUserToken.rejected, (state, action) => {
       state.sessionError = action.error.message || "Error data fetch";
-      state.dataLoadingStatus = LoadingStatus.Failed;
+      state.sessionLoadingStatus = LoadingStatus.Failed;
     });
   },
   selectors: {
     selectAgreementState: (state) => state.agreementState,
     selectUserToken: (state) => state.userToken,
     selectSessionError: (state) => state.sessionError,
-    selectDataLoadingStatus: (state) => state.dataLoadingStatus,
+    selectSessionLoadingStatus: (state) => state.sessionLoadingStatus,
   },
 });
 
-export const { setAgreementState } = sessionSlice.actions;
+export const sessionSliceActions = { ...sessionSlice.actions, getUserToken };
+
 export const {
   selectAgreementState,
   selectUserToken,
   selectSessionError,
-  selectDataLoadingStatus,
+  selectSessionLoadingStatus,
 } = sessionSlice.selectors;
 
 export default sessionSlice;

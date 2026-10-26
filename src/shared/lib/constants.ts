@@ -1,5 +1,6 @@
 export const SliceNameSpace = {
   Session: "session",
+  Event: "events",
 } as const;
 
 export const LoadingStatus = {
@@ -14,4 +15,5 @@ export const requestTimeout = 5000;
 export const APIRoute = {
   Login: "/login",
   Logout: "/logout",
+  Event: "/event",
 } as const;

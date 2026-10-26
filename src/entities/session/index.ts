@@ -1,8 +1,8 @@
-export { sessionSlice } from "./model";
-export { setAgreementState, getUserToken } from "./model";
 export {
+  sessionSlice,
+  sessionSliceActions,
   selectAgreementState,
   selectUserToken,
   selectSessionError,
-  selectDataLoadingStatus,
+  selectSessionLoadingStatus,
 } from "./model";

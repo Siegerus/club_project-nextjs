@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect } from "react";
 
-import { setAgreementState, selectAgreementState } from "@/entities/session";
+import { selectAgreementState, sessionSliceActions } from "@/entities/session";
 import { useAppDispatch, useAppSelector } from "@/shared/lib";
 import { AppRoute } from "@/shared/lib";
 import { cn } from "@/shared/lib";
@@ -47,7 +47,7 @@ const AdultAgreement = () => {
   const isAgree = useAppSelector(selectAgreementState);
 
   const handleAcceptClick = () => {
-    dispatch(setAgreementState(true));
+    dispatch(sessionSliceActions.setAgreementState(true));
     localStorage.setItem("adultAgree", JSON.stringify(true));
   };
 

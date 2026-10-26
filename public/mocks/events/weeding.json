@@ -1,0 +1,13 @@
+ [
+  {
+    "id": "1",
+    "title": "Свадьба",
+    "description": "Свадьба",
+    "date": "2024-06-15",
+    "time": "12:00",
+    "location": "Москва",
+    "price": "10000",
+    "image": "https://i.imgur.com/1QZQZQ.jpg"
+  }
+]
+
