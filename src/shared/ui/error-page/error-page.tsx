@@ -1,10 +1,13 @@
 import { cn } from "@/shared/lib";
 import { Container } from "@/shared/ui";
 import { OuterWrapper } from "@/shared/ui";
+import { Button } from "@/shared/ui";
 
 type ErrorPageProps = {
-  errorMessage?: string;
   className?: string;
+  errorMessage?: string;
+  resetText?: string;
+  onReset?: () => void;
 };
 
 const styles = {
@@ -12,8 +15,10 @@ const styles = {
 };
 
 const ErrorPage = ({
-  errorMessage = "Page not found...",
   className,
+  errorMessage = "Page not found...",
+  resetText,
+  onReset,
 }: ErrorPageProps) => {
   return (
     <OuterWrapper>
@@ -22,6 +27,9 @@ const ErrorPage = ({
           <span className="block text-2xl text-center text-white-70">
             <span className={cn(styles.text, className)}>{errorMessage}</span>
           </span>
+          {resetText && onReset && (
+            <Button onClick={onReset}>{resetText}</Button>
+          )}
         </section>
       </Container>
     </OuterWrapper>
