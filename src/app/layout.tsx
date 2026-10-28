@@ -5,6 +5,9 @@ import Providers from "./providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  ),
   title: {
     default: "Клуб «Притяжение»",
     template: "%s — Клуб «Притяжение»",
@@ -14,7 +17,10 @@ export const metadata: Metadata = {
   keywords:
     "свингер клуб, притяжение, цены, vip, правила, лояльность, мероприятия, запись, свингеры",
   authors: [
-    { name: "ООО «Притяжение»", url: process.env.NEXT_PUBLIC_SITE_URL ?? "/" },
+    {
+      name: "ООО «Притяжение»",
+      url: "/",
+    },
   ],
   category: "развлечения",
   publisher: "ООО «Притяжение»",
@@ -32,14 +38,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ru_RU",
-    url: process.env.NEXT_PUBLIC_SITE_URL ?? "/",
+    url: "/",
     siteName: "Клуб «Притяжение»",
     title: "Клуб «Притяжение»",
     description:
       "Клуб «Притяжение» — свингер-клуб. Цены, правила, VIP-зоны, программа лояльности, расписание мероприятий и запись.",
     images: [
       {
-        url: "/img/og-image.jpg",
+        url: "/images/logo.svg",
         width: 1200,
         height: 630,
         alt: "Клуб «Притяжение»",
@@ -60,12 +66,12 @@ export const metadata: Metadata = {
       {
         url: "/images/logo-mobile.svg",
         sizes: "192x192",
-        type: "image/png",
+        type: "image/svg+xml",
       },
       {
         url: "/images/logo.svg",
         sizes: "512x512",
-        type: "image/png",
+        type: "image/svg+xml",
       },
     ],
     apple: [{ url: "/images/logo-mobile.svg", sizes: "180x180" }],
@@ -82,7 +88,6 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`h-full antialiased ${gilroy.variable}`}>
       <Providers>
-        {/* body_blur */}
         <body className={`relative min-h-full flex flex-col`}>{children}</body>
       </Providers>
     </html>
