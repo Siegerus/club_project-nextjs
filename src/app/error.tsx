@@ -2,6 +2,7 @@
 
 import { Footer } from "@/widgets/footer";
 import { Header } from "@/widgets/header";
+import { notFoundPage } from "@/entities/company";
 import { ErrorPage } from "@/shared/ui";
 
 type SiteErrorProps = {
@@ -13,8 +14,13 @@ const SiteError = ({ error, reset }: SiteErrorProps) => {
   return (
     <>
       <Header />
-      <ErrorPage errorMessage={error.message} withWrapper={false} />
-      <button onClick={reset}></button>
+      <ErrorPage
+        description={error.message}
+        onReset={reset}
+        resetText="Попробовать снова"
+        title={notFoundPage.title}
+        withContent={false}
+      />
       <Footer />
     </>
   );
