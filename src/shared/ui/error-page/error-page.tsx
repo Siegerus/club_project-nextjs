@@ -1,48 +1,112 @@
+import Image from "next/image";
+
 import { cn } from "@/shared/lib";
-import { Container } from "@/shared/ui";
-import { OuterWrapper } from "@/shared/ui";
-import { Button } from "@/shared/ui";
+import { Button, Container, LinkButton, OuterWrapper } from "@/shared/ui";
+
+type ErrorPageIllustration = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
 
 type ErrorPageProps = {
   className?: string;
-  errorMessage?: string;
+  title: string;
+  description: string;
+  illustration?: ErrorPageIllustration;
+  actionLabel?: string;
+  actionPath?: string;
   resetText?: string;
   onReset?: () => void;
-  withWrapper?: boolean;
+  withContent?: boolean;
 };
 
 const styles = {
-  text: "block text-2xl text-center text-white-70",
+  section: "mt-[100px]",
+  card: cn(
+    "mx-auto w-full max-w-[450px] p-[20px] md:p-[40px]",
+    "rounded-middle bg-main-bg backdrop-blur-[12px]",
+  ),
+  image: "h-auto max-w-full",
+  content: "flex flex-col items-center gap-4",
+  text: "flex flex-col items-center gap-[6px] text-center",
+  title: "text-[40px] leading-[0.8] tracking-base font-semibold text-white",
+  description: "text-xl leading-main text-white-70",
+  action: "max-w-full 3xl:max-w-[370px]",
 };
 
 const ErrorPage = ({
   className,
-  errorMessage = "Page not found...",
+  title,
+  description,
+  illustration,
+  actionLabel,
+  actionPath,
   resetText,
   onReset,
-  withWrapper = true,
+  withContent = true,
 }: ErrorPageProps) => {
-  if (!withWrapper)
-    return (
-      <section className="mt-[100px]">
-        <span className="block text-2xl text-center text-white-70">
-          <span className={cn(styles.text, className)}>{errorMessage}</span>
-        </span>
-        {resetText && onReset && <Button onClick={onReset}>{resetText}</Button>}
-      </section>
-    );
+  const descriptionClass = cn(
+    styles.description,
+    !withContent && "mt-[135px] text-4xl text-center",
+  );
+
+  const content = (
+    <section className={cn(styles.section, className)}>
+      <div className={styles.card}>
+        <div className={styles.content}>
+          <div className={styles.text}>
+            <h1 className={styles.title}>{title}</h1>
+            <p className={descriptionClass}>{description}</p>
+          </div>
+          {illustration && (
+            <Image
+              className={styles.image}
+              height={illustration.height}
+              width={illustration.width}
+              alt={illustration.alt}
+              priority
+              src={illustration.src}
+            />
+          )}
+          {resetText && onReset ? (
+            <Button className={styles.action} onClick={onReset}>
+              {resetText}
+            </Button>
+          ) : (
+            actionLabel &&
+            actionPath && (
+              <LinkButton
+                className={styles.action}
+                label={actionLabel}
+                path={actionPath}
+              >
+                {actionLabel}
+              </LinkButton>
+            )
+          )}
+        </div>
+      </div>
+    </section>
+  );
 
   return (
     <OuterWrapper>
       <Container>
-        <section className="mt-[100px]">
-          <span className="block text-2xl text-center text-white-70">
-            <span className={cn(styles.text, className)}>{errorMessage}</span>
-          </span>
-          {resetText && onReset && (
-            <Button onClick={onReset}>{resetText}</Button>
-          )}
-        </section>
+        {withContent ? (
+          content
+        ) : (
+          <section>
+            <h1 className={cn(styles.title, "sr-only")}>{title}</h1>
+            <p className={descriptionClass}>{description}</p>
+            {resetText && onReset && (
+              <Button className={styles.action} onClick={onReset}>
+                {resetText}
+              </Button>
+            )}
+          </section>
+        )}
       </Container>
     </OuterWrapper>
   );
