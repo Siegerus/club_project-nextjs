@@ -15,5 +15,5 @@ export const requestTimeout = 5000;
 export const APIRoute = {
   Login: "/login",
   Logout: "/logout",
-  Event: "/event",
+  Events: "/mocks/events/events.json",
 } as const;
