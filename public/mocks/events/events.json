@@ -1,0 +1,48 @@
+ [
+  {
+    "id": "1",
+    "title": "Свадьба",
+    "description": "Свадьба",
+    "tabs": [
+      {"tabName": "sedcr"},
+      {"tabName": "sedcr"},
+      {"tabName": "sedcr"}
+    ],
+    "date": "2024-06-15",
+    "time": "12:00",
+    "location": "Москва",
+    "price": "10000",
+    "image": "https://i.imgur.com/1QZQZQ.jpg"
+  },
+  {
+    "id": "2",
+    "title": "Свадьба",
+    "description": "Свадьба",
+    "tabs": [
+      {"tabName": "sedcr"},
+      {"tabName": "sedcr"},
+      {"tabName": "sedcr"}
+    ],
+    "date": "2024-06-15",
+    "time": "12:00",
+    "location": "Москва",
+    "price": "10000",
+    "image": "https://i.imgur.com/1QZQZQ.jpg"
+  },
+  {
+    "id": "3",
+    "title": "Свадьба",
+    "description": "Свадьба",
+    "tabs": [
+      {"tabName": "sedcr"},
+      {"tabName": "sedcr"},
+      {"tabName": "sedcr"}
+    ],
+    "date": "2026-06-15",
+    "time": "12:00",
+    "location": "Москва",
+    "price": "10000",
+    "image": "https://i.imgur.com/1QZQZQ.jpg"
+  }
+]
+

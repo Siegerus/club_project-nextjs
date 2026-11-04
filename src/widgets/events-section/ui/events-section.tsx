@@ -7,8 +7,6 @@ const styles = {
   title: "leading-one tracking-base title title-responsive",
 };
 
-// leading-one
-
 const EventsSection = () => {
   return (
     <section className={styles.root}>
