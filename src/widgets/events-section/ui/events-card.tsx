@@ -1,5 +1,11 @@
 import Image from "next/image";
+import type { EventItem } from "@/entities/event";
 import { cn } from "@/shared/lib";
+import { cardMobileTicketPath, cardTicketPath } from "../lib";
+
+type EventsCardProps = {
+  event: EventItem;
+};
 
 const styles = {
   card: cn(
@@ -59,16 +65,18 @@ const styles = {
   ),
 };
 
-const EventsCard = () => {
+const EventsCard = ({ event }: EventsCardProps) => {
+  const { id, title, date, image } = event;
   return (
     <article className={styles.card}>
       <div className={styles.photo}>
         <Image
           className={cn(styles.photoImage, "hidden lg:block")}
-          src="/images/events-swing.png"
-          alt="Swing свадьба Сегрея и Дарьи"
+          src={event.image}
+          alt={event.title}
           fill
           sizes="(min-width: 768px) 314px, (min-width: 1280px) 550px, 100vw"
+          loading="eager"
         />
         <Image
           className={cn(styles.photoImage, "lg:hidden")}
@@ -76,11 +84,12 @@ const EventsCard = () => {
           alt="Swing свадьба Сегрея и Дарьи"
           fill
           sizes="(min-width: 768px) 314px, (min-width: 1280px) 550px, 100vw"
+          loading="eager"
         />
         <div className={styles.ticket}>
           <Image
             className={cn(styles.ticketImage, "hidden xl:block")}
-            src="/icons/events-ticket.svg"
+            src={cardTicketPath}
             alt=""
             width={163}
             height={73}
@@ -88,7 +97,7 @@ const EventsCard = () => {
           />
           <Image
             className={cn(styles.ticketImage, "xl:hidden")}
-            src="/icons/events-ticket-mobile.svg"
+            src={cardMobileTicketPath}
             alt=""
             width={163}
             height={73}
