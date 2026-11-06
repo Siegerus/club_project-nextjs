@@ -17,3 +17,11 @@ export const APIRoute = {
   Logout: "/logout",
   Events: "/mocks/events/events.json",
 } as const;
+
+export const UserMessage = {
+  LoginError: "Ошибка авторизации",
+  LoginSuccess: "Вы успешно авторизовались",
+  LoginFailed: "Неправильный логин или пароль",
+  LoadingProgress: "Загрузка...",
+  LoadingError: "Ошибка загрузки данных...",
+};

@@ -1,7 +1,21 @@
 "use client";
 
-import { selectEventData } from "@/entities/event";
-import { useAppSelector } from "@/shared/lib";
+import { useEffect } from "react";
+
+import {
+  selectEventData,
+  eventSliceActions,
+  selectEventLoadingStatus,
+  selectEventError,
+} from "@/entities/event";
+import {
+  useAppSelector,
+  useAppDispatch,
+  LoadingStatus,
+  UserMessage,
+} from "@/shared/lib";
+import { Button } from "@/shared/ui";
+import { errorButtonText } from "../lib";
 import EventsCard from "./events-card";
 
 const styles = {
@@ -10,6 +24,38 @@ const styles = {
 
 const EventsList = () => {
   const events = useAppSelector(selectEventData);
+  const error = useAppSelector(selectEventError);
+  const status = useAppSelector(selectEventLoadingStatus);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(eventSliceActions.getEventData());
+  }, [dispatch]);
+
+  const handleButtonClick = () => {
+    dispatch(eventSliceActions.getEventData());
+  };
+
+  if (status === LoadingStatus.Failed)
+    return (
+      <>
+        <span className="block mt-[40px] mb-[40px] text-2xl text-center text-white">
+          {UserMessage.LoadingError}
+          <br />
+          {error}
+        </span>
+        <Button onClick={handleButtonClick}>
+          <span>{errorButtonText}</span>
+        </Button>
+      </>
+    );
+
+  if (status === LoadingStatus.Loading)
+    return (
+      <span className="block mt-[40px] text-2xl text-center text-white">
+        {UserMessage.LoadingProgress}
+      </span>
+    );
 
   return (
     <ul className={styles.list}>
