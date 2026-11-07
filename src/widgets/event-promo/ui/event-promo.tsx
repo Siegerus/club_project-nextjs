@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { Timer } from "@/shared/ui";
 import { Container } from "@/shared/ui";
 
 const styles = {
@@ -34,6 +35,7 @@ const EventPromo = () => {
           <div className={styles.info}>
             <p className={styles.date}>20 июля 2024 года</p>
             <h1 className={styles.title}>Swing свадьба Сегрея и Дарьи</h1>
+            <Timer />
           </div>
         </div>
       </Container>
