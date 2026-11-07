@@ -57,6 +57,13 @@ const EventsList = () => {
       </span>
     );
 
+  if (status === LoadingStatus.Success && events.length === 0)
+    return (
+      <span className="block mt-[40px] text-2xl text-center text-white">
+        {UserMessage.EmptyData}
+      </span>
+    );
+
   return (
     <ul className={styles.list}>
       {events.map((event) => {

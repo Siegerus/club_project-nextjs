@@ -1,7 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
+
 import type { EventItem } from "@/entities/event";
-import { cn } from "@/shared/lib";
+import { cn, AppRoute } from "@/shared/lib";
 import { cardMobileTicketPath, cardTicketPath } from "../lib";
+import { getFormattedDate } from "../lib";
 
 type EventsCardProps = {
   event: EventItem;
@@ -67,55 +70,60 @@ const styles = {
 
 const EventsCard = ({ event }: EventsCardProps) => {
   const { id, title, date, image } = event;
+
+  const { day, month, year } = getFormattedDate(date);
+
   return (
-    <article className={styles.card}>
-      <div className={styles.photo}>
-        <Image
-          className={cn(styles.photoImage, "hidden lg:block")}
-          src={event.image}
-          alt={event.title}
-          fill
-          sizes="(min-width: 768px) 314px, (min-width: 1280px) 550px, 100vw"
-          loading="eager"
-        />
-        <Image
-          className={cn(styles.photoImage, "lg:hidden")}
-          src="/images/events-swing-tablet.png"
-          alt="Swing свадьба Сегрея и Дарьи"
-          fill
-          sizes="(min-width: 768px) 314px, (min-width: 1280px) 550px, 100vw"
-          loading="eager"
-        />
-        <div className={styles.ticket}>
+    <Link href={AppRoute.EventArticle(id)}>
+      <article className={styles.card}>
+        <div className={styles.photo}>
           <Image
-            className={cn(styles.ticketImage, "hidden xl:block")}
-            src={cardTicketPath}
-            alt=""
-            width={163}
-            height={73}
-            aria-hidden
+            className={cn(styles.photoImage, "hidden lg:block")}
+            src={image}
+            alt={title}
+            fill
+            sizes="(min-width: 768px) 314px, (min-width: 1280px) 550px, 100vw"
+            loading="eager"
           />
           <Image
-            className={cn(styles.ticketImage, "xl:hidden")}
-            src={cardMobileTicketPath}
-            alt=""
-            width={163}
-            height={73}
-            aria-hidden
+            className={cn(styles.photoImage, "lg:hidden")}
+            src="/images/events-swing-tablet.png"
+            alt="Swing свадьба Сегрея и Дарьи"
+            fill
+            sizes="(min-width: 768px) 314px, (min-width: 1280px) 550px, 100vw"
+            loading="eager"
           />
-          <span className={styles.ticketDate}>
-            20
-            <br />
-            июля
-          </span>
-          <span className={styles.ticketYear}>2024</span>
+          <div className={styles.ticket}>
+            <Image
+              className={cn(styles.ticketImage, "hidden xl:block")}
+              src={cardTicketPath}
+              alt=""
+              width={163}
+              height={73}
+              aria-hidden
+            />
+            <Image
+              className={cn(styles.ticketImage, "xl:hidden")}
+              src={cardMobileTicketPath}
+              alt=""
+              width={163}
+              height={73}
+              aria-hidden
+            />
+            <span className={styles.ticketDate}>
+              {day}
+              <br />
+              {month}
+            </span>
+            <span className={styles.ticketYear}>{year}</span>
+          </div>
         </div>
-      </div>
-      <h2 className={styles.title}>Swing свадьба Сегрея и Дарьи</h2>
-      <button type="button" className={styles.button}>
-        Бронировать
-      </button>
-    </article>
+        <h2 className={styles.title}>Swing свадьба Сегрея и Дарьи</h2>
+        <button type="button" className={styles.button}>
+          Бронировать
+        </button>
+      </article>
+    </Link>
   );
 };
 

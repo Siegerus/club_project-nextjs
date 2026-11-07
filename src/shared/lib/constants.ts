@@ -24,4 +24,5 @@ export const UserMessage = {
   LoginFailed: "Неправильный логин или пароль",
   LoadingProgress: "Загрузка...",
   LoadingError: "Ошибка загрузки данных...",
+  EmptyData: "Нет актуальных данных...",
 };
