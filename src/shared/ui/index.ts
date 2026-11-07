@@ -18,4 +18,5 @@ export { NumberedCard } from "./card";
 export { ClosingItem } from "./closing-item";
 export { OuterWrapper } from "./outer-wrapper";
 export { Select } from "./select";
+export { Timer } from "./timer";
 export { ErrorPage } from "./error-page";
