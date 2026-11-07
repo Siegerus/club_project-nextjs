@@ -28,7 +28,7 @@ export const eventSlice = createSlice({
     builder.addCase(
       getEventData.fulfilled,
       (state, action: PayloadAction<EventItem[]>) => {
-        state.eventData = state.eventData.concat(action.payload);
+        state.eventData = action.payload;
         state.eventLoadingStatus = LoadingStatus.Success;
         state.eventError = null;
       },

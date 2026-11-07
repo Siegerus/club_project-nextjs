@@ -6,7 +6,7 @@ import { type EventItem } from "../model";
 export const fetchEventData = async (
   api: AxiosInstance,
 ): Promise<EventItem[]> => {
-  const { data } = await api.get<EventItem[]>("/mocks/events/weeding.json");
+  const { data } = await api.get<EventItem[]>(APIRoute.Events);
 
   return data;
 };

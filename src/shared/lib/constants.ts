@@ -15,5 +15,14 @@ export const requestTimeout = 5000;
 export const APIRoute = {
   Login: "/login",
   Logout: "/logout",
-  Event: "/event",
+  Events: "/mocks/events/events.json",
 } as const;
+
+export const UserMessage = {
+  LoginError: "Ошибка авторизации",
+  LoginSuccess: "Вы успешно авторизовались",
+  LoginFailed: "Неправильный логин или пароль",
+  LoadingProgress: "Загрузка...",
+  LoadingError: "Ошибка загрузки данных...",
+  EmptyData: "Нет актуальных данных...",
+};

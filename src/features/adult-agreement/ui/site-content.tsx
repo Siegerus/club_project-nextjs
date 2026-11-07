@@ -2,7 +2,6 @@
 
 import { ReactNode, useEffect, useState } from "react";
 
-import { eventSliceActions, selectEventData } from "@/entities/event";
 import { selectAgreementState, sessionSliceActions } from "@/entities/session";
 import { useAppSelector, useAppDispatch } from "@/shared/lib";
 import AdultAgreement from "./adult-agreement";
@@ -14,12 +13,6 @@ type SiteContentProps = {
 const SiteContent = ({ children }: SiteContentProps) => {
   const isAgree = useAppSelector(selectAgreementState);
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(eventSliceActions.getEventData());
-  }, [dispatch]);
-
-  const data = useAppSelector(selectEventData);
 
   const [isMounted, setIsMounted] = useState(false);
 
