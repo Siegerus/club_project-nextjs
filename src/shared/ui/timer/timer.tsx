@@ -1,3 +1,9 @@
+import { cn } from "@/shared/lib";
+
+type TimerProps = {
+  wrapperClass?: string;
+};
+
 const styles = {
   wrapper: "flex flex-row gap-5",
   card: "flex w-20 flex-col items-center rounded-lg bg-main-bg backdrop-blur-md",
@@ -12,9 +18,9 @@ const timeUnits = [
   { id: "minutes", value: "45", label: "минут" },
 ];
 
-const Timer = () => {
+const Timer = ({ wrapperClass }: TimerProps) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={cn(styles.wrapper, wrapperClass)}>
       {timeUnits.map((unit) => (
         <div key={unit.id} className={styles.card}>
           <span className={styles.value}>{unit.value}</span>

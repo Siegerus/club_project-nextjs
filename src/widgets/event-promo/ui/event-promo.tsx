@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-import { Timer } from "@/shared/ui";
+import { cn } from "@/shared/lib";
+import { Timer, Heading } from "@/shared/ui";
 import EventTabs from "./event-tabs";
 
 const styles = {
@@ -9,11 +10,12 @@ const styles = {
     "absolute top-8 left-0 w-full select-none text-center text-[98px] font-semibold leading-one tracking-base text-main-input blur-[11px] md:top-16 md:text-[210px] md:blur-[22px]",
   content:
     "relative flex flex-col items-center gap-10  md:flex-row md:items-start md:gap-14",
-  image: "h-80 w-80 rounded-base object-cover md:h-[520px] md:w-[520px]",
-  info: "flex flex-col items-center gap-4 text-center md:items-start md:gap-4 md:text-left",
-  date: "text-sm font-medium leading-main tracking-base text-white-70 uppercase md:text-xl",
+  image: "h-80 w-80 rounded-small object-cover md:h-[520px] md:w-[520px]",
+  info: "flex flex-col items-start md:items-center md:items-start md:gap-4 md:text-left",
+  date: "text-sm font-medium leading-main tracking-none md:tracking-base text-white-70 md:text-xl",
   title:
-    "text-sm font-semibold leading-one tracking-base text-white md:w-[652px] md:text-[88px]",
+    "mt-[4px] text-sm font-semibold leading-main tracking-none md:tracking-base text-white md:w-[652px] md:text-[88px]",
+  tabs: "mt-[20px] leading-one",
 };
 
 const EventPromo = () => {
@@ -31,13 +33,32 @@ const EventPromo = () => {
           className={styles.image}
           priority
         />
-        <div className={styles.info}>
+        <div className={cn(styles.info, "hidden md:block")}>
           <p className={styles.date}>20 июля 2024 года</p>
-          <h1 className={styles.title}>Swing свадьба Сегрея и Дарьи</h1>
-          <Timer />
+          <Heading
+            level="h1"
+            title="Swing свадьба Сегрея и Дарьи"
+            className={styles.title}
+          />
+          <Timer wrapperClass="hidden md:flex" />
         </div>
       </div>
-      <EventTabs />
+      <EventTabs listClass={styles.tabs}>
+        <div
+          className={cn(
+            styles.info,
+            "md:hidden mt-[10px] pt-[10px] border-t-[2px] border-solid border-white/10",
+          )}
+        >
+          <p className={styles.date}>20 июля 2024 года</p>
+          <Heading
+            level="h1"
+            title="Swing свадьба Сегрея и Дарьи"
+            className={styles.title}
+          />
+        </div>
+      </EventTabs>
+      <Timer wrapperClass="md:hidden" />
     </section>
   );
 };
