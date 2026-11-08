@@ -1,6 +1,14 @@
 export const timerTitleText = "Бронирование закроется через";
 
-export const tabConfigs = [
+export type TabId = "format" | "about" | "timing" | "bangles" | "dresscode";
+
+export type Tab = {
+  id: TabId;
+  label: string;
+  description: string;
+};
+
+export const tabsConfig: Tab[] = [
   {
     id: "format",
     label: "О событии",
