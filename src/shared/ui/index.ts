@@ -20,3 +20,4 @@ export { OuterWrapper } from "./outer-wrapper";
 export { Select } from "./select";
 export { Timer } from "./timer";
 export { ErrorPage } from "./error-page";
+export { Watermark } from "./watermark";
