@@ -1,21 +1,20 @@
 import Image from "next/image";
 
 import { cn } from "@/shared/lib";
-import { Timer, Heading } from "@/shared/ui";
+import { Timer, Heading, Container, Watermark } from "@/shared/ui";
 import { timerTitleText, tabsConfig } from "../lib";
 import EventTabs from "./event-tabs";
 
 const styles = {
   root: cn(
-    "relative flex flex-col",
+    "flex flex-col",
     "pt-[10px] md:pt-[20px] md:pb-[40px] lg:pt-[60px] lg:pb-[78px]",
   ),
   watermark: cn(
-    "-z-[10] absolute top-8 left-0 max-w-full select-none",
-    "text-center text-[98px] font-semibold",
-    "leading-one tracking-base text-main-input",
-    "blur-[11px]",
-    "md:top-16 md:text-[210px] md:blur-[22px]",
+    "top-[40px] md:top-[48px] left-1/2 md:left-0 -transform-x-1/2 md:transform-x-[unset]",
+    "text-[6.125em] text-center md:text-left text-nowrap",
+    "",
+    "",
   ),
   content: cn(
     "relative flex flex-col items-center",
@@ -63,47 +62,50 @@ const styles = {
 
 const EventPromo = () => {
   return (
-    <section className={styles.root}>
-      <p className={styles.watermark} aria-hidden="true">
-        SWING СВАДЬБА
-      </p>
-      <div className={styles.content}>
-        <Image
-          src="/images/action-img.png"
-          alt="Фото события"
-          width={520}
-          height={520}
-          className={styles.image}
-          priority
-        />
-        <div className={cn(styles.info, "hidden md:block")}>
-          <p className={styles.date}>20 июля 2024 года</p>
-          <Heading
-            level="h1"
-            title="Swing свадьба Сегрея и Дарьи"
-            className={styles.title}
-          />
-          <Timer wrapperClass={cn(styles.timer, "hidden md:flex")} />
-        </div>
-      </div>
-      <EventTabs tabs={tabsConfig} listClass={styles.tabs}>
-        <div
-          className={cn(
-            styles.info,
-            "md:hidden mt-[10px] pt-[10px] border-t-[2px] border-solid border-white/10",
-          )}
-        >
-          <p className={styles.date}>20 июля 2024 года</p>
-          <Heading
-            level="h1"
-            title="Swing свадьба Сегрея и Дарьи"
-            className={styles.title}
-          />
-        </div>
-      </EventTabs>
-      <span className={styles.timerTitle}>{timerTitleText}</span>
-      <Timer wrapperClass={cn(styles.timer, "md:hidden")} />
-    </section>
+    <>
+      <Watermark text="SWING СВАДЬБА" markClass={styles.watermark} />
+      <Container>
+        <div className="md:hidden -z-[1] absolute top-0 left-0 w-full h-full eclipse"></div>
+        <section className={styles.root}>
+          <div className={styles.content}>
+            <Image
+              src="/images/action-img.png"
+              alt="Фото события"
+              width={520}
+              height={520}
+              className={styles.image}
+              priority
+            />
+            <div className={cn(styles.info, "hidden md:block")}>
+              <p className={styles.date}>20 июля 2024 года</p>
+              <Heading
+                level="h1"
+                title="Swing свадьба Сегрея и Дарьи"
+                className={styles.title}
+              />
+              <Timer wrapperClass={cn(styles.timer, "hidden md:flex")} />
+            </div>
+          </div>
+          <EventTabs tabs={tabsConfig} listClass={styles.tabs}>
+            <div
+              className={cn(
+                styles.info,
+                "md:hidden mt-[10px] pt-[10px] border-t-[2px] border-solid border-white/10",
+              )}
+            >
+              <p className={styles.date}>20 июля 2024 года</p>
+              <Heading
+                level="h1"
+                title="Swing свадьба Сегрея и Дарьи"
+                className={styles.title}
+              />
+            </div>
+          </EventTabs>
+          <span className={styles.timerTitle}>{timerTitleText}</span>
+          <Timer wrapperClass={cn(styles.timer, "md:hidden")} />
+        </section>
+      </Container>
+    </>
   );
 };
 

@@ -4,9 +4,10 @@ import { Container } from "@/shared/ui";
 
 const EventAticle = () => {
   return (
-    <Container>
+    <>
       <EventPromo />
-    </Container>
+      <Container></Container>
+    </>
   );
 };
 

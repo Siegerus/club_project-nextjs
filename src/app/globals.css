@@ -67,6 +67,16 @@
   background-color: var(--background);
 }
 
+@utility watermark {
+    position: absolute;
+    z-index: -1;
+    font-weight: 600;
+    line-height: var(--leading-main);
+    letter-spacing: -.02em;
+    color: var(--color-main-input);
+    filter: blur(10px);
+}
+
 @utility bg-rainbow-gradient-text {
   background-image: linear-gradient(90deg, #f43b47 0%, #453a94 100%);
   background-clip: text;
