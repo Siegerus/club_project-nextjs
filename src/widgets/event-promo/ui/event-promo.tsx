@@ -1,5 +1,8 @@
+"use client";
 import Image from "next/image";
 
+import { selectEventData, EventItem } from "@/entities/event";
+import { useAppSelector } from "@/shared/lib";
 import { cn } from "@/shared/lib";
 import { Timer, Heading, Container, Watermark } from "@/shared/ui";
 import { timerTitleText, tabsConfig } from "../lib";
@@ -61,6 +64,8 @@ const styles = {
 };
 
 const EventPromo = () => {
+  const tabs = tabsConfig;
+
   return (
     <>
       <Watermark text="SWING СВАДЬБА" markClass={styles.watermark} />
@@ -86,7 +91,7 @@ const EventPromo = () => {
               <Timer wrapperClass={cn(styles.timer, "hidden md:flex")} />
             </div>
           </div>
-          <EventTabs tabs={tabsConfig} listClass={styles.tabs}>
+          <EventTabs tabs={tabs} listClass={styles.tabs}>
             <div
               className={cn(
                 styles.info,

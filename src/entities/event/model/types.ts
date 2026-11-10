@@ -1,6 +1,9 @@
+export type TabId = "format" | "about" | "timing" | "bangles" | "dresscode";
+
 export type EventTab = {
-  tabName: string;
-  tabContent: string;
+  id: TabId;
+  label: string;
+  description: string;
 };
 
 export type EventItem = {

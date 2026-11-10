@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
+import type { EventTab, TabId } from "@/entities/event";
 import { cn } from "@/shared/lib";
-import { Tab, TabId } from "../lib";
 
 type EventTabsContentProps = {
-  tabs: Tab[];
+  tabs: EventTab[];
   activeTab: TabId;
 };
 

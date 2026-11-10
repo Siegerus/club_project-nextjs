@@ -1,21 +1,15 @@
+import type { EventTab } from "@/entities/event";
+
 export const timerTitleText = "Бронирование закроется через";
 
-export type TabId = "format" | "about" | "timing" | "bangles" | "dresscode";
-
-export type Tab = {
-  id: TabId;
-  label: string;
-  description: string;
-};
-
-export const tabsConfig: Tab[] = [
+export const tabsConfig: EventTab[] = [
   {
-    id: "format",
+    id: "about",
     label: "О событии",
     description: `Что же вас ждёт на этой уникальной свадьбе? \n Приоткроем пару фишек мероприятия: \n -Свадебные традиции с уклоном на формат свадьбы \n -Горячий сюрприз для молодоженов и гостей \n Как всегда много вкусных и сочный блюд. \n Всеми любимые ведущий и диджей с ещё более горячей программой!`,
   },
   {
-    id: "about",
+    id: "format",
     label: "Формат мероприятия",
     description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos voluptatum suscipit voluptatibus non rerum laboriosam quos velit incidunt sint deserunt voluptates facilis possimus vitae, id excepturi deleniti, perferendis sequi error corporis veritatis adipisci fuga doloremque iste. Illum suscipit perferendis, accusamus amet temporibus at corrupti velit necessitatibus nostrum eveniet. Optio tempore, ipsum, consectetur a perferendis nemo iusto beatae iure cumque fugit assumenda harum natus sequi vel sapiente eos saepe laboriosam possimus at neque cupiditate consequuntur non? Consequuntur nulla facere expedita. Earum?`,
   },

@@ -2,12 +2,12 @@
 import { AnimatePresence } from "framer-motion";
 import { useState, useRef, useCallback } from "react";
 
+import type { EventTab, TabId } from "@/entities/event";
 import { cn } from "@/shared/lib";
-import { Tab, TabId } from "../lib";
 import EventTabsContent from "./event-tabs-content";
 
 type EventTabsProps = {
-  tabs: Tab[];
+  tabs: EventTab[];
   listClass?: string;
   children: React.ReactNode;
 };
@@ -122,8 +122,12 @@ const EventTabs = ({ tabs, listClass, children }: EventTabsProps) => {
         })}
       </ul>
       {children}
-      <AnimatePresence>
-        <EventTabsContent tabs={tabs} activeTab={activeTabId} />
+      <AnimatePresence mode="wait">
+        <EventTabsContent
+          key={activeTabId}
+          tabs={tabs}
+          activeTab={activeTabId}
+        />
       </AnimatePresence>
     </>
   );

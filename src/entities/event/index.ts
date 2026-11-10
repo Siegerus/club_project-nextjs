@@ -5,4 +5,4 @@ export {
   selectEventError,
   eventSliceActions,
 } from "./model";
-export { type EventItem } from "./model";
+export type { EventItem, TabId, EventTab } from "./model";
