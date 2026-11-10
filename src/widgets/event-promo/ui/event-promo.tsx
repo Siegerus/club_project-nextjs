@@ -17,7 +17,7 @@ import {
   Heading,
   Container,
   Watermark,
-  Button,
+  Eclipse,
   PageSkeleton,
   ErrorPage,
 } from "@/shared/ui";
@@ -53,6 +53,8 @@ const styles = {
     "md:items-center md:items-start md:ml-[14px] lg:ml-[60px]",
     "md:text-left",
   ),
+  mobileInfo:
+    "md:hidden mt-[10px] pt-[10px] border-t-[2px] border-solid border-white/10",
   date: cn(
     "md:mt-[30px] lg:mt-[30px] xl:mt-[70px] 2xl:mt-[100px]",
     "text-sm md:text-base lg:text-xl",
@@ -147,7 +149,7 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
     <>
       <Watermark text="SWING СВАДЬБА" markClass={styles.watermark} />
       <Container>
-        <div className="md:hidden -z-[1] absolute top-0 left-0 w-full h-full eclipse"></div>
+        <Eclipse />
         <section className={styles.root}>
           <div className={styles.content}>
             <Image
@@ -169,12 +171,7 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
             </div>
           </div>
           <EventTabs tabs={tabs} listClass={styles.tabs}>
-            <div
-              className={cn(
-                styles.info,
-                "md:hidden mt-[10px] pt-[10px] border-t-[2px] border-solid border-white/10",
-              )}
-            >
+            <div className={cn(styles.info, styles.mobileInfo)}>
               <p className={styles.date}>20 июля 2024 года</p>
               <Heading
                 level="h1"
