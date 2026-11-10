@@ -11,9 +11,9 @@ const styles = {
     "pt-[10px] md:pt-[20px] md:pb-[40px] lg:pt-[60px] lg:pb-[78px]",
   ),
   watermark: cn(
-    "top-[40px] md:top-[48px] left-1/2 md:left-0 -transform-x-1/2 md:transform-x-[unset]",
-    "text-[6.125em] text-center md:text-left text-nowrap",
-    "",
+    "top-[40px] md:top-[48px] -left-[3px] lg:left-[141px] lg:top-0",
+    "text-[6.125em] lg:text-[10em] 3xl:text-[13.125em] text-center md:text-left md:text-nowrap md:text-wrap",
+    "blur-[10px] lg:blur-[19px]",
     "",
   ),
   content: cn(

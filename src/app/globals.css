@@ -11,6 +11,7 @@
  
 @theme inline {
   --font-sans: var(--font-gilroy);
+  --animate-shadow: shadow 1.5s linear;
   --tracking-base: -0.02em;
   --tracking-none: 0;
   --leading-one: 1;
@@ -43,6 +44,18 @@
 
 }
 
+@keyframes shadow {
+  0% {
+    opacity: 0.1;
+    box-shadow: 0 0 115px rgb(246, 246, 246);
+  }
+
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 rgb(0, 0, 0);
+  }
+}
+
 @media (min-width: 1024px) {
   body.modal-open {
     margin-right: 15px;
@@ -66,15 +79,13 @@
   background-repeat: no-repeat;
   background-color: var(--background);
 }
-
+ 
 @utility watermark {
-    position: absolute;
     z-index: -1;
     font-weight: 600;
     line-height: var(--leading-main);
     letter-spacing: -.02em;
-    color: var(--color-main-input);
-    filter: blur(10px);
+    color: var(--color-main-input);  
 }
 
 @utility bg-rainbow-gradient-text {
@@ -277,4 +288,5 @@ body {
 .title-responsive_mobile-3xl {
   @apply max-md:text-3xl;
 }
+
 

@@ -1,9 +1,10 @@
 "use client";
-
-import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import { useState, useRef, useCallback } from "react";
 
 import { cn } from "@/shared/lib";
 import { Tab, TabId } from "../lib";
+import EventTabsContent from "./event-tabs-content";
 
 type EventTabsProps = {
   tabs: Tab[];
@@ -18,7 +19,7 @@ const styles = {
     "leading-main md:leading-middle",
     "md:tracking-base lg:tracking-none",
     "lg:font-semibold",
-    "text-white-70",
+    "text-white-70 cursor-pointer",
   ),
   tabActive: "text-white underline",
   description: cn(
@@ -46,6 +47,7 @@ const styles = {
 
 const EventTabs = ({ tabs, listClass, children }: EventTabsProps) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const tabRefs = useRef<HTMLButtonElement[] | null>(null);
 
   const activeTabId: TabId = tabs[activeIndex].id;
 
@@ -53,16 +55,61 @@ const EventTabs = ({ tabs, listClass, children }: EventTabsProps) => {
     setActiveIndex(index);
   };
 
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+      let nextIndex = index;
+
+      switch (e.key) {
+        case "ArrowRight":
+        case "ArrowDown":
+          e.preventDefault();
+          nextIndex = Math.min(index + 1, tabs.length - 1);
+          break;
+        case "ArrowLeft":
+        case "ArrowUp":
+          e.preventDefault();
+          nextIndex = Math.max(index - 1, 0);
+          break;
+        case "Home":
+          e.preventDefault();
+          nextIndex = 0;
+          break;
+        case "End":
+          e.preventDefault();
+          nextIndex = tabs.length - 1;
+          break;
+        default:
+          return;
+      }
+
+      setActiveIndex(nextIndex);
+      if (tabRefs.current?.length) tabRefs.current[nextIndex]?.focus();
+    },
+    [tabs.length],
+  );
+
   return (
     <>
-      <ul className={cn(styles.list, listClass)}>
+      <ul
+        className={cn(styles.list, listClass)}
+        role="tablist"
+        aria-label="Информация о событии"
+      >
         {tabs.map((tab, i) => {
           const keyValue = `${tab.id}-${i}`;
           return (
             <li key={keyValue}>
               <button
+                ref={(el) => {
+                  if (el && tabRefs.current) tabRefs.current[i] = el;
+                }}
                 onClick={() => handleTabClick(i)}
+                onKeyDown={(e) => handleKeyDown(e, i)}
                 type="button"
+                role="tab"
+                aria-controls="event-tabs"
+                aria-selected={activeTabId === tab.id}
+                tabIndex={activeIndex === i ? 0 : -1}
                 className={cn(
                   styles.tab,
                   activeTabId === tab.id && styles.tabActive,
@@ -75,21 +122,9 @@ const EventTabs = ({ tabs, listClass, children }: EventTabsProps) => {
         })}
       </ul>
       {children}
-      <ul>
-        {tabs.map((tab, i) => {
-          const keyValue = `${tab.id}-${i}`;
-          return (
-            <li key={keyValue}>
-              {activeTabId === tab.id && (
-                <div className={styles.content}>
-                  <span className={styles.contentLabel}>{tab.label}</span>
-                  <p className={styles.description}>{tab.description}</p>
-                </div>
-              )}
-            </li>
-          );
-        })}
-      </ul>
+      <AnimatePresence>
+        <EventTabsContent tabs={tabs} activeTab={activeTabId} />
+      </AnimatePresence>
     </>
   );
 };
