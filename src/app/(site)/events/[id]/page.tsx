@@ -1,7 +1,14 @@
-// type Props = {};
+import { EventPromo } from "@/widgets/event-promo";
 
-const EventAticle = (/* props: Props */) => {
-  return <div>EventAticle</div>;
+import { Container } from "@/shared/ui";
+
+const EventAticle = () => {
+  return (
+    <>
+      <EventPromo />
+      <Container></Container>
+    </>
+  );
 };
 
 export default EventAticle;
