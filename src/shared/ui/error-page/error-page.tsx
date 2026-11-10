@@ -20,6 +20,7 @@ type ErrorPageProps = {
   resetText?: string;
   onReset?: () => void;
   withContent?: boolean;
+  withLogo?: boolean;
 };
 
 const styles = {
@@ -47,10 +48,12 @@ const ErrorPage = ({
   resetText,
   onReset,
   withContent = true,
+  withLogo = true,
 }: ErrorPageProps) => {
   const descriptionClass = cn(
     styles.description,
-    !withContent && "mt-[135px] text-4xl text-center",
+    !withContent &&
+      "mt-[135px] text-lg md:text-2xl xl:text-3xl 3xl:text-4xl text-center",
   );
 
   const content = (
@@ -93,7 +96,7 @@ const ErrorPage = ({
   );
 
   return (
-    <OuterWrapper>
+    <OuterWrapper withLogo={withLogo}>
       <Container>
         {withContent ? (
           content

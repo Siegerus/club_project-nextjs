@@ -14,7 +14,7 @@ import {
   LoadingStatus,
   UserMessage,
 } from "@/shared/lib";
-import { Button } from "@/shared/ui";
+import { ErrorPage, PageSkeleton } from "@/shared/ui";
 import { errorButtonText } from "../lib";
 import EventsCard from "./events-card";
 
@@ -24,7 +24,7 @@ const styles = {
 
 const EventsList = () => {
   const events = useAppSelector(selectEventsData);
-  const error = useAppSelector(selectEventsError);
+  const errorText = useAppSelector(selectEventsError);
   const status = useAppSelector(selectEventsLoadingStatus);
   const dispatch = useAppDispatch();
 
@@ -38,42 +38,39 @@ const EventsList = () => {
 
   if (status === LoadingStatus.Failed)
     return (
-      <>
-        <span className="block mt-[40px] mb-[40px] text-2xl text-center text-white">
-          {UserMessage.LoadingError}
-          <br />
-          {error}
-        </span>
-        <Button
-          onClick={handleButtonClick}
-          className="max-w-full md:max-w-[370px] mt-[60px] button-interactive_fill"
-        >
-          <span>{errorButtonText}</span>
-        </Button>
-      </>
+      <ErrorPage
+        title={LoadingStatus.Failed}
+        onReset={handleButtonClick}
+        resetText={errorButtonText}
+        description={`${UserMessage.LoadingError}:${errorText}`}
+        withContent={false}
+        withLogo={false}
+      />
     );
 
   if (status === LoadingStatus.Loading)
     return (
-      <span className="block mt-[40px] text-2xl text-center text-white">
-        {UserMessage.LoadingProgress}
-      </span>
+      <PageSkeleton>
+        <ErrorPage
+          title={LoadingStatus.Loading}
+          description={UserMessage.LoadingProgress}
+          withContent={false}
+          withLogo={false}
+        />
+      </PageSkeleton>
     );
 
   if (status === LoadingStatus.Success && events.length === 0)
     return (
-      <>
-        <span className="block mt-[40px] text-2xl text-center text-white">
-          {UserMessage.EmptyData}
-        </span>
-        <Button
-          onClick={handleButtonClick}
-          className="max-w-full md:max-w-[370px] mt-[60px] button-interactive_fill"
-        >
-          <span>{errorButtonText}</span>
-        </Button>
-      </>
+      <ErrorPage
+        title={LoadingStatus.Failed}
+        description={UserMessage.EmptyData}
+        withContent={false}
+        withLogo={false}
+      />
     );
+
+  if (!events.length) return <PageSkeleton />;
 
   return (
     <ul className={styles.list}>

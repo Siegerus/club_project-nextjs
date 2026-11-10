@@ -20,6 +20,7 @@ const SiteError = ({ error, reset }: SiteErrorProps) => {
         resetText="Попробовать снова"
         title={notFoundPage.title}
         withContent={false}
+        withLogo={false}
       />
       <Footer />
     </>

@@ -19,6 +19,7 @@ import {
   Watermark,
   Button,
   PageSkeleton,
+  ErrorPage,
 } from "@/shared/ui";
 import { timerTitleText, errorButtonText } from "../lib";
 import EventTabs from "./event-tabs";
@@ -90,7 +91,7 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
 
   const activeEvent = useAppSelector(selectActiveEvent);
   const status = useAppSelector(selectActiveEventLoadingStatus);
-  const error = useAppSelector(selectActiveEventError);
+  const errorText = useAppSelector(selectActiveEventError);
 
   const handleButtonClick = () => {
     dispatch(eventSliceActions.getActiveEvent());
@@ -99,41 +100,40 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
   if (status === LoadingStatus.Failed)
     return (
       <PageSkeleton>
-        <span className="block mt-[40px] mb-[40px] text-base lg:text-2xl text-center text-white">
-          {UserMessage.LoadingError}
-          <br />
-          {error}
-        </span>
-        <Button
-          onClick={handleButtonClick}
-          className="max-w-full md:max-w-[370px] mt-[60px] button-interactive_fill"
-        >
-          <span>{errorButtonText}</span>s
-        </Button>
+        <ErrorPage
+          title={LoadingStatus.Failed}
+          description={`${UserMessage.LoadingError}:${errorText}`}
+          withContent={false}
+          withLogo={false}
+          onReset={handleButtonClick}
+          resetText={errorButtonText}
+        />
       </PageSkeleton>
     );
 
   if (status === LoadingStatus.Loading)
     return (
       <PageSkeleton>
-        <span className="block mt-[40px] text-base lg:text-2xl text-center text-white">
-          {UserMessage.LoadingProgress}
-        </span>
+        <ErrorPage
+          title={LoadingStatus.Loading}
+          description={UserMessage.LoadingProgress}
+          withContent={false}
+          withLogo={false}
+        />
       </PageSkeleton>
     );
 
   if (status === LoadingStatus.Success && !activeEvent)
     return (
       <PageSkeleton>
-        <span className="block mt-[40px] text-base lg:text-2xl text-center text-white">
-          {UserMessage.EmptyData}
-        </span>
-        <Button
-          onClick={handleButtonClick}
-          className="max-w-full md:max-w-[370px] mt-[60px] button-interactive_fill"
-        >
-          <span>{errorButtonText}</span>s
-        </Button>
+        <ErrorPage
+          title={LoadingStatus.Failed}
+          description={UserMessage.EmptyData}
+          withContent={false}
+          withLogo={false}
+          onReset={handleButtonClick}
+          resetText={errorButtonText}
+        />
       </PageSkeleton>
     );
 
