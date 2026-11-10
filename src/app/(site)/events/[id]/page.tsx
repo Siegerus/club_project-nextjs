@@ -2,13 +2,19 @@ import { EventPromo } from "@/widgets/event-promo";
 
 import { Container } from "@/shared/ui";
 
-const EventAticle = () => {
+type EventArticleProps = {
+  params: Promise<{ id: string }>;
+};
+
+const EventArticle = async ({ params }: EventArticleProps) => {
+  const { id } = await params;
+
   return (
     <>
-      <EventPromo />
+      <EventPromo eventId={id} />
       <Container></Container>
     </>
   );
 };
 
-export default EventAticle;
+export default EventArticle;

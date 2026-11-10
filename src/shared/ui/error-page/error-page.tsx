@@ -34,7 +34,7 @@ const styles = {
   title:
     "text-[34px] md:text-[36px] lg:text-[40px] leading-[0.8] tracking-base font-semibold text-white",
   description: "text-lg md:text-xl leading-main text-white-70",
-  action: "max-w-full 3xl:max-w-[370px]",
+  action: "max-w-full md:max-w-[370px] mt-[60px] button-interactive_fill",
 };
 
 const ErrorPage = ({

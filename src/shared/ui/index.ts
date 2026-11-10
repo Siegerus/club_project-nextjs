@@ -21,3 +21,4 @@ export { Select } from "./select";
 export { Timer } from "./timer";
 export { ErrorPage } from "./error-page";
 export { Watermark } from "./watermark";
+export { PageSkeleton } from "./page-skeleton";

@@ -7,13 +7,13 @@ import { type EventItem } from "./types";
 
 export const getActiveEvent = createAsyncThunk<
   EventItem,
-  string,
-  {
+  void,
+  /* string */ {
     dispatch: AppDispatch;
     state: RootState;
     extra: AxiosInstance;
   }
->("event/fetchActiveEvent", async (_id: string, { extra: api }) => {
+>("event/fetchActiveEvent", async (_id, { extra: api }) => {
   const data = fetchActiveEvent(api);
 
   return data;

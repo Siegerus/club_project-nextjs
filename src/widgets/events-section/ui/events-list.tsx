@@ -44,7 +44,10 @@ const EventsList = () => {
           <br />
           {error}
         </span>
-        <Button onClick={handleButtonClick}>
+        <Button
+          onClick={handleButtonClick}
+          className="max-w-full md:max-w-[370px] mt-[60px] button-interactive_fill"
+        >
           <span>{errorButtonText}</span>
         </Button>
       </>
@@ -59,9 +62,17 @@ const EventsList = () => {
 
   if (status === LoadingStatus.Success && events.length === 0)
     return (
-      <span className="block mt-[40px] text-2xl text-center text-white">
-        {UserMessage.EmptyData}
-      </span>
+      <>
+        <span className="block mt-[40px] text-2xl text-center text-white">
+          {UserMessage.EmptyData}
+        </span>
+        <Button
+          onClick={handleButtonClick}
+          className="max-w-full md:max-w-[370px] mt-[60px] button-interactive_fill"
+        >
+          <span>{errorButtonText}</span>
+        </Button>
+      </>
     );
 
   return (

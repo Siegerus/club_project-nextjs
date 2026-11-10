@@ -4,8 +4,6 @@ import Image from "next/image";
 import { useEffect } from "react";
 
 import {
-  EventItem,
-  selectActiveEventId,
   selectActiveEvent,
   selectActiveEventLoadingStatus,
   selectActiveEventError,
@@ -13,9 +11,21 @@ import {
 } from "@/entities/event";
 import { useAppSelector, useAppDispatch } from "@/shared/lib";
 import { cn } from "@/shared/lib";
-import { Timer, Heading, Container, Watermark } from "@/shared/ui";
-import { timerTitleText, tabsConfig } from "../lib";
+import { LoadingStatus, UserMessage } from "@/shared/lib";
+import {
+  Timer,
+  Heading,
+  Container,
+  Watermark,
+  Button,
+  PageSkeleton,
+} from "@/shared/ui";
+import { timerTitleText, errorButtonText } from "../lib";
 import EventTabs from "./event-tabs";
+
+type EventPromoProps = {
+  eventId: string;
+};
 
 const styles = {
   root: cn(
@@ -72,15 +82,66 @@ const styles = {
   ),
 };
 
-const EventPromo = () => {
-  const activeId = useAppSelector(selectActiveEventId);
+const EventPromo = ({ eventId }: EventPromoProps) => {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(eventSliceActions.getActiveEvent()); /* activeId */
-  }, []);
+    dispatch(eventSliceActions.getActiveEvent()); /* eventId */
+  }, [dispatch]);
 
   const activeEvent = useAppSelector(selectActiveEvent);
-  const tabs = activeEvent ? activeEvent.tabs : tabsConfig;
+  const status = useAppSelector(selectActiveEventLoadingStatus);
+  const error = useAppSelector(selectActiveEventError);
+
+  const handleButtonClick = () => {
+    dispatch(eventSliceActions.getActiveEvent());
+  };
+
+  if (status === LoadingStatus.Failed)
+    return (
+      <PageSkeleton>
+        <span className="block mt-[40px] mb-[40px] text-base lg:text-2xl text-center text-white">
+          {UserMessage.LoadingError}
+          <br />
+          {error}
+        </span>
+        <Button
+          onClick={handleButtonClick}
+          className="max-w-full md:max-w-[370px] mt-[60px] button-interactive_fill"
+        >
+          <span>{errorButtonText}</span>s
+        </Button>
+      </PageSkeleton>
+    );
+
+  if (status === LoadingStatus.Loading)
+    return (
+      <PageSkeleton>
+        <span className="block mt-[40px] text-base lg:text-2xl text-center text-white">
+          {UserMessage.LoadingProgress}
+        </span>
+      </PageSkeleton>
+    );
+
+  if (status === LoadingStatus.Success && !activeEvent)
+    return (
+      <PageSkeleton>
+        <span className="block mt-[40px] text-base lg:text-2xl text-center text-white">
+          {UserMessage.EmptyData}
+        </span>
+        <Button
+          onClick={handleButtonClick}
+          className="max-w-full md:max-w-[370px] mt-[60px] button-interactive_fill"
+        >
+          <span>{errorButtonText}</span>s
+        </Button>
+      </PageSkeleton>
+    );
+
+  if (!activeEvent) {
+    return <PageSkeleton />;
+  }
+
+  const { tabs } = activeEvent;
 
   return (
     <>
@@ -98,7 +159,7 @@ const EventPromo = () => {
               priority
             />
             <div className={cn(styles.info, "hidden md:block")}>
-              <p className={styles.date}>20 июля 2024 года</p>
+              <p className={styles.date}>{"20 июля 2024 года"}</p>
               <Heading
                 level="h1"
                 title="Swing свадьба Сегрея и Дарьи"
