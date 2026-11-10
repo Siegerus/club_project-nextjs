@@ -5,3 +5,4 @@ export {
   type RootState,
   type AppDispatch,
 } from "./useAppStore";
+export { useMediaQuery } from "./useMediaQuery";

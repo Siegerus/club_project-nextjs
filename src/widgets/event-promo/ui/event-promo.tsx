@@ -9,7 +9,7 @@ import {
   selectActiveEventError,
   eventSliceActions,
 } from "@/entities/event";
-import { useAppSelector, useAppDispatch } from "@/shared/lib";
+import { useAppSelector, useAppDispatch, useMediaQuery } from "@/shared/lib";
 import { cn } from "@/shared/lib";
 import { LoadingStatus, UserMessage } from "@/shared/lib";
 import {
@@ -86,7 +86,9 @@ const styles = {
 };
 
 const EventPromo = ({ eventId }: EventPromoProps) => {
+  const isMobile = useMediaQuery("(max-width: 767px)");
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     dispatch(eventSliceActions.getActiveEvent()); /* eventId */
   }, [dispatch]);
@@ -144,6 +146,7 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
   }
 
   const { tabs } = activeEvent;
+  const visibleTabs = isMobile ? tabs.slice(0, 3) : tabs;
 
   return (
     <>
@@ -170,7 +173,7 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
               <Timer wrapperClass={cn(styles.timer, "hidden md:flex")} />
             </div>
           </div>
-          <EventTabs tabs={tabs} listClass={styles.tabs}>
+          <EventTabs tabs={visibleTabs} listClass={styles.tabs}>
             <div className={cn(styles.info, styles.mobileInfo)}>
               <p className={styles.date}>20 июля 2024 года</p>
               <Heading

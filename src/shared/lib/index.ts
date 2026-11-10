@@ -4,6 +4,7 @@ export {
   useModal,
   useAppDispatch,
   useAppSelector,
+  useMediaQuery,
   type RootState,
   type AppDispatch,
 } from "./hooks/";
