@@ -1,8 +1,17 @@
 "use client";
-import Image from "next/image";
 
-import { selectEventData, EventItem } from "@/entities/event";
-import { useAppSelector } from "@/shared/lib";
+import Image from "next/image";
+import { useEffect } from "react";
+
+import {
+  EventItem,
+  selectActiveEventId,
+  selectActiveEvent,
+  selectActiveEventLoadingStatus,
+  selectActiveEventError,
+  eventSliceActions,
+} from "@/entities/event";
+import { useAppSelector, useAppDispatch } from "@/shared/lib";
 import { cn } from "@/shared/lib";
 import { Timer, Heading, Container, Watermark } from "@/shared/ui";
 import { timerTitleText, tabsConfig } from "../lib";
@@ -64,7 +73,14 @@ const styles = {
 };
 
 const EventPromo = () => {
-  const tabs = tabsConfig;
+  const activeId = useAppSelector(selectActiveEventId);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(eventSliceActions.getActiveEvent()); /* activeId */
+  }, []);
+
+  const activeEvent = useAppSelector(selectActiveEvent);
+  const tabs = activeEvent ? activeEvent.tabs : tabsConfig;
 
   return (
     <>

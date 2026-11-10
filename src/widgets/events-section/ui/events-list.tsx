@@ -3,10 +3,10 @@
 import { useEffect } from "react";
 
 import {
-  selectEventData,
+  selectEventsData,
   eventSliceActions,
-  selectEventLoadingStatus,
-  selectEventError,
+  selectEventsLoadingStatus,
+  selectEventsError,
 } from "@/entities/event";
 import {
   useAppSelector,
@@ -23,17 +23,17 @@ const styles = {
 };
 
 const EventsList = () => {
-  const events = useAppSelector(selectEventData);
-  const error = useAppSelector(selectEventError);
-  const status = useAppSelector(selectEventLoadingStatus);
+  const events = useAppSelector(selectEventsData);
+  const error = useAppSelector(selectEventsError);
+  const status = useAppSelector(selectEventsLoadingStatus);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(eventSliceActions.getEventData());
+    dispatch(eventSliceActions.getEventsData());
   }, [dispatch]);
 
   const handleButtonClick = () => {
-    dispatch(eventSliceActions.getEventData());
+    dispatch(eventSliceActions.getEventsData());
   };
 
   if (status === LoadingStatus.Failed)

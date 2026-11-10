@@ -16,6 +16,7 @@ export const APIRoute = {
   Login: "/login",
   Logout: "/logout",
   Events: "/mocks/events/events.json",
+  ActiveEvent: "/mocks/events/active-event.json",
 } as const;
 
 export const UserMessage = {

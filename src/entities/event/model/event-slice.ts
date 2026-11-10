@@ -1,53 +1,98 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { SliceNameSpace, LoadingStatus } from "@/shared/lib";
-import { getEventData } from "./get-event-data";
+import { getActiveEvent } from "./get-active-event";
+import { getEventsData } from "./get-events-data";
 import { EventItem } from "./types";
 
 type EventSlice = {
-  eventData: EventItem[];
-  eventLoadingStatus: (typeof LoadingStatus)[keyof typeof LoadingStatus];
-  eventError: string | null;
+  eventsData: EventItem[];
+  activeEventId: string;
+  activeEvent: EventItem | null;
+  eventsLoadingStatus: (typeof LoadingStatus)[keyof typeof LoadingStatus];
+  activeEventLoadingStatus: (typeof LoadingStatus)[keyof typeof LoadingStatus];
+  eventsError: string | null;
+  activeEventError: string | null;
 };
 
 export const eventSliceInitial: EventSlice = {
-  eventData: [],
-  eventLoadingStatus: LoadingStatus.Idle,
-  eventError: null,
+  eventsData: [],
+  activeEventId: "",
+  activeEvent: null,
+  eventsLoadingStatus: LoadingStatus.Idle,
+  activeEventLoadingStatus: LoadingStatus.Idle,
+  eventsError: null,
+  activeEventError: null,
 };
 
 export const eventSlice = createSlice({
   name: SliceNameSpace.Event,
   initialState: eventSliceInitial,
-  reducers: {},
+  reducers: {
+    setActiveEventId: (state, action: PayloadAction<string>) => {
+      state.activeEventId = action.payload;
+    },
+  },
   extraReducers(builder) {
-    builder.addCase(getEventData.pending, (state) => {
-      state.eventLoadingStatus = LoadingStatus.Loading;
-      state.eventError = null;
+    builder.addCase(getEventsData.pending, (state) => {
+      state.eventsLoadingStatus = LoadingStatus.Loading;
+      state.eventsError = null;
     });
     builder.addCase(
-      getEventData.fulfilled,
+      getEventsData.fulfilled,
       (state, action: PayloadAction<EventItem[]>) => {
-        state.eventData = action.payload;
-        state.eventLoadingStatus = LoadingStatus.Success;
-        state.eventError = null;
+        state.eventsData = action.payload;
+        state.eventsLoadingStatus = LoadingStatus.Success;
+        state.eventsError = null;
       },
     );
-    builder.addCase(getEventData.rejected, (state, payload) => {
-      state.eventLoadingStatus = LoadingStatus.Failed;
-      state.eventError = payload.error.message ?? "Ошибка загрузки данных";
+    builder.addCase(getEventsData.rejected, (state, payload) => {
+      state.eventsLoadingStatus = LoadingStatus.Failed;
+      state.eventsError = payload.error.message ?? "Ошибка загрузки данных";
+    });
+
+    builder.addCase(getActiveEvent.pending, (state) => {
+      state.activeEventLoadingStatus = LoadingStatus.Loading;
+      state.activeEventError = null;
+    });
+    builder.addCase(
+      getActiveEvent.fulfilled,
+      (state, action: PayloadAction<EventItem>) => {
+        state.activeEventLoadingStatus = LoadingStatus.Success;
+        state.activeEvent = action.payload;
+      },
+    );
+    builder.addCase(getActiveEvent.rejected, (state, payload) => {
+      state.activeEventLoadingStatus = LoadingStatus.Failed;
+      state.activeEventError =
+        payload.error.message ?? "Ошибка загрузки данных";
     });
   },
   selectors: {
-    selectEventData: (state) => state.eventData,
-    selectEventError: (state) => state.eventError,
-    selectEventLoadingStatus: (state) => state.eventLoadingStatus,
+    selectEventsData: (state) => state.eventsData,
+    selectEventsError: (state) => state.eventsError,
+    selectEventsLoadingStatus: (state) => state.eventsLoadingStatus,
+    selectActiveEventId: (state) => state.activeEventId,
+    selectActiveEvent: (state) => state.activeEvent,
+    selectActiveEventError: (state) => state.activeEventError,
+    selectActiveEventLoadingStatus: (state) => state.activeEventLoadingStatus,
   },
 });
 
-export const eventSliceActions = { ...eventSlice.actions, getEventData };
+export const eventSliceActions = {
+  ...eventSlice.actions,
+  getEventsData,
+  getActiveEvent,
+};
 
-export const { selectEventData, selectEventLoadingStatus, selectEventError } =
-  eventSlice.selectors;
+export const {
+  selectEventsData,
+  selectEventsLoadingStatus,
+  selectEventsError,
+  selectActiveEventId,
+  selectActiveEvent,
+  selectActiveEventLoadingStatus,
+  selectActiveEventError,
+} = eventSlice.selectors;
 
 export default eventSlice;
