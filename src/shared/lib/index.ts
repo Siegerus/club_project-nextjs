@@ -1,5 +1,5 @@
 export { cn } from "./utils/";
-export { getFormattedPrice } from "./utils/";
+export { getFormattedPrice, getFormattedDate } from "./utils/";
 export {
   useModal,
   useAppDispatch,

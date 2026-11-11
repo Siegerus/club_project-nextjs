@@ -15,4 +15,5 @@ export type EventItem = {
   time: string;
   location: string;
   image: string;
+  tabletImage: string;
 };

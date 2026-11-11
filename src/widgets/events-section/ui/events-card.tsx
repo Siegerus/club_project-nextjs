@@ -3,8 +3,8 @@ import Link from "next/link";
 
 import type { EventItem } from "@/entities/event";
 import { cn, AppRoute } from "@/shared/lib";
-import { cardMobileTicketPath, cardTicketPath } from "../lib";
-import { getFormattedDate } from "../lib";
+import { getFormattedDate } from "@/shared/lib/utils";
+import { cardMobileTicketPath, cardTicketPath, cardButtonText } from "../lib";
 
 type EventsCardProps = {
   event: EventItem;
@@ -69,9 +69,9 @@ const styles = {
 };
 
 const EventsCard = ({ event }: EventsCardProps) => {
-  const { id, title, date, image } = event;
+  const { id, title, date, image, tabletImage } = event;
 
-  const { day, month, year } = getFormattedDate(date);
+  const { day, genitiveMonth, year } = getFormattedDate(date);
 
   return (
     <Link href={AppRoute.EventArticle(id)}>
@@ -87,8 +87,8 @@ const EventsCard = ({ event }: EventsCardProps) => {
           />
           <Image
             className={cn(styles.photoImage, "lg:hidden")}
-            src="/images/events-swing-tablet.png"
-            alt="Swing свадьба Сегрея и Дарьи"
+            src={tabletImage}
+            alt={title}
             fill
             sizes="(min-width: 768px) 314px, (min-width: 1280px) 550px, 100vw"
             loading="eager"
@@ -113,14 +113,14 @@ const EventsCard = ({ event }: EventsCardProps) => {
             <span className={styles.ticketDate}>
               {day}
               <br />
-              {month}
+              {genitiveMonth}
             </span>
             <span className={styles.ticketYear}>{year}</span>
           </div>
         </div>
-        <h2 className={styles.title}>Swing свадьба Сегрея и Дарьи</h2>
+        <h2 className={styles.title}>{title}</h2>
         <button type="button" className={styles.button}>
-          Бронировать
+          {cardButtonText}
         </button>
       </article>
     </Link>

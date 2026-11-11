@@ -11,7 +11,7 @@ import {
 } from "@/entities/event";
 import { useAppSelector, useAppDispatch, useMediaQuery } from "@/shared/lib";
 import { cn } from "@/shared/lib";
-import { LoadingStatus, UserMessage } from "@/shared/lib";
+import { LoadingStatus, UserMessage, getFormattedDate } from "@/shared/lib";
 import {
   Timer,
   Heading,
@@ -89,7 +89,9 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(eventSliceActions.getActiveEvent()); /* eventId */
+    dispatch(
+      eventSliceActions.getActiveEvent("") /* потом на бэк передать eventId */,
+    );
   }, [dispatch]);
 
   const activeEvent = useAppSelector(selectActiveEvent);
@@ -97,7 +99,7 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
   const errorText = useAppSelector(selectActiveEventError);
 
   const handleButtonClick = () => {
-    dispatch(eventSliceActions.getActiveEvent());
+    dispatch(eventSliceActions.getActiveEvent("")); /* eventId */
   };
 
   if (status === LoadingStatus.Failed)
@@ -144,8 +146,9 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
     return <PageSkeleton />;
   }
 
-  const { tabs } = activeEvent;
+  const { tabs, date, image, title } = activeEvent;
   const visibleTabs = isMobile ? tabs.slice(0, 3) : tabs;
+  const { day, genitiveMonth, year } = getFormattedDate(date);
 
   return (
     <>
@@ -155,31 +158,27 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
         <section className={styles.root}>
           <div className={styles.content}>
             <Image
-              src="/images/action-img.png"
-              alt="Фото события"
+              src={image}
+              alt={title}
               width={520}
               height={520}
               className={styles.image}
               priority
             />
             <div className={cn(styles.info, "hidden md:block")}>
-              <p className={styles.date}>{"20 июля 2024 года"}</p>
-              <Heading
-                level="h1"
-                title="Swing свадьба Сегрея и Дарьи"
-                className={styles.title}
-              />
+              <p className={styles.date}>
+                {`${day} ${genitiveMonth} ${year} ГОДА`}
+              </p>
+              <Heading level="h1" title={title} className={styles.title} />
               <Timer wrapperClass={cn(styles.timer, "hidden md:flex")} />
             </div>
           </div>
           <EventTabs tabs={visibleTabs} listClass={styles.tabs}>
             <div className={cn(styles.info, styles.mobileInfo)}>
-              <p className={styles.date}>20 июля 2024 года</p>
-              <Heading
-                level="h1"
-                title="Swing свадьба Сегрея и Дарьи"
-                className={styles.title}
-              />
+              <p
+                className={styles.date}
+              >{`${day} ${genitiveMonth} ${year} ГОДА`}</p>
+              <Heading level="h1" title={title} className={styles.title} />
             </div>
           </EventTabs>
           <span className={styles.timerTitle}>{timerTitleText}</span>

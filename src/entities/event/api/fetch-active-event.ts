@@ -5,9 +5,9 @@ import { type EventItem } from "../model";
 
 export const fetchActiveEvent = async (
   api: AxiosInstance,
-  // id: string,
+  id: string,
 ): Promise<EventItem> => {
-  const { data } = await api.get<EventItem>(APIRoute.ActiveEvent /* id */);
+  const { data } = await api.get<EventItem>(APIRoute.ActiveEvent /* id */); // для бэка нужен будет api.post и передача id
 
   return data;
 };
