@@ -56,8 +56,11 @@ const EventTabs = ({ tabs, listClass, children }: EventTabsProps) => {
     setActiveIndex(index);
   };
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>, i: number) => {
-    handler(e, i);
+  const handleKeyDown = (
+    e: KeyboardEvent<HTMLButtonElement>,
+    index: number,
+  ) => {
+    handler(e, index);
   };
 
   return (
@@ -73,7 +76,7 @@ const EventTabs = ({ tabs, listClass, children }: EventTabsProps) => {
             <li key={keyValue}>
               <button
                 ref={(el) => {
-                  if (el && tabRefs.current) tabRefs.current[i] = el;
+                  if (el) tabRefs.current[i] = el;
                 }}
                 onClick={() => handleTabClick(i)}
                 onKeyDown={(e) => handleKeyDown(e, i)}

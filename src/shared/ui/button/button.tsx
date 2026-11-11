@@ -1,9 +1,10 @@
-import { PropsWithChildren, ButtonHTMLAttributes } from "react";
+import { PropsWithChildren, ButtonHTMLAttributes, Ref } from "react";
 
 import { cn } from "@/shared/lib";
 
 type ButtonProps = PropsWithChildren<
   ButtonHTMLAttributes<HTMLButtonElement> & {
+    ref?: Ref<HTMLButtonElement>;
     variant?: "no-bg";
   }
 >;
@@ -24,6 +25,7 @@ const Button = ({
   type = "button",
   className,
   variant,
+  ref,
   ...restProps
 }: ButtonProps) => {
   const buttonClass = cn(
@@ -33,7 +35,7 @@ const Button = ({
   );
 
   return (
-    <button {...restProps} className={buttonClass} type={type}>
+    <button {...restProps} className={buttonClass} type={type} ref={ref}>
       {children}
     </button>
   );

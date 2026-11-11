@@ -4,10 +4,12 @@ export const useTabKeys = (
   refs: RefObject<HTMLButtonElement[]>,
   setCallback: (index: number) => void,
 ) => {
-  const handleKesDown = (
+  const handleKeyDown = (
     e: KeyboardEvent<HTMLButtonElement>,
     index: number,
   ) => {
+    // if (!refs.current) return;
+
     let newIndex = index;
 
     switch (e.key) {
@@ -32,7 +34,7 @@ export const useTabKeys = (
     }
 
     setCallback(newIndex);
-    if (refs?.current.length) refs.current[newIndex].focus();
+    if (refs.current.length) refs.current[newIndex]?.focus();
   };
-  return handleKesDown;
+  return handleKeyDown;
 };
