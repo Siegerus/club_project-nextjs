@@ -35,9 +35,8 @@ const styles = {
   ),
   watermark: cn(
     "top-[40px] md:top-[48px] -left-[3px] lg:left-[141px] lg:top-0",
-    "text-[6.125em] lg:text-[10em] 3xl:text-[13.125em] text-center md:text-left md:text-nowrap md:text-wrap",
+    "text-[6.125em] lg:text-[10em] 3xl:text-[13.125em] text-center md:text-left md:text-nowrap lg:text-wrap",
     "blur-[10px] lg:blur-[19px]",
-    "",
   ),
   content: cn(
     "relative flex flex-col items-center",
@@ -50,7 +49,7 @@ const styles = {
   ),
   info: cn(
     "flex flex-col items-start",
-    "md:items-center md:items-start md:ml-[14px] lg:ml-[60px]",
+    "md:items-center lg:items-start md:ml-[14px] lg:ml-[60px]",
     "md:text-left",
   ),
   mobileInfo:
@@ -106,7 +105,7 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
       <PageSkeleton>
         <ErrorPage
           title={LoadingStatus.Failed}
-          description={`${UserMessage.LoadingError}:${errorText}`}
+          description={`${UserMessage.LoadingError}: ${errorText}`}
           withContent={false}
           withLogo={false}
           onReset={handleButtonClick}

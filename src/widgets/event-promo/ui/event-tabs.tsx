@@ -97,13 +97,7 @@ const EventTabs = ({ tabs, listClass, children }: EventTabsProps) => {
         })}
       </ul>
       {children}
-      <AnimatePresence mode="wait">
-        <EventTabsContent
-          key={activeTabId}
-          tabs={tabs}
-          activeTab={activeTabId}
-        />
-      </AnimatePresence>
+      <EventTabsContent key={activeTabId} tabs={tabs} activeTab={activeTabId} />
     </>
   );
 };

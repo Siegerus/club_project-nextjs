@@ -35,11 +35,11 @@ const styles = {
 
 const EventTabsContent = ({ tabs, activeTab }: EventTabsContentProps) => {
   return (
-    <ul role="tabpanel" id="event-tabs">
+    <div role="tabpanel" id="event-tabs">
       {tabs.map((tab, i) => {
         const keyValue = `${tab.id}-${i}`;
         return (
-          <li key={keyValue}>
+          <div key={keyValue}>
             {activeTab === tab.id && (
               <motion.div
                 className={styles.content}
@@ -57,10 +57,10 @@ const EventTabsContent = ({ tabs, activeTab }: EventTabsContentProps) => {
                 <p className={styles.description}>{tab.description}</p>
               </motion.div>
             )}
-          </li>
+          </div>
         );
       })}
-    </ul>
+    </div>
   );
 };
 
