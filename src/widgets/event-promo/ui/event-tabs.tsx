@@ -1,9 +1,9 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, KeyboardEvent } from "react";
 
 import type { EventTab, TabId } from "@/entities/event";
-import { cn } from "@/shared/lib";
+import { cn, useTabKeys } from "@/shared/lib";
 import EventTabsContent from "./event-tabs-content";
 
 type EventTabsProps = {
@@ -47,7 +47,8 @@ const styles = {
 
 const EventTabs = ({ tabs, listClass, children }: EventTabsProps) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const tabRefs = useRef<HTMLButtonElement[] | null>(null);
+  const tabRefs = useRef<HTMLButtonElement[]>([]);
+  const handler = useTabKeys(tabRefs, setActiveIndex);
 
   const activeTabId: TabId = tabs[activeIndex].id;
 
@@ -55,38 +56,9 @@ const EventTabs = ({ tabs, listClass, children }: EventTabsProps) => {
     setActiveIndex(index);
   };
 
-  const handleKeyDown = useCallback(
-    (e: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
-      let nextIndex = index;
-
-      switch (e.key) {
-        case "ArrowRight":
-        case "ArrowDown":
-          e.preventDefault();
-          nextIndex = Math.min(index + 1, tabs.length - 1);
-          break;
-        case "ArrowLeft":
-        case "ArrowUp":
-          e.preventDefault();
-          nextIndex = Math.max(index - 1, 0);
-          break;
-        case "Home":
-          e.preventDefault();
-          nextIndex = 0;
-          break;
-        case "End":
-          e.preventDefault();
-          nextIndex = tabs.length - 1;
-          break;
-        default:
-          return;
-      }
-
-      setActiveIndex(nextIndex);
-      if (tabRefs.current?.length) tabRefs.current[nextIndex]?.focus();
-    },
-    [tabs.length],
-  );
+  const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>, i: number) => {
+    handler(e, i);
+  };
 
   return (
     <>

@@ -5,6 +5,7 @@ export {
   useAppDispatch,
   useAppSelector,
   useMediaQuery,
+  useTabKeys,
   type RootState,
   type AppDispatch,
 } from "./hooks/";

@@ -6,3 +6,4 @@ export {
   type AppDispatch,
 } from "./useAppStore";
 export { useMediaQuery } from "./useMediaQuery";
+export { useTabKeys } from "./useTabKeys";
