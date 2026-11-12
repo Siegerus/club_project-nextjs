@@ -1,11 +1,11 @@
 "use client";
 import { useEffect, useCallback, useState } from "react";
 
-import { initialTimeValues } from "../constants";
-import type { TimeValue } from "../types";
+import { TimeValue } from "../types";
+
 import { targetValueValidate } from "../utils";
 
-const useTimer = (deadline: string): TimeValue => {
+const useTimer = (deadline: string, isMounted: boolean): TimeValue => {
   const targetDate = Date.parse(deadline);
 
   const getTimeObject = useCallback(() => {
@@ -20,12 +20,7 @@ const useTimer = (deadline: string): TimeValue => {
     };
   }, [targetDate]);
 
-  const [times, setTimes] = useState<TimeValue>(initialTimeValues);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    queueMicrotask(() => setIsMounted(true));
-  }, []);
+  const [times, setTimes] = useState<TimeValue>(getTimeObject());
 
   useEffect(() => {
     if (!isMounted) return;
@@ -37,7 +32,14 @@ const useTimer = (deadline: string): TimeValue => {
     };
   }, [getTimeObject, isMounted]);
 
-  if (!targetValueValidate(deadline) || !isMounted) return initialTimeValues;
+  if (!targetValueValidate(deadline) || !isMounted) {
+    return {
+      seconds: "00",
+      minutes: "00",
+      hours: "00",
+      days: "00",
+    };
+  }
 
   return times;
 };
