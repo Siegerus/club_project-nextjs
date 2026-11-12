@@ -30,6 +30,7 @@ const Timer = ({ deadline, wrapperClass }: TimerProps) => {
     <div
       className={cn(styles.wrapper, wrapperClass)}
       role="timer"
+      aria-label="До начала события"
       aria-live="off"
     >
       {times.map((item) => (

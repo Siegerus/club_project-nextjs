@@ -11,3 +11,10 @@ export const timeConfigs: TimeUnit[] = [
   { id: "minutes", label: "минут" },
   { id: "seconds", label: "секунд" },
 ];
+
+export const initialTimeValues: TimeValue = {
+  days: "00",
+  hours: "00",
+  minutes: "00",
+  seconds: "00",
+};
