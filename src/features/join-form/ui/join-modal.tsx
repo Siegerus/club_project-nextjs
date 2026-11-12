@@ -37,7 +37,7 @@ const JoinModal = ({ onClose, modalRootRef }: JoinModalProps) => {
       rootClass={styles.rootModal}
       wrapperClass={styles.wrapper}
       backgroundStyle={bgStyle}
-      closeClass={styles.close}
+      closeItemClass={styles.close}
       onClose={onClose}
       modalRootRef={modalRootRef}
     >

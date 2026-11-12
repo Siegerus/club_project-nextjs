@@ -9,7 +9,7 @@ type ModalProps = PropsWithChildren<{
   rootClass?: string;
   wrapperClass?: string;
   backgroundStyle?: React.CSSProperties;
-  closeClass?: string;
+  closeItemClass?: string;
   onClose?: () => void;
   modalRootRef?: React.RefObject<HTMLDivElement | null>;
 }>;
@@ -25,7 +25,7 @@ const Modal = ({
   rootClass,
   wrapperClass,
   backgroundStyle,
-  closeClass,
+  closeItemClass,
   onClose,
   modalRootRef,
 }: ModalProps) => {
@@ -44,7 +44,7 @@ const Modal = ({
       >
         <div className={cn(styles.wrapper, wrapperClass)}>{children}</div>
         <ClosingItem
-          buttonClass={cn(styles.close, closeClass)}
+          buttonClass={cn(styles.close, closeItemClass)}
           onClick={onClose}
           label="Закрыть модальное окно"
         />
