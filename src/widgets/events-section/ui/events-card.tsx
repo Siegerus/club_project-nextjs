@@ -28,7 +28,7 @@ const styles = {
   photoImage: "object-fill lg:object-fill rounded-base",
   ticket: cn(
     "absolute -bottom-[23px] xl:-bottom-[25px] 2xl:-bottom-[36px] right-[24px] lg:right-[16px] xl:right-[10px] 2xl:right-[16px]",
-    "flex items-center justify-center",
+    "flex flex-col items-center justify-center",
     "h-[46px] w-[93px] xl:w-[114px] xl:h-[51px] 2xl:w-[135px] 2xl:h-[60px] 3xl:w-[163px] 3xl:h-[73px]",
   ),
   ticketImage: cn(
@@ -38,10 +38,10 @@ const styles = {
   ticketDate: cn(
     "absolute left-[10px] md:left-[14px] xl:left-[22px] 2xl:left-[24px]",
     "top-1/2 -translate-y-1/2",
-    "flex text-center lg:text-left",
-    "w-[45px]",
-    "text-sm xl:text-[0.9375em] 2xl:text-[1.0625em] 3xl:text-xl font-semibold uppercase",
-    "leading-main lg:leading-one 2xl:leading-one lg:tracking-base",
+    "flex flex-col text-center lg:text-left",
+    "w-[40px] md:w-[40px] xl:w-[45px] 2xl:w-[55px] 3xl:w-[65px]",
+    "text-xs xl:text-sm 2xl:text-[1.0625em] 3xl:text-xl font-semibold uppercase",
+    "leading-small xl:leading-[1.1] lg:tracking-base",
     "text-white",
   ),
   ticketYear: cn(
@@ -64,7 +64,7 @@ const styles = {
     "rounded-full bg-white",
     "pt-[14px] pb-[16px] lg:pt-[20px] lg:pb-[22px]",
     "text-center text-sm lg:text-xl font-semibold tracking-base leading-main",
-    "text-black button-interactive_fill",
+    "text-black duration-base button-interactive_fill",
   ),
 };
 
@@ -111,9 +111,8 @@ const EventsCard = ({ event }: EventsCardProps) => {
               aria-hidden
             />
             <span className={styles.ticketDate}>
-              {day}
-              <br />
-              {genitiveMonth}
+              <div>{day}</div>
+              <div className="wrap-anywhere hyphens-auto">{genitiveMonth}</div>
             </span>
             <span className={styles.ticketYear}>{year}</span>
           </div>
