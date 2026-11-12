@@ -7,14 +7,24 @@ import { BaseCard, Heading } from "@/shared/ui";
 type LoyaltyCardProps = LoyaltyLevel;
 
 const styles = {
-  wrapper:
-    "w-full h-full md:w-auto md:h-auto rounded-small lg:rounded-middle box-shadow-none",
-  title:
-    "mt-[10px] md:mt-[20px] text-2xl lg:text-[2em] xl:text-[2.125em] 3xl:text-4xl text-center leading-[1.7] lg:leading-[1.1] tracking-base text-white",
-  description:
-    "mt-[14px] px-[10px] pb-[20px] md:px-[20px] text-sm md:text-base lg:text-lg xl:text-[1.1875em] 3xl:text-xl leading-main tracking-base lg:tracking-none text-white-70 whitespace-pre-wrap",
-  imageWrapper:
-    "relative min-h-[241px] max-h-full md:min-h-[206px] lg:min-h-[198px] xl:min-h-[230px] 3xl:min-h-[320px]",
+  wrapper: cn(
+    "w-full h-full md:w-auto md:h-auto",
+    "rounded-small lg:rounded-middle box-shadow-none",
+  ),
+  title: cn(
+    "mt-[10px] md:mt-[20px]",
+    "text-2xl lg:text-[2em] xl:text-[2.125em] 3xl:text-4xl",
+    "text-center leading-[1.7] lg:leading-[1.1] tracking-base text-white",
+  ),
+  description: cn(
+    "mt-[14px] px-[10px] pb-[20px] md:px-[20px]",
+    "text-sm md:text-base lg:text-lg xl:text-[1.1875em] 3xl:text-xl",
+    "leading-main tracking-base lg:tracking-none text-white-70 whitespace-pre-wrap",
+  ),
+  imageWrapper: cn(
+    "relative min-h-[241px] max-h-full",
+    "md:min-h-[206px] lg:min-h-[198px] xl:min-h-[230px] 3xl:min-h-[320px]",
+  ),
   image: "object-contain rounded-small",
 };
 

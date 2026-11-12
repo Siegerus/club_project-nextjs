@@ -14,12 +14,17 @@ import {
   LoadingStatus,
   UserMessage,
 } from "@/shared/lib";
+import { cn } from "@/shared/lib";
 import { ErrorPage, PageSkeleton } from "@/shared/ui";
 import { errorButtonText } from "../lib";
 import EventsCard from "./events-card";
 
 const styles = {
-  list: "flex items-center flex-wrap flex-col md:flex-row justify-between mt-[10px] md:mt-[20px] lg:mt-[40px] max-w-full",
+  list: cn(
+    "flex items-center flex-wrap flex-col md:flex-row",
+    "justify-between",
+    "mt-[10px] md:mt-[20px] lg:mt-[40px] max-w-full",
+  ),
 };
 
 const EventsList = () => {

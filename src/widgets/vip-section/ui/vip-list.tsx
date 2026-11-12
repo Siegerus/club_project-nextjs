@@ -12,8 +12,11 @@ const styles = {
     "gap-y-[10px] md:gap-y-[20px] md:gap-x-[20px]",
     "mt-[20px] md:mt-[30px] lg:mt-[40px]",
   ),
-  cardWrapper:
-    "flex w-full h-full md:flex-col lg:flex-row max-w-[335px] lg:max-w-[unset] p-[16px] md:p-[20px] lg:px-[30px] lg:pb-[31px] 3xl:p-[40px]",
+  cardWrapper: cn(
+    "flex w-full h-full md:flex-col lg:flex-row",
+    "max-w-[335px] lg:max-w-[unset]",
+    "p-[16px] md:p-[20px] lg:px-[30px] lg:pb-[31px] 3xl:p-[40px]",
+  ),
   cardTitle: cn(
     "md:max-w-[250px] lg:max-w-[unset] text-xl md:text-2xl md:mt-[30px] lg:mt-0 lg:text-3xl 3xl:text-[2em] leading-main lg:leading-one tracking-base",
     "text-white",

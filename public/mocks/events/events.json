@@ -28,8 +28,8 @@
       {"id": "bangles","label": "Браслеты", "description": "Lorem ipsum dolor sit amet consectetur. \n  Lorem, ipsum dolor sit amet consectetur adipisicing elit. \n  Lorem ipsum dolor sit amet. \n  Lorem ipsum dolor sit amet consectetur adipisicing elit. \n Repellendus deleniti omnis quos. \n  Lorem ipsum dolor sit amet consectetur adipisicing. \n Lorem ipsum dolor sit amet consectetur adipisicing elit. \n Incidunt ab quod illum voluptatum!"},
       {"id": "dresscode","label": "Дресс-код", "description": "Lorem ipsum dolor sit amet consectetur. \n  Lorem, ipsum dolor sit amet consectetur adipisicing elit. \n  Lorem ipsum dolor sit amet. \n  Lorem ipsum dolor sit amet consectetur adipisicing elit. \n Repellendus deleniti omnis quos. \n  Lorem ipsum dolor sit amet consectetur adipisicing. \n Lorem ipsum dolor sit amet consectetur adipisicing elit. \n Incidunt ab quod illum voluptatum!"}
     ],
-    "date": "2026-2-20",
     "time": "12:00",
+    "date": "2026-2-20",
     "location": "Москва",
     "price": "10000",
     "image" : "/images/events-swing.png",

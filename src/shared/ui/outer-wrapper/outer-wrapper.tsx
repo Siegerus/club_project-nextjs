@@ -1,3 +1,4 @@
+import { cn } from "@/shared/lib";
 import { Logo } from "@/shared/ui";
 
 type OuterWrapperProps = {
@@ -5,9 +6,17 @@ type OuterWrapperProps = {
   withLogo?: boolean;
 };
 
+const styles = {
+  wrapper: cn(
+    "pt-[30px] pb-[100px]",
+    "md:pt-[40px] md:pb-[140px]",
+    "lg:pt-[29px]",
+  ),
+};
+
 const OuterWrapper = ({ children, withLogo = true }: OuterWrapperProps) => {
   return (
-    <div className="pt-[30px] pb-[100px] md:pt-[40px] md:pb-[140px] lg:pt-[29px]">
+    <div className={styles.wrapper}>
       {withLogo && (
         <Logo
           wrapperClass="justify-center"

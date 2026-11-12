@@ -1,4 +1,4 @@
 export * from "./constants";
 export { useTimer } from "./hooks";
-export type { TimeValue } from "./types";
-export { targetValueValidate } from ".//utils";
+export type { TimeValue } from "./types.ts";
+export { targetValueValidate } from "./utils";

@@ -13,8 +13,8 @@ export const timeConfigs: TimeUnit[] = [
 ];
 
 export const initialTimeValues: TimeValue = {
-  seconds: "00",
-  minutes: "00",
-  hours: "00",
   days: "00",
+  hours: "00",
+  minutes: "00",
+  seconds: "00",
 };
