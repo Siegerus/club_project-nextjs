@@ -30,6 +30,7 @@ const useTimer = (deadline: string): TimeValue => {
   useEffect(() => {
     if (!isMounted) return;
 
+    queueMicrotask(() => setTimes(getTimeObject));
     const interval = setInterval(() => setTimes(getTimeObject()), 1000);
 
     return () => {
