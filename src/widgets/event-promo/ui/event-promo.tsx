@@ -146,13 +146,13 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
     return <PageSkeleton />;
   }
 
-  const { tabs, date, image, title } = activeEvent;
+  const { tabs, date, image, title, watermark } = activeEvent;
   const visibleTabs = isMobile ? tabs.slice(0, 3) : tabs;
   const { day, genitiveMonth, year } = getFormattedDate(date);
 
   return (
     <>
-      <Watermark text="SWING СВАДЬБА" markClass={styles.watermark} />
+      <Watermark text={watermark} markClass={styles.watermark} />
       <Container>
         <Eclipse />
         <section className={styles.root}>
@@ -170,7 +170,10 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
                 {`${day} ${genitiveMonth} ${year} ГОДА`}
               </p>
               <Heading level="h1" title={title} className={styles.title} />
-              <Timer wrapperClass={cn(styles.timer, "hidden md:flex")} />
+              <Timer
+                wrapperClass={cn(styles.timer, "hidden md:flex")}
+                deadline={date}
+              />
             </div>
           </div>
           <EventTabs tabs={visibleTabs} listClass={styles.tabs}>
@@ -182,7 +185,7 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
             </div>
           </EventTabs>
           <span className={styles.timerTitle}>{timerTitleText}</span>
-          <Timer wrapperClass={cn(styles.timer, "md:hidden")} />
+          <Timer wrapperClass={cn(styles.timer, "md:hidden")} deadline={date} />
         </section>
       </Container>
     </>
