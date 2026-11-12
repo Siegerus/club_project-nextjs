@@ -1,0 +1,47 @@
+"use client";
+import { useEffect, useCallback, useState } from "react";
+
+import { TimeValue } from "../types";
+
+import { targetValueValidate } from "../utils";
+
+const useTimer = (deadline: string, isMounted: boolean): TimeValue => {
+  const targetDate = Date.parse(deadline);
+
+  const getTimeObject = useCallback(() => {
+    const difference = Math.max(targetDate - Date.now(), 0);
+    const formatted = (num: number) => String(num).padStart(2, "0");
+
+    return {
+      seconds: formatted(Math.floor((difference / 1000) % 60)),
+      minutes: formatted(Math.floor((difference / 1000 / 60) % 60)),
+      hours: formatted(Math.floor((difference / 1000 / 60 / 60) % 24)),
+      days: formatted(Math.floor(difference / 1000 / 60 / 60 / 24)),
+    };
+  }, [targetDate]);
+
+  const [times, setTimes] = useState<TimeValue>(getTimeObject());
+
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const interval = setInterval(() => setTimes(getTimeObject()), 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [getTimeObject, isMounted]);
+
+  if (!targetValueValidate(deadline) || !isMounted) {
+    return {
+      seconds: "00",
+      minutes: "00",
+      hours: "00",
+      days: "00",
+    };
+  }
+
+  return times;
+};
+
+export default useTimer;

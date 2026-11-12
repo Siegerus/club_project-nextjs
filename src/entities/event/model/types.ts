@@ -10,6 +10,7 @@ export type EventItem = {
   id: string;
   title: string;
   description: string;
+  watermark: string;
   tabs: EventTab[];
   date: string;
   time: string;
