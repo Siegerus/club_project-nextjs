@@ -17,25 +17,42 @@ import {
 } from "../model";
 
 const styles = {
-  description:
-    "mt-[20px] md:mt-[40px] mb-[24px] md:mb-[30px] text-sm md:text-xl text-center text-white leading-main tracking-base md:tracking-none",
+  description: cn(
+    "mt-[20px] md:mt-[40px] mb-[24px] md:mb-[30px]",
+    "text-sm md:text-xl text-center text-white leading-main",
+    "tracking-base md:tracking-none",
+  ),
   inputWrapper: "relative",
-  input:
-    "w-full mb-[24px] md:mb-[30px] py-[16px] md:py-[18px] px-[30px] border-2 border-additional rounded-smallest md:text-xl placeholder:text-base md:placeholder:text-xl",
-  label:
-    "z-5 block absolute -top-[8px] left-[17px] px-[6px] text-sm md:text-base leading-main tracking-base md:tracking-none text-additional bg-main-label rounded-smallest",
+  input: cn(
+    "w-full mb-[24px] md:mb-[30px] py-[16px] md:py-[18px] px-[30px]",
+    "border-2 border-additional rounded-smallest md:text-xl",
+    "placeholder:text-base md:placeholder:text-xl",
+  ),
+  label: cn(
+    "z-5 block absolute -top-[8px] left-[17px] px-[6px]",
+    "text-sm md:text-base leading-main tracking-base md:tracking-none",
+    "text-additional bg-main-label rounded-smallest",
+  ),
 
-  button:
-    "max-w-[unset] py-[14px] px-[16px] mb-[10px] md:mb-[16px] tracking-base 3xl:max-w-[unset]",
+  button: cn(
+    "max-w-[unset] py-[14px] px-[16px] mb-[10px] md:mb-[16px]",
+    "tracking-base 3xl:max-w-[unset]",
+  ),
   checkbox: cn(
     "relative min-w-[16px] min-h-[16px] md:min-w-[26px] md:min-h-[27px] mr-[8px]",
-    "before:absolute before:w-[8px] md:before:w-[12px] before:h-[6px] md:before:h-[9px] before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2",
+    "before:absolute before:w-[8px] md:before:w-[12px] before:h-[6px] md:before:h-[9px]",
+    "before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2",
     "rounded-[4px] border-[1.5px] border-white bg-white",
   ),
-  checkboxInfo: "text-sm md:text-xl text-white-70",
+  checkboxInfo: cn(
+    "text-sm md:text-xl text-white-70",
+  ),
 
-  forgotten:
-    "block mt-[10px] mb-[16px] text-sm md:text-xl leading-main tracking-base md:tracking-none cursor-pointer text-white font-semibold",
+  forgotten: cn(
+    "block mt-[10px] mb-[16px]",
+    "text-sm md:text-xl leading-main tracking-base md:tracking-none",
+    "cursor-pointer text-white font-semibold",
+  ),
 };
 
 const LoginForm = () => {

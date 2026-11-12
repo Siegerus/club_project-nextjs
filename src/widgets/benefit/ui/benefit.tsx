@@ -15,10 +15,15 @@ const styles = {
     "grid-rows-[repeat(4,minmax(293px,auto))] md:grid-rows-[repeat(2,minmax(322px,auto))] lg:grid-rows-[minmax(385px,auto)] xl:grid-rows-[minmax(413px,auto)]",
     "gap-x-[20px] gap-y-[20px] mt-[18px] md:mt-[47px] lg:mt-[55px] xl:mt-[78px] justify-center",
   ),
-  cardWrapper:
-    "p-[10px] pb-[20px] md:pb-[10px] lg:py-[15px] lg:px-[10px] xl:pt-[20px] xl:pb-[31px] xl:px-[30px] 3xl:px-[20px] 3xl:pt-[20px] 3xl:pb-[31px]",
-  cardTitle:
-    "max-w-[297px] mt-[20px] lg:mt-[35px] text-[2em] lg:text-[1.625em] xl:text-[2.125em] 2xl:text-4xl leading-one text-center text-white tracking-base",
+  cardWrapper: cn(
+    "p-[10px] pb-[20px] md:pb-[10px] lg:py-[15px] lg:px-[10px]",
+    "xl:pt-[20px] xl:pb-[31px] xl:px-[30px] 3xl:px-[20px] 3xl:pt-[20px] 3xl:pb-[31px]",
+  ),
+  cardTitle: cn(
+    "max-w-[297px] mt-[20px] lg:mt-[35px]",
+    "text-[2em] lg:text-[1.625em] xl:text-[2.125em] 2xl:text-4xl",
+    "leading-one text-center text-white tracking-base",
+  ),
   cardImageWrapper: "lg:mt-[15px]",
   cardImage: "w-[100px] h-[100px]",
   description: "mt-[10px] lg:tracking-none",

@@ -19,8 +19,12 @@ type InputProps = (
   onChange?: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 };
 
-const inputCommon =
-  "block relative px-[20px] py-[18px] md:py-[22px] text-base text-white leading-middle tracking-base outline-hidden placeholder:text-white-40 input-interactive";
+const inputCommon = cn(
+  "block relative",
+  "px-[20px] py-[18px] md:py-[22px]",
+  "text-base text-white leading-middle tracking-base",
+  "outline-hidden placeholder:text-white-40 input-interactive",
+);
 
 const styles = {
   wrapper: "w-full",

@@ -21,11 +21,14 @@ const styles = {
   root: "w-full h-dvh",
   wrapper: "fixed top-0 left-0 w-full h-full bg-black/30 backdrop-blur-[15px]",
   modal: cn(
-    "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full sm:w-[545px] h-full overflow-y-auto sm:h-auto ",
-    "p-[10px] sm:p-[40px] sm:rounded-middle bg-main-bg backdrop-blur-[24px] box-shadow-main ",
+    "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
+    "w-full sm:w-[545px] h-full overflow-y-auto sm:h-auto",
+    "p-[10px] sm:p-[40px] sm:rounded-middle bg-main-bg backdrop-blur-[24px] box-shadow-main",
   ),
-  title:
-    "mx-auto mt-[20px] sm:mt-0 text-[1.625rem] sm:text-[2em] font-semibold text-center text-white leading-main sm:leading-small tracking-base",
+  title: cn(
+    "mx-auto mt-[20px] sm:mt-0 text-[1.625rem] sm:text-[2em]",
+    "font-semibold text-center text-white leading-main sm:leading-small tracking-base",
+  ),
   description:
     "mt-[30px] sm:mt-[16px] text-xl text-center text-white-70 leading-middle",
   button: cn(

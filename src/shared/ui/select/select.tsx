@@ -24,8 +24,11 @@ type SelectProps = {
 
 const styles = {
   wrapper: "",
-  control:
-    "flex justify-between items-center px-[20px] py-[18px] md:py-[22px] text-base text-white-40 leading-[145%] tracking-base text-left",
+  control: cn(
+    "flex justify-between items-center",
+    "px-[20px] py-[18px] md:py-[22px]",
+    "text-base text-white-40 leading-[145%] tracking-base text-left",
+  ),
   activeControl: "outline-[6px] outline-focus-input text-white",
   controlIcon: "duration-base",
   body: "flex flex-col bg-select-bg",

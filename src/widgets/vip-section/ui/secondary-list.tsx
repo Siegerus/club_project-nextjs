@@ -4,22 +4,34 @@ import { LinkButton, BaseCard } from "@/shared/ui";
 import { vipSectionSecondaryList } from "../lib";
 
 const styles = {
-  cardsList:
-    "hidden lg:flex items-end justify-between max-w-[1111px] mt-[40px] mx-auto 3xl:[&>li:nth-child(1)]:pt-[200px]",
+  cardsList: cn(
+    "hidden lg:flex items-end justify-between",
+    "max-w-[1111px] mt-[40px] mx-auto",
+    "3xl:[&>li:nth-child(1)]:pt-[200px]",
+  ),
   listItem: "w-[31.7%] [&:nth-child(2):nth-last-child(2)]:w-[32.8%]",
-  cardWrapper:
-    "flex flex-col items-center pt-[20px] pb-[40px] px-[50px] xl:pt-[20px] xl:pb-[31px] xl:px-[30px]",
+  cardWrapper: cn(
+    "flex flex-col items-center",
+    "pt-[20px] pb-[40px] px-[50px] xl:pt-[20px] xl:pb-[31px] xl:px-[30px]",
+  ),
   cardInterval:
     "text-9xl text-center leading-one font-semibold tracking-base bg-brown-gradient-text",
   cardIntervalName:
     "text-[2em] leading-one text-center tracking-base font-semibold text-white-40",
-  cardPrice:
-    "mt-[25px] xl:mt-[40px] text-[2em] text-center tracking-base leading-one font-semibold text-white",
-  cardDescription:
-    "block mt-[16px] text-lg xl:text-[1.1875em] 3xl:text-xl text-left leading-main tracking-base lg:tracking-none text-white-70",
+  cardPrice: cn(
+    "mt-[25px] xl:mt-[40px]",
+    "text-[2em] text-center tracking-base leading-one font-semibold text-white",
+  ),
+  cardDescription: cn(
+    "block mt-[16px]",
+    "text-lg xl:text-[1.1875em] 3xl:text-xl text-left",
+    "leading-main tracking-base lg:tracking-none text-white-70",
+  ),
 
-  button:
-    "max-w-[unset] 3xl:max-w-[unset] mt-[20px] text-center leading-main tracking-base",
+  button: cn(
+    "max-w-[unset] 3xl:max-w-[unset]",
+    "mt-[20px] text-center leading-main tracking-base",
+  ),
 };
 
 const SecondaryList = () => {

@@ -17,19 +17,28 @@ const inputCommon =
   "w-full mb-[10px] md:mb-[20px] py-[16px] md:py-[18px] px-[30px] border-2 border-additional rounded-[16px] placeholder:text-sm md:placeholder:text-base";
 
 const styles = {
-  wrapper:
-    "w-full lg:max-w-[630px] xl:max-w-[730px] mx-auto mt-[35px] md:mt-[46px] lg:mt-[32px] p-[10px] md:p-[40px] rounded-small md:rounded-base bg-blur box-shadow-main bg-main-bg",
+  wrapper: cn(
+    "w-full lg:max-w-[630px] xl:max-w-[730px] mx-auto",
+    "mt-[35px] md:mt-[46px] lg:mt-[32px] p-[10px] md:p-[40px]",
+    "rounded-small md:rounded-base bg-blur box-shadow-main bg-main-bg",
+  ),
   form: "",
   input: inputCommon,
   textArea: cn(inputCommon, "pt-[20px]"),
-  button:
-    "md:max-w-[unset] 3xl:max-w-[unset] p-[15px] lg:py-[28px] xl:py-[28px] leading-main tracking-base text-black",
+  button: cn(
+    "md:max-w-[unset] 3xl:max-w-[unset] p-[15px] lg:py-[28px] xl:py-[28px]",
+    "leading-main tracking-base text-black",
+  ),
   checkboxWrapper:
     "max-w-[372px] md:max-w-[unset] mx-auto mt-[10px] md:mt-[20px] justify-end",
-  checkboxInfo:
+  checkboxInfo: cn(
     "w-full text-sm md:text-xl leading-middle text-center text-white-70",
-  checkbox:
-    "min-w-[16px] min-h-[16px] md:min-w-[21px] md:min-h-[21px] -mr-[40px] md:-mr-[80px] lg:-mr-[70px] xl:-mr-[45px] max-[420px]:-mr-[25px] max-[380px]:mr-0 md:mt-[3px]",
+  ),
+  checkbox: cn(
+    "min-w-[16px] min-h-[16px] md:min-w-[21px] md:min-h-[21px]",
+    "-mr-[40px] md:-mr-[80px] lg:-mr-[70px] xl:-mr-[45px]",
+    "max-[420px]:-mr-[25px] max-[380px]:mr-0 md:mt-[3px]",
+  ),
 };
 
 const ContactsForm = () => {
