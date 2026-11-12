@@ -21,7 +21,7 @@ const styles = {
     "lg:font-semibold",
     "text-white-70 cursor-pointer",
   ),
-  tabActive: "text-white underline",
+  tabActive: "text-white underline [text-decoration-skip-ink:none]",
   description: cn(
     "mt-[15px] md:mt-[20px]",
     "text-sm md:text-base lg:text-xl",
