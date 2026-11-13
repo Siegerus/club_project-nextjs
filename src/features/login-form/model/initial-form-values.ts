@@ -1,10 +1,6 @@
-export type LoginFormFeedBack = {
-  "login-form-email": string;
-  "login-form-password": string;
-  "login-form-agreement": boolean;
-};
+import type { LoginFormValues } from "./types";
 
-export const initialFormValues: LoginFormFeedBack = {
+export const initialFormValues: LoginFormValues = {
   "login-form-email": "",
   "login-form-password": "",
   "login-form-agreement": false,

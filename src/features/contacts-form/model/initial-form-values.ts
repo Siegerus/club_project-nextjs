@@ -1,11 +1,6 @@
-export type ContactsFeedBack = {
-  "contacts-user": string;
-  "contacts-email": string;
-  "contacts-comment": string;
-  "contacts-agreement": boolean;
-};
+import type { ContactsFormValues } from "./types";
 
-export const initialFormValues: ContactsFeedBack = {
+export const initialFormValues: ContactsFormValues = {
   "contacts-user": "",
   "contacts-email": "",
   "contacts-comment": "",

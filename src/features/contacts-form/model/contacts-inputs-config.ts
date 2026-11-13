@@ -1,16 +1,6 @@
-type InputTextField = "contacts-user" | "contacts-email" | "contacts-comment";
+import type { ContactsInput } from "./types";
 
-type InputType = {
-  name: InputTextField;
-  type?: string;
-  height?: string;
-  placeholder: string;
-  ariaLabel: string;
-  autoComplete: string;
-  textArea: boolean;
-};
-
-export const inputsConfig: InputType[] = [
+export const contactsInputsConfig: ContactsInput[] = [
   {
     name: "contacts-user",
     type: "text",

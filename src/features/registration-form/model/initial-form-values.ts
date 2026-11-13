@@ -1,13 +1,6 @@
-export type RegistrationFormFeedBack = {
-  "registration-user": string;
-  "registration-email": string;
-  "registration-sex": string;
-  "registration-password": string;
-  "registration-password-repeat": string;
-  "registration-agreement": boolean;
-};
+import type { RegistrationFormValues } from "./types";
 
-export const initialFormValues: RegistrationFormFeedBack = {
+export const initialFormValues: RegistrationFormValues = {
   "registration-user": "",
   "registration-email": "",
   "registration-sex": "female",

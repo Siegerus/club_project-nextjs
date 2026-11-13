@@ -1,25 +1,6 @@
-import type { Radio } from "@/shared/ui/select";
+import type { RegistrationInput, RegistrationRadio } from "./types";
 
-type InputName =
-  | "registration-user"
-  | "registration-email"
-  | "registration-sex"
-  | "registration-password"
-  | "registration-password-repeat";
-
-export type InputType = {
-  id: string;
-  name: InputName;
-  type?: string;
-  placeholder?: string;
-  label?: string;
-  ariaLabel?: string;
-  autoComplete?: string;
-  mbSmall?: boolean;
-  isSelect?: boolean;
-};
-
-export const inputsConfig: InputType[] = [
+export const registrationInputsConfig: RegistrationInput[] = [
   {
     id: "registration-user",
     name: "registration-user",
@@ -61,7 +42,7 @@ export const inputsConfig: InputType[] = [
   },
 ];
 
-export const radiosConfig: Radio[] = [
+export const registrationRadiosConfig: RegistrationRadio[] = [
   {
     id: "female",
     name: "registration-sex",

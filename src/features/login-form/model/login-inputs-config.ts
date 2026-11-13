@@ -1,14 +1,4 @@
-type LoginInputName = "login-form-password" | "login-form-email";
-
-type LoginInput = {
-  name: LoginInputName;
-  id: string;
-  type: string;
-  placeholder: string;
-  label: string;
-  autoComplete: string;
-  mbSmall?: boolean;
-};
+import type { LoginInput } from "./types";
 
 export const loginInputsConfig: LoginInput[] = [
   {

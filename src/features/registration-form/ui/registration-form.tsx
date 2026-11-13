@@ -14,11 +14,11 @@ import {
   registrationFormDescription,
 } from "../lib";
 import {
-  inputsConfig,
-  radiosConfig,
+  registrationInputsConfig,
+  registrationRadiosConfig,
   initialFormValues,
-  type RegistrationFormFeedBack,
 } from "../model";
+import type { RegistrationFormValues } from "../model";
 
 const styles = {
   description: cn(
@@ -56,9 +56,7 @@ const styles = {
     "max-w-[unset] py-[14px] px-[16px] mb-[10px] md:mb-[16px]",
     "tracking-base 3xl:max-w-[unset]",
   ),
-  checkboxInfo: cn(
-    "text-sm md:text-xl text-white-70",
-  ),
+  checkboxInfo: cn("text-sm md:text-xl text-white-70"),
   checkbox: cn(
     "relative min-w-[16px] min-h-[16px] md:min-w-[26px] md:min-h-[27px] mr-[8px]",
     "before:absolute before:w-[8px] md:before:w-[12px] before:h-[6px] md:before:h-[9px] before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2",
@@ -68,7 +66,7 @@ const styles = {
 
 const RegistrationForm = () => {
   const [formValues, setFormValues] =
-    useState<RegistrationFormFeedBack>(initialFormValues);
+    useState<RegistrationFormValues>(initialFormValues);
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -91,12 +89,12 @@ const RegistrationForm = () => {
       <p className={styles.description}>{registrationFormDescription}</p>
 
       <form onSubmit={handleFormSubmit}>
-        {inputsConfig.map((input, i) => {
+        {registrationInputsConfig.map((input, i) => {
           const keyValue = `${input.name}-${i}`;
           return input.isSelect ? (
             <Select
               key={keyValue}
-              radios={radiosConfig}
+              radios={registrationRadiosConfig}
               wrapperClass={styles.selectWrapper}
               controlClass={styles.selectControl}
               controlIconClass={styles.selectControlIcon}
