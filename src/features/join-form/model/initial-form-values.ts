@@ -1,9 +1,6 @@
-export type JoinFormFeedBack = {
-  "join-form-email": string;
-  "join-form-agreement": boolean;
-};
+import type { JoinFormValues } from "./types";
 
-export const initialFormValues: JoinFormFeedBack = {
+export const initialFormValues: JoinFormValues = {
   "join-form-email": "",
   "join-form-agreement": false,
 };

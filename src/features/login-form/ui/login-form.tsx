@@ -10,11 +10,8 @@ import {
   loginCheckboxInfo,
   loginFormDescription,
 } from "../lib";
-import {
-  loginInputsConfig,
-  initialFormValues,
-  type LoginFormFeedBack,
-} from "../model";
+import { loginInputsConfig, initialFormValues } from "../model";
+import type { LoginFormValues } from "../model";
 
 const styles = {
   description: cn(
@@ -44,9 +41,7 @@ const styles = {
     "before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2",
     "rounded-[4px] border-[1.5px] border-white bg-white",
   ),
-  checkboxInfo: cn(
-    "text-sm md:text-xl text-white-70",
-  ),
+  checkboxInfo: cn("text-sm md:text-xl text-white-70"),
 
   forgotten: cn(
     "block mt-[10px] mb-[16px]",
@@ -57,7 +52,7 @@ const styles = {
 
 const LoginForm = () => {
   const [formValues, setFormValues] =
-    useState<LoginFormFeedBack>(initialFormValues);
+    useState<LoginFormValues>(initialFormValues);
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,

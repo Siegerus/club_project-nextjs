@@ -1,5 +1,3 @@
+export type { LoginInputName, LoginInput, LoginFormValues } from "./types";
 export { loginInputsConfig } from "./login-inputs-config";
-export {
-  initialFormValues,
-  type LoginFormFeedBack,
-} from "./initial-form-values";
+export { initialFormValues } from "./initial-form-values";

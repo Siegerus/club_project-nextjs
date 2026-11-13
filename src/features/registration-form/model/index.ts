@@ -1,9 +1,11 @@
+export type {
+  RegistrationInputName,
+  RegistrationInput,
+  RegistrationRadio,
+  RegistrationFormValues,
+} from "./types";
 export {
-  inputsConfig,
-  radiosConfig,
-  type InputType,
+  registrationInputsConfig,
+  registrationRadiosConfig,
 } from "./registration-inputs-config";
-export {
-  initialFormValues,
-  type RegistrationFormFeedBack,
-} from "./initial-form-values";
+export { initialFormValues } from "./initial-form-values";

@@ -7,11 +7,8 @@ import { Input } from "@/shared/ui";
 import { Checkbox } from "@/shared/ui";
 import { Button } from "@/shared/ui";
 import { contactsFormButtonText, contactsFormCheckboxText } from "../lib";
-import {
-  type ContactsFeedBack,
-  initialFormValues,
-  inputsConfig,
-} from "../model";
+import { contactsInputsConfig, initialFormValues } from "../model";
+import type { ContactsFormValues } from "../model";
 
 const inputCommon =
   "w-full mb-[10px] md:mb-[20px] py-[16px] md:py-[18px] px-[30px] border-2 border-additional rounded-[16px] placeholder:text-sm md:placeholder:text-base";
@@ -43,7 +40,7 @@ const styles = {
 
 const ContactsForm = () => {
   const [formValues, setFormValues] =
-    useState<ContactsFeedBack>(initialFormValues);
+    useState<ContactsFormValues>(initialFormValues);
 
   const handleInputChange = (e: ChangeEvent) => {
     const target = e.target as HTMLInputElement | HTMLTextAreaElement;
@@ -67,7 +64,7 @@ const ContactsForm = () => {
         id="contacts-form"
         onSubmit={handleFormSubmit}
       >
-        {inputsConfig.map((input, i) => {
+        {contactsInputsConfig.map((input, i) => {
           const keyValue = `${input.name}-${i}`;
           const inputClass = input.textArea ? styles.textArea : styles.input;
           return (

@@ -1,15 +1,6 @@
-type JoinInputName = "join-form-email";
+import type { JoinInput } from "./types";
 
-type JoinInputType = {
-  name: JoinInputName;
-  id: string;
-  type: string;
-  placeholder: string;
-  ariaLabel: string;
-  autoComplete: string;
-};
-
-export const JoinInputsConfig: JoinInputType = {
+export const joinInputsConfig: JoinInput = {
   name: "join-form-email",
   id: "join-form-email",
   type: "text",
