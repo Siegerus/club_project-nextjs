@@ -1,7 +1,7 @@
 import { type Capability } from "@/entities/company";
 import { type CardData } from "@/shared/ui";
 
-const capabilitysToCardData = (capabilities: Capability[]): CardData[] => {
+const capabilitiesToCardData = (capabilities: Capability[]): CardData[] => {
   return capabilities.map((capability) => ({
     titleText: { top: capability.name },
     imageSrc: capability.iconPath,
@@ -10,4 +10,4 @@ const capabilitysToCardData = (capabilities: Capability[]): CardData[] => {
   }));
 };
 
-export default capabilitysToCardData;
+export default capabilitiesToCardData;
