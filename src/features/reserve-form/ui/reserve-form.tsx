@@ -1,9 +1,14 @@
-// type ReserveFormProps = {};
+import { Input } from "@/shared/ui";
+import type { ReserveTabId } from "../model";
 
-const ReserveForm = (/* props: ReserveFormProps */) => {
+type ReserveFormProps = {
+  id: ReserveTabId;
+};
+
+const ReserveForm = ({ id }: ReserveFormProps) => {
   return (
     <>
-      <div>ReserveForm</div>
+      <form id={`reserve-${id}-form`}></form>
     </>
   );
 };

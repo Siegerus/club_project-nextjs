@@ -1,13 +1,12 @@
-import { PropsWithChildren, ButtonHTMLAttributes, Ref } from "react";
+import { ButtonHTMLAttributes, Ref } from "react";
 
 import { cn } from "@/shared/lib";
 
-type ButtonProps = PropsWithChildren<
-  ButtonHTMLAttributes<HTMLButtonElement> & {
-    ref?: Ref<HTMLButtonElement>;
-    variant?: "no-bg";
-  }
->;
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  ref?: Ref<HTMLButtonElement>;
+  variant?: "no-bg";
+  children?: React.ReactNode;
+};
 
 const styles = {
   base: cn(
