@@ -1,2 +1,2 @@
 export * from "./constants";
-export { capabilitysToCardData } from "./utils";
+export { capabilitiesToCardData } from "./utils";

@@ -1,7 +1,7 @@
 import { premiumCapabilities } from "@/entities/company";
 import { cn } from "@/shared/lib";
 import { ContentCard } from "@/shared/ui";
-import { capabilitysToCardData } from "../lib";
+import { capabilitiesToCardData } from "../lib";
 
 const styles = {
   cardList: cn(
@@ -32,12 +32,12 @@ const styles = {
   bottomList: "",
 };
 
-const capabilitysData = capabilitysToCardData(premiumCapabilities);
+const capabilitiesData = capabilitiesToCardData(premiumCapabilities);
 
 const VipList = () => {
   return (
     <ul className={styles.cardList}>
-      {capabilitysData.map((capability, i) => {
+      {capabilitiesData.map((capability, i) => {
         const keyValue = `${capability.titleText.top}-${i}`;
         return (
           <li key={keyValue}>

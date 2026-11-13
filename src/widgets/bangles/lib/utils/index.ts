@@ -1,1 +1,1 @@
-export { default as banglesToCardData } from "./banglesToCardData";
+export { default as banglesToCardData } from "./bangles-to-card-data";

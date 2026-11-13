@@ -1,5 +1,4 @@
 "use client";
-import { AnimatePresence } from "framer-motion";
 import { useState, useRef, KeyboardEvent } from "react";
 
 import type { EventTab, TabId } from "@/entities/event";

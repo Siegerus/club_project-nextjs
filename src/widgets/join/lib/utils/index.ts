@@ -1,1 +1,1 @@
-export { getItemsParts } from "./getItemsParts";
+export { getItemsParts } from "./get-Items-parts";
