@@ -1,9 +1,4 @@
-import type { ReserveInputName, ReserveTabId } from "./types";
-
-type ReserveTab = {
-  id: ReserveTabId;
-  label: string;
-};
+import type { ReserveInputName } from "./types";
 
 type ReserveInput = {
   name: ReserveInputName;
@@ -12,21 +7,6 @@ type ReserveInput = {
   placeholder: string;
   autocomplete: string;
 };
-
-export const reserveTabsConfig: ReserveTab[] = [
-  {
-    id: "couple",
-    label: "Пара",
-  },
-  {
-    id: "male",
-    label: "Мужчина",
-  },
-  {
-    id: "female",
-    label: "Женщина",
-  },
-];
 
 export const reserveInputsConfig: ReserveInput[] = [
   {
