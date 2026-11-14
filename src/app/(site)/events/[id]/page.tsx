@@ -1,5 +1,4 @@
 import { EventPromo } from "@/widgets/event-promo";
-import { ReserveModalOpen } from "@/features/reserve-form";
 import { Container } from "@/shared/ui";
 
 type EventArticleProps = {
@@ -12,7 +11,6 @@ const EventArticle = async ({ params }: EventArticleProps) => {
   return (
     <>
       <EventPromo eventId={id} />
-      <ReserveModalOpen />
       <Container></Container>
     </>
   );

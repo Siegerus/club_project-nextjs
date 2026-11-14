@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
 
+import { ReserveModalOpen } from "@/features/reserve-form";
 import {
   selectActiveEvent,
   selectActiveEventLoadingStatus,
@@ -82,6 +83,8 @@ const styles = {
     "mt-[20px] md:mt-[40px] lg:mt-[36px] lg:mx-auto",
     "leading-one",
   ),
+
+  button: "mt-[10px]",
 };
 
 const EventPromo = ({ eventId }: EventPromoProps) => {
@@ -187,6 +190,8 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
           <span className={styles.timerTitle}>{timerTitleText}</span>
           <Timer wrapperClass={cn(styles.timer, "md:hidden")} deadline={date} />
         </section>
+
+        <ReserveModalOpen buttonClass={styles.button} />
       </Container>
     </>
   );
