@@ -181,6 +181,31 @@
   }
 }
 
+@utility custom-radio { 
+    &:checked + label  {
+      &::before {
+        background-color: #fff;
+      }
+    }
+}
+@utility custom-radio-label {
+  position: relative;
+  /* width: 20px; */
+  /* height: 20px; */
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    border: 1px solid #fff;
+  }
+}
+
 @utility input-interactive {
   transition: background-color 0.3s;
 

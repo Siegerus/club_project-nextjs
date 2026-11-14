@@ -28,13 +28,13 @@ export const getRadiosConfig = (
   return [
     {
       id: "reserve-base-price",
-      name: "reserve-base-price",
+      name: "reserve-variant",
       label: baseLabel,
       value: formatPrice(basePrice),
     },
     {
       id: "reserve-comfort-price",
-      name: "reserve-comfort-price",
+      name: "reserve-variant",
       label: comfortLabel,
       value: formatPrice(comfortPrice),
     },
