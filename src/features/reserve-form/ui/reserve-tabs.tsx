@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 
-import { cn } from "@/shared/lib";
+import { selectActiveEvent } from "@/entities/event";
+import { cn, useAppSelector } from "@/shared/lib";
 import { Button } from "@/shared/ui";
 import { reserveTabsConfig } from "../lib";
 import ReserveForm from "./reserve-form";
@@ -22,12 +23,15 @@ const styles = {
 
 const ReserveTabs = (/* props: ReserveTabsProps */) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
-
   const activeTabId = reserveTabsConfig[activeIndex].id;
+
+  const activeEvent = useAppSelector(selectActiveEvent);
 
   const handleTabClick = (index: number) => {
     setActiveIndex(index);
   };
+
+  if (!activeEvent) return null;
 
   return (
     <>
@@ -49,7 +53,7 @@ const ReserveTabs = (/* props: ReserveTabsProps */) => {
           );
         })}
       </ul>
-      <ReserveForm id={activeTabId} />
+      <ReserveForm id={activeTabId} activeEvent={activeEvent} />
     </>
   );
 };

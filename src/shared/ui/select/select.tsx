@@ -77,7 +77,7 @@ const Select = ({
   const controlText = radios[activeIndex]?.label ?? "";
 
   return (
-    <div className={cn(styles.wrapper, wrapperClass)}>
+    <div className={wrapperClass}>
       <button
         className={cn(controlClassName, controlClass)}
         onClick={handleControlClick}

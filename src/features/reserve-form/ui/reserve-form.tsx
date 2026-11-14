@@ -1,12 +1,18 @@
 "use client";
 
+import type { EventItem } from "@/entities/event";
 import { cn } from "@/shared/lib";
 import { Input } from "@/shared/ui";
 import type { ReserveTabId } from "../lib";
-import { reserveInputsConfig, ReserveInputName } from "../model";
+import {
+  reserveInputsConfig,
+  ReserveInputName,
+  getRadiosConfig,
+} from "../model";
 
 type ReserveFormProps = {
   id: ReserveTabId;
+  activeEvent: EventItem;
 };
 
 const styles = {
@@ -15,9 +21,14 @@ const styles = {
     "min-w-full mt-[16px] mb-[10px] md:mb-[20px] px-[30px] mx-auto",
     "rounded-2xl border-2 border-additional placeholder:text-sm md:placeholder:text-base leading-one",
   ),
+  radiosList: " w-full ",
 };
 
-const ReserveForm = ({ id }: ReserveFormProps) => {
+const ReserveForm = ({ id, activeEvent }: ReserveFormProps) => {
+  const radios =
+    id === "couple"
+      ? getRadiosConfig(activeEvent, true)
+      : getRadiosConfig(activeEvent);
   return (
     <>
       <form id={`reserve-${id}-form`} className={styles.form}>
@@ -34,6 +45,24 @@ const ReserveForm = ({ id }: ReserveFormProps) => {
             />
           );
         })}
+        <ul className={styles.radiosList}>
+          {radios.map((radio) => {
+            return (
+              <li className="flex item-center justify-between" key={radio.id}>
+                <input
+                  type="radio"
+                  id={radio.id}
+                  name={radio.name}
+                  value={radio.value}
+                />
+                <label htmlFor={radio.id}>
+                  {radio.label}
+                  <span>{radio.value}</span>
+                </label>
+              </li>
+            );
+          })}
+        </ul>
       </form>
     </>
   );
