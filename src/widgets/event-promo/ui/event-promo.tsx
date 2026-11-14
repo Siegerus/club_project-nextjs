@@ -84,7 +84,7 @@ const styles = {
     "leading-one",
   ),
 
-  button: "mt-[10px]",
+  button: "max-w-[319px] mt-[25px] py-[15px] px-[16px] leading-main",
 };
 
 const EventPromo = ({ eventId }: EventPromoProps) => {
@@ -152,7 +152,6 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
   const { tabs, date, image, title, watermark } = activeEvent;
   const visibleTabs = isMobile ? tabs.slice(0, 3) : tabs;
   const { day, genitiveMonth, year } = getFormattedDate(date);
-
   return (
     <>
       <Watermark text={watermark} markClass={styles.watermark} />

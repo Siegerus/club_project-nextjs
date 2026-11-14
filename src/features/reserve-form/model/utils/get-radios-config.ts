@@ -1,0 +1,1 @@
+const getPriceValues = (value: number) => {};

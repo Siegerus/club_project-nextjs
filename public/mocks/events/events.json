@@ -221,7 +221,8 @@
     "date": "2026-12-20",
     "time": "12:00",
     "location": "Москва",
-    "price": "10000",
+    "price": 5000,
+    "comfortPrice": 6000,
     "image" : "/images/events-swing.png",
     "tabletImage": "/images/events-swing-tablet.png"
   }
