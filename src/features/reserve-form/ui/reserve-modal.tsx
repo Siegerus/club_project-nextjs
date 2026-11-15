@@ -11,7 +11,7 @@ type ReserveModalProps = {
 
 const styles = {
   rootModal:
-    "w-full md:max-w-[732px] rounded-0 md:rounded-middle backdrop-blur-[100px] bg-main-bg box-shadow-main overflow-y-scroll",
+    "w-full md:max-w-[732px] rounded-0 md:rounded-middle bg-main-modal box-shadow-main overflow-y-scroll",
   wrapper:
     "w-full md:max-w-[732px] min-h-[570px] md:min-h-auto md:-top-[3%] px-[20px] py-[20px] md:px-[40px] md:py-[40px]",
   title:
