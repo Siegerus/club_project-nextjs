@@ -18,8 +18,8 @@ export const getRadiosConfig = (
 
   const baseLabel = couple ? "Билет вход с пары" : "Билет вход с человека";
 
-  const formatPrice = (value: number): string =>
-    new Intl.NumberFormat("ru-RU").format(value) + " ₽";
+  const formatPrice = (value: number): string => value.toString();
+  // new Intl.NumberFormat("ru-RU").format(value) + " ₽";
 
   const comfortLabel = couple
     ? "Билет вход Comfort с пары"

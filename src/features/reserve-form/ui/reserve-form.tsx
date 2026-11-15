@@ -1,4 +1,5 @@
 "use client";
+import { ChangeEvent, useState } from "react";
 
 import type { EventItem } from "@/entities/event";
 import { cn } from "@/shared/lib";
@@ -8,6 +9,8 @@ import {
   reserveInputsConfig,
   ReserveInputName,
   getRadiosConfig,
+  initialFormValues,
+  ReserveFormValues,
 } from "../model";
 
 type ReserveFormProps = {
@@ -31,6 +34,27 @@ const styles = {
 };
 
 const ReserveForm = ({ id, activeEvent }: ReserveFormProps) => {
+  const [formValues, setFormValues] =
+    useState<ReserveFormValues>(initialFormValues);
+
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormValues((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFormValues((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+
+    console.log(formValues);
+  };
+
   const radios =
     id === "couple"
       ? getRadiosConfig(activeEvent, true)
@@ -48,6 +72,8 @@ const ReserveForm = ({ id, activeEvent }: ReserveFormProps) => {
               id={input.id}
               aria-label={input.label}
               placeholder={input.placeholder}
+              value={formValues[input.name]}
+              onChange={(e) => handleInputChange(e)}
             />
           );
         })}
@@ -61,6 +87,10 @@ const ReserveForm = ({ id, activeEvent }: ReserveFormProps) => {
                   id={radio.id}
                   name={radio.name}
                   value={radio.value}
+                  checked={
+                    radio.value === formValues[radio.name as ReserveInputName]
+                  }
+                  onChange={(e) => handleRadioChange(e)}
                 />
                 <label className={styles.radioLabel} htmlFor={radio.id}>
                   <span className={styles.radioInfo}>{radio.label}</span>
