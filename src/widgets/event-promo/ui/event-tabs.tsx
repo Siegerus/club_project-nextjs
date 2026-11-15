@@ -33,7 +33,6 @@ const styles = {
     "mt-[10px] p-[10px] md:p-[20px] lg:mt-[20px] md:pr-0",
     "rounded-[10px] md:rounded-base",
     "bg-main-bg",
-    "backdrop-blur-[24px]",
   ),
   contentLabel: cn(
     "block",

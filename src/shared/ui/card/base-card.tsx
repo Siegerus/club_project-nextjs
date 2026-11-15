@@ -8,7 +8,7 @@ type BaseCardProps = {
 };
 
 const styles = {
-  wrapper: "bg-main-bg backdrop-blur-xl box-shadow-main rounded-base",
+  wrapper: "bg-main-bg box-shadow-main rounded-base",
 };
 
 const BaseCard = ({ children, wrapperClass }: BaseCardProps) => {
