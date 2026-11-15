@@ -19,7 +19,7 @@ const styles = {
   footer:
     "pt-[40px] px-0 pb-[30px] md:pt-[0] md:pb-[100px] xl:pt-[87px] xl:px-0 xl:pb-[138px]",
   top: cn(
-    "flex items-center justify-between rounded-full bg-main-bg w-full backdrop-blur-lg",
+    "flex items-center justify-between rounded-full bg-main-bg w-full",
     "p-[10px] md:py-[23px] md:px-[30px] xl:pt-[16px] xl:pb-[22px] 2xl:pt-[20px] 2xl:px-[30px] 2xl:pb-[26px]",
   ),
   wrapper: cn(

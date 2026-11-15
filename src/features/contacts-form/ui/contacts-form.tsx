@@ -17,7 +17,7 @@ const styles = {
   wrapper: cn(
     "w-full lg:max-w-[630px] xl:max-w-[730px] mx-auto",
     "mt-[35px] md:mt-[46px] lg:mt-[32px] p-[10px] md:p-[40px]",
-    "rounded-small md:rounded-base bg-blur box-shadow-main bg-main-bg",
+    "rounded-small md:rounded-base box-shadow-main bg-main-bg",
   ),
   form: "",
   input: inputCommon,

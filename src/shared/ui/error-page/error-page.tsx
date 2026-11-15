@@ -27,7 +27,7 @@ const styles = {
   section: "mt-[100px]",
   card: cn(
     "mx-auto w-full max-w-[450px] p-[20px] md:p-[40px]",
-    "rounded-middle bg-main-bg backdrop-blur-[12px]",
+    "rounded-middle bg-main-bg",
   ),
   image: "h-auto max-w-full",
   content: "flex flex-col items-center gap-4",

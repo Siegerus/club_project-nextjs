@@ -11,7 +11,7 @@ const styles = {
     "hidden xl:block mt-4 pt-[24px] px-[30px] pb-[24px]",
     "lg:mt-5 xl:mt-0 w-full xl:w-[55.8%]",
     "lg:pt-[20px] lg:px-[30px] lg:pb-[23px]",
-    "rounded-full bg-main-bg backdrop-blur-lg",
+    "rounded-full bg-main-bg",
   ),
   navTablet: "md:block xl:hidden",
   list: "flex items-center justify-between list-none",
