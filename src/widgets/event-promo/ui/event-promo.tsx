@@ -84,7 +84,8 @@ const styles = {
     "leading-one",
   ),
 
-  button: "max-w-[319px] mt-[25px] py-[15px] px-[16px] leading-main",
+  button:
+    "max-w-[319px] mt-[25px] py-[15px] px-[16px] leading-main button-interactive_fill",
 };
 
 const EventPromo = ({ eventId }: EventPromoProps) => {

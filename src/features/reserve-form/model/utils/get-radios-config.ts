@@ -1,10 +1,14 @@
 import type { EventItem } from "@/entities/event";
+import { getFormattedPrice } from "@/shared/lib";
+
+import type { ReserveInputName } from "../types";
 
 type ReserveRadio = {
   id: string;
-  name: string;
+  name: ReserveInputName;
   label: string;
   value: string;
+  formattedValue: string;
 };
 
 export const getRadiosConfig = (
@@ -18,9 +22,6 @@ export const getRadiosConfig = (
 
   const baseLabel = couple ? "Билет вход с пары" : "Билет вход с человека";
 
-  const formatPrice = (value: number): string => value.toString();
-  // new Intl.NumberFormat("ru-RU").format(value) + " ₽";
-
   const comfortLabel = couple
     ? "Билет вход Comfort с пары"
     : "Билет вход Comfort с человека";
@@ -30,13 +31,15 @@ export const getRadiosConfig = (
       id: "reserve-base-price",
       name: "reserve-variant",
       label: baseLabel,
-      value: formatPrice(basePrice),
+      value: basePrice.toString(),
+      formattedValue: getFormattedPrice(basePrice, true),
     },
     {
       id: "reserve-comfort-price",
       name: "reserve-variant",
       label: comfortLabel,
-      value: formatPrice(comfortPrice),
+      value: comfortPrice.toString(),
+      formattedValue: getFormattedPrice(comfortPrice, true),
     },
   ];
 };

@@ -1,4 +1,7 @@
-const getFormattedPrice = (price: number, withSymbol: boolean): string => {
+const getFormattedPrice = (
+  price: number | string,
+  withSymbol: boolean,
+): string => {
   if (withSymbol) {
     return price.toLocaleString("ru-RU") + " ₽";
   }

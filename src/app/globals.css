@@ -190,8 +190,6 @@
 }
 @utility custom-radio-label {
   position: relative;
-  /* width: 20px; */
-  /* height: 20px; */
 
   &::before {
     content: "";
@@ -200,7 +198,17 @@
     left: 0;
     width: 20px;
     height: 20px;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
+    border-radius: 100%;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%);
     border-radius: 100%;
     border: 1px solid #fff;
   }

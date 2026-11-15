@@ -8,20 +8,18 @@ import { Button } from "@/shared/ui";
 import { reserveTabsConfig } from "../lib";
 import ReserveForm from "./reserve-form";
 
-// type ReserveTabsProps = {}
-
 const styles = {
   tabList:
-    "flex items-center justify-center w-full mt-[30px] bg-main-bg rounded-full",
-  listItem: "z-0 min-w-[33%] ",
+    "flex items-center justify-center w-full md:max-w-[540px] mt-[30px] md:mt-[40px] md:mx-auto bg-main-bg rounded-full",
+  listItem: "z-0 min-w-[33%] md:min-w-[31%] md:nth-1:min-w-[40%] ",
   tab: cn(
-    "min-w-full px-[20px] md:px-[61px] xl:px-[62px] 2xl:px-[62px] py-[20px] lg:py-[28px] xl:py-[28px]",
+    "min-w-full px-[20px] md:px-[43px] py-[20px] md:py-[20px] xl:py-[20px] 2xl:py-[20px]",
     "bg-transparent text-base text-white leading-main tracking-base duration-[70ms]",
   ),
   activeTab: "bg-white text-black",
 };
 
-const ReserveTabs = (/* props: ReserveTabsProps */) => {
+const ReserveTabs = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const activeTabId = reserveTabsConfig[activeIndex].id;
 

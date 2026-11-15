@@ -2,6 +2,8 @@ import type { ReserveTabId } from "./types";
 
 export const openButtonText = "Забронировать";
 
+export const submitButtonText = "Оплатить";
+
 export const reserveModalTitle =
   "Вы зарегистированы как пара, поэтому у Вас есть возможность выбрать билет для двоих";
 
