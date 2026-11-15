@@ -8,7 +8,7 @@ type CheckboxProps = {
   variant: "black" | "white";
   id: string;
   value?: boolean;
-  onChange?: (e: ChangeEvent) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   children?: ReactElement;
 };
 
