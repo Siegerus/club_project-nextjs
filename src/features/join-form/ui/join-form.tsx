@@ -43,10 +43,16 @@ const JoinForm = () => {
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+    setFormValues((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
   const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.checked });
+    setFormValues((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.checked,
+    }));
   };
 
   const handleFormSubmit = (e: SubmitEvent) => {
