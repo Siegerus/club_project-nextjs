@@ -85,7 +85,7 @@ const styles = {
   ),
 
   button:
-    "max-w-[319px] mt-[25px] py-[15px] px-[16px] leading-main button-interactive_fill",
+    "max-w-[319px] md:max-w-[250px] lg:max-w-[250px] mt-[18px] py-[15px] px-[16px] leading-main button-interactive_fill",
 };
 
 const EventPromo = ({ eventId }: EventPromoProps) => {
@@ -189,9 +189,8 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
           </EventTabs>
           <span className={styles.timerTitle}>{timerTitleText}</span>
           <Timer wrapperClass={cn(styles.timer, "md:hidden")} deadline={date} />
+          <ReserveModalOpen buttonClass={styles.button} />
         </section>
-
-        <ReserveModalOpen buttonClass={styles.button} />
       </Container>
     </>
   );

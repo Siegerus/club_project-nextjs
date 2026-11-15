@@ -5,12 +5,16 @@ import dynamic from "next/dynamic";
 
 import { useModal } from "@/shared/lib";
 import { Button } from "@/shared/ui";
-import { openButtonText } from "../lib";
+import { openButtonText, reserveAdditionalInfo } from "../lib";
 const ReserveModal = dynamic(() => import("./reserve-modal"), { ssr: false });
 
 type ReserveModalOpenProps = {
   buttonClass?: string;
   buttonText?: string;
+};
+
+const styles = {
+  info: "mt-[11px] px-[15px] text-sm md:text-base lg:text-xl text-center leading-main md:leading-middle lg:leading-main md:tracking-base lg:tracking-none text-white-70",
 };
 
 const ReserveModalOpen = ({
@@ -29,6 +33,8 @@ const ReserveModalOpen = ({
       <Button className={buttonClass} onClick={handleButtonClick}>
         <span>{buttonText}</span>
       </Button>
+
+      <p className={styles.info}>{reserveAdditionalInfo}</p>
       <AnimatePresence>
         {isModalOpen && (
           <ReserveModal
