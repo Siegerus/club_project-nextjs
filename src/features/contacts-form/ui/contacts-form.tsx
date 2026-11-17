@@ -42,14 +42,20 @@ const ContactsForm = () => {
   const [formValues, setFormValues] =
     useState<ContactsFormValues>(initialFormValues);
 
-  const handleInputChange = (e: ChangeEvent) => {
-    const target = e.target as HTMLInputElement | HTMLTextAreaElement;
-    setFormValues({ ...formValues, [target.name]: target.value });
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormValues((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const handleCheckboxChange = (e: ChangeEvent) => {
-    const target = e.target as HTMLInputElement;
-    setFormValues({ ...formValues, [target.name]: target.checked });
+  const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFormValues((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.checked,
+    }));
   };
 
   const handleFormSubmit = (e: SubmitEvent<HTMLFormElement>) => {

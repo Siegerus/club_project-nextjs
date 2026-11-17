@@ -40,13 +40,19 @@ const JoinForm = () => {
   const [formValues, setFormValues] =
     useState<JoinFormValues>(initialFormValues);
 
-  const handleInputChange = (e: ChangeEvent) => {
-    const target = e.target as HTMLInputElement;
-    setFormValues({ ...formValues, [target.name]: target.value });
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormValues((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
-  const handleCheckboxChange = (e: ChangeEvent) => {
-    const target = e.target as HTMLInputElement;
-    setFormValues({ ...formValues, [target.name]: target.checked });
+  const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFormValues((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.checked,
+    }));
   };
 
   const handleFormSubmit = (e: SubmitEvent) => {
@@ -63,7 +69,7 @@ const JoinForm = () => {
         aria-label={joinInputsConfig.ariaLabel}
         autoComplete={joinInputsConfig.autoComplete}
         value={formValues[joinInputsConfig.name]}
-        onChange={handleInputChange}
+        onChange={(e) => handleInputChange(e)}
       />
       <Button className={styles.button} type="submit" variant="no-bg">
         {joinFormButtonText}
@@ -74,7 +80,7 @@ const JoinForm = () => {
         variant="white"
         id="join-form-agreement"
         value={formValues["join-form-agreement"]}
-        onChange={handleCheckboxChange}
+        onChange={(e) => handleCheckboxChange(e)}
       >
         <a href={AppRoute.Rules} className={styles.checkboxInfo}>
           {joinFormCheckboxInfo}

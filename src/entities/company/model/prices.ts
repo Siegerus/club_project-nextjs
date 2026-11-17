@@ -11,3 +11,5 @@ export const premiumSales: PremiumSale = {
   fullYear: { text: "12", price: 50000 },
   twoYears: { text: "24", price: 92000 },
 };
+
+export const reserveAdditionalPrice = 1000;

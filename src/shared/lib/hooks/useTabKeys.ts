@@ -8,7 +8,7 @@ export const useTabKeys = (
     e: KeyboardEvent<HTMLButtonElement>,
     index: number,
   ) => {
-    // if (!refs.current) return;
+    if (!refs.current) return;
 
     let newIndex = index;
 

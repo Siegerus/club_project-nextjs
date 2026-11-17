@@ -1,5 +1,4 @@
 import { EventPromo } from "@/widgets/event-promo";
-
 import { Container } from "@/shared/ui";
 
 type EventArticleProps = {

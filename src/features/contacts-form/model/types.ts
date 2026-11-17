@@ -1,3 +1,5 @@
+import type { HTMLInputTypeAttribute } from "react";
+
 export type ContactsInputName =
   | "contacts-user"
   | "contacts-email"
@@ -5,7 +7,7 @@ export type ContactsInputName =
 
 export type ContactsInput = {
   name: ContactsInputName;
-  type?: string;
+  type?: HTMLInputTypeAttribute;
   height?: string;
   placeholder: string;
   ariaLabel: string;

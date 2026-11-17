@@ -1,9 +1,11 @@
+import type { HTMLInputTypeAttribute } from "react";
+
 export type JoinInputName = "join-form-email";
 
 export type JoinInput = {
   name: JoinInputName;
   id: string;
-  type: string;
+  type: HTMLInputTypeAttribute;
   placeholder: string;
   ariaLabel: string;
   autoComplete: string;

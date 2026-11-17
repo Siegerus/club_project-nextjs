@@ -15,6 +15,8 @@ export type EventItem = {
   date: string;
   time: string;
   location: string;
+  price: number;
+  comfortPrice: number;
   image: string;
   tabletImage: string;
 };

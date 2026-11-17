@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
 
+import { ReserveModalOpen } from "@/features/reserve-form";
 import {
   selectActiveEvent,
   selectActiveEventLoadingStatus,
@@ -35,7 +36,7 @@ const styles = {
   ),
   watermark: cn(
     "top-[40px] md:top-[48px] -left-[3px] lg:left-[141px] lg:top-0",
-    "text-[6.125em] lg:text-[10em] 3xl:text-[13.125em] text-center md:text-left md:text-nowrap lg:text-wrap",
+    "max-[425]:text-[5.125em] text-[6.125em] lg:text-[10em] 3xl:text-[13.125em] text-center md:text-left md:text-nowrap lg:text-wrap",
     "blur-[10px] lg:blur-[19px]",
   ),
   content: cn(
@@ -82,6 +83,9 @@ const styles = {
     "mt-[20px] md:mt-[40px] lg:mt-[36px] lg:mx-auto",
     "leading-one",
   ),
+
+  button:
+    "max-w-[319px] md:max-w-[250px] lg:max-w-[250px] mt-[18px] py-[15px] px-[16px] leading-main button-interactive_fill",
 };
 
 const EventPromo = ({ eventId }: EventPromoProps) => {
@@ -149,7 +153,6 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
   const { tabs, date, image, title, watermark } = activeEvent;
   const visibleTabs = isMobile ? tabs.slice(0, 3) : tabs;
   const { day, genitiveMonth, year } = getFormattedDate(date);
-
   return (
     <>
       <Watermark text={watermark} markClass={styles.watermark} />
@@ -186,6 +189,7 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
           </EventTabs>
           <span className={styles.timerTitle}>{timerTitleText}</span>
           <Timer wrapperClass={cn(styles.timer, "md:hidden")} deadline={date} />
+          <ReserveModalOpen buttonClass={styles.button} />
         </section>
       </Container>
     </>

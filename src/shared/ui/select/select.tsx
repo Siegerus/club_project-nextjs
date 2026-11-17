@@ -23,7 +23,6 @@ type SelectProps = {
 };
 
 const styles = {
-  wrapper: "",
   control: cn(
     "flex justify-between items-center",
     "px-[20px] py-[18px] md:py-[22px]",
@@ -78,7 +77,7 @@ const Select = ({
   const controlText = radios[activeIndex]?.label ?? "";
 
   return (
-    <div className={cn(styles.wrapper, wrapperClass)}>
+    <div className={wrapperClass}>
       <button
         className={cn(controlClassName, controlClass)}
         onClick={handleControlClick}
