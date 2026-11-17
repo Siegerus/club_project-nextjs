@@ -36,7 +36,7 @@ const styles = {
   ),
   watermark: cn(
     "top-[40px] md:top-[48px] -left-[3px] lg:left-[141px] lg:top-0",
-    "text-[6.125em] lg:text-[10em] 3xl:text-[13.125em] text-center md:text-left md:text-nowrap lg:text-wrap",
+    "max-[425]:text-[5.125em] text-[6.125em] lg:text-[10em] 3xl:text-[13.125em] text-center md:text-left md:text-nowrap lg:text-wrap",
     "blur-[10px] lg:blur-[19px]",
   ),
   content: cn(
