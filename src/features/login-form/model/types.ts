@@ -1,9 +1,11 @@
+import type { HTMLInputTypeAttribute } from "react";
+
 export type LoginInputName = "login-form-password" | "login-form-email";
 
 export type LoginInput = {
   name: LoginInputName;
   id: string;
-  type: string;
+  type: HTMLInputTypeAttribute;
   placeholder: string;
   label: string;
   autoComplete: string;

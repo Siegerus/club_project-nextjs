@@ -2,14 +2,14 @@
 import { SubmitEvent, ChangeEvent, useState } from "react";
 
 import type { EventItem } from "@/entities/event";
-import { cn, getFormattedPrice } from "@/shared/lib";
+import { cn } from "@/shared/lib";
 import { Button, Input } from "@/shared/ui";
 import { type ReserveTabId, submitButtonText } from "../lib";
 import {
   reserveInputsConfig,
   getRadiosConfig,
-  initialFormValues,
   ReserveFormValues,
+  initialFormValues,
 } from "../model";
 
 type ReserveFormProps = {
@@ -27,9 +27,9 @@ const styles = {
   radiosListItem:
     "flex items-center justify-between mt-[16px] tracking-base md:tracking-none leading-main font-semibold text-base text-white ",
 
-  radio: "custom-radio sr-only",
+  radio: "sr-only peer",
   radioLabel:
-    "flex items-center justify-between w-full md:text-xl md:after:w-[28px] md:after:h-[28px] md:before:left-[4px] custom-radio-label",
+    "flex items-center justify-between w-full md:text-xl md:after:w-[28px] md:after:h-[28px] md:before:left-[4px] custom-radio-label peer-focus:before:bg-white peer-checked:before:bg-white",
   radioInfo: "block ml-[30px] md:ml-[38px]",
   button:
     "mt-[50px] md:mt-[40px] py-[16px] px-[12px] max-w-[652px] 3xl:max-w-[unset] text-base tracking-base leading-main button-interactive_fill",
@@ -48,27 +48,16 @@ const ReserveForm = ({ id, activeEvent }: ReserveFormProps) => {
     }));
   };
 
-  const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setFormValues((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
   const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(formValues);
   };
 
-  const radios =
-    id === "couple"
-      ? getRadiosConfig(activeEvent, true)
-      : getRadiosConfig(activeEvent);
+  const radios = getRadiosConfig(activeEvent, id === "couple");
 
-  const formattedValuePrice = getFormattedPrice(
-    formValues["reserve-variant"],
-    true,
-  );
+  const selectedRadioPrice =
+    radios.find((radio) => radio.value === formValues["reserve-variant"])
+      ?.formattedPrice ?? radios[0].formattedPrice;
 
   return (
     <form
@@ -87,7 +76,8 @@ const ReserveForm = ({ id, activeEvent }: ReserveFormProps) => {
             aria-label={input.label}
             placeholder={input.placeholder}
             value={formValues[input.name]}
-            onChange={(e) => handleInputChange(e)}
+            onChange={handleInputChange}
+            autoComplete={input.autocomplete}
           />
         );
       })}
@@ -102,18 +92,18 @@ const ReserveForm = ({ id, activeEvent }: ReserveFormProps) => {
                 name={radio.name}
                 value={radio.value}
                 checked={radio.value === formValues[radio.name]}
-                onChange={(e) => handleRadioChange(e)}
+                onChange={handleInputChange}
               />
               <label className={styles.radioLabel} htmlFor={radio.id}>
                 <span className={styles.radioInfo}>{radio.label}</span>
-                <span className="block">{radio.formattedValue}</span>
+                <span className="block">{radio.formattedPrice}</span>
               </label>
             </li>
           );
         })}
       </ul>
       <Button className={styles.button} type="submit">
-        <span>{`${submitButtonText} ${formattedValuePrice}`}</span>
+        <span>{`${submitButtonText} ${selectedRadioPrice}`}</span>
       </Button>
     </form>
   );

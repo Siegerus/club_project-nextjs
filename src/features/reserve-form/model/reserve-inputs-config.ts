@@ -1,12 +1,13 @@
+import type { HTMLInputTypeAttribute } from "react";
 import type { ReserveInputName } from "./types";
 
 type ReserveInput = {
   name: ReserveInputName;
   id: string;
   label: string;
-  type: string;
+  type: HTMLInputTypeAttribute;
   placeholder: string;
-  autocomplete: string;
+  autocomplete: "off" | "name";
 };
 
 export const reserveInputsConfig: ReserveInput[] = [
@@ -24,6 +25,6 @@ export const reserveInputsConfig: ReserveInput[] = [
     label: "Возраст",
     type: "text",
     placeholder: "Возраст",
-    autocomplete: "age",
+    autocomplete: "off",
   },
 ];

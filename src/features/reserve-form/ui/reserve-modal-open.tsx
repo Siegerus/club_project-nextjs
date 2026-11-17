@@ -30,7 +30,11 @@ const ReserveModalOpen = ({
 
   return (
     <>
-      <Button className={buttonClass} onClick={handleButtonClick}>
+      <Button
+        className={buttonClass}
+        onClick={handleButtonClick}
+        aria-haspopup="dialog"
+      >
         <span>{buttonText}</span>
       </Button>
 

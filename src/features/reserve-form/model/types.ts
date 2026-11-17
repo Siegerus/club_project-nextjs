@@ -3,8 +3,10 @@ export type ReserveInputName =
   | "reserve-form-age"
   | "reserve-variant";
 
+export type ReserveFormVariant = "base" | "comfort";
+
 export type ReserveFormValues = {
   "reserve-form-user-name": string;
   "reserve-form-age": string;
-  "reserve-variant": string;
+  "reserve-variant": ReserveFormVariant;
 };

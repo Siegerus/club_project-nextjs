@@ -8,38 +8,36 @@ type ReserveRadio = {
   name: ReserveInputName;
   label: string;
   value: string;
-  formattedValue: string;
+  price: string;
+  formattedPrice: string;
 };
 
 export const getRadiosConfig = (
-  evenData: EventItem,
-  couple: boolean = false,
+  activeEvent: EventItem,
+  isCouple: boolean = false,
 ): ReserveRadio[] => {
-  const basePrice = couple ? Math.round(evenData.price * 2) : evenData.price;
-  const comfortPrice = couple
-    ? Math.round(evenData.comfortPrice * 2)
-    : evenData.comfortPrice;
+  const multiplier = isCouple ? 2 : 1;
+  const basePrice = Math.round(activeEvent.price * multiplier);
+  const comfortPrice = Math.round(activeEvent.comfortPrice * multiplier);
 
-  const baseLabel = couple ? "Билет вход с пары" : "Билет вход с человека";
-
-  const comfortLabel = couple
-    ? "Билет вход Comfort с пары"
-    : "Билет вход Comfort с человека";
+  const label = isCouple ? "с пары" : "с человека";
 
   return [
     {
       id: "reserve-base-price",
       name: "reserve-variant",
-      label: baseLabel,
-      value: basePrice.toString(),
-      formattedValue: getFormattedPrice(basePrice, true),
+      label: `Билет вход ${label}`,
+      value: "base",
+      price: basePrice.toString(),
+      formattedPrice: getFormattedPrice(basePrice, true),
     },
     {
       id: "reserve-comfort-price",
       name: "reserve-variant",
-      label: comfortLabel,
-      value: comfortPrice.toString(),
-      formattedValue: getFormattedPrice(comfortPrice, true),
+      label: `Билет вход Comfort ${label}`,
+      value: "comfort",
+      price: comfortPrice.toString(),
+      formattedPrice: getFormattedPrice(comfortPrice, true),
     },
   ];
 };

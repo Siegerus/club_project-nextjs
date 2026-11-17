@@ -1,3 +1,5 @@
+import type { HTMLInputTypeAttribute } from "react";
+
 import type { Radio } from "@/shared/ui/select";
 
 export type RegistrationInputName =
@@ -10,7 +12,7 @@ export type RegistrationInputName =
 export type RegistrationInput = {
   id: string;
   name: RegistrationInputName;
-  type?: string;
+  type?: HTMLInputTypeAttribute;
   placeholder?: string;
   label?: string;
   ariaLabel?: string;
