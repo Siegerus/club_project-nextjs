@@ -3,7 +3,7 @@
 import { AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 
-import { useModal } from "@/shared/lib";
+import { cn, useModal } from "@/shared/lib";
 import { Button } from "@/shared/ui";
 import { openButtonText, reserveAdditionalInfo } from "../lib";
 const ReserveModal = dynamic(() => import("./reserve-modal"), { ssr: false });
@@ -14,7 +14,13 @@ type ReserveModalOpenProps = {
 };
 
 const styles = {
-  info: "mt-[11px] px-[15px] text-sm md:text-base lg:text-xl text-center leading-main md:leading-middle lg:leading-main md:tracking-base lg:tracking-none text-white-70",
+  info: cn(
+    "mt-[11px] px-[15px]",
+    "text-sm md:text-base lg:text-xl text-center",
+    "leading-main md:leading-middle lg:leading-main",
+    "md:tracking-base lg:tracking-none",
+    "text-white-70",
+  ),
 };
 
 const ReserveModalOpen = ({

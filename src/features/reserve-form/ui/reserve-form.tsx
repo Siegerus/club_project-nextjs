@@ -18,21 +18,35 @@ type ReserveFormProps = {
 };
 
 const styles = {
-  form: "flex flex-col items-center w-full",
+  form: cn("flex flex-col items-center", "w-full"),
   input: cn(
     "min-w-full mt-[16px] mb-[10px] md:mb-0 px-[30px] md:py-[20px] mx-auto",
-    "rounded-2xl border-2 border-additional placeholder:text-sm md:placeholder:text-base leading-one",
+    "rounded-2xl border-2 border-additional",
+    "placeholder:text-sm md:placeholder:text-base leading-one",
   ),
-  radiosList: "w-full",
-  radiosListItem:
-    "flex items-center justify-between mt-[16px] tracking-base md:tracking-none leading-main font-semibold text-base text-white ",
-
-  radio: "sr-only peer",
-  radioLabel:
-    "flex items-center justify-between w-full md:text-xl md:after:w-[28px] md:after:h-[28px] md:before:left-[4px] custom-radio-label peer-focus:before:bg-white peer-checked:before:bg-white",
-  radioInfo: "block ml-[30px] md:ml-[38px]",
-  button:
-    "mt-[50px] md:mt-[40px] py-[16px] px-[12px] max-w-[652px] 3xl:max-w-[unset] text-base tracking-base leading-main button-interactive_fill",
+  radiosList: cn("w-full"),
+  radiosListItem: cn(
+    "flex items-center justify-between",
+    "mt-[16px]",
+    "tracking-base md:tracking-none leading-main",
+    "font-semibold text-base text-white",
+  ),
+  radio: cn("sr-only peer"),
+  radioLabel: cn(
+    "flex items-center justify-between w-full",
+    "md:text-xl",
+    "md:after:w-[28px] md:after:h-[28px] md:before:left-[4px]",
+    "custom-radio-label",
+    "peer-focus:before:bg-white peer-checked:before:bg-white",
+    "peer-focus-visible:outline",
+  ),
+  radioInfo: cn("block ml-[30px] md:ml-[38px]"),
+  button: cn(
+    "mt-[50px] md:mt-[40px]",
+    "py-[16px] px-[12px] max-w-[652px] 3xl:max-w-[unset]",
+    "text-base tracking-base leading-main",
+    "button-interactive_fill",
+  ),
 };
 
 const ReserveForm = ({ id, activeEvent }: ReserveFormProps) => {
@@ -62,6 +76,7 @@ const ReserveForm = ({ id, activeEvent }: ReserveFormProps) => {
   return (
     <form
       id={`reserve-${id}-form`}
+      role="tabpanel"
       className={styles.form}
       onSubmit={handleSubmit}
     >
