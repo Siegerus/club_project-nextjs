@@ -1,19 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
-
-import {
-  selectEventsData,
-  eventSliceActions,
-  selectEventsLoadingStatus,
-  selectEventsError,
-} from "@/entities/event";
-import {
-  useAppSelector,
-  useAppDispatch,
-  LoadingStatus,
-  UserMessage,
-} from "@/shared/lib";
+import { useEvents } from "@/entities/event";
+import { LoadingStatus, UserMessage } from "@/shared/lib";
 import { cn } from "@/shared/lib";
 import { ErrorPage, PageSkeleton } from "@/shared/ui";
 import { errorButtonText } from "../lib";
@@ -28,17 +16,10 @@ const styles = {
 };
 
 const EventsList = () => {
-  const events = useAppSelector(selectEventsData);
-  const errorText = useAppSelector(selectEventsError);
-  const status = useAppSelector(selectEventsLoadingStatus);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(eventSliceActions.getEventsData());
-  }, [dispatch]);
+  const { events, status, errorText, reload } = useEvents();
 
   const handleButtonClick = () => {
-    dispatch(eventSliceActions.getEventsData());
+    reload();
   };
 
   if (status === LoadingStatus.Failed)
