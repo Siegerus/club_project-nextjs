@@ -9,5 +9,6 @@ export {
   selectActiveEventLoadingStatus,
   selectActiveEventError,
   useActiveEvent,
+  useEvents,
 } from "./model";
 export type { EventItem, TabId, EventTab } from "./model";
