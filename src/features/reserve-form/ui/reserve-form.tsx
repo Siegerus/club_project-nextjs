@@ -74,12 +74,7 @@ const ReserveForm = ({ id, activeEvent }: ReserveFormProps) => {
       ?.formattedPrice ?? radios[0].formattedPrice;
 
   return (
-    <form
-      id={`reserve-${id}-form`}
-      role="tabpanel"
-      className={styles.form}
-      onSubmit={handleSubmit}
-    >
+    <form className={styles.form} onSubmit={handleSubmit}>
       {reserveInputsConfig.map((input, i) => {
         const keyValue = `${input.id}-${i}`;
         return (

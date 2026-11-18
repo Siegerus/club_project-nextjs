@@ -2,11 +2,11 @@
 
 import { useState, useRef } from "react";
 
-import { selectActiveEvent } from "@/entities/event";
-import { useTabKeys } from "@/shared/lib";
-import { cn, useAppSelector } from "@/shared/lib";
+import {} from "@/entities/event";
+import { cn, useTabKeys } from "@/shared/lib";
 import { Button } from "@/shared/ui";
 import { reserveTabsConfig } from "../lib";
+import { useReserveActiveEvent } from "../model";
 import ReserveForm from "./reserve-form";
 
 const styles = {
@@ -29,11 +29,11 @@ const ReserveTabs = () => {
   const activeTabId = reserveTabsConfig[activeIndex].id;
   const tabRefs = useRef<HTMLButtonElement[]>([]);
 
-  const activeEvent = useAppSelector(selectActiveEvent);
-
   const handleTabClick = (index: number) => {
     setActiveIndex(index);
   };
+
+  const activeEvent = useReserveActiveEvent();
 
   const handleKeyDown = useTabKeys(tabRefs, setActiveIndex);
 
@@ -49,7 +49,8 @@ const ReserveTabs = () => {
               <Button
                 type="button"
                 role="tab"
-                aria-controls={`${activeTabId}`}
+                id={`reserve-tab-${tab.id}`}
+                aria-controls={"reserve-panel"}
                 aria-selected={activeTabId === tab.id}
                 tabIndex={activeIndex === i ? 0 : -1}
                 className={cn(
@@ -68,7 +69,13 @@ const ReserveTabs = () => {
           );
         })}
       </ul>
-      <ReserveForm id={activeTabId} activeEvent={activeEvent} />
+      <div
+        id="reserve-panel"
+        role="tabpanel"
+        aria-labelledby={`reserve-tab-${activeTabId}`}
+      >
+        <ReserveForm id={activeTabId} activeEvent={activeEvent} />
+      </div>
     </>
   );
 };

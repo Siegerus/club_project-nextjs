@@ -30,9 +30,7 @@ const ReserveModalOpen = ({
   const { isModalOpen, handleOpenModal, handleCloseModal, modalRootRef } =
     useModal();
 
-  const handleButtonClick = () => {
-    handleOpenModal();
-  };
+  const handleButtonClick = () => handleOpenModal();
 
   return (
     <>

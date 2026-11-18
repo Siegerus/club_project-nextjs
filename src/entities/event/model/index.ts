@@ -10,3 +10,4 @@ export {
   selectActiveEventError,
 } from "./event-slice";
 export type { EventItem, TabId, EventTab } from "./types";
+export { useActiveEvent } from "./hooks";

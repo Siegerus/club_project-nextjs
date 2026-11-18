@@ -4,13 +4,8 @@ import Image from "next/image";
 import { useEffect } from "react";
 
 import { ReserveModalOpen } from "@/features/reserve-form";
-import {
-  selectActiveEvent,
-  selectActiveEventLoadingStatus,
-  selectActiveEventError,
-  eventSliceActions,
-} from "@/entities/event";
-import { useAppSelector, useAppDispatch, useMediaQuery } from "@/shared/lib";
+import { eventSliceActions, useActiveEvent } from "@/entities/event";
+import { useAppDispatch, useMediaQuery } from "@/shared/lib";
 import { cn } from "@/shared/lib";
 import { LoadingStatus, UserMessage, getFormattedDate } from "@/shared/lib";
 import {
@@ -90,20 +85,11 @@ const styles = {
 
 const EventPromo = ({ eventId }: EventPromoProps) => {
   const isMobile = useMediaQuery("(max-width: 767px)");
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(
-      eventSliceActions.getActiveEvent("") /* потом на бэк передать eventId */,
-    );
-  }, [dispatch]);
-
-  const activeEvent = useAppSelector(selectActiveEvent);
-  const status = useAppSelector(selectActiveEventLoadingStatus);
-  const errorText = useAppSelector(selectActiveEventError);
+  const { activeEvent, status, errorText, reload } =
+    useActiveEvent(eventId); /* потом на бэк передать eventId */
 
   const handleButtonClick = () => {
-    dispatch(eventSliceActions.getActiveEvent("")); /* eventId */
+    reload();
   };
 
   if (status === LoadingStatus.Failed)
