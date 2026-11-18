@@ -1,6 +1,7 @@
-﻿type PromoReviewsProps = {};
+﻿import { ReviewsForm } from "@/features/reviews-form";
+import { Slider } from "@/shared/ui";
 
-const PromoReviews = (props: PromoReviewsProps) => {
+const PromoReviews = () => {
   return (
     <>
       <div>PromoReviews</div>
