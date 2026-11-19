@@ -30,6 +30,7 @@
   --color-main-bg: rgba(255, 255, 255, 0.04);
   --color-main-bgg: var(--background);
   --color-main-bg-secondary: #120d0a;
+  --color-main-bg-tertiary: #1b1615;
   --color-select-bg: #222;
   --color-main-input: #52362b;
   --color-main-label: #261a16; 

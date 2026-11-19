@@ -1,5 +1,5 @@
 import { EventPromo } from "@/widgets/event-promo";
-import { Container } from "@/shared/ui";
+import { EventReviews } from "@/widgets/event-reviews";
 
 type EventArticleProps = {
   params: Promise<{ id: string }>;
@@ -11,7 +11,7 @@ const EventArticle = async ({ params }: EventArticleProps) => {
   return (
     <>
       <EventPromo eventId={id} />
-      <Container></Container>
+      <EventReviews />
     </>
   );
 };
