@@ -8,7 +8,7 @@ import { type ReserveTabId, submitButtonText } from "../lib";
 import {
   reserveInputsConfig,
   getRadiosConfig,
-  ReserveFormValues,
+  type ReserveFormValues,
   initialFormValues,
 } from "../model";
 
@@ -24,14 +24,14 @@ const styles = {
     "rounded-2xl border-2 border-additional",
     "placeholder:text-sm md:placeholder:text-base leading-one",
   ),
-  radiosList: cn("w-full"),
+  radiosList: "w-full",
   radiosListItem: cn(
     "flex items-center justify-between",
     "mt-[16px]",
     "tracking-base md:tracking-none leading-main",
     "font-semibold text-base text-white",
   ),
-  radio: cn("sr-only peer"),
+  radio: "sr-only peer",
   radioLabel: cn(
     "flex items-center justify-between w-full",
     "md:text-xl",
@@ -40,7 +40,7 @@ const styles = {
     "peer-focus:before:bg-white peer-checked:before:bg-white",
     "peer-focus-visible:outline",
   ),
-  radioInfo: cn("block ml-[30px] md:ml-[38px]"),
+  radioInfo: "block ml-[30px] md:ml-[38px]",
   button: cn(
     "mt-[50px] md:mt-[40px]",
     "py-[16px] px-[12px] max-w-[652px] 3xl:max-w-[unset]",

@@ -1,7 +1,22 @@
-﻿import Image from "next/image";
+﻿"use client";
+
+import Image from "next/image";
+import { ChangeEvent, useState } from "react";
+import { Fragment } from "react/jsx-runtime";
 
 import { cn } from "@/shared/lib";
 import { Button, Input } from "@/shared/ui";
+import {
+  ratingLabelText,
+  submitButtonText,
+  disclaimerText,
+  RatingIconPath,
+} from "../lib";
+import {
+  reviewsInputsConfig,
+  initialFormValues,
+  type ReviewsFormValues,
+} from "../model";
 
 const fieldClass = cn(
   "w-full rounded-[16px] border-2 border-additional",
@@ -33,8 +48,8 @@ const styles = {
   ratingLabel:
     "max-w-[92px] lg:max-w-none text-sm font-semibold leading-main tracking-none text-white lg:text-xl lg:font-medium",
   stars:
-    "flex items-center gap-[13px] lg:gap-[3px] xl:gap-[7px] 2xl:gap-[6px] 3xl:gap-[10px] cursor-pointer",
-  star: "h-[22px] w-[22px] lg:h-[26px] lg:w-[26px] 2xl:h-[26px] 2xl:w-[26px] ",
+    "flex items-center gap-[13px] lg:gap-[3px] xl:gap-[7px] 2xl:gap-[6px] 3xl:gap-[10px]",
+  star: "h-[22px] w-[22px] lg:h-[26px] lg:w-[26px] 2xl:h-[26px] 2xl:w-[26px] cursor-pointer",
   button: cn(
     "w-full md:max-w-none 3xl:max-w-none",
     "py-[15px] px-[10px] md:px-[30px] md:py-[15px] lg:px-[50px] lg:py-[20px] lg:pb-[22px] mt-[10px]",
@@ -45,54 +60,99 @@ const styles = {
     "mt-[5px] lg:mt-[10px] text-center text-sm font-medium leading-main tracking-none text-white-70 lg:text-lg 2xl:text-xl",
 };
 
-const starItems = [1, 2, 3, 4, 5];
+const { textInputs, ratingRadios, selectRadios } = reviewsInputsConfig;
 
 const ReviewsForm = () => {
+  const [formValues, setFormValues] =
+    useState<ReviewsFormValues>(initialFormValues);
+
+  const hadleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+
+  const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className={styles.wrapper}>
       <form className={styles.form}>
         <button type="button" className={styles.selectField}>
-          <span className={styles.selectPlaceholder}>Выберите мероприятие</span>
+          <span className={styles.selectPlaceholder}>{ratingLabelText}</span>
         </button>
-        <Input
-          inputClass={styles.input}
-          id="reviews-name"
-          name="reviews-name"
-          type="text"
-          placeholder="Ваше имя"
-          autoComplete="name"
-        />
-
-        <Input
-          inputClass={styles.textarea}
-          id="reviews-message"
-          name="reviews-message"
-          placeholder="Ваш отзыв"
-          isTextArea
-        />
-
+        {textInputs.map((input, i) => {
+          const keyValue = `${input}-${i}`;
+          return input.isTextArea ? (
+            <Input
+              inputClass={styles.textarea}
+              id={input.id}
+              name={input.name}
+              placeholder={input.label}
+              autoComplete={input.autocomplete}
+              key={keyValue}
+              onChange={hadleInputChange}
+              isTextArea
+            />
+          ) : (
+            <Input
+              inputClass={styles.input}
+              id={input.id}
+              name={input.name}
+              placeholder={input.label}
+              autoComplete={input.autocomplete}
+              key={keyValue}
+              onChange={hadleInputChange}
+            />
+          );
+        })}
         <div className={styles.ratingRow}>
           <span className={styles.ratingLabel}>Рейтинг мероприятия</span>
           <div className={styles.stars}>
-            {starItems.map((item) => (
-              <Image
-                key={item}
-                className={styles.star}
-                src="/icons/black-star.svg"
-                alt=""
-                width={30}
-                height={30}
-              />
-            ))}
+            {ratingRadios.map((radio, i) => {
+              const keyValue = `${radio.id}-${i}`;
+              const isFilled =
+                Number(formValues[radio.name]) >= Number(radio.value);
+              return (
+                <Fragment key={keyValue}>
+                  <input
+                    className={"sr-only"}
+                    type="radio"
+                    id={radio.id}
+                    name={radio.name}
+                    value={radio.value}
+                    checked={formValues["reviews-form-rating"] === radio.value}
+                    onChange={handleRadioChange}
+                  />
+                  <label htmlFor={radio.id}>
+                    {isFilled ? (
+                      <Image
+                        className={styles.star}
+                        src={RatingIconPath.StarFilled}
+                        alt=""
+                        width={30}
+                        height={30}
+                      />
+                    ) : (
+                      <Image
+                        className={styles.star}
+                        src={RatingIconPath.Star}
+                        alt=""
+                        width={30}
+                        height={30}
+                      />
+                    )}
+                  </label>
+                </Fragment>
+              );
+            })}
           </div>
         </div>
         <Button className={styles.button}>
-          <span>Отправить отзыв</span>
+          <span>{submitButtonText}</span>
         </Button>
-        <p className={styles.disclaimer}>
-          Я&nbsp;ознакомлен(а) с&nbsp;политикой, офертой,
-          и&nbsp;даю&nbsp;согласие на&nbsp;обработку персональных данных
-        </p>
+        <p className={styles.disclaimer}>{disclaimerText}</p>
       </form>
     </div>
   );
