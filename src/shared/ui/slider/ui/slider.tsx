@@ -9,7 +9,7 @@ type SliderProps = {
 
 const styles = {
   card: cn(
-    "rotate-[7deg]",
+    "rotate-[7deg] grow",
     "rounded-smallest lg:rounded-small",
     "border-[3px] border-additional bg-additional",
   ),
@@ -59,7 +59,7 @@ const styles = {
   arrows: cn(
     "inline-flex items-center",
     "h-[50px] lg:h-[44px] xl:h-[44px]",
-    "lg:mr-[88px] xl:mr-[126px] 2xl:mr-[29px] lg:mt-[14px] ",
+    "lg:mr-[102px] xl:mr-[126px] 2xl:mr-[29px] 3xl:mr-0 lg:mt-[14px] ",
     "rounded-smallest lg:bg-main-bg",
     "[&>button:first-child>img]:-mr-[10px] [&>button:last-child>img]:-ml-[10px]",
   ),
@@ -123,7 +123,6 @@ const Slider = ({ sliderCardClass, sliderInnerClass }: SliderProps) => {
                 ))}
               </div>
             </div>
-
             <div className={styles.body}>
               <p className={styles.text}>{review.text}</p>
               <div className={styles.arrows}>

@@ -4,7 +4,7 @@ import { Slider, Container, Heading } from "@/shared/ui";
 import { reviewsTitleText } from "../lib";
 
 const styles = {
-  root: "pt-[66px] pb-[19px] md:pt-[53px] md:pb-[83px] md:pt-[98px] md:pb-[69px]",
+  root: "pt-[66px] pb-[19px] md:pt-[53px] md:pb-[83px] lg:pt-[98px] lg:pb-[69px]",
   wrapper:
     "flex flex-col items-center md:items-start md:flex-row md:justify-between mt-[26px] md:mt-[22px] lg:mt-[47px]",
   title: cn(
@@ -15,12 +15,11 @@ const styles = {
   ),
   slider: cn(
     "relative",
-    "w-full max-w-[317px] md:max-w-[299px] lg:max-w-[457px] xl:max-w-[535px] 2xl:max-w-[630px] 3xl:max-w-[752px]",
-    // "md:max-h-[145px] lg:max-h-[238px] xl:max-h-[268px]",
+    " w-full max-w-[310px] md:max-w-[308px] lg:max-w-[469px] xl:max-w-[540px] 2xl:max-w-[635px] 3xl:max-w-[748px]",
     "md:mt-[18px] lg:mt-[36px]",
   ),
   sliderInner:
-    "w-full max-w-[317px] md:max-w-[299px] lg:max-w-[457px] xl:max-w-[530px] 2xl:max-w-[630px] 3xl:max-w-[752px]",
+    "w-full max-w-[310px] md:max-w-[308px] lg:max-w-[469px] xl:max-w-[540px] 2xl:max-w-[635px] 3xl:max-w-[748px]",
 };
 
 const EventReviews = () => {
