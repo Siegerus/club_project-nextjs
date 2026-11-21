@@ -215,7 +215,7 @@
   }
 }
 
-@utility input-interactive {
+@utility input-interactive { 
   transition: background-color 0.3s;
 
   &::placeholder {

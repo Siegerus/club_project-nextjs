@@ -22,7 +22,6 @@ type ReviewsRatingRadio = Omit<ReviewsSelectRadio, "label">;
 
 type ReviewsInputConfig = {
   textInputs: ReviewsTextInput[];
-  selectRadios: ReviewsSelectRadio[];
   ratingRadios: ReviewsRatingRadio[];
 };
 
@@ -31,7 +30,7 @@ export const reviewsInputsConfig: ReviewsInputConfig = {
     {
       id: "reviews-form-name",
       name: "reviews-form-name",
-      label: "Имя",
+      label: "Ваше имя",
       type: "text",
       placeholder: "Ваше имя",
       autocomplete: "name",
@@ -45,26 +44,6 @@ export const reviewsInputsConfig: ReviewsInputConfig = {
       placeholder: "Ваш отзыв",
       autocomplete: "off",
       isTextArea: true,
-    },
-  ],
-  selectRadios: [
-    {
-      id: "Birthday party!",
-      name: "reviews-form-event",
-      label: "Birthday party!",
-      value: "Birthday party!",
-    },
-    {
-      id: "Swing свадьба Сегрея и Дарьи",
-      name: "reviews-form-event",
-      label: "Swing свадьба Сегрея и Дарьи",
-      value: "Swing свадьба Сегрея и Дарьи",
-    },
-    {
-      id: "Lorem impum",
-      name: "reviews-form-event",
-      label: "Lorem impum",
-      value: "Lorem impum",
     },
   ],
   ratingRadios: [
