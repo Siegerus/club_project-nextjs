@@ -6,7 +6,6 @@ export const AppRoute = {
   Rules: "/rules",
   Events: "/events",
   EventArticle: (id: string | number) => `/events/${id}`,
-  EventArticlee: `/events/`,
   Authorization: "/authorization",
   Faq: "/faq",
   Loyalty: "/loyalty",

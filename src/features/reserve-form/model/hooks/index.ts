@@ -1,1 +1,1 @@
-export { useReserveActiveEvent } from "./use-reserve-active-event";
+export { useActiveEventSelector } from "./use-active-event-selector";

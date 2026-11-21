@@ -1,13 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
 
 import { ReserveModalOpen } from "@/features/reserve-form";
-import { eventSliceActions, useActiveEvent } from "@/entities/event";
-import { useAppDispatch, useMediaQuery } from "@/shared/lib";
-import { cn } from "@/shared/lib";
-import { LoadingStatus, UserMessage, getFormattedDate } from "@/shared/lib";
+import { useActiveEvent } from "@/entities/event";
+import {
+  LoadingStatus,
+  UserMessage,
+  getFormattedDate,
+  useMediaQuery,
+  cn,
+} from "@/shared/lib";
 import {
   Timer,
   Heading,

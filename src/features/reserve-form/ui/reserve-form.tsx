@@ -83,6 +83,7 @@ const ReserveForm = ({ id, activeEvent }: ReserveFormProps) => {
             type={input.type}
             key={keyValue}
             id={input.id}
+            name={input.name}
             aria-label={input.label}
             placeholder={input.placeholder}
             value={formValues[input.name]}

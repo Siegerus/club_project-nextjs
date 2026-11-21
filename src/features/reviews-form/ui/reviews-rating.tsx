@@ -5,17 +5,11 @@ import Image from "next/image";
 import { ChangeEvent, Fragment } from "react";
 
 import { cn } from "@/shared/lib";
-import { RatingIconPath } from "../lib";
-import type { ReviewsInputName } from "../model";
-
-type RatingRadio = {
-  id: string;
-  name: ReviewsInputName;
-  value: string;
-};
+import { RatingIconPath, ratingLabelText } from "../lib";
+import type { ReviewsRatingRadio } from "../model";
 
 type ReviewsRatingProps = {
-  radios: RatingRadio[];
+  radios: ReviewsRatingRadio[];
   selectedValue: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
@@ -50,8 +44,14 @@ const ReviewsRating = ({
 }: ReviewsRatingProps) => {
   return (
     <div className={styles.ratingRow}>
-      <span className={styles.ratingLabel}>Рейтинг мероприятия</span>
-      <div className={styles.stars}>
+      <span id="reviews-rating-label" className={styles.ratingLabel}>
+        {ratingLabelText}
+      </span>
+      <div
+        className={styles.stars}
+        role="radiogroup"
+        aria-labelledby="reviews-rating-label"
+      >
         {radios.map((radio, i) => {
           const keyValue = `${radio.id}-${i}`;
           const isFilled = Number(selectedValue) >= Number(radio.value);
@@ -59,20 +59,21 @@ const ReviewsRating = ({
           return (
             <Fragment key={keyValue}>
               <input
-                className="sr-only"
+                className="sr-only peer"
                 type="radio"
                 id={radio.id}
                 name={radio.name}
+                aria-label={radio.label}
                 value={radio.value}
                 checked={selectedValue === radio.value}
                 onChange={onChange}
               />
-              <label htmlFor={radio.id}>
+              <label htmlFor={radio.id} className="peer-focus-visible">
                 {isFilled ? (
                   <motion.div
                     initial={animateStyles.initial}
                     animate={animateStyles.animate}
-                    transition={{ duration: 0.5, ease: "linear" }}
+                    transition={{ duration: 0.3, ease: "easeIn" }}
                   >
                     <Image
                       className={styles.star}

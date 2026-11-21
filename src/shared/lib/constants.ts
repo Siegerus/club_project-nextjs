@@ -26,4 +26,4 @@ export const UserMessage = {
   LoadingProgress: "Загрузка...",
   LoadingError: "Ошибка загрузки данных...",
   EmptyData: "Нет актуальных данных...",
-};
+} as const;

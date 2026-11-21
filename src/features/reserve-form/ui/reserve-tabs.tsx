@@ -6,7 +6,7 @@ import {} from "@/entities/event";
 import { cn, useTabKeys } from "@/shared/lib";
 import { Button } from "@/shared/ui";
 import { reserveTabsConfig } from "../lib";
-import { useReserveActiveEvent } from "../model";
+import { useActiveEventSelector } from "../model";
 import ReserveForm from "./reserve-form";
 
 const styles = {
@@ -33,7 +33,7 @@ const ReserveTabs = () => {
     setActiveIndex(index);
   };
 
-  const activeEvent = useReserveActiveEvent();
+  const activeEvent = useActiveEventSelector();
 
   const handleKeyDown = useTabKeys(tabRefs, setActiveIndex);
 

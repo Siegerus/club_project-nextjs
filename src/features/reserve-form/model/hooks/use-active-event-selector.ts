@@ -3,4 +3,4 @@
 import { selectActiveEvent } from "@/entities/event";
 import { useAppSelector } from "@/shared/lib";
 
-export const useReserveActiveEvent = () => useAppSelector(selectActiveEvent);
+export const useActiveEventSelector = () => useAppSelector(selectActiveEvent);

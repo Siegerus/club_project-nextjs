@@ -6,4 +6,4 @@ export type {
 export { initialFormValues } from "./initial-form-values";
 export { reserveInputsConfig } from "./reserve-inputs-config";
 export { getRadiosConfig } from "./utils";
-export { useReserveActiveEvent } from "./hooks";
+export { useActiveEventSelector } from "./hooks";

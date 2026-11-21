@@ -1,6 +1,6 @@
 "use client";
 
-import { KeyboardEvent, useCallback, useRef, RefObject, useState } from "react";
+import { KeyboardEvent, useCallback, useRef, useState } from "react";
 
 import { cn, useTabKeys } from "@/shared/lib";
 import { Button } from "@/shared/ui";

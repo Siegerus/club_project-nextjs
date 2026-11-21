@@ -58,7 +58,6 @@ const Input = ({
           {...(rest as TextareaHTMLAttributes<HTMLTextAreaElement>)}
           className={cn(styles.textArea, inputClass)}
           id={id}
-          name={id}
           placeholder={placeholder}
           onChange={onChange}
           style={areaHeight}
@@ -70,7 +69,6 @@ const Input = ({
           {...(rest as InputHTMLAttributes<HTMLInputElement>)}
           className={cn(styles.input, inputClass)}
           id={id}
-          name={id}
           placeholder={placeholder}
           onChange={onChange}
           autoComplete={autoComplete}
