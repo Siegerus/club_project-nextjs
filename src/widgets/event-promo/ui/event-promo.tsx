@@ -97,7 +97,7 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
 
   if (status === LoadingStatus.Failed)
     return (
-      <PageSkeleton>
+      <PageSkeleton wrapperHeight="min-h-[280px] md:min-h-[360px] lg:min-h-[560px]">
         <ErrorPage
           title={LoadingStatus.Failed}
           description={`${UserMessage.LoadingError}: ${errorText}`}
@@ -111,7 +111,7 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
 
   if (status === LoadingStatus.Loading)
     return (
-      <PageSkeleton>
+      <PageSkeleton wrapperHeight="min-h-[280px] md:min-h-[360px] lg:min-h-[560px]">
         <ErrorPage
           title={LoadingStatus.Loading}
           description={UserMessage.LoadingProgress}
@@ -123,7 +123,7 @@ const EventPromo = ({ eventId }: EventPromoProps) => {
 
   if (status === LoadingStatus.Success && !activeEvent)
     return (
-      <PageSkeleton>
+      <PageSkeleton wrapperHeight="min-h-[280px] md:min-h-[360px] lg:min-h-[560px]">
         <ErrorPage
           title={LoadingStatus.Failed}
           description={UserMessage.EmptyData}

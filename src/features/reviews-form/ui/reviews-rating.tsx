@@ -73,7 +73,7 @@ const ReviewsRating = ({
                   <motion.div
                     initial={animateStyles.initial}
                     animate={animateStyles.animate}
-                    transition={{ duration: 0.3, ease: "easeIn" }}
+                    transition={{ duration: 0.4, ease: "easeIn" }}
                   >
                     <Image
                       className={styles.star}

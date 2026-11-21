@@ -1,10 +1,12 @@
 ﻿import Image from "next/image";
 
 import { cn } from "@/shared/lib";
+import type { Slide } from "./types";
 
 type SliderProps = {
   sliderCardClass?: string;
   sliderInnerClass?: string;
+  sliderItems: Slide[];
 };
 
 const styles = {
@@ -78,7 +80,12 @@ const review = {
 
 const stars = [1, 2, 3, 4, 5];
 
-const Slider = ({ sliderCardClass, sliderInnerClass }: SliderProps) => {
+const Slider = ({
+  sliderCardClass,
+  sliderInnerClass,
+  sliderItems,
+}: SliderProps) => {
+  console.log(sliderItems);
   return (
     <article className={cn(styles.card, sliderCardClass)}>
       <div className={cn(styles.inner, sliderInnerClass)}>
