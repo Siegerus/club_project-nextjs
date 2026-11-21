@@ -1,4 +1,4 @@
-export const ratingLabelText = "Выберите мероприятие";
+export const selectLabelText = "Выберите мероприятие";
 
 export const submitButtonText = "Отправить отзыв";
 
