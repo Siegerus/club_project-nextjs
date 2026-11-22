@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 
 import { ReviewsForm } from "@/features/reviews-form";
 import { useComments } from "@/entities/event";
-import { cn, LoadingStatus } from "@/shared/lib";
+import { cn, LoadingStatus, UserMessage } from "@/shared/lib";
 import { Slider, type Slide, Container, Heading } from "@/shared/ui";
 import { reviewsTitleText, commentsDataToSlides } from "../lib";
 
@@ -20,7 +20,7 @@ const styles = {
   ),
   slider: cn(
     "relative",
-    " w-full max-w-[310px] md:max-w-[308px] lg:max-w-[469px] xl:max-w-[540px] 2xl:max-w-[635px] 3xl:max-w-[748px]",
+    "w-full max-w-[310px] md:max-w-[308px] lg:max-w-[469px] xl:max-w-[540px] 2xl:max-w-[635px] 3xl:max-w-[748px]",
     "md:mt-[18px] lg:mt-[36px]",
   ),
   sliderInner:
@@ -28,17 +28,45 @@ const styles = {
 };
 
 const EventReviews = () => {
-  const { comments, status, errorText, reload } = useComments();
-
-  // const slides = useMemo(() => {
-  //   if (status !== LoadingStatus.Success || !Array.isArray(comments)) {
-  //     return [];
-  //   }
-  //   return commentsDataToSlides(comments);
-  // }, [status, comments]);
+  const { comments, status, reload } = useComments();
 
   const slides =
     status === LoadingStatus.Success ? commentsDataToSlides(comments) : [];
+
+  // const renderSkeleton = (message: string) => {
+  //   return (
+  //     <SliderSkeleton
+  //       wrapperClass={styles.slider}
+  //       innerClass={styles.sliderInner}
+  //     >
+  //       <p>{message}</p>
+  //     </SliderSkeleton>
+  //   );
+  // };
+
+  // const renderSlider = () => {
+  //   return (
+  //     <Slider
+  //       sliderCardClass={styles.slider}
+  //       sliderInnerClass={styles.sliderInner}
+  //       sliderItems={slides}
+  //       status={status}
+  //     />
+  //   );
+  // };
+
+  // const render = (status: keyof typeof LoadingStatus) => {
+  //   switch (status) {
+  //     case LoadingStatus.Success:
+  //       return renderSlider();
+  //     case LoadingStatus.Loading:
+  //       return renderSkeleton(UserMessage.LoadingProgress);
+  //     case LoadingStatus.Failed:
+  //       return renderSkeleton(UserMessage.LoadingError);
+  //     default:
+  //       return null;
+  //   }
+  // };
 
   return (
     <section className={styles.root}>
@@ -54,7 +82,8 @@ const EventReviews = () => {
             sliderCardClass={styles.slider}
             sliderInnerClass={styles.sliderInner}
             sliderItems={slides}
-            loadingStatus={status}
+            status={status}
+            reload={reload}
           />
           <ReviewsForm />
         </div>

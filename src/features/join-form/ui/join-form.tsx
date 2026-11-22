@@ -20,7 +20,7 @@ const styles = {
   ),
 
   button: cn(
-    "w-full max-w-auto py-[20px] md:py-[21px]",
+    "w-full max-w-none 3xl:max-w-none py-[20px] md:py-[21px] 3xl:py-[20px]",
     "text-base md:text-xl leading-main tracking-base",
   ),
   checkbox: cn(

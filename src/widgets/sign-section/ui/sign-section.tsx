@@ -29,7 +29,7 @@ const styles = {
     " text-white-70 leading-main md:leading-middle tracking-base lg:tracking-none",
   ),
   buttom: cn(
-    "max-w-[320px] md:max-w-[291px] lg:max-w-[271px] 2xl:max-w-[310px]",
+    "max-w-[320px] md:max-w-[291px] lg:max-w-[271px] 2xl:max-w-[310px] 3xl:max-w-[310px]",
     "mt-[16px] md:mt-[34px] lg:mx-0 py-[14px] lg:py-[28px] xl:py-[28px] 2xl:py-[29px] 2xl:text-2xl",
     "md:leading-main tracking-base button-interactive_fill",
   ),

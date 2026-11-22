@@ -2,14 +2,17 @@
 
 import Image from "next/image";
 
-import { cn, LoadingStatus } from "@/shared/lib";
+import { cn, LoadingStatus, UserMessage } from "@/shared/lib";
+import { Button } from "../button";
+import SlideSkeleton from "./slide-skeleton";
 import type { Slide } from "./types";
 
 type SliderProps = {
   sliderCardClass?: string;
   sliderInnerClass?: string;
   sliderItems: Slide[];
-  loadingStatus: keyof typeof LoadingStatus;
+  status: keyof typeof LoadingStatus;
+  reload: () => void;
 };
 
 const styles = {
@@ -26,9 +29,9 @@ const styles = {
     "rounded-[14px] lg:rounded-small",
     "border-[3px] border-additional bg-main-bg-tertiary lg:bg-main-bg-secondary",
   ),
-  photoDesktop: cn(
+  imageDesktop: cn(
     "relative hidden shrink-0 overflow-hidden",
-    "xl:block xl:w-[132px] xl:h-[165px] 2xl:w-[240px] 2xl:h-[278px] xl:rounded-small",
+    "xl:block xl:w-[132px] xl:h-[165px] 2xl:w-[240px] 2xl:h-auto xl:rounded-small",
   ),
   photoImage: "object-cover",
   content:
@@ -40,16 +43,16 @@ const styles = {
     "flex items-end lg:items-center lg:min-w-[260px] xl:min-w-[unset] lg:justify-between gap-[10px]",
     "xl:items-start xl:gap-0",
   ),
-  avatar: cn(
+  imageMobile: cn(
     "relative h-[40px] w-[40px] lg:h-[112px] lg:w-[100px] shrink-0 overflow-hidden rounded-[8px] lg:rounded-small",
     "xl:hidden",
   ),
   info: "flex flex-col",
-  name: cn(
+  slideTitle: cn(
     "text-sm lg:text-[1.375em] xl:text-[1.75em] 3xl:text-[2em] font-semibold",
     "tracking-none lg:tracking-base text-white leading-small lg:leading-[0.8]",
   ),
-  event: cn(
+  slideDescription: cn(
     "lg:mt-[10px] text-sm lg:text-xl xl:text-lg 3xl:text-xl font-medium",
     "tracking-none lg:tracking-base xl:tracking-none leading-main text-white-70",
   ),
@@ -74,12 +77,6 @@ const styles = {
   ),
   arrowIcon: "h-[12px] w-[12px] min-h-[12px] min-w-[12px]",
 };
-const review = {
-  name: "Владимир М.",
-  event: "Black party",
-  text: "Очень понравилось. Свет, декорации, актеры. Всё прошло очень хорошо, замечательные организаторы. Все организационные моменты быстро решили, отличный сервис",
-  image: "/images/avatar.png",
-};
 
 const stars = [1, 2, 3, 4, 5];
 
@@ -87,88 +84,130 @@ const Slider = ({
   sliderCardClass,
   sliderInnerClass,
   sliderItems,
-  loadingStatus,
+  status,
+  reload,
 }: SliderProps) => {
-  console.log(sliderItems);
+  const renderSlides = () => {
+    return (
+      <>
+        {sliderItems.map((slide, i) => {
+          const keyValue = `${slide.id}-${i}`;
+          return (
+            <div className="flex" key={keyValue}>
+              <div className={styles.imageDesktop}>
+                <Image
+                  className={styles.photoImage}
+                  src={slide.image}
+                  alt={slide.title}
+                  fill
+                  sizes="240px"
+                />
+              </div>
+              <div className={styles.content}>
+                <div className={styles.header}>
+                  <div className={styles.reviewer}>
+                    <div className={styles.imageMobile}>
+                      <Image
+                        className="object-cover"
+                        src={slide.image}
+                        alt={slide.title}
+                        fill
+                        sizes="40px"
+                      />
+                    </div>
+                    <div className={styles.info}>
+                      <span className={styles.slideTitle}>{slide.title}</span>
+                      <span className={styles.slideDescription}>
+                        {slide.description}
+                      </span>
+                    </div>
+                  </div>
+                  <div className={styles.stars}>
+                    {stars.map((star) => (
+                      <Image
+                        key={star}
+                        className={styles.star}
+                        src="/icons/yellow-star.svg"
+                        alt=""
+                        width={25}
+                        height={24}
+                        aria-hidden
+                      />
+                    ))}
+                  </div>
+                </div>
+                <div className={styles.body}>
+                  <p className={styles.text}>{slide.comment}</p>
+                  <div className={styles.arrows}>
+                    <button
+                      type="button"
+                      className={styles.arrowButton}
+                      aria-label="Предыдущий отзыв"
+                    >
+                      <Image
+                        className={styles.arrowIcon}
+                        src="/icons/reviews_arrow-left.svg"
+                        alt=""
+                        width={11}
+                        height={12}
+                        aria-hidden
+                      />
+                    </button>
+                    <button
+                      type="button"
+                      className={styles.arrowButton}
+                      aria-label="Следующий отзыв"
+                    >
+                      <Image
+                        className={styles.arrowIcon}
+                        src="/icons/reviews_arrow-right.svg"
+                        alt=""
+                        width={11}
+                        height={12}
+                        aria-hidden
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </>
+    );
+  };
+
+  const renderLoading = (message: string) => {
+    return (
+      <SlideSkeleton>
+        <p>{message}</p>
+      </SlideSkeleton>
+    );
+  };
+
+  const renderError = (message: string) => {
+    return (
+      <SlideSkeleton reload={reload}>
+        <p>{message}</p>
+      </SlideSkeleton>
+    );
+  };
+
+  const renderSlider = (status: keyof typeof LoadingStatus) => {
+    switch (status) {
+      case LoadingStatus.Success:
+        return renderSlides();
+      case LoadingStatus.Loading:
+        return renderLoading(UserMessage.LoadingProgress);
+      case LoadingStatus.Failed:
+        return renderError(UserMessage.LoadingError);
+    }
+  };
+
   return (
     <article className={cn(styles.card, sliderCardClass)}>
       <div className={cn(styles.inner, sliderInnerClass)}>
-        <div className="flex">
-          <div className={styles.photoDesktop}>
-            <Image
-              className={styles.photoImage}
-              src={review.image}
-              alt={review.name}
-              fill
-              sizes="240px"
-            />
-          </div>
-          <div className={styles.content}>
-            <div className={styles.header}>
-              <div className={styles.reviewer}>
-                <div className={styles.avatar}>
-                  <Image
-                    className={styles.photoImage}
-                    src={review.image}
-                    alt={review.name}
-                    fill
-                    sizes="40px"
-                  />
-                </div>
-                <div className={styles.info}>
-                  <span className={styles.name}>{review.name}</span>
-                  <span className={styles.event}>{review.event}</span>
-                </div>
-              </div>
-              <div className={styles.stars}>
-                {stars.map((star) => (
-                  <Image
-                    key={star}
-                    className={styles.star}
-                    src="/icons/yellow-star.svg"
-                    alt=""
-                    width={25}
-                    height={24}
-                    aria-hidden
-                  />
-                ))}
-              </div>
-            </div>
-            <div className={styles.body}>
-              <p className={styles.text}>{review.text}</p>
-              <div className={styles.arrows}>
-                <button
-                  type="button"
-                  className={styles.arrowButton}
-                  aria-label="Предыдущий отзыв"
-                >
-                  <Image
-                    className={styles.arrowIcon}
-                    src="/icons/reviews_arrow-left.svg"
-                    alt=""
-                    width={11}
-                    height={12}
-                    aria-hidden
-                  />
-                </button>
-                <button
-                  type="button"
-                  className={styles.arrowButton}
-                  aria-label="Следующий отзыв"
-                >
-                  <Image
-                    className={styles.arrowIcon}
-                    src="/icons/reviews_arrow-right.svg"
-                    alt=""
-                    width={11}
-                    height={12}
-                    aria-hidden
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        {renderSlider(status)}
       </div>
     </article>
   );
