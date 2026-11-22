@@ -1,10 +1,10 @@
 ﻿"use client";
 
+import { motion, scale } from "framer-motion";
 import Image from "next/image";
 
 import { cn, LoadingStatus, UserMessage } from "@/shared/lib";
-import { arrowsPath, ratingIconPath } from "./lib";
-import { rateToStars } from "./lib";
+import { arrowsPath, ratingIconPath, useSlider } from "./lib";
 import SlideSkeleton from "./slide-skeleton";
 import type { Slide } from "./types";
 
@@ -79,7 +79,7 @@ const styles = {
   arrowIcon: "h-[12px] w-[12px] min-h-[12px] min-w-[12px]",
 };
 
-const stars = [1, 2, 3, 4, 5];
+const stars = Array.from({ length: 5 }, (_, i) => i + 1);
 
 const Slider = ({
   sliderCardClass,
@@ -88,109 +88,123 @@ const Slider = ({
   status,
   reload,
 }: SliderProps) => {
+  const { currentIndex, handleArrowClick } = useSlider(sliderItems);
+
   const renderSlides = () => {
     return (
       <>
         {sliderItems.map((slide, i) => {
           const keyValue = `${slide.id}-${i}`;
           return (
-            <div className="flex" key={keyValue}>
-              <div className={styles.imageDesktop}>
-                <Image
-                  className={styles.photoImage}
-                  src={slide.image}
-                  alt={slide.title}
-                  fill
-                  sizes="240px"
-                />
-              </div>
-              <div className={styles.content}>
-                <div className={styles.header}>
-                  <div className={styles.reviewer}>
-                    <div className={styles.imageMobile}>
-                      <Image
-                        className="object-cover"
-                        src={slide.image}
-                        alt={slide.title}
-                        fill
-                        sizes="40px"
-                      />
+            i === currentIndex && (
+              <motion.div
+                className="flex"
+                key={keyValue}
+                initial={{ opacity: 0, transform: "scale(50%)" }}
+                animate={{ opacity: 1, transform: "scale(100%)" }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className={styles.imageDesktop}>
+                  <Image
+                    className={styles.photoImage}
+                    src={slide.image}
+                    alt={slide.title}
+                    fill
+                    sizes="240px"
+                  />
+                </div>
+                <div className={styles.content}>
+                  <div className={styles.header}>
+                    <div className={styles.reviewer}>
+                      <div className={styles.imageMobile}>
+                        <Image
+                          className="object-cover"
+                          src={slide.image}
+                          alt={slide.title}
+                          fill
+                          sizes="40px"
+                        />
+                      </div>
+                      <div className={styles.info}>
+                        <span className={styles.slideTitle}>{slide.title}</span>
+                        <span className={styles.slideDescription}>
+                          {slide.description}
+                        </span>
+                      </div>
                     </div>
-                    <div className={styles.info}>
-                      <span className={styles.slideTitle}>{slide.title}</span>
-                      <span className={styles.slideDescription}>
-                        {slide.description}
-                      </span>
+                    <div className={styles.stars}>
+                      {stars.map((star, i) => {
+                        return i >= slide.rating ? (
+                          <Image
+                            key={star}
+                            className={styles.star}
+                            src={ratingIconPath.empty}
+                            alt=""
+                            width={25}
+                            height={24}
+                            aria-hidden
+                          />
+                        ) : (
+                          <Image
+                            key={star}
+                            className={styles.star}
+                            src={ratingIconPath.fill}
+                            alt=""
+                            width={25}
+                            height={24}
+                            aria-hidden
+                          />
+                        );
+                      })}
                     </div>
                   </div>
-                  <div className={styles.stars}>
-                    {stars.map((star, i) => {
-                      return i >= slide.rating ? (
+                  <div className={styles.body}>
+                    <p className={styles.text}>{slide.comment}</p>
+                    <div className={styles.arrows}>
+                      <button
+                        onClick={() => handleArrowClick(-1)}
+                        type="button"
+                        className={styles.arrowButton}
+                        aria-label="Предыдущий слайд"
+                      >
                         <Image
-                          key={star}
-                          className={styles.star}
-                          src={ratingIconPath.empty}
+                          className={styles.arrowIcon}
+                          src={arrowsPath.left}
                           alt=""
-                          width={25}
-                          height={24}
+                          width={11}
+                          height={12}
                           aria-hidden
                         />
-                      ) : (
+                      </button>
+                      <button
+                        onClick={() => handleArrowClick(1)}
+                        type="button"
+                        className={styles.arrowButton}
+                        aria-label="Следующий слайд"
+                      >
                         <Image
-                          key={star}
-                          className={styles.star}
-                          src={ratingIconPath.fill}
+                          className={styles.arrowIcon}
+                          src={arrowsPath.right}
                           alt=""
-                          width={25}
-                          height={24}
+                          width={11}
+                          height={12}
                           aria-hidden
                         />
-                      );
-                    })}
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <div className={styles.body}>
-                  <p className={styles.text}>{slide.comment}</p>
-                  <div className={styles.arrows}>
-                    <button
-                      type="button"
-                      className={styles.arrowButton}
-                      aria-label="Предыдущий отзыв"
-                    >
-                      <Image
-                        className={styles.arrowIcon}
-                        src={arrowsPath.left}
-                        alt=""
-                        width={11}
-                        height={12}
-                        aria-hidden
-                      />
-                    </button>
-                    <button
-                      type="button"
-                      className={styles.arrowButton}
-                      aria-label="Следующий отзыв"
-                    >
-                      <Image
-                        className={styles.arrowIcon}
-                        src={arrowsPath.right}
-                        alt=""
-                        width={11}
-                        height={12}
-                        aria-hidden
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+              </motion.div>
+            )
           );
         })}
       </>
     );
   };
 
-  const renderLoading = (message: string) => {
+  const renderLoading = (
+    message: (typeof UserMessage)[keyof typeof UserMessage],
+  ) => {
     return (
       <SlideSkeleton>
         <p>{message}</p>
@@ -198,7 +212,9 @@ const Slider = ({
     );
   };
 
-  const renderError = (message: string) => {
+  const renderError = (
+    message: (typeof UserMessage)[keyof typeof UserMessage],
+  ) => {
     return (
       <SlideSkeleton reload={reload}>
         <p>{message}</p>

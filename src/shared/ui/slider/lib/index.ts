@@ -1,2 +1,2 @@
 export * from "./constants";
-export { rateToStars } from "./utils";
+export { useSlider } from "./hooks";
