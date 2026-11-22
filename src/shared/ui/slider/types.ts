@@ -4,6 +4,6 @@ export type Slide = {
   image: string;
   description?: string;
   comment?: string;
-  rating?: number;
+  rating: number;
   date?: string;
 };

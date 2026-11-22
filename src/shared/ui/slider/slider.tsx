@@ -3,7 +3,8 @@
 import Image from "next/image";
 
 import { cn, LoadingStatus, UserMessage } from "@/shared/lib";
-import { Button } from "../button";
+import { arrowsPath, ratingIconPath } from "./lib";
+import { rateToStars } from "./lib";
 import SlideSkeleton from "./slide-skeleton";
 import type { Slide } from "./types";
 
@@ -123,17 +124,29 @@ const Slider = ({
                     </div>
                   </div>
                   <div className={styles.stars}>
-                    {stars.map((star) => (
-                      <Image
-                        key={star}
-                        className={styles.star}
-                        src="/icons/yellow-star.svg"
-                        alt=""
-                        width={25}
-                        height={24}
-                        aria-hidden
-                      />
-                    ))}
+                    {stars.map((star, i) => {
+                      return i >= slide.rating ? (
+                        <Image
+                          key={star}
+                          className={styles.star}
+                          src={ratingIconPath.empty}
+                          alt=""
+                          width={25}
+                          height={24}
+                          aria-hidden
+                        />
+                      ) : (
+                        <Image
+                          key={star}
+                          className={styles.star}
+                          src={ratingIconPath.fill}
+                          alt=""
+                          width={25}
+                          height={24}
+                          aria-hidden
+                        />
+                      );
+                    })}
                   </div>
                 </div>
                 <div className={styles.body}>
@@ -146,7 +159,7 @@ const Slider = ({
                     >
                       <Image
                         className={styles.arrowIcon}
-                        src="/icons/reviews_arrow-left.svg"
+                        src={arrowsPath.left}
                         alt=""
                         width={11}
                         height={12}
@@ -160,7 +173,7 @@ const Slider = ({
                     >
                       <Image
                         className={styles.arrowIcon}
-                        src="/icons/reviews_arrow-right.svg"
+                        src={arrowsPath.right}
                         alt=""
                         width={11}
                         height={12}
