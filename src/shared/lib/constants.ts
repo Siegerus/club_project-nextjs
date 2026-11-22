@@ -1,6 +1,7 @@
 export const SliceNameSpace = {
   Session: "session",
   Event: "events",
+  Comments: "comments",
 } as const;
 
 export const LoadingStatus = {
@@ -17,6 +18,7 @@ export const APIRoute = {
   Logout: "/logout",
   Events: "/mocks/events/events.json",
   ActiveEvent: "/mocks/events/active-event.json",
+  Comments: "/mocks/events/comments.json",
 } as const;
 
 export const UserMessage = {

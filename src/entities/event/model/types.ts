@@ -20,3 +20,13 @@ export type EventItem = {
   image: string;
   tabletImage: string;
 };
+
+export type CommentItem = {
+  id: string;
+  author: string;
+  avatar: string;
+  event: string;
+  comment: string;
+  rating: number;
+  date: string;
+};

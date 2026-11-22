@@ -8,6 +8,11 @@ export {
   selectActiveEvent,
   selectActiveEventLoadingStatus,
   selectActiveEventError,
+  commentsSlice,
+  selectCommentsData,
+  selectCommentsLoadingStatus,
+  selectCommentsError,
+  commentsSliceActions,
   useActiveEvent,
   useEvents,
 } from "./model";
