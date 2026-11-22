@@ -1,7 +1,12 @@
-﻿import { ReviewsForm } from "@/features/reviews-form";
-import { cn } from "@/shared/lib";
-import { Slider, Container, Heading } from "@/shared/ui";
-import { reviewsTitleText } from "../lib";
+﻿"use client";
+
+import { useEffect, useMemo, useState } from "react";
+
+import { ReviewsForm } from "@/features/reviews-form";
+import { useComments } from "@/entities/event";
+import { cn, LoadingStatus } from "@/shared/lib";
+import { Slider, type Slide, Container, Heading } from "@/shared/ui";
+import { reviewsTitleText, commentsDataToSlides } from "../lib";
 
 const styles = {
   root: "pt-[66px] pb-[19px] md:pt-[53px] md:pb-[83px] lg:pt-[98px] lg:pb-[69px]",
@@ -23,6 +28,18 @@ const styles = {
 };
 
 const EventReviews = () => {
+  const { comments, status, errorText, reload } = useComments();
+
+  // const slides = useMemo(() => {
+  //   if (status !== LoadingStatus.Success || !Array.isArray(comments)) {
+  //     return [];
+  //   }
+  //   return commentsDataToSlides(comments);
+  // }, [status, comments]);
+
+  const slides =
+    status === LoadingStatus.Success ? commentsDataToSlides(comments) : [];
+
   return (
     <section className={styles.root}>
       <Heading
@@ -36,6 +53,8 @@ const EventReviews = () => {
           <Slider
             sliderCardClass={styles.slider}
             sliderInnerClass={styles.sliderInner}
+            sliderItems={slides}
+            loadingStatus={status}
           />
           <ReviewsForm />
         </div>

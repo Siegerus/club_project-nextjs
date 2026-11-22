@@ -23,4 +23,4 @@ export { ErrorPage } from "./error-page";
 export { Watermark } from "./watermark";
 export { PageSkeleton } from "./page-skeleton";
 export { Eclipse } from "./eclipse";
-export { Slider } from "./slider";
+export { Slider, type Slide } from "./slider";

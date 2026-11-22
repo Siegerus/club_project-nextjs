@@ -15,5 +15,6 @@ export {
   commentsSliceActions,
   useActiveEvent,
   useEvents,
+  useComments,
 } from "./model";
-export type { EventItem, TabId, EventTab } from "./model";
+export type { EventItem, TabId, EventTab, CommentItem } from "./model";

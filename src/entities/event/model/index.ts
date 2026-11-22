@@ -10,7 +10,7 @@ export {
   selectActiveEventError,
 } from "./event-slice";
 export type { EventItem, TabId, EventTab, CommentItem } from "./types";
-export { useActiveEvent, useEvents } from "./hooks";
+export { useActiveEvent, useEvents, useComments } from "./hooks";
 
 export { default as commentsSlice } from "./comments-slice";
 export {

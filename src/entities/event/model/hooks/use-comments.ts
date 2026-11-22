@@ -10,7 +10,7 @@ import {
 } from "@/entities/event";
 import { useAppDispatch, useAppSelector } from "@/shared/lib";
 
-const useComments = () => {
+export const useComments = () => {
   const dispatch = useAppDispatch();
 
   const comments = useAppSelector(selectCommentsData);
@@ -27,5 +27,3 @@ const useComments = () => {
 
   return { comments, status, errorText, reload };
 };
-
-export default useComments;

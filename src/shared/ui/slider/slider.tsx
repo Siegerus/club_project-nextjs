@@ -1,12 +1,15 @@
-﻿import Image from "next/image";
+﻿"use client";
 
-import { cn } from "@/shared/lib";
+import Image from "next/image";
+
+import { cn, LoadingStatus } from "@/shared/lib";
 import type { Slide } from "./types";
 
 type SliderProps = {
   sliderCardClass?: string;
   sliderInnerClass?: string;
   sliderItems: Slide[];
+  loadingStatus: keyof typeof LoadingStatus;
 };
 
 const styles = {
@@ -84,6 +87,7 @@ const Slider = ({
   sliderCardClass,
   sliderInnerClass,
   sliderItems,
+  loadingStatus,
 }: SliderProps) => {
   console.log(sliderItems);
   return (
