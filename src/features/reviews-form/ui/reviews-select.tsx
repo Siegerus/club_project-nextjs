@@ -19,7 +19,7 @@ const styles = {
   selectField: cn("max-w-full mx-auto text-center"),
   selectPlaceholder: cn("max-w-full mx-auto text-center text-white"),
   select: cn(
-    "min-h-[66px] max-w-full mx-auto mb-[10px] py-[20px] text-center",
+    "max-w-full mx-auto mb-[10px] py-[17px] md:py-[21px] lg:py-[21px] text-center",
     "text-base text-center text-select-text tracking-base",
     "overflow-hidden text-ellipsis whitespace-nowrap",
     "appearance-none [-webkit-appearance:none] [-moz-appearance:none] cursor-pointer input-interactive",
@@ -51,8 +51,8 @@ const ReviewsSelect = ({
       value={value}
       onChange={onChange}
       className={cn(
-        styles.select,
         fieldClass,
+        styles.select,
         value ? "text-white-70" : "text-select-text",
       )}
     >

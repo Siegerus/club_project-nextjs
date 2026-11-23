@@ -24,15 +24,15 @@ const styles = {
   ),
   inner: cn(
     "-rotate-[7deg]",
-    "flex flex-col gap-[10px]",
-    "xl:flex-row xl:items-center xl:gap-[20px]",
-    "p-[7px] lg:p-[15px] xl:p-0",
+    "flex flex-col gap-[10px] lg:gap-[4px]",
+    "xl:items-center xl:gap-0",
+    "p-[7px] lg:p-[15px] xl:p-0 xl:pb-[15px] 2xl:p-0",
     "rounded-[14px] lg:rounded-small",
     "border-[3px] border-additional bg-main-bg-tertiary lg:bg-main-bg-secondary",
   ),
   imageDesktop: cn(
     "relative hidden shrink-0 overflow-hidden",
-    "xl:block xl:w-[132px] xl:h-[165px] 2xl:w-[240px] 2xl:h-auto xl:rounded-small",
+    "xl:block xl:w-[132px] xl:h-[165px] 2xl:w-[240px] 2xl:h-[280px] xl:rounded-small",
   ),
   photoImage: "object-cover",
   content:
@@ -41,7 +41,7 @@ const styles = {
     "flex items-center xl:items-start justify-between gap-[10px] xl:w-full",
   body: "flex items-end justify-between lg:flex-col 2xl:items-center",
   reviewer: cn(
-    "flex items-end lg:items-center lg:min-w-[260px] xl:min-w-[unset] lg:justify-between gap-[10px]",
+    "flex items-start lg:items-center xl:min-w-[unset] lg:justify-start gap-[10px]",
     "xl:items-start xl:gap-0",
   ),
   imageMobile: cn(
@@ -61,14 +61,15 @@ const styles = {
     "flex shrink-0 items-center gap-[10px] lg:gap-[4px] xl:gap-[8px] 2xl:gap-[7px] 3xl:gap-[10px]",
   star: "h-[15px] w-[15px] lg:h-[25px] lg:w-[25px]",
   text: cn(
-    "max-w-[235px] lg:max-w-[unset] mt-[10px]",
+    "max-w-[230px] lg:max-w-[unset] mt-[10px]",
     "text-sm lg:text-lg xl:text-lg 3xl:text-xl",
     "font-medium leading-main tracking-none text-white",
   ),
   arrows: cn(
-    "inline-flex items-center",
-    "h-[50px] lg:h-[44px] xl:h-[44px]",
-    "lg:mr-[102px] xl:mr-[126px] 2xl:mr-[29px] 3xl:mr-0 lg:mt-[14px] ",
+    "z-10 absolute lg:relative 2xl:absolute bottom-[7px] lg:bottom-0 right-0 2xl:right-1/4",
+    "inline-flex lg:self-end items-center",
+    "lg:w-[77px] h-[50px] lg:h-[44px] xl:h-[44px]",
+    "lg:mr-[100px] xl:mr-[135px] 2xl:mr-[29px] 3xl:mr-0 lg:mt-[14px] xl:mt-[0] 2xl:m-0 2xl:mb-[15px]",
     "rounded-smallest lg:bg-main-bg",
     "[&>button:first-child>img]:-mr-[10px] [&>button:last-child>img]:-ml-[10px]",
   ),
@@ -160,38 +161,6 @@ const Slider = ({
                   </div>
                   <div className={styles.body}>
                     <p className={styles.text}>{slide.comment}</p>
-                    <div className={styles.arrows}>
-                      <button
-                        onClick={() => handleArrowClick(-1)}
-                        type="button"
-                        className={styles.arrowButton}
-                        aria-label="Предыдущий слайд"
-                      >
-                        <Image
-                          className={styles.arrowIcon}
-                          src={arrowsPath.left}
-                          alt=""
-                          width={11}
-                          height={12}
-                          aria-hidden
-                        />
-                      </button>
-                      <button
-                        onClick={() => handleArrowClick(1)}
-                        type="button"
-                        className={styles.arrowButton}
-                        aria-label="Следующий слайд"
-                      >
-                        <Image
-                          className={styles.arrowIcon}
-                          src={arrowsPath.right}
-                          alt=""
-                          width={11}
-                          height={12}
-                          aria-hidden
-                        />
-                      </button>
-                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -237,6 +206,38 @@ const Slider = ({
     <article className={cn(styles.card, sliderCardClass)}>
       <div className={cn(styles.inner, sliderInnerClass)}>
         {renderSlider(status)}
+        <div className={styles.arrows}>
+          <button
+            onClick={() => handleArrowClick(-1)}
+            type="button"
+            className={styles.arrowButton}
+            aria-label="Предыдущий слайд"
+          >
+            <Image
+              className={styles.arrowIcon}
+              src={arrowsPath.left}
+              alt=""
+              width={11}
+              height={12}
+              aria-hidden
+            />
+          </button>
+          <button
+            onClick={() => handleArrowClick(1)}
+            type="button"
+            className={styles.arrowButton}
+            aria-label="Следующий слайд"
+          >
+            <Image
+              className={styles.arrowIcon}
+              src={arrowsPath.right}
+              alt=""
+              width={11}
+              height={12}
+              aria-hidden
+            />
+          </button>
+        </div>
       </div>
     </article>
   );
