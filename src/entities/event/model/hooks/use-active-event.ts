@@ -7,7 +7,7 @@ import {
   selectActiveEvent,
   selectActiveEventError,
   selectActiveEventLoadingStatus,
-} from "@/entities/event";
+} from "../event-slice";
 import { useAppDispatch, useAppSelector } from "@/shared/lib";
 
 export const useActiveEvent = (eventId: string) => {

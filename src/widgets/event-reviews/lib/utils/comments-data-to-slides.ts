@@ -1,5 +1,5 @@
 import type { CommentItem } from "@/entities/event";
-import type { Slide } from "@/shared/ui/slider";
+import type { Slide } from "@/shared/ui";
 
 export const commentsDataToSlides = (data: CommentItem[]): Slide[] => {
   if (!Array.isArray(data)) return [];

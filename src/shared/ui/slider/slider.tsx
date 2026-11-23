@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { motion, scale } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 import { cn, LoadingStatus, UserMessage } from "@/shared/lib";
@@ -171,7 +171,7 @@ const Slider = ({
     );
   };
 
-  const renderLoading = (
+  const renderEmpty = (
     message: (typeof UserMessage)[keyof typeof UserMessage],
   ) => {
     return (
@@ -191,26 +191,30 @@ const Slider = ({
     );
   };
 
-  const renderSlider = (status: keyof typeof LoadingStatus) => {
+  const renderContent = (status: keyof typeof LoadingStatus) => {
     switch (status) {
-      case LoadingStatus.Success:
-        return renderSlides();
       case LoadingStatus.Loading:
-        return renderLoading(UserMessage.LoadingProgress);
+        return renderEmpty(UserMessage.LoadingProgress);
       case LoadingStatus.Failed:
         return renderError(UserMessage.LoadingError);
+      case LoadingStatus.Success:
+        if (sliderItems.length <= 0) return renderEmpty(UserMessage.EmptyData);
+        return renderSlides();
+      default:
+        return renderEmpty(UserMessage.EmptyData);
     }
   };
 
   return (
     <article className={cn(styles.card, sliderCardClass)}>
       <div className={cn(styles.inner, sliderInnerClass)}>
-        {renderSlider(status)}
+        {renderContent(status)}
         <div className={styles.arrows}>
           <button
             onClick={() => handleArrowClick(-1)}
             type="button"
             className={styles.arrowButton}
+            disabled={sliderItems.length <= 1}
             aria-label="Предыдущий слайд"
           >
             <Image
@@ -226,6 +230,7 @@ const Slider = ({
             onClick={() => handleArrowClick(1)}
             type="button"
             className={styles.arrowButton}
+            disabled={sliderItems.length <= 1}
             aria-label="Следующий слайд"
           >
             <Image

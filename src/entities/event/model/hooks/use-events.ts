@@ -7,7 +7,7 @@ import {
   selectEventsData,
   selectEventsError,
   selectEventsLoadingStatus,
-} from "@/entities/event";
+} from "../event-slice";
 import { useAppDispatch, useAppSelector } from "@/shared/lib";
 
 export const useEvents = () => {

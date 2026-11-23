@@ -2,13 +2,13 @@
 
 import { useEffect } from "react";
 
-import {
-  selectCommentsData,
-  selectCommentsLoadingStatus,
-  selectCommentsError,
-  commentsSliceActions,
-} from "@/entities/event";
 import { useAppDispatch, useAppSelector } from "@/shared/lib";
+import {
+  commentsSliceActions,
+  selectCommentsData,
+  selectCommentsError,
+  selectCommentsLoadingStatus,
+} from "../comments-slice";
 
 export const useComments = () => {
   const dispatch = useAppDispatch();

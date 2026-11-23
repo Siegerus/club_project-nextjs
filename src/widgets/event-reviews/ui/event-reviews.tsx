@@ -1,11 +1,9 @@
 ﻿"use client";
 
-import { useEffect, useMemo, useState } from "react";
-
 import { ReviewsForm } from "@/features/reviews-form";
 import { useComments } from "@/entities/event";
-import { cn, LoadingStatus, UserMessage } from "@/shared/lib";
-import { Slider, type Slide, Container, Heading } from "@/shared/ui";
+import { cn, LoadingStatus } from "@/shared/lib";
+import { Slider, Container, Heading } from "@/shared/ui";
 import { reviewsTitleText, commentsDataToSlides } from "../lib";
 
 const styles = {
@@ -31,48 +29,15 @@ const EventReviews = () => {
   const { comments, status, reload } = useComments();
 
   const slides =
-    status === LoadingStatus.Success ? commentsDataToSlides(comments) : [];
-
-  // const renderSkeleton = (message: string) => {
-  //   return (
-  //     <SliderSkeleton
-  //       wrapperClass={styles.slider}
-  //       innerClass={styles.sliderInner}
-  //     >
-  //       <p>{message}</p>
-  //     </SliderSkeleton>
-  //   );
-  // };
-
-  // const renderSlider = () => {
-  //   return (
-  //     <Slider
-  //       sliderCardClass={styles.slider}
-  //       sliderInnerClass={styles.sliderInner}
-  //       sliderItems={slides}
-  //       status={status}
-  //     />
-  //   );
-  // };
-
-  // const render = (status: keyof typeof LoadingStatus) => {
-  //   switch (status) {
-  //     case LoadingStatus.Success:
-  //       return renderSlider();
-  //     case LoadingStatus.Loading:
-  //       return renderSkeleton(UserMessage.LoadingProgress);
-  //     case LoadingStatus.Failed:
-  //       return renderSkeleton(UserMessage.LoadingError);
-  //     default:
-  //       return null;
-  //   }
-  // };
+    status === LoadingStatus.Success && Array.isArray(comments)
+      ? commentsDataToSlides(comments)
+      : [];
 
   return (
     <section className={styles.root}>
       <Heading
         className={styles.title}
-        level="h1"
+        level="h2"
         title={reviewsTitleText}
         gradientType="white"
       />

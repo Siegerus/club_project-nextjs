@@ -68,7 +68,7 @@ const ReviewsRating = ({
                 checked={selectedValue === radio.value}
                 onChange={onChange}
               />
-              <label htmlFor={radio.id} className="peer-focus-visible">
+              <label htmlFor={radio.id}>
                 {isFilled ? (
                   <motion.div
                     initial={animateStyles.initial}
