@@ -10,6 +10,7 @@ export const useSlider = (slides: Slide[]) => {
     (num: number) => {
       setCurrentIndex((prevState) => {
         if (slides.length === 0) return 0;
+
         if (prevState + num < 0) return slides.length - 1;
         if (prevState + num > slides.length - 1) return 0;
 

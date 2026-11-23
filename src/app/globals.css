@@ -45,8 +45,8 @@
   --color-additional: #915c46;
   --color-special: #2d1910;
 
-}
-
+} 
+ 
 @keyframes shadow {
   0% {
     opacity: 0.1;

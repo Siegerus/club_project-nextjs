@@ -94,83 +94,70 @@ const Slider = ({
   const safeIndex = currentIndex >= sliderItems.length ? 0 : currentIndex;
 
   const renderSlides = () => {
+    const currentSlide = sliderItems[safeIndex];
+
+    if (!currentSlide) return null;
+
     return (
-      <>
-        {sliderItems.map((slide, i) => {
-          const keyValue = `${slide.id}-${i}`;
-          return (
-            i === safeIndex && (
-              <motion.div
-                className="flex"
-                key={keyValue}
-                initial={{ opacity: 0, transform: "scale(50%)" }}
-                animate={{ opacity: 1, transform: "scale(100%)" }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className={styles.imageDesktop}>
+      <motion.div
+        className="flex"
+        key={`${currentSlide.id}-`}
+        initial={{ opacity: 0, transform: "scale(50%)" }}
+        animate={{ opacity: 1, transform: "scale(100%)" }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className={styles.imageDesktop}>
+          <Image
+            className={styles.photoImage}
+            src={currentSlide.image}
+            alt={currentSlide.title}
+            fill
+            sizes="240px"
+            aria-hidden
+          />
+        </div>
+        <div className={styles.content}>
+          <div className={styles.header}>
+            <div className={styles.reviewer}>
+              <div className={styles.imageMobile}>
+                <Image
+                  className="object-cover"
+                  src={currentSlide.image}
+                  alt={currentSlide.title}
+                  fill
+                  sizes="(min-width: 1024px) 100px, 40px"
+                />
+              </div>
+              <div className={styles.info}>
+                <span className={styles.slideTitle}>{currentSlide.title}</span>
+                <span className={styles.slideDescription}>
+                  {currentSlide.description}
+                </span>
+              </div>
+            </div>
+            <div className={styles.stars}>
+              {stars.map((star, i) => {
+                const isEmpty = i >= currentSlide.rating;
+
+                return (
                   <Image
-                    className={styles.photoImage}
-                    src={slide.image}
-                    alt={slide.title}
-                    fill
-                    sizes="240px"
+                    key={star}
+                    className={styles.star}
+                    src={isEmpty ? ratingIconPath.empty : ratingIconPath.fill}
+                    alt=""
+                    width={25}
+                    height={24}
                     aria-hidden
                   />
-                </div>
-                <div className={styles.content}>
-                  <div className={styles.header}>
-                    <div className={styles.reviewer}>
-                      <div className={styles.imageMobile}>
-                        <Image
-                          className="object-cover"
-                          src={slide.image}
-                          alt={slide.title}
-                          fill
-                          sizes="(min-width: 1024px) 100px, 40px"
-                        />
-                      </div>
-                      <div className={styles.info}>
-                        <span className={styles.slideTitle}>{slide.title}</span>
-                        <span className={styles.slideDescription}>
-                          {slide.description}
-                        </span>
-                      </div>
-                    </div>
-                    <div className={styles.stars}>
-                      {stars.map((star, i) => {
-                        return i >= slide.rating ? (
-                          <Image
-                            key={star}
-                            className={styles.star}
-                            src={ratingIconPath.empty}
-                            alt=""
-                            width={25}
-                            height={24}
-                            aria-hidden
-                          />
-                        ) : (
-                          <Image
-                            key={star}
-                            className={styles.star}
-                            src={ratingIconPath.fill}
-                            alt=""
-                            width={25}
-                            height={24}
-                            aria-hidden
-                          />
-                        );
-                      })}
-                    </div>
-                  </div>
-                  <div className={styles.body}>
-                    <p className={styles.text}>{slide.comment}</p>
-                  </div>
-                </div>
-              </motion.div>
-            )
-          );
-        })}
-      </>
+                );
+              })}
+            </div>
+          </div>
+          <div className={styles.body}>
+            <p className={styles.text}>{currentSlide.comment}</p>
+          </div>
+        </div>
+      </motion.div>
     );
   };
 
