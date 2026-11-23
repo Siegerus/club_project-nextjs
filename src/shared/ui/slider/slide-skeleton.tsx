@@ -13,7 +13,7 @@ const styles = {
   wrapper:
     "flex mx-auto items-center justify-center min-h-[210px] lg:min-h-[310px] text-center text-sm md:text-base text-white-70",
   button:
-    "max-w-[200px] xl:max-w-[270px] mt-[15px] p-[10px] md:p-[10px] lg:p-[10px] xl:p-[10px] 2xl:p-[15px] 3xl:p-[15px] text-sm md:text-base lg:text-base 2xl:text-lg   cursor-pointer",
+    "max-w-[200px] xl:max-w-[270px] mt-[15px] p-[10px] md:p-[10px] lg:p-[10px] xl:p-[10px] 2xl:p-[15px] 3xl:p-[15px] text-sm md:text-base lg:text-base 2xl:text-lg cursor-pointer",
 };
 
 const SlideSkeleton = ({

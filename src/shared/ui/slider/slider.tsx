@@ -90,6 +90,8 @@ const Slider = ({
   reload,
 }: SliderProps) => {
   const { currentIndex, handleArrowClick } = useSlider(sliderItems);
+  // safeIndex защита от выхода индекса за границы массива при обновлении данных с бэка
+  const safeIndex = currentIndex >= sliderItems.length ? 0 : currentIndex;
 
   const renderSlides = () => {
     return (
@@ -97,7 +99,7 @@ const Slider = ({
         {sliderItems.map((slide, i) => {
           const keyValue = `${slide.id}-${i}`;
           return (
-            i === currentIndex && (
+            i === safeIndex && (
               <motion.div
                 className="flex"
                 key={keyValue}
@@ -112,6 +114,7 @@ const Slider = ({
                     alt={slide.title}
                     fill
                     sizes="240px"
+                    aria-hidden
                   />
                 </div>
                 <div className={styles.content}>
@@ -123,7 +126,7 @@ const Slider = ({
                           src={slide.image}
                           alt={slide.title}
                           fill
-                          sizes="40px"
+                          sizes="(min-width: 1024px) 100px, 40px"
                         />
                       </div>
                       <div className={styles.info}>

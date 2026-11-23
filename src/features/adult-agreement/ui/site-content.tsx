@@ -26,7 +26,7 @@ const SiteContent = ({ children }: SiteContentProps) => {
       localStorage.setItem("adultAgree", JSON.stringify(isAgree));
 
     queueMicrotask(() => setIsMounted(true)); // откладываем в микротаску для исключения потенциального каскада
-  });
+  }, [isAgree, dispatch]);
 
   if (!isMounted) return null; // исключаем первый рендер до выполнения useEffect
 

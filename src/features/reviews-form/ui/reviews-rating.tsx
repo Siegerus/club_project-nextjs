@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ChangeEvent, Fragment } from "react";
+import { ChangeEvent, Fragment, useId } from "react";
 
 import { cn } from "@/shared/lib";
 import { RatingIconPath, ratingLabelText } from "../lib";
@@ -42,6 +42,8 @@ const ReviewsRating = ({
   selectedValue,
   onChange,
 }: ReviewsRatingProps) => {
+  const ratingId = useId();
+
   return (
     <div className={styles.ratingRow}>
       <span id="reviews-rating-label" className={styles.ratingLabel}>
@@ -53,6 +55,7 @@ const ReviewsRating = ({
         aria-labelledby="reviews-rating-label"
       >
         {radios.map((radio, i) => {
+          const inputId = `${ratingId}-${radio.id}`;
           const keyValue = `${radio.id}-${i}`;
           const isFilled = Number(selectedValue) >= Number(radio.value);
 
@@ -61,14 +64,14 @@ const ReviewsRating = ({
               <input
                 className="sr-only peer"
                 type="radio"
-                id={radio.id}
+                id={inputId}
                 name={radio.name}
                 aria-label={radio.label}
                 value={radio.value}
                 checked={selectedValue === radio.value}
                 onChange={onChange}
               />
-              <label htmlFor={radio.id}>
+              <label htmlFor={inputId}>
                 {isFilled ? (
                   <motion.div
                     initial={animateStyles.initial}
