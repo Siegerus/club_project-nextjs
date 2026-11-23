@@ -32,11 +32,11 @@ const styles = {
   ),
   imageDesktop: cn(
     "relative hidden shrink-0 overflow-hidden",
-    "xl:block xl:w-[132px] xl:h-[165px] 2xl:w-[240px] 2xl:h-[280px] xl:rounded-small",
+    "xl:block xl:w-[132px] xl:h-[165px] 2xl:w-[240px] 2xl:h-auto 2xl:min-h-[280px] 2xl:max-h-[300px] xl:rounded-small",
   ),
   photoImage: "object-cover",
   content:
-    "w-full max-w-[290px] lg:max-w-[unset] xl:max-w-[400px] 2xl:max-w-[385px] 3xl:max-w-[500px] xl:p-[15px] 2xl:p-[19px] xl:flex-none xl:items-center",
+    "w-full max-w-[290px] lg:max-w-[unset] xl:max-w-[400px] 2xl:max-w-[385px] 3xl:max-w-[500px] xl:p-[15px] 2xl:px-[19px] 2xl:pt-[19px] 2xl:pb-[70px] xl:flex-none xl:items-center",
   header:
     "flex items-center xl:items-start justify-between gap-[10px] xl:w-full",
   body: "flex items-end justify-between lg:flex-col 2xl:items-center",
